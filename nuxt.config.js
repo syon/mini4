@@ -14,7 +14,13 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css'
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
   env: {
     BASE_URL: process.env.BASE_URL
