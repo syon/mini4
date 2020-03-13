@@ -10,7 +10,7 @@
       <div class="row flex-auto">その他</div>
     </div>
     <div class="column flex-auto">
-      セッティング
+      <setting-area />
     </div>
     <div class="column flex-auto flex flex-col">
       <div class="row">
@@ -29,12 +29,14 @@
 </template>
 
 <script>
+import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
 import PartsDetailArea from '@/components/PartsDetailArea'
 import RemodelArea from '@/components/RemodelArea'
 
 export default {
   components: {
+    SettingArea,
     PartsChoiseArea,
     PartsDetailArea,
     RemodelArea
