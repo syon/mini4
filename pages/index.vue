@@ -13,22 +13,32 @@
       セッティング
     </div>
     <div class="column flex-auto flex flex-col">
-      <div class="row flex-auto">
-        パーツ選択
-        <hr />
+      <div class="row">
+        <parts-choise-area />
       </div>
-      <div class="row flex-auto">パーツ詳細</div>
-      <div class="row flex-auto">総合</div>
-      <div class="row flex-auto">スキル</div>
-      <div class="row flex-auto">改造</div>
-      <div class="row flex-auto">その他</div>
+      <div class="row">
+        <parts-detail-area />
+      </div>
+      <div class="row">スキル</div>
+      <div class="row flex-auto">
+        <remodel-area />
+      </div>
+      <div class="row">その他</div>
     </div>
   </div>
 </template>
 
 <script>
+import PartsChoiseArea from '@/components/PartsChoiseArea'
+import PartsDetailArea from '@/components/PartsDetailArea'
+import RemodelArea from '@/components/RemodelArea'
+
 export default {
-  components: {},
+  components: {
+    PartsChoiseArea,
+    PartsDetailArea,
+    RemodelArea
+  },
   computed: {}
 }
 </script>
