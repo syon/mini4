@@ -12,6 +12,9 @@ export const mutations = {
     for (const [k, v] of Object.entries(payload)) {
       state[k] = v
     }
+  },
+  setPartItem(state, { part, item }) {
+    state[part] = item
   }
 }
 
@@ -24,5 +27,9 @@ export const actions = {
       gear: 'SuperCounter'
     }
     commit('setAll', payload)
+  },
+  async change({ commit }, { part, item }) {
+    await 0
+    commit('setPartItem', { part, item })
   }
 }
