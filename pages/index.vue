@@ -1,45 +1,35 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        mini4
-      </h1>
-      <h2 class="subtitle">
-        My amazing Nuxt.js project
-      </h2>
-      <p>
-        <span>process.env.BASE_URL:</span>
-        <code>{{ baseUrl }}</code>
-      </p>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="container flex">
+    <div class="column flex-auto flex flex-col">
+      <div class="row flex-auto">
+        <div class="">マシン</div>
       </div>
+      <div class="row flex-auto">総合</div>
+      <div class="row flex-auto">スキル</div>
+      <div class="row flex-auto">パーツ</div>
+      <div class="row flex-auto">その他</div>
+    </div>
+    <div class="column flex-auto">
+      セッティング
+    </div>
+    <div class="column flex-auto flex flex-col">
+      <div class="row flex-auto">
+        パーツ選択
+        <hr />
+      </div>
+      <div class="row flex-auto">パーツ詳細</div>
+      <div class="row flex-auto">総合</div>
+      <div class="row flex-auto">スキル</div>
+      <div class="row flex-auto">改造</div>
+      <div class="row flex-auto">その他</div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
-  },
-  computed: {
-    baseUrl() {
-      return process.env.BASE_URL
-    }
-  }
+  components: {},
+  computed: {}
 }
 </script>
 
@@ -47,31 +37,10 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.row,
+.column {
+  border: 1px solid #ddd;
 }
 </style>
