@@ -1,0 +1,33 @@
+{
+  "body": {
+    "BeakSpider": {
+      "name": "ビークスパイダー"
+    }
+  },
+  "motor": {
+    "TorqueTune": {
+      "name": "トルクチューン",
+      "params": {
+        "speed": 1430,
+        "power": 1268,
+        "corner": 0,
+        "stamina": 0,
+        "weight": 17,
+        "consumption": 1700,
+        "gear": 1500
+      }
+    },
+    "RevTune": {
+      "name": "レブチューン",
+      "params": {
+        "speed": 1740,
+        "power": 747,
+        "corner": 0,
+        "stamina": 0,
+        "weight": 17,
+        "consumption": 2000,
+        "gear": 1500
+      }
+    }
+  }
+}

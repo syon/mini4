@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div>Body: {{ stateBody }}</div>
     <div>
-      Motor: {{ stateMotor }} <button @click="handleChange">change</button>
+      Body: {{ stateBody }}
+      <button @click="handleChange('body')">change</button>
+    </div>
+    <div>
+      Motor: {{ stateMotor }}
+      <button @click="handleChange('motor')">change</button>
     </div>
     <div>Gear: {{ stateGear }}</div>
   </div>
@@ -23,8 +27,8 @@ export default {
     await this.$store.dispatch('recipe/load')
   },
   methods: {
-    handleChange() {
-      this.$store.dispatch('ing/change', 'motor')
+    handleChange(part) {
+      this.$store.dispatch('ing/change', part)
     }
   }
 }

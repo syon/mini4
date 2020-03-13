@@ -1,11 +1,12 @@
 <template>
   <div>
     <div>ingPart: {{ ingPart }}</div>
-    <div>ingItem: {{ ingItem }}</div>
+    <div>ingItem: {{ ingItem.name }}</div>
     <select v-model="ingItem">
       <option value="">選択なし</option>
-      <option value="TorqueTune">トルクチューン</option>
-      <option value="RevTune">レブチューン</option>
+      <option v-for="(x, key) of ingDataset" :key="key" :value="key">{{
+        x.name
+      }}</option>
     </select>
   </div>
 </template>
@@ -18,6 +19,9 @@ export default {
     ...mapState('ing', {
       ingPart: (state) => state.part
     }),
+    ...mapState('catalog', {
+      dataset: (state) => state.dataset
+    }),
     ingItem: {
       get() {
         return this.$store.state.recipe[this.ingPart]
@@ -27,6 +31,9 @@ export default {
         const item = v
         this.$store.dispatch('recipe/change', { part, item })
       }
+    },
+    ingDataset() {
+      return this.dataset[this.ingPart]
     }
   }
 }
