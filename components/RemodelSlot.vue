@@ -1,5 +1,5 @@
 <template>
-  <div class="xx-RemodelSlot w-full h-24 min-h-full flex flex-col text-sm">
+  <div class="xx-RemodelSlot w-full flex flex-col text-sm">
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>
@@ -7,7 +7,7 @@
     <div class="flex flex-1">
       <div class="flex w-24">
         <div
-          class="xx-quarity flex-auto flex flex-col items-center justify-center"
+          class="xx-quarity flex-auto flex flex-col items-center justify-center h-24"
         >
           <div class="xx-quarity-label">{{ x.quarity }}</div>
           <div class="xx-quarity-level">Lv.{{ x.level }}</div>
@@ -64,7 +64,10 @@ export default {
 }
 
 .xx-merideme {
-  margin-top: 8px;
+  margin: 8px 10px 0 0;
+  &:last-child {
+    margin-bottom: 8px;
+  }
   &.isMerit {
     .xx-merideme-label {
       margin-right: 10px;
