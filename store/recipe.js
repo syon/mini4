@@ -1,42 +1,4 @@
-const initialState = {
-  body: { key: 'ビークスパイダー' },
-  motor: {
-    key: 'レブチューン',
-    crafts: [
-      {
-        action: '3Vブレークイン(回転数重視)',
-        quarity: '至高',
-        level: 35
-      },
-      {
-        action: '3Vブレークイン(回転数重視)',
-        quarity: '職人',
-        level: 35
-      },
-      {
-        action: '冷却ブレークイン(回転数重視)',
-        quarity: '職人',
-        level: 35
-      },
-      {
-        action: '冷却ブレークイン(回転数重視)',
-        quarity: '職人',
-        level: 35
-      },
-      {
-        action: '3Vブレークイン(回転数重視)',
-        quarity: '職人',
-        level: 35
-      },
-      {
-        action: '3Vブレークイン(回転数重視)',
-        quarity: '職人',
-        level: 35
-      }
-    ]
-  },
-  gear: { key: 'スーパーカウンターギヤ' }
-}
+import initialState from './recipe.json'
 
 export const state = () => ({
   body: '',
