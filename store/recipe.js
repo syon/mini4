@@ -1,3 +1,28 @@
+const initialState = {
+  body: { key: 'BeakSpider' },
+  motor: {
+    key: 'TorqueTune',
+    crafts: [
+      {
+        action: 'ピニオンギヤの固定',
+        quarity: '職人',
+        level: 37
+      },
+      {
+        action: 'ピニオンギヤの固定',
+        quarity: '至高',
+        level: 22
+      },
+      {
+        action: '慣らし走行',
+        quarity: 'イイ',
+        level: 5
+      }
+    ]
+  },
+  gear: { key: 'SuperCounter' }
+}
+
 export const state = () => ({
   body: '',
   motor: '',
@@ -21,11 +46,7 @@ export const mutations = {
 export const actions = {
   async load({ commit }) {
     await 0
-    const payload = {
-      body: 'BeakSpider',
-      motor: 'TorqueTune',
-      gear: 'SuperCounter'
-    }
+    const payload = initialState
     commit('setAll', payload)
   },
   async change({ commit }, { part, item }) {

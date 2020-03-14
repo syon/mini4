@@ -11,7 +11,7 @@ export const mutations = {
 }
 
 export const actions = {
-  change({ commit }, part) {
+  trans({ commit }, part) {
     commit('setPart', part)
   }
 }

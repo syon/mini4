@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>ingPart: {{ ingPart }}</div>
-    <div>ingItem: {{ ingItem.name }}</div>
+    <div>ingItem: {{ ingItem }}</div>
     <select v-model="ingItem">
       <option value="">選択なし</option>
       <option v-for="(x, key) of ingDataset" :key="key" :value="key">{{
@@ -24,11 +24,13 @@ export default {
     }),
     ingItem: {
       get() {
-        return this.$store.state.recipe[this.ingPart]
+        const ingRecipe = this.$store.state.recipe[this.ingPart]
+        return ingRecipe.key
       },
       set(v) {
         const part = this.ingPart
         const item = v
+        console.log('★{ part, item }', { part, item })
         this.$store.dispatch('recipe/change', { part, item })
       }
     },

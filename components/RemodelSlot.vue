@@ -1,42 +1,42 @@
 <template>
   <div class="xx-RemodelSlot w-full flex flex-col text-sm">
-    <div class="flex xx-titlebar">
-      <div>冷却ブレークイン(トルク重視)</div>
+    <div class="xx-titlebar flex justify-between">
+      <div>{{ x.action }}</div>
       <div>詳細</div>
     </div>
     <div class="flex">
       <div class="flex w-24">
         <div class="flex-auto flex flex-col items-center justify-center">
-          <div>職人技!</div>
-          <div>Lv.35</div>
+          <div>{{ x.quarity }}</div>
+          <div>Lv.{{ x.level }}</div>
         </div>
       </div>
+
       <div class="flex-1 flex flex-col">
-        <div class="flex">
-          <div class="w-24">メリット</div>
-          <div class="flex-1 flex justify-between">
-            <div>重さ</div>
-            <div>○○○</div>
+        <template v-for="(e, idx) in x.effects">
+          <div :key="idx" class="flex">
+            <div class="w-24">メリット</div>
+            <div class="flex-1 flex justify-between">
+              <div>{{ e.影響 }}</div>
+              <div>{{ e.程度 }}</div>
+            </div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="w-24">(メリット)</div>
-          <div class="flex-1 flex justify-between">
-            <div>スピード</div>
-            <div>○</div>
-          </div>
-        </div>
-        <div class="flex">
-          <div class="w-24">デメリット</div>
-          <div class="flex-1 flex justify-between">
-            <div>スタミナ耐久</div>
-            <div>×</div>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: { arg: { type: Object, default: () => {} } },
+  computed: {
+    x() {
+      return this.arg || {}
+    }
+  }
+}
+</script>
 
 <style lang="less" scoped>
 .xx-RemodelSlot {

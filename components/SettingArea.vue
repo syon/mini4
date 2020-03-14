@@ -2,13 +2,15 @@
   <div>
     <div>
       Body: {{ stateBody }}
-      <button @click="handleChange('body')">change</button>
+      <button @click="handleTrans('body')">trans</button>
     </div>
     <div>
-      Motor: {{ stateMotor }}
-      <button @click="handleChange('motor')">change</button>
+      Motor: {{ stateMotor.key }}
+      <button @click="handleTrans('motor')">trans</button>
     </div>
     <div>Gear: {{ stateGear }}</div>
+    <hr />
+    <div>ingPart: {{ ingPart }}</div>
   </div>
 </template>
 
@@ -17,6 +19,9 @@ import { mapState } from 'vuex'
 
 export default {
   computed: {
+    ...mapState('ing', {
+      ingPart: (state) => state.part
+    }),
     ...mapState('recipe', {
       stateBody: (state) => state.body,
       stateMotor: (state) => state.motor,
@@ -27,8 +32,8 @@ export default {
     await this.$store.dispatch('recipe/load')
   },
   methods: {
-    handleChange(part) {
-      this.$store.dispatch('ing/change', part)
+    handleTrans(part) {
+      this.$store.dispatch('ing/trans', part)
     }
   }
 }
