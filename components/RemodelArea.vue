@@ -36,7 +36,7 @@ export default {
       const c = partCrafts.find((x) => x.action === action)
       const remodel = {
         action,
-        effects: c.effects,
+        effects: c ? c.effects : [],
         quarity,
         level
       }

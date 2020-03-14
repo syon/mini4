@@ -30,7 +30,6 @@ export default {
       set(v) {
         const part = this.ingPart
         const item = v
-        console.log('★{ part, item }', { part, item })
         this.$store.dispatch('recipe/change', { part, item })
       }
     },

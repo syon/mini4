@@ -1,22 +1,37 @@
 const initialState = {
   body: { key: 'BeakSpider' },
   motor: {
-    key: 'TorqueTune',
+    key: 'RevTune',
     crafts: [
       {
-        action: 'ピニオンギヤの固定',
-        quarity: '職人',
-        level: 37
-      },
-      {
-        action: 'ピニオンギヤの固定',
+        action: '3Vブレークイン(回転数重視)',
         quarity: '至高',
-        level: 22
+        level: 35
       },
       {
-        action: '慣らし走行',
-        quarity: 'イイ',
-        level: 5
+        action: '3Vブレークイン(回転数重視)',
+        quarity: '職人',
+        level: 35
+      },
+      {
+        action: '冷却ブレークイン(回転数重視)',
+        quarity: '職人',
+        level: 35
+      },
+      {
+        action: '冷却ブレークイン(回転数重視)',
+        quarity: '職人',
+        level: 35
+      },
+      {
+        action: '3Vブレークイン(回転数重視)',
+        quarity: '職人',
+        level: 35
+      },
+      {
+        action: '3Vブレークイン(回転数重視)',
+        quarity: '職人',
+        level: 35
       }
     ]
   },
