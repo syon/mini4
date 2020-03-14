@@ -16,11 +16,15 @@
 
       <div class="flex-1 flex flex-col">
         <template v-for="(e, idx) in x.effects">
-          <div :key="idx" :class="{ isMerit: true }" class="xx-merideme flex">
-            <div class="xx-merideme-label w-24">メリット</div>
+          <div
+            :key="idx"
+            :class="{ isMerit: e.メリデメ === 'メリット' }"
+            class="xx-merideme flex"
+          >
+            <div class="xx-merideme-label w-24">{{ e.メリデメ }}</div>
             <div class="xx-merideme-topic flex-1 flex justify-between">
               <div>{{ e.影響 }}</div>
-              <div class="xx-merideme-marks">{{ e.程度 }}</div>
+              <div class="xx-merideme-marks">{{ e.表示 }}</div>
             </div>
           </div>
         </template>
@@ -68,15 +72,19 @@ export default {
   &:last-child {
     margin-bottom: 8px;
   }
+  .xx-merideme-label {
+    margin-right: 10px;
+    text-align: center;
+  }
+  .xx-merideme-topic {
+    padding-left: 10px;
+  }
   &.isMerit {
     .xx-merideme-label {
-      margin-right: 10px;
       background-color: #5cfe5a;
       border: 1px solid #28cb25;
-      text-align: center;
     }
     .xx-merideme-topic {
-      padding-left: 10px;
       background-color: #ceeed0;
     }
     .xx-merideme-marks {
