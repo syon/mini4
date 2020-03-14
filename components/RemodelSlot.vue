@@ -1,5 +1,5 @@
 <template>
-  <div class="xx-RemodelSlot w-full h-32 min-h-full flex flex-col text-sm">
+  <div class="xx-RemodelSlot w-full h-24 min-h-full flex flex-col text-sm">
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>

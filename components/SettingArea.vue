@@ -1,26 +1,26 @@
 <template>
-  <div>
-    <div>
+  <div class="flex-1 flex flex-col">
+    <div class="flex-auto">
       ボディ: {{ stateボディ.key }}
       <button @click="handleTrans('ボディ')">trans</button>
     </div>
-    <div>
+    <div class="flex-auto">
       モーター: {{ stateモーター.key }}
       <button @click="handleTrans('モーター')">trans</button>
     </div>
-    <div>
+    <div class="flex-auto">
       ギヤ: {{ stateギヤ.key }}
       <button @click="handleTrans('ギヤ')">trans</button>
     </div>
-    <div>
+    <div class="flex-auto">
       シャーシ: {{ stateシャーシ.key }}
       <button @click="handleTrans('シャーシ')">trans</button>
     </div>
-    <div>
+    <div class="flex-auto">
       ホイール: {{ stateホイール.key }}
       <button @click="handleTrans('ホイール')">trans</button>
     </div>
-    <div>
+    <div class="flex-auto">
       タイヤ: {{ stateタイヤ.key }}
       <button @click="handleTrans('タイヤ')">trans</button>
     </div>

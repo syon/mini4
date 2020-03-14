@@ -9,7 +9,7 @@
       <div class="row flex-auto">パーツ</div>
       <div class="row flex-auto">その他</div>
     </div>
-    <div class="column flex-auto">
+    <div class="column flex-auto flex">
       <setting-area />
     </div>
     <div class="column flex-auto flex flex-col">
