@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      Body: {{ stateBody }}
+      Body: {{ stateBody.key }}
       <button @click="handleTrans('body')">trans</button>
     </div>
     <div>
       Motor: {{ stateMotor.key }}
       <button @click="handleTrans('motor')">trans</button>
     </div>
-    <div>Gear: {{ stateGear }}</div>
+    <div>Gear: {{ stateGear.key }}</div>
     <hr />
     <div>ingPart: {{ ingPart }}</div>
   </div>

@@ -1,7 +1,7 @@
 const initialState = {
-  body: { key: 'BeakSpider' },
+  body: { key: 'ビークスパイダー' },
   motor: {
-    key: 'RevTune',
+    key: 'レブチューン',
     crafts: [
       {
         action: '3Vブレークイン(回転数重視)',
@@ -35,7 +35,7 @@ const initialState = {
       }
     ]
   },
-  gear: { key: 'SuperCounter' }
+  gear: { key: 'スーパーカウンターギヤ' }
 }
 
 export const state = () => ({
@@ -54,7 +54,7 @@ export const mutations = {
     }
   },
   setPartItem(state, { part, item }) {
-    state[part] = item
+    state[part] = { ...state[part], key: item }
   }
 }
 

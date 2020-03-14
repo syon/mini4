@@ -44,13 +44,10 @@ export default {
       const partCatalog = this.dataset[this.ingPart]
       const partRecipe = this.$store.state.recipe[this.ingPart]
       const key = partRecipe.key
-      return partCatalog[key] || { params: {} }
-    },
-    ingDataset() {
-      return this.dataset[this.ingPart]
+      return partCatalog[key] || { 性能: {} }
     },
     craftResult() {
-      const defaultItemSpec = this.ingItem.params
+      const defaultItemSpec = this.ingItem.性能
       const partRecipe = this.$store.state.recipe[this.ingPart]
       if (!partRecipe) return {}
       const r = this.calcCraftResult(defaultItemSpec, partRecipe)

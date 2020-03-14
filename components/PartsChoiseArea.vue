@@ -5,7 +5,7 @@
     <select v-model="ingItem">
       <option value="">選択なし</option>
       <option v-for="(x, key) of ingDataset" :key="key" :value="key">{{
-        x.name
+        key
       }}</option>
     </select>
   </div>
