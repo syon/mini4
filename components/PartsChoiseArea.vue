@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>ingPart: {{ ingPart }}</div>
-    <div>ingItem: {{ ingItem }}</div>
-    <select v-model="ingItem">
+    <select v-model="ingItem" class="text-lg border m-4">
       <option value="">選択なし</option>
       <option v-for="(x, key) of ingDataset" :key="key" :value="key">{{
         key
@@ -24,8 +22,8 @@ export default {
     }),
     ingItem: {
       get() {
-        const ingRecipe = this.$store.state.recipe[this.ingPart]
-        return ingRecipe.key
+        const partRecipe = this.$store.state.recipe[this.ingPart]
+        return partRecipe ? partRecipe.key : ''
       },
       set(v) {
         const part = this.ingPart

@@ -1,14 +1,29 @@
 <template>
   <div>
     <div>
-      Body: {{ stateBody.key }}
-      <button @click="handleTrans('body')">trans</button>
+      ボディ: {{ stateボディ.key }}
+      <button @click="handleTrans('ボディ')">trans</button>
     </div>
     <div>
-      Motor: {{ stateMotor.key }}
-      <button @click="handleTrans('motor')">trans</button>
+      モーター: {{ stateモーター.key }}
+      <button @click="handleTrans('モーター')">trans</button>
     </div>
-    <div>Gear: {{ stateGear.key }}</div>
+    <div>
+      ギヤ: {{ stateギヤ.key }}
+      <button @click="handleTrans('ギヤ')">trans</button>
+    </div>
+    <div>
+      シャーシ: {{ stateシャーシ.key }}
+      <button @click="handleTrans('シャーシ')">trans</button>
+    </div>
+    <div>
+      ホイール: {{ stateホイール.key }}
+      <button @click="handleTrans('ホイール')">trans</button>
+    </div>
+    <div>
+      タイヤ: {{ stateタイヤ.key }}
+      <button @click="handleTrans('タイヤ')">trans</button>
+    </div>
     <hr />
     <div>ingPart: {{ ingPart }}</div>
   </div>
@@ -23,13 +38,17 @@ export default {
       ingPart: (state) => state.part
     }),
     ...mapState('recipe', {
-      stateBody: (state) => state.body,
-      stateMotor: (state) => state.motor,
-      stateGear: (state) => state.gear
+      stateボディ: (state) => state.ボディ,
+      stateモーター: (state) => state.モーター,
+      stateギヤ: (state) => state.ギヤ,
+      stateシャーシ: (state) => state.シャーシ,
+      stateホイール: (state) => state.ホイール,
+      stateタイヤ: (state) => state.タイヤ
     })
   },
   async mounted() {
     await this.$store.dispatch('recipe/load')
+    this.handleTrans('ボディ')
   },
   methods: {
     handleTrans(part) {

@@ -1,10 +1,10 @@
 <template>
-  <div class="xx-RemodelSlot w-full flex flex-col text-sm">
+  <div class="xx-RemodelSlot w-full h-32 min-h-full flex flex-col text-sm">
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>
     </div>
-    <div class="flex h-16">
+    <div class="flex flex-1">
       <div class="flex w-24">
         <div
           class="xx-quarity flex-auto flex flex-col items-center justify-center"
@@ -64,7 +64,7 @@ export default {
 }
 
 .xx-merideme {
-  margin: 5px;
+  margin-top: 8px;
   &.isMerit {
     .xx-merideme-label {
       margin-right: 10px;

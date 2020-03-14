@@ -1,16 +1,18 @@
 import initialState from './recipe.json'
 
 export const state = () => ({
-  body: '',
-  motor: '',
-  gear: ''
+  ボディ: '',
+  モーター: '',
+  ギヤ: '',
+  シャーシ: '',
+  ホイール: '',
+  タイヤ: ''
 })
 
 export const getters = {}
 
 export const mutations = {
   setAll(state, payload) {
-    state.body = payload.body
     for (const [k, v] of Object.entries(payload)) {
       state[k] = v
     }

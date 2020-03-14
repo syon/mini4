@@ -43,7 +43,8 @@ export default {
     ingItem() {
       const partCatalog = this.dataset[this.ingPart]
       const partRecipe = this.$store.state.recipe[this.ingPart]
-      const key = partRecipe.key
+      const key = partRecipe ? partRecipe.key : ''
+      if (!key) return { 性能: {} }
       return partCatalog[key] || { 性能: {} }
     },
     craftResult() {
@@ -54,11 +55,11 @@ export default {
       return {
         スピード: this.showNum(r.スピード, 2),
         パワー: this.showNum(r.パワー, 2),
-        コーナー安定: r.コーナー安定,
-        スタミナ耐久: r.スタミナ耐久,
-        重さ: r.重さ,
-        消費電力: r.消費電力,
-        ギヤ負荷: r.ギヤ負荷
+        コーナー安定: this.showNum(r.コーナー安定, 2),
+        スタミナ耐久: this.showNum(r.スタミナ耐久, 2),
+        重さ: this.showNum(r.重さ, 2),
+        消費電力: this.showNum(r.消費電力, 2),
+        ギヤ負荷: this.showNum(r.ギヤ負荷, 2)
       }
     }
   },
