@@ -19,6 +19,11 @@ export const mutations = {
   },
   setPartItem(state, { part, item }) {
     state[part] = { ...state[part], key: item }
+  },
+  setPartCraft(state, { part, craftIndex, action, quarity, level }) {
+    const ingPart = state[part]
+    ingPart.crafts[craftIndex] = { action, quarity, level }
+    state[part] = { key: ingPart.key, crafts: ingPart.crafts }
   }
 }
 
@@ -31,5 +36,8 @@ export const actions = {
   async change({ commit }, { part, item }) {
     await 0
     commit('setPartItem', { part, item })
+  },
+  changeCraft({ commit }, arg) {
+    commit('setPartCraft', arg)
   }
 }

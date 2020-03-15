@@ -10,6 +10,9 @@
       <div class="row flex-auto">その他</div>
     </div>
     <div class="column flex-auto flex">
+      <template v-if="isCrafting">
+        <craft-select-area />
+      </template>
       <setting-area />
     </div>
     <div class="column flex-auto flex flex-col">
@@ -29,19 +32,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
 import PartsDetailArea from '@/components/PartsDetailArea'
 import RemodelArea from '@/components/RemodelArea'
+import CraftSelectArea from '@/components/CraftSelectArea'
 
 export default {
   components: {
     SettingArea,
     PartsChoiseArea,
     PartsDetailArea,
-    RemodelArea
+    RemodelArea,
+    CraftSelectArea
   },
-  computed: {}
+  computed: {
+    ...mapState('ing', {
+      isCrafting: (state) => state.isCrafting
+    })
+  }
 }
 </script>
 

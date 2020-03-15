@@ -9,8 +9,7 @@
         <div
           class="xx-quarity flex-auto flex flex-col items-center justify-center h-24"
         >
-          <div class="xx-quarity-label">{{ x.quarity }}</div>
-          <div class="xx-quarity-level">Lv.{{ x.level }}</div>
+          <div class="xx-craftinfo">回数制限 99</div>
         </div>
       </div>
 
@@ -34,19 +33,29 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  props: {
-    arg: { type: Object, default: () => {} },
-    craftIndex: { type: Number, required: true }
-  },
+  props: { arg: { type: Object, default: () => {} } },
   computed: {
+    ...mapState('ing', {
+      ingPart: (state) => state.part,
+      craftIndex: (state) => state.craftIndex
+    }),
     x() {
       return this.arg || {}
     }
   },
   methods: {
     handleClick() {
-      this.$store.dispatch('ing/changeCraftIndex', this.craftIndex)
+      const arg = {
+        part: this.ingPart,
+        craftIndex: this.craftIndex,
+        action: this.x.action,
+        quarity: '至高',
+        level: 22
+      }
+      this.$store.dispatch('recipe/changeCraft', arg)
     }
   }
 }
