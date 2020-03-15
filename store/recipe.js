@@ -1,12 +1,12 @@
 import initialState from './recipe.json'
 
 export const state = () => ({
-  ボディ: '',
-  モーター: '',
-  ギヤ: '',
-  シャーシ: '',
-  ホイール: '',
-  タイヤ: ''
+  ボディ: {},
+  モーター: {},
+  ギヤ: {},
+  シャーシ: {},
+  ホイール: {},
+  タイヤ: {}
 })
 
 export const getters = {}

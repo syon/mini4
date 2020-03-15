@@ -26,10 +26,26 @@ export default {
     ingCrafts() {
       const partRecipe = this.$store.state.recipe[this.ingPart]
       if (!partRecipe) return []
+      this.prepareCrafts(partRecipe)
       return (partRecipe.crafts || []).map((x) => this.getRemodel(x))
     }
   },
   methods: {
+    // TODO: Original Class
+    prepareCrafts(partRecipe) {
+      if (!partRecipe.crafts) {
+        partRecipe.crafts = []
+      }
+      ;[...Array(6)].map((_, i) => {
+        if (!partRecipe.crafts[i]) {
+          partRecipe.crafts[i] = {
+            action: '',
+            quarity: '',
+            level: 0
+          }
+        }
+      })
+    },
     getRemodel(recipeCraft) {
       const { action, quarity, level } = recipeCraft
       const partCrafts = this.craftMaster[this.ingPart]
