@@ -1,6 +1,6 @@
 <template>
   <div class="container flex">
-    <div class="column flex-auto flex flex-col">
+    <div class="col3way column flex flex-col">
       <div class="row flex-auto">
         <div class="">マシン</div>
       </div>
@@ -9,13 +9,13 @@
       <div class="row flex-auto">パーツ</div>
       <div class="row flex-auto">その他</div>
     </div>
-    <div class="column flex-auto flex">
+    <div class="col3way column flex">
       <template v-if="isCrafting">
         <craft-select-area />
       </template>
       <setting-area />
     </div>
-    <div class="column flex-auto flex flex-col">
+    <div class="col3way column flex flex-col">
       <div class="row">
         <parts-choise-area />
       </div>
@@ -59,6 +59,10 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
+}
+
+.col3way {
+  width: 420px;
 }
 
 .row,

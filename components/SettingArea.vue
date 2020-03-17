@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 flex flex-col">
+  <div class="xx-SettingArea flex-1 flex flex-col">
     <div class="flex-auto">
       ボディ: {{ stateボディ.key }}
       <button @click="handleTrans('ボディ')">trans</button>
@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.xx-SettingArea {
+  background-color: #85898a;
+}
 button {
   color: blue;
   text-decoration: underline;
