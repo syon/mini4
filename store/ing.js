@@ -1,6 +1,6 @@
 export const state = () => ({
-  part: 'body',
-  isCrafting: true,
+  part: 'ボディ',
+  isCrafting: false,
   craftIndex: 0
 })
 

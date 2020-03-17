@@ -2,7 +2,7 @@
   <div>
     <select v-model="ingItem" class="text-lg border m-4">
       <option value="">選択なし</option>
-      <option v-for="(x, key) of ingDataset" :key="key" :value="key">{{
+      <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
         key
       }}</option>
     </select>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   computed: {
@@ -18,11 +18,15 @@ export default {
       ingPart: (state) => state.part
     }),
     ...mapState('catalog', {
-      dataset: (state) => state.dataset
+      catalog: (state) => state.dataset
+    }),
+    ...mapGetters({
+      getRecipeByPart: 'recipe/getRecipeByPart',
+      getCatalogByPart: 'catalog/getCatalogByPart'
     }),
     ingItem: {
       get() {
-        const partRecipe = this.$store.state.recipe[this.ingPart]
+        const partRecipe = this.getRecipeByPart(this.ingPart)
         return partRecipe ? partRecipe.key : ''
       },
       set(v) {
@@ -31,8 +35,8 @@ export default {
         this.$store.dispatch('recipe/change', { part, item })
       }
     },
-    ingDataset() {
-      return this.dataset[this.ingPart]
+    ingCatalog() {
+      return this.getCatalogByPart(this.ingPart)
     }
   }
 }

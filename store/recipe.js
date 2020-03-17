@@ -1,29 +1,69 @@
 import initialState from './recipe.json'
 
 export const state = () => ({
-  ボディ: {},
-  モーター: {},
-  ギヤ: {},
-  シャーシ: {},
-  ホイール: {},
-  タイヤ: {}
+  body: { key: '', crafts: [] },
+  motor: { key: '', crafts: [] },
+  gear: { key: '', crafts: [] },
+  chassis: { key: '', crafts: [] },
+  frontWheel: { key: '', crafts: [] },
+  frontTire: { key: '', crafts: [] },
+  rearWheel: { key: '', crafts: [] },
+  rearTire: { key: '', crafts: [] },
+  frontRollerMiddle: { key: '', crafts: [] },
+  sideRollerMiddle: { key: '', crafts: [] },
+  rearRollerMiddle: { key: '', crafts: [] }
 })
 
-export const getters = {}
+function resolvePartKey(partJapanese) {
+  switch (partJapanese) {
+    case 'ボディ':
+      return 'body'
+    case 'モーター':
+      return 'motor'
+    case 'ギヤ':
+      return 'gear'
+    case 'シャーシ':
+      return 'chassis'
+    case 'フロント・ホイール':
+      return 'frontWheel'
+    case 'フロント・タイヤ':
+      return 'frontTire'
+    case 'リヤ・ホイール':
+      return 'rearWheel'
+    case 'リヤ・タイヤ':
+      return 'rearTire'
+    case 'フロント・ローラー中':
+      return 'frontRollerMiddle'
+    case 'サイド・ローラー中':
+      return 'sideRollerMiddle'
+    case 'リヤ・ローラー中':
+      return 'rearRollerMiddle'
+  }
+}
+
+export const getters = {
+  getRecipeByPart: (state) => (part) => {
+    const partKey = resolvePartKey(part)
+    return state[partKey]
+  }
+}
 
 export const mutations = {
   setAll(state, payload) {
     for (const [k, v] of Object.entries(payload)) {
-      state[k] = v
+      const partKey = resolvePartKey(k)
+      state[partKey] = v
     }
   },
   setPartItem(state, { part, item }) {
-    state[part] = { ...state[part], key: item }
+    const partKey = resolvePartKey(part)
+    state[partKey] = { ...state[partKey], key: item }
   },
   setPartCraft(state, { part, craftIndex, action, quarity, level }) {
-    const ingPart = state[part]
+    const partKey = resolvePartKey(part)
+    const ingPart = state[partKey]
     ingPart.crafts[craftIndex] = { action, quarity, level }
-    state[part] = { key: ingPart.key, crafts: ingPart.crafts }
+    state[partKey] = { key: ingPart.key, crafts: ingPart.crafts }
   }
 }
 
@@ -33,8 +73,7 @@ export const actions = {
     const payload = initialState
     commit('setAll', payload)
   },
-  async change({ commit }, { part, item }) {
-    await 0
+  change({ commit }, { part, item }) {
     commit('setPartItem', { part, item })
   },
   changeCraft({ commit }, arg) {

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   computed: {
@@ -40,16 +40,20 @@ export default {
     ...mapState('craft', {
       craftMaster: (state) => state.craft
     }),
+    ...mapGetters({
+      getCatalogByPart: 'catalog/getCatalogByPart',
+      getRecipeByPart: 'recipe/getRecipeByPart'
+    }),
     ingItem() {
-      const partCatalog = this.dataset[this.ingPart]
-      const partRecipe = this.$store.state.recipe[this.ingPart]
+      const partCatalog = this.getCatalogByPart(this.ingPart)
+      const partRecipe = this.getRecipeByPart(this.ingPart)
       const key = partRecipe ? partRecipe.key : ''
       if (!key) return { 性能: {} }
       return partCatalog[key] || { 性能: {} }
     },
     craftResult() {
       const defaultItemSpec = this.ingItem.性能
-      const partRecipe = this.$store.state.recipe[this.ingPart]
+      const partRecipe = this.getRecipeByPart(this.ingPart)
       if (!partRecipe) return {}
       const r = this.calcCraftResult(defaultItemSpec, partRecipe)
       return {

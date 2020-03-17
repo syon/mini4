@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import RemodelSlot from '@/components/RemodelSlot'
 
 export default {
@@ -23,8 +23,11 @@ export default {
     ...mapState('craft', {
       craftMaster: (state) => state.craft
     }),
+    ...mapGetters({
+      getRecipeByPart: 'recipe/getRecipeByPart'
+    }),
     ingCrafts() {
-      const partRecipe = this.$store.state.recipe[this.ingPart]
+      const partRecipe = this.getRecipeByPart(this.ingPart)
       if (!partRecipe) return []
       this.prepareCrafts(partRecipe)
       return (partRecipe.crafts || []).map((x) => this.getRemodel(x))
@@ -48,7 +51,8 @@ export default {
     },
     getRemodel(recipeCraft) {
       const { action, quarity, level } = recipeCraft
-      const partCrafts = this.craftMaster[this.ingPart]
+      const category = this.resolveCategoryByPart(this.ingPart)
+      const partCrafts = this.craftMaster[category]
       const c = partCrafts.find((x) => x.action === action)
       const remodel = {
         action,
@@ -57,6 +61,23 @@ export default {
         level
       }
       return remodel
+    },
+    resolveCategoryByPart(part) {
+      let category = part
+      switch (true) {
+        case /ホイール/.test(part):
+          category = 'ホイール'
+          break
+        case /タイヤ/.test(part):
+          category = 'タイヤ'
+          break
+        case /ローラー/.test(part):
+          category = 'ローラー'
+          break
+        default:
+          break
+      }
+      return category
     }
   }
 }
