@@ -55,12 +55,12 @@ export default {
 
 .xx-quarity {
   .xx-quarity-label {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
     line-height: 1;
   }
   .xx-quarity-level {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
     line-height: 1.2;
   }

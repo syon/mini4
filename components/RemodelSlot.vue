@@ -25,7 +25,7 @@
             :class="{ isMerit: e.メリデメ === 'メリット' }"
             class="xx-merideme flex"
           >
-            <div class="xx-merideme-label w-24">{{ e.メリデメ }}</div>
+            <div class="xx-merideme-label w-20">{{ e.メリデメ }}</div>
             <div class="xx-merideme-topic flex-1 flex justify-between">
               <div>{{ e.影響 }}</div>
               <div class="xx-merideme-marks">{{ e.表示 }}</div>
@@ -83,12 +83,12 @@ export default {
 
 .xx-quarity {
   .xx-quarity-label {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.2;
   }
   .xx-quarity-level {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
     line-height: 1.2;
   }
@@ -100,6 +100,7 @@ export default {
     margin-bottom: 8px;
   }
   .xx-merideme-label {
+    font-size: 0.8em;
     margin-right: 10px;
     text-align: center;
   }

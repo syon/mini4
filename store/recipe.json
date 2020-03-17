@@ -4,22 +4,22 @@
     "crafts": [
       {
         "action": "限界軽量化",
-        "quarity": "至高",
+        "quarity": "至高の逸品",
         "level": 50
       },
       {
         "action": "限界軽量化",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 50
       },
       {
         "action": "軽量化",
-        "quarity": "至高",
+        "quarity": "至高の逸品",
         "level": 50
       },
       {
         "action": "軽量化",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 50
       }
     ]
@@ -29,32 +29,32 @@
     "crafts": [
       {
         "action": "3Vブレークイン(回転数重視)",
-        "quarity": "至高",
+        "quarity": "至高の逸品",
         "level": 35
       },
       {
         "action": "3Vブレークイン(回転数重視)",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 35
       },
       {
         "action": "冷却ブレークイン(回転数重視)",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 35
       },
       {
         "action": "冷却ブレークイン(回転数重視)",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 35
       },
       {
         "action": "3Vブレークイン(回転数重視)",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 35
       },
       {
         "action": "3Vブレークイン(回転数重視)",
-        "quarity": "職人",
+        "quarity": "職人技",
         "level": 35
       }
     ]
@@ -65,12 +65,12 @@
     "crafts": [
       {
         "action": "限界軽量化",
-        "quarity": "至高",
+        "quarity": "至高の逸品",
         "level": 50
       },
       {
         "action": "限界軽量化",
-        "quarity": "至高",
+        "quarity": "至高の逸品",
         "level": 50
       }
     ]

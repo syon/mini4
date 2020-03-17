@@ -36,7 +36,7 @@ export default {
   },
   data() {
     return {
-      quarity: '至高',
+      quarity: '至高の逸品',
       level: 50
     }
   },
