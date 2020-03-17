@@ -1,5 +1,9 @@
 <template>
-  <div class="xx-RemodelSlot w-full flex flex-col text-sm" @click="handleClick">
+  <div
+    :class="{ active: isActive }"
+    class="xx-RemodelSlot w-full flex flex-col text-sm"
+    @click="handleClick"
+  >
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>
@@ -34,14 +38,23 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: {
     arg: { type: Object, default: () => {} },
     craftIndex: { type: Number, required: true }
   },
   computed: {
+    ...mapState('ing', {
+      isCrafting: (state) => state.isCrafting,
+      ingCraftIndex: (state) => state.craftIndex
+    }),
     x() {
       return this.arg || {}
+    },
+    isActive() {
+      return this.craftIndex === this.ingCraftIndex && this.isCrafting
     }
   },
   methods: {
@@ -55,7 +68,13 @@ export default {
 <style lang="less" scoped>
 .xx-RemodelSlot {
   background-color: #f0f4f4;
+  border: 1px solid #b5babd;
+  &.active {
+    background-color: #fffca0;
+    border: 1px solid #f1f658;
+  }
 }
+
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
