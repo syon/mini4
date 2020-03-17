@@ -2,12 +2,23 @@
   <div class="xx-CraftLelectArea">
     <h3>craftIndex: {{ craftIndex }}</h3>
     <hr />
-    <input v-model="quarity" type="text" class="m-2" />
+    <label>
+      <input v-model="quarity" type="radio" value="イイ" />
+      <span>イイ感じ</span>
+    </label>
+    <label>
+      <input v-model="quarity" type="radio" value="職人" />
+      <span>職人技</span>
+    </label>
+    <label>
+      <input v-model="quarity" type="radio" value="至高" />
+      <span>至高の逸品</span>
+    </label>
     <hr />
     <input v-model="level" type="number" class="m-2" />
     <hr />
-    <template v-for="(x, idx) in ingCrafts">
-      <div :key="idx" class="flex m-2">
+    <template v-for="(x, idx) in ingCraftsWithBlank">
+      <div :key="idx" class="flex m-2" @click="handleClickSlot(x)">
         <craft-edit-slot :arg="x" />
       </div>
     </template>
@@ -37,7 +48,24 @@ export default {
       craft: (state) => state.craft
     }),
     ingCrafts() {
-      return this.craft[this.ingPart]
+      return this.craft[this.ingPart] || []
+    },
+    ingCraftsWithBlank() {
+      const arr = Array.from(this.ingCrafts)
+      arr.unshift({ action: 'なし' })
+      return arr
+    }
+  },
+  methods: {
+    handleClickSlot(x) {
+      const arg = {
+        part: this.ingPart,
+        craftIndex: this.craftIndex,
+        action: x.action,
+        quarity: this.quarity,
+        level: this.level
+      }
+      this.$store.dispatch('recipe/changeCraft', arg)
     }
   }
 }

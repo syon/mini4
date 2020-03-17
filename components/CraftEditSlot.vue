@@ -1,5 +1,5 @@
 <template>
-  <div class="xx-RemodelSlot w-full flex flex-col text-sm" @click="handleClick">
+  <div class="xx-RemodelSlot w-full flex flex-col text-sm">
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>
@@ -33,29 +33,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   props: { arg: { type: Object, default: () => {} } },
   computed: {
-    ...mapState('ing', {
-      ingPart: (state) => state.part,
-      craftIndex: (state) => state.craftIndex
-    }),
     x() {
       return this.arg || {}
-    }
-  },
-  methods: {
-    handleClick() {
-      const arg = {
-        part: this.ingPart,
-        craftIndex: this.craftIndex,
-        action: this.x.action,
-        quarity: '至高',
-        level: 22
-      }
-      this.$store.dispatch('recipe/changeCraft', arg)
     }
   }
 }
