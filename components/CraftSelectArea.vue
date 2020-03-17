@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       quarity: '至高',
-      level: 22
+      level: 50
     }
   },
   computed: {
@@ -52,18 +52,19 @@ export default {
     },
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)
-      arr.unshift({ action: 'なし' })
+      arr.unshift({ action: '' })
       return arr
     }
   },
   methods: {
     handleClickSlot(x) {
+      const isNone = x.action === ''
       const arg = {
         part: this.ingPart,
         craftIndex: this.craftIndex,
         action: x.action,
-        quarity: this.quarity,
-        level: this.level
+        quarity: isNone ? '' : this.quarity,
+        level: isNone ? 0 : this.level
       }
       this.$store.dispatch('recipe/changeCraft', arg)
     }
