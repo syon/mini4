@@ -4,15 +4,15 @@
     <h3>craftIndex: {{ craftIndex }}</h3>
     <hr />
     <label>
-      <input v-model="quarity" type="radio" value="イイ" />
+      <input v-model="quarity" type="radio" value="イイ感じ" />
       <span>イイ感じ</span>
     </label>
     <label>
-      <input v-model="quarity" type="radio" value="職人" />
+      <input v-model="quarity" type="radio" value="職人技" />
       <span>職人技</span>
     </label>
     <label>
-      <input v-model="quarity" type="radio" value="至高" />
+      <input v-model="quarity" type="radio" value="至高の逸品" />
       <span>至高の逸品</span>
     </label>
     <hr />
