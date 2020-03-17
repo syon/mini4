@@ -29,6 +29,7 @@
 <script>
 import { mapState } from 'vuex'
 import CraftEditSlot from '@/components/CraftEditSlot'
+import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
@@ -46,10 +47,12 @@ export default {
       craftIndex: (state) => state.craftIndex
     }),
     ...mapState('craft', {
-      craft: (state) => state.craft
+      craftMaster: (state) => state.craft
     }),
     ingCrafts() {
-      return this.craft[this.ingPart] || []
+      const category = Mini4.resolveCategoryByPart(this.ingPart)
+      const partCrafts = this.craftMaster[category]
+      return partCrafts || []
     },
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)

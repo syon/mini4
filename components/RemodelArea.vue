@@ -11,6 +11,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import RemodelSlot from '@/components/RemodelSlot'
+import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
@@ -51,7 +52,7 @@ export default {
     },
     getRemodel(recipeCraft) {
       const { action, quarity, level } = recipeCraft
-      const category = this.resolveCategoryByPart(this.ingPart)
+      const category = Mini4.resolveCategoryByPart(this.ingPart)
       const partCrafts = this.craftMaster[category]
       const c = partCrafts.find((x) => x.action === action)
       const remodel = {
@@ -61,23 +62,6 @@ export default {
         level
       }
       return remodel
-    },
-    resolveCategoryByPart(part) {
-      let category = part
-      switch (true) {
-        case /ホイール/.test(part):
-          category = 'ホイール'
-          break
-        case /タイヤ/.test(part):
-          category = 'タイヤ'
-          break
-        case /ローラー/.test(part):
-          category = 'ローラー'
-          break
-        default:
-          break
-      }
-      return category
     }
   }
 }

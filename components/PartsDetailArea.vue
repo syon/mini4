@@ -28,6 +28,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import Mini4 from '@/models/Mini4'
 
 export default {
   computed: {
@@ -87,7 +88,8 @@ export default {
       return resultSpecs
     },
     getCalcArgs({ action, quarity, level }) {
-      const partCrafts = this.craftMaster[this.ingPart]
+      const category = Mini4.resolveCategoryByPart(this.ingPart)
+      const partCrafts = this.craftMaster[category]
       const c = partCrafts.find((x) => x.action === action)
       if (!c) return []
       return c.effects.map((e) => {
