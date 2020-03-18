@@ -22,7 +22,6 @@
       <div class="row">
         <parts-detail-area />
       </div>
-      <div class="row">スキル</div>
       <div class="row flex-auto">
         <remodel-area />
       </div>
