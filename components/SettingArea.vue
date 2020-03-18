@@ -36,6 +36,19 @@
       </div>
 
       <div
+        class="xx-cell cate-front-stay"
+        @click="handleTrans('フロントステー')"
+      >
+        <div class="xx-parts-name">{{ sFrontStay.key }}</div>
+      </div>
+      <div class="xx-cell cate-side-stay" @click="handleTrans('サイドステー')">
+        <div class="xx-parts-name">{{ sSideStay.key }}</div>
+      </div>
+      <div class="xx-cell cate-rear-stay" @click="handleTrans('リヤステー')">
+        <div class="xx-parts-name">{{ sRearStay.key }}</div>
+      </div>
+
+      <div
         class="xx-cell cate-front-roller-middle"
         @click="handleTrans('フロント・ローラー中')"
       >
@@ -74,6 +87,9 @@ export default {
       sFrontTire: (state) => state.frontTire,
       sRearWheel: (state) => state.rearWheel,
       sRearTire: (state) => state.rearTire,
+      sFrontStay: (state) => state.frontStay,
+      sSideStay: (state) => state.sideStay,
+      sRearStay: (state) => state.rearStay,
       sFrontRollerMiddle: (state) => state.frontRollerMiddle,
       sSideRollerMiddle: (state) => state.sideRollerMiddle,
       sRearRollerMiddle: (state) => state.rearRollerMiddle
@@ -139,6 +155,18 @@ export default {
     }
     .cate-rear-tire {
       grid-row: ~'3/4';
+      grid-column: ~'4/5';
+    }
+    .cate-front-stay {
+      grid-row: ~'4/5';
+      grid-column: ~'2/3';
+    }
+    .cate-side-stay {
+      grid-row: ~'4/5';
+      grid-column: ~'3/4';
+    }
+    .cate-rear-stay {
+      grid-row: ~'4/5';
       grid-column: ~'4/5';
     }
     .cate-front-roller-middle {

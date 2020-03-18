@@ -9,6 +9,9 @@ export const state = () => ({
   frontTire: { key: '', crafts: [] },
   rearWheel: { key: '', crafts: [] },
   rearTire: { key: '', crafts: [] },
+  frontStay: { key: '', crafts: [] },
+  sideStay: { key: '', crafts: [] },
+  rearStay: { key: '', crafts: [] },
   frontRollerMiddle: { key: '', crafts: [] },
   sideRollerMiddle: { key: '', crafts: [] },
   rearRollerMiddle: { key: '', crafts: [] }
@@ -32,6 +35,12 @@ function resolvePartKey(partJapanese) {
       return 'rearWheel'
     case 'リヤ・タイヤ':
       return 'rearTire'
+    case 'フロントステー':
+      return 'frontStay'
+    case 'サイドステー':
+      return 'sideStay'
+    case 'リヤステー':
+      return 'rearStay'
     case 'フロント・ローラー中':
       return 'frontRollerMiddle'
     case 'サイド・ローラー中':
