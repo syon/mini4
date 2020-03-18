@@ -14,7 +14,18 @@ export const state = () => ({
   rearStay: { key: '', crafts: [] },
   frontRollerMiddle: { key: '', crafts: [] },
   sideRollerMiddle: { key: '', crafts: [] },
-  rearRollerMiddle: { key: '', crafts: [] }
+  rearRollerMiddle: { key: '', crafts: [] },
+  bodyOption: { key: '', crafts: [] },
+  wingRoller: { key: '', crafts: [] },
+  frontStabilizer: { key: '', crafts: [] },
+  sideStabilizer: { key: '', crafts: [] },
+  rearStabilizer: { key: '', crafts: [] },
+  frontSettingWeight: { key: '', crafts: [] },
+  rearSettingWeight: { key: '', crafts: [] },
+  accessory1: { key: '', crafts: [] },
+  accessory2: { key: '', crafts: [] },
+  accessory3: { key: '', crafts: [] },
+  accessory4: { key: '', crafts: [] }
 })
 
 function resolvePartKey(partJapanese) {
@@ -47,6 +58,28 @@ function resolvePartKey(partJapanese) {
       return 'sideRollerMiddle'
     case 'リヤ・ローラー中':
       return 'rearRollerMiddle'
+    case 'ボディオプション':
+      return 'bodyOption'
+    case 'ウイングローラー':
+      return 'wingRoller'
+    case 'フロント・スタビライザー':
+      return 'frontStabilizer'
+    case 'サイド・スタビライザー':
+      return 'sideStabilizer'
+    case 'リヤ・スタビライザー':
+      return 'rearStabilizer'
+    case 'フロント・セッティングウェイト':
+      return 'frontSettingWeight'
+    case 'リヤ・セッティングウェイト':
+      return 'rearSettingWeight'
+    case 'アクセサリー・１':
+      return 'accessory1'
+    case 'アクセサリー・２':
+      return 'accessory2'
+    case 'アクセサリー・３':
+      return 'accessory3'
+    case 'アクセサリー・４':
+      return 'accessory4'
   }
 }
 

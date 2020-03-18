@@ -11,6 +11,15 @@ export default class Mini4 {
       case /ローラー/.test(part):
         category = 'ローラー'
         break
+      case /スタビライザー/.test(part):
+        category = 'スタビライザー'
+        break
+      case /セッティングウェイト/.test(part):
+        category = 'セッティングウェイト'
+        break
+      case /アクセサリー/.test(part):
+        category = 'アクセサリー'
+        break
       default:
         break
     }

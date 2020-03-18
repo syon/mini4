@@ -1,4 +1,5 @@
 import catalog from './catalog.json'
+import Mini4 from '@/models/Mini4'
 
 export const state = () => ({
   dataset: catalog
@@ -6,23 +7,7 @@ export const state = () => ({
 
 export const getters = {
   getCatalogByPart: (state) => (part) => {
-    // ////////////////////////////////////////////
-    // TODO: see resolveCategoryByPart in RemodelArea.vue
-    let category = part
-    switch (true) {
-      case /ホイール/.test(part):
-        category = 'ホイール'
-        break
-      case /タイヤ/.test(part):
-        category = 'タイヤ'
-        break
-      case /ローラー/.test(part):
-        category = 'ローラー'
-        break
-      default:
-        break
-    }
-    // ////////////////////////////////////////////
+    const category = Mini4.resolveCategoryByPart(part)
     return state.dataset[category]
   }
 }

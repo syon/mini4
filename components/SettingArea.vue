@@ -66,6 +66,76 @@
       >
         <div class="xx-parts-name">{{ sRearRollerMiddle.key }}</div>
       </div>
+
+      <div
+        class="xx-cell cate-bodyoption"
+        @click="handleTrans('ボディオプション')"
+      >
+        <div class="xx-parts-name">{{ sBodyOption.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-wing-roller"
+        @click="handleTrans('ウイングローラー')"
+      >
+        <div class="xx-parts-name">{{ sWingRoller.key }}</div>
+      </div>
+
+      <div
+        class="xx-cell cate-front-stabilizer"
+        @click="handleTrans('フロント・スタビライザー')"
+      >
+        <div class="xx-parts-name">{{ sFrontStabilizer.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-side-stabilizer"
+        @click="handleTrans('サイド・スタビライザー')"
+      >
+        <div class="xx-parts-name">{{ sSideStabilizer.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-rear-stabilizer"
+        @click="handleTrans('リヤ・スタビライザー')"
+      >
+        <div class="xx-parts-name">{{ sRearStabilizer.key }}</div>
+      </div>
+
+      <div
+        class="xx-cell cate-front-settingweight"
+        @click="handleTrans('フロント・セッティングウェイト')"
+      >
+        <div class="xx-parts-name">{{ sFrontSettingWeight.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-rear-settingweight"
+        @click="handleTrans('リヤ・セッティングウェイト')"
+      >
+        <div class="xx-parts-name">{{ sRearSettingWeight.key }}</div>
+      </div>
+
+      <div
+        class="xx-cell cate-accessory-1"
+        @click="handleTrans('アクセサリー・１')"
+      >
+        <div class="xx-parts-name">{{ sAccessory1.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-accessory-2"
+        @click="handleTrans('アクセサリー・２')"
+      >
+        <div class="xx-parts-name">{{ sAccessory2.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-accessory-3"
+        @click="handleTrans('アクセサリー・３')"
+      >
+        <div class="xx-parts-name">{{ sAccessory3.key }}</div>
+      </div>
+      <div
+        class="xx-cell cate-accessory-4"
+        @click="handleTrans('アクセサリー・４')"
+      >
+        <div class="xx-parts-name">{{ sAccessory4.key }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -92,7 +162,18 @@ export default {
       sRearStay: (state) => state.rearStay,
       sFrontRollerMiddle: (state) => state.frontRollerMiddle,
       sSideRollerMiddle: (state) => state.sideRollerMiddle,
-      sRearRollerMiddle: (state) => state.rearRollerMiddle
+      sRearRollerMiddle: (state) => state.rearRollerMiddle,
+      sBodyOption: (state) => state.bodyOption,
+      sWingRoller: (state) => state.wingRoller,
+      sFrontStabilizer: (state) => state.frontStabilizer,
+      sSideStabilizer: (state) => state.sideStabilizer,
+      sRearStabilizer: (state) => state.rearStabilizer,
+      sFrontSettingWeight: (state) => state.frontSettingWeight,
+      sRearSettingWeight: (state) => state.rearSettingWeight,
+      sAccessory1: (state) => state.accessory1,
+      sAccessory2: (state) => state.accessory2,
+      sAccessory3: (state) => state.accessory3,
+      sAccessory4: (state) => state.accessory4
     })
   },
   async mounted() {
@@ -179,6 +260,50 @@ export default {
     }
     .cate-rear-roller-middle {
       grid-row: ~'6/7';
+      grid-column: ~'4/5';
+    }
+    .cate-bodyoption {
+      grid-row: ~'8/9';
+      grid-column: ~'3/4';
+    }
+    .cate-wing-roller {
+      grid-row: ~'8/9';
+      grid-column: ~'4/5';
+    }
+    .cate-rear-stabilizer {
+      grid-row: ~'9/10';
+      grid-column: ~'2/3';
+    }
+    .cate-side-stabilizer {
+      grid-row: ~'9/10';
+      grid-column: ~'3/4';
+    }
+    .cate-front-stabilizer {
+      grid-row: ~'9/10';
+      grid-column: ~'4/5';
+    }
+    .cate-front-settingweight {
+      grid-row: ~'10/11';
+      grid-column: ~'2/3';
+    }
+    .cate-rear-settingweight {
+      grid-row: ~'10/11';
+      grid-column: ~'4/5';
+    }
+    .cate-accessory-1 {
+      grid-row: ~'11/12';
+      grid-column: ~'1/2';
+    }
+    .cate-accessory-2 {
+      grid-row: ~'11/12';
+      grid-column: ~'2/3';
+    }
+    .cate-accessory-3 {
+      grid-row: ~'11/12';
+      grid-column: ~'3/4';
+    }
+    .cate-accessory-4 {
+      grid-row: ~'11/12';
       grid-column: ~'4/5';
     }
   }
