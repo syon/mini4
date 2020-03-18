@@ -78,9 +78,9 @@ export default {
         if (fix) {
           kaizouVal = benefit
         } else {
-          kaizouVal = defaultItemSpec[affect] * benefit
+          kaizouVal = (defaultItemSpec[affect] || 0) * benefit
         }
-        const para = resultSpecs[affect]
+        const para = resultSpecs[affect] || 0
         const growVal = (para + kaizouVal) * grow
         // 増分 == kaizouVal + growVal
         resultSpecs[affect] = para + kaizouVal + growVal
