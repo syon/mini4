@@ -1,13 +1,29 @@
 <template>
   <div class="xx-SettingArea">
     <div class="grid-setting">
-      <div class="xx-cell cate-body" @click="handleTrans('ボディ')">
-        <item-icon name="body" />
-        <div class="xx-parts-name">{{ sBody.key }}</div>
+      <div
+        :class="{ isEmpty: !sBody.key }"
+        class="xx-cell cate-body"
+        @click="handleTrans('ボディ')"
+      >
+        <div class="xx-cellinner">
+          <div class="zabuton">
+            <item-icon name="body" color="#fd7211" />
+          </div>
+          <div class="xx-parts-name">{{ sBody.key }}</div>
+        </div>
       </div>
-      <div class="xx-cell cate-motor" @click="handleTrans('モーター')">
-        <item-icon name="motor" />
-        <div class="xx-parts-name">{{ sMotor.key }}</div>
+      <div
+        :class="{ isEmpty: !sMotor.key }"
+        class="xx-cell cate-motor"
+        @click="handleTrans('モーター')"
+      >
+        <div class="xx-cellinner">
+          <div class="zabuton">
+            <item-icon name="motor" color="#9c7edc" />
+          </div>
+          <div class="xx-parts-name">{{ sMotor.key }}</div>
+        </div>
       </div>
       <div class="xx-cell cate-gear" @click="handleTrans('ギヤ')">
         <item-icon name="gear" />
@@ -28,8 +44,12 @@
         class="xx-cell cate-front-tire"
         @click="handleTrans('フロント・タイヤ')"
       >
-        <item-icon name="tire" color="#fd7211" />
-        <div class="xx-parts-name">{{ sFrontTire.key }}</div>
+        <div class="xx-cellinner">
+          <div class="zabuton">
+            <item-icon name="tire" color="#fd7211" />
+          </div>
+          <div class="xx-parts-name">{{ sFrontTire.key }}</div>
+        </div>
       </div>
       <div
         class="xx-cell cate-rear-wheel"
@@ -44,6 +64,7 @@
       </div>
 
       <div
+        :class="{ isEmpty: !sFrontStay.key }"
         class="xx-cell cate-front-stay"
         @click="handleTrans('フロントステー')"
       >
@@ -226,14 +247,10 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
     justify-items: stretch;
     align-items: stretch;
-
-    // > div {
-    //   border: 1px solid cyan;
-    // }
 
     .cate-body {
       grid-row: ~'1/2';
@@ -340,10 +357,48 @@ export default {
 
 .xx-cell {
   display: flex;
-  align-items: center;
   position: relative;
   height: 80px;
-  background-color: rgb(83, 91, 96);
+
+  .xx-cellinner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-clip: padding-box;
+    border: solid 3px transparent;
+    border-radius: 3px;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -3px;
+      border-radius: inherit;
+      background: linear-gradient(to bottom right, #fcfba6, #f7de79, #894f1a);
+    }
+  }
+
+  .zabuton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: rgb(83, 91, 96);
+  }
+
+  &.isEmpty {
+    background-color: #8f9495;
+    border: 2px solid #c1c1c1;
+    .xx-parts-name {
+      display: none;
+    }
+  }
   .ItemIcon {
     position: absolute;
     height: 100%;
