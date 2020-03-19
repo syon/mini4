@@ -1,5 +1,5 @@
 <template>
-  <div class="ItemIcon" :src="src" :style="style" />
+  <div class="ItemIcon" :style="style" />
 </template>
 
 <script>
@@ -9,13 +9,10 @@ export default {
     color: { type: String, default: 'silver' }
   },
   computed: {
-    src() {
-      return require(`@/assets/item-icon/${this.name}.svg`)
-    },
     style() {
       return {
         backgroundColor: this.color,
-        maskImage: `url(/${this.name}.svg)`
+        maskImage: `url(/item-icon/${this.name}.svg)`
       }
     }
   }

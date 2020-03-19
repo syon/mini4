@@ -2,36 +2,44 @@
   <div class="xx-SettingArea">
     <div class="grid-setting">
       <div class="xx-cell cate-body" @click="handleTrans('ボディ')">
+        <item-icon name="body" />
         <div class="xx-parts-name">{{ sBody.key }}</div>
       </div>
       <div class="xx-cell cate-motor" @click="handleTrans('モーター')">
+        <item-icon name="motor" />
         <div class="xx-parts-name">{{ sMotor.key }}</div>
       </div>
       <div class="xx-cell cate-gear" @click="handleTrans('ギヤ')">
+        <item-icon name="gear" />
         <div class="xx-parts-name">{{ sGear.key }}</div>
       </div>
       <div class="xx-cell cate-chassis" @click="handleTrans('シャーシ')">
+        <item-icon name="chassis" />
         <div class="xx-parts-name">{{ sChassis.key }}</div>
       </div>
       <div
         class="xx-cell cate-front-wheel"
         @click="handleTrans('フロント・ホイール')"
       >
+        <item-icon name="wheel" />
         <div class="xx-parts-name">{{ sFrontWheel.key }}</div>
       </div>
       <div
         class="xx-cell cate-front-tire"
         @click="handleTrans('フロント・タイヤ')"
       >
+        <item-icon name="tire" color="#fd7211" />
         <div class="xx-parts-name">{{ sFrontTire.key }}</div>
       </div>
       <div
         class="xx-cell cate-rear-wheel"
         @click="handleTrans('リヤ・ホイール')"
       >
+        <item-icon name="wheel" />
         <div class="xx-parts-name">{{ sRearWheel.key }}</div>
       </div>
       <div class="xx-cell cate-rear-tire" @click="handleTrans('リヤ・タイヤ')">
+        <item-icon name="tire" color="#134aef" />
         <div class="xx-parts-name">{{ sRearTire.key }}</div>
       </div>
 
@@ -39,12 +47,15 @@
         class="xx-cell cate-front-stay"
         @click="handleTrans('フロントステー')"
       >
+        <item-icon name="frontstay" />
         <div class="xx-parts-name">{{ sFrontStay.key }}</div>
       </div>
       <div class="xx-cell cate-side-stay" @click="handleTrans('サイドステー')">
+        <item-icon name="sidestay" />
         <div class="xx-parts-name">{{ sSideStay.key }}</div>
       </div>
       <div class="xx-cell cate-rear-stay" @click="handleTrans('リヤステー')">
+        <item-icon name="rearstay" />
         <div class="xx-parts-name">{{ sRearStay.key }}</div>
       </div>
 
@@ -52,18 +63,21 @@
         class="xx-cell cate-front-roller-middle"
         @click="handleTrans('フロント・ローラー中')"
       >
+        <item-icon name="roller" />
         <div class="xx-parts-name">{{ sFrontRollerMiddle.key }}</div>
       </div>
       <div
         class="xx-cell cate-side-roller-middle"
         @click="handleTrans('サイド・ローラー中')"
       >
+        <item-icon name="roller" />
         <div class="xx-parts-name">{{ sSideRollerMiddle.key }}</div>
       </div>
       <div
         class="xx-cell cate-rear-roller-middle"
         @click="handleTrans('リヤ・ローラー中')"
       >
+        <item-icon name="roller" />
         <div class="xx-parts-name">{{ sRearRollerMiddle.key }}</div>
       </div>
 
@@ -71,12 +85,14 @@
         class="xx-cell cate-bodyoption"
         @click="handleTrans('ボディオプション')"
       >
+        <item-icon name="wing" />
         <div class="xx-parts-name">{{ sBodyOption.key }}</div>
       </div>
       <div
         class="xx-cell cate-wing-roller"
         @click="handleTrans('ウイングローラー')"
       >
+        <item-icon name="roller" />
         <div class="xx-parts-name">{{ sWingRoller.key }}</div>
       </div>
 
@@ -84,18 +100,21 @@
         class="xx-cell cate-front-stabilizer"
         @click="handleTrans('フロント・スタビライザー')"
       >
+        <item-icon name="stabilizer" />
         <div class="xx-parts-name">{{ sFrontStabilizer.key }}</div>
       </div>
       <div
         class="xx-cell cate-side-stabilizer"
         @click="handleTrans('サイド・スタビライザー')"
       >
+        <item-icon name="stabilizer" />
         <div class="xx-parts-name">{{ sSideStabilizer.key }}</div>
       </div>
       <div
         class="xx-cell cate-rear-stabilizer"
         @click="handleTrans('リヤ・スタビライザー')"
       >
+        <item-icon name="stabilizer" />
         <div class="xx-parts-name">{{ sRearStabilizer.key }}</div>
       </div>
 
@@ -103,12 +122,14 @@
         class="xx-cell cate-front-settingweight"
         @click="handleTrans('フロント・セッティングウェイト')"
       >
+        <item-icon name="weight" />
         <div class="xx-parts-name">{{ sFrontSettingWeight.key }}</div>
       </div>
       <div
         class="xx-cell cate-rear-settingweight"
         @click="handleTrans('リヤ・セッティングウェイト')"
       >
+        <item-icon name="weight" />
         <div class="xx-parts-name">{{ sRearSettingWeight.key }}</div>
       </div>
 
@@ -116,24 +137,28 @@
         class="xx-cell cate-accessory-1"
         @click="handleTrans('アクセサリー・１')"
       >
+        <item-icon name="accessories" />
         <div class="xx-parts-name">{{ sAccessory1.key }}</div>
       </div>
       <div
         class="xx-cell cate-accessory-2"
         @click="handleTrans('アクセサリー・２')"
       >
+        <item-icon name="accessories" />
         <div class="xx-parts-name">{{ sAccessory2.key }}</div>
       </div>
       <div
         class="xx-cell cate-accessory-3"
         @click="handleTrans('アクセサリー・３')"
       >
+        <item-icon name="accessories" />
         <div class="xx-parts-name">{{ sAccessory3.key }}</div>
       </div>
       <div
         class="xx-cell cate-accessory-4"
         @click="handleTrans('アクセサリー・４')"
       >
+        <item-icon name="accessories" />
         <div class="xx-parts-name">{{ sAccessory4.key }}</div>
       </div>
     </div>
@@ -142,8 +167,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import ItemIcon from './ItemIcon'
 
 export default {
+  components: {
+    ItemIcon
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part
@@ -310,16 +339,26 @@ export default {
 }
 
 .xx-cell {
+  display: flex;
+  align-items: center;
+  position: relative;
   height: 80px;
+  background-color: rgb(83, 91, 96);
+  .ItemIcon {
+    position: absolute;
+    height: 100%;
+  }
   .xx-parts-name {
     display: flex;
     align-items: center;
-    height: 100%;
+    // height: 100%;
     padding: 3px;
     line-height: 1.2;
     font-size: 0.75em;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
   }
 }
 

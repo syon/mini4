@@ -6,7 +6,6 @@
       </div>
       <div class="row flex-auto">総合</div>
       <div class="row flex-auto">スキル</div>
-      <div class="row flex-auto">パーツ</div>
       <div class="row flex-auto">その他</div>
     </div>
     <div class="col3way column flex">
