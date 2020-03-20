@@ -2,7 +2,7 @@
   <div :class="{ isEmpty: !item.key }" class="WearBox" @click="handleClick">
     <div class="WearBox-inner">
       <div class="zabuton">
-        <item-icon v-if="icon" :name="icon" color="#fd7211" />
+        <item-icon v-if="icon" :name="icon" :color="color" />
       </div>
       <div class="xx-parts-name">{{ item.key }}</div>
     </div>
@@ -10,7 +10,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ItemIcon from './ItemIcon'
+import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
@@ -18,7 +20,24 @@ export default {
   },
   props: {
     item: { type: Object, default: () => {} },
-    icon: { type: String, default: null } // TODO: from inside of item
+    part: { type: String, required: true }
+  },
+  computed: {
+    ...mapState('catalog', {
+      catalog: (state) => state.dataset
+    }),
+    x() {
+      const partCatalog = this.catalog[this.part] || {}
+      return partCatalog[this.item.key] || {}
+    },
+    color() {
+      return this.x.色 || '#bbb'
+    },
+    icon() {
+      const category = Mini4.resolveCategoryByPart(this.part)
+      const code = Mini4.resolveCodeByCategory(category)
+      return code
+    }
   },
   methods: {
     handleClick() {

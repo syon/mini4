@@ -3,159 +3,159 @@
     <div class="grid-setting">
       <wear-box
         :item="sBody"
-        icon="body"
+        part="ボディ"
         class="cate-body"
         @click="handleTrans('ボディ')"
       />
       <wear-box
         :item="sMotor"
-        icon="motor"
+        part="モーター"
         class="cate-motor"
         @click="handleTrans('モーター')"
       />
       <wear-box
         :item="sGear"
-        icon="gear"
+        part="ギヤ"
         class="cate-gear"
         @click="handleTrans('ギヤ')"
       />
 
       <wear-box
         :item="sChassis"
-        icon="chassis"
+        part="シャーシ"
         class="cate-chassis"
         @click="handleTrans('シャーシ')"
       />
 
       <wear-box
         :item="sFrontWheel"
-        icon="wheel"
+        part="フロント・ホイール"
         class="cate-front-wheel"
         @click="handleTrans('フロント・ホイール')"
       />
       <wear-box
         :item="sFrontTire"
-        icon="tire"
+        part="フロント・タイヤ"
         class="cate-front-tire"
         @click="handleTrans('フロント・タイヤ')"
       />
       <wear-box
         :item="sRearWheel"
-        icon="wheel"
+        part="リヤ・ホイール"
         class="cate-rear-wheel"
         @click="handleTrans('リヤ・ホイール')"
       />
       <wear-box
         :item="sRearTire"
-        icon="tire"
+        part="リヤ・タイヤ"
         class="cate-rear-tire"
         @click="handleTrans('リヤ・タイヤ')"
       />
 
       <wear-box
         :item="sFrontStay"
-        icon="frontstay"
+        part="フロントステー"
         class="cate-front-stay"
         @click="handleTrans('フロントステー')"
       />
       <wear-box
         :item="sSideStay"
-        icon="sidestay"
+        part="サイドステー"
         class="cate-side-stay"
         @click="handleTrans('サイドステー')"
       />
       <wear-box
         :item="sRearStay"
-        icon="rearstay"
+        part="リヤステー"
         class="cate-rear-stay"
         @click="handleTrans('リヤステー')"
       />
 
       <wear-box
         :item="sFrontRollerMiddle"
-        icon="roller"
+        part="フロント・ローラー中"
         class="cate-front-roller-middle"
         @click="handleTrans('フロント・ローラー中')"
       />
       <wear-box
         :item="sSideRollerMiddle"
-        icon="roller"
+        part="サイド・ローラー中"
         class="cate-side-roller-middle"
         @click="handleTrans('サイド・ローラー中')"
       />
       <wear-box
         :item="sRearRollerMiddle"
-        icon="roller"
+        part="リヤ・ローラー中"
         class="cate-rear-roller-middle"
         @click="handleTrans('リヤ・ローラー中')"
       />
 
       <wear-box
         :item="sBodyOption"
-        icon="wing"
+        part="ボディオプション"
         class="cate-bodyoption"
         @click="handleTrans('ボディオプション')"
       />
       <wear-box
         :item="sWingRoller"
-        icon="roller"
+        part="ウイングローラー"
         class="cate-wing-roller"
         @click="handleTrans('ウイングローラー')"
       />
 
       <wear-box
         :item="sFrontStabilizer"
-        icon="stabilizer"
+        part="フロント・スタビライザー"
         class="cate-front-stabilizer"
         @click="handleTrans('フロント・スタビライザー')"
       />
       <wear-box
         :item="sSideStabilizer"
-        icon="stabilizer"
+        part="サイド・スタビライザー"
         class="cate-side-stabilizer"
         @click="handleTrans('サイド・スタビライザー')"
       />
       <wear-box
         :item="sRearStabilizer"
-        icon="stabilizer"
+        part="リヤ・スタビライザー"
         class="cate-rear-stabilizer"
         @click="handleTrans('リヤ・スタビライザー')"
       />
 
       <wear-box
         :item="sFrontSettingWeight"
-        icon="weight"
+        part="フロント・セッティングウェイト"
         class="cate-front-settingweight"
         @click="handleTrans('フロント・セッティングウェイト')"
       />
       <wear-box
         :item="sRearSettingWeight"
-        icon="weight"
+        part="リヤ・セッティングウェイト"
         class="cate-rear-settingweight"
         @click="handleTrans('リヤ・セッティングウェイト')"
       />
 
       <wear-box
         :item="sAccessory1"
-        icon="accessories"
+        part="アクセサリー・１"
         class="cate-accessory-1"
         @click="handleTrans('アクセサリー・１')"
       />
       <wear-box
         :item="sAccessory2"
-        icon="accessories"
+        part="アクセサリー・２"
         class="cate-accessory-2"
         @click="handleTrans('アクセサリー・２')"
       />
       <wear-box
         :item="sAccessory3"
-        icon="accessories"
+        part="アクセサリー・３"
         class="cate-accessory-3"
         @click="handleTrans('アクセサリー・３')"
       />
       <wear-box
         :item="sAccessory4"
-        icon="accessories"
+        part="アクセサリー・４"
         class="cate-accessory-4"
         @click="handleTrans('アクセサリー・４')"
       />
