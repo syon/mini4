@@ -5,6 +5,7 @@
         <remodel-slot :arg="x" :craft-index="idx" />
       </div>
     </template>
+    <button @click="dump">export</button>
   </div>
 </template>
 
@@ -62,6 +63,9 @@ export default {
         level
       }
       return remodel
+    },
+    dump() {
+      this.$store.dispatch('recipe/dump', this.ingPart)
     }
   }
 }

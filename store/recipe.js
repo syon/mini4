@@ -120,5 +120,9 @@ export const actions = {
   },
   changeCraft({ commit }, arg) {
     commit('setPartCraft', arg)
+  },
+  dump({ state }, partJapanese) {
+    const part = resolvePartKey(partJapanese)
+    console.log(JSON.stringify(state[part]))
   }
 }
