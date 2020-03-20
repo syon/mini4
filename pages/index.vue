@@ -4,7 +4,9 @@
       <div class="row flex-auto">
         <div class="">マシン</div>
       </div>
-      <div class="row flex-auto">総合</div>
+      <div class="row flex-auto">
+        <total-area />
+      </div>
       <div class="row flex-auto">スキル</div>
       <div class="row flex-auto">その他</div>
     </div>
@@ -31,6 +33,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import TotalArea from '@/components/TotalArea'
 import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
 import PartsDetailArea from '@/components/PartsDetailArea'
@@ -39,6 +42,7 @@ import CraftSelectArea from '@/components/CraftSelectArea'
 
 export default {
   components: {
+    TotalArea,
     SettingArea,
     PartsChoiseArea,
     PartsDetailArea,

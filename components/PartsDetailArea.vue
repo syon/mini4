@@ -57,7 +57,7 @@ export default {
       getRecipeByPart: 'recipe/getRecipeByPart'
     }),
     ingItem() {
-      const partCatalog = this.getCatalogByPart(this.ingPart)
+      const partCatalog = this.getCatalogByPart(this.ingPart) || {}
       const partRecipe = this.getRecipeByPart(this.ingPart) || {}
       const item = partCatalog[partRecipe.key] || {}
       return item
@@ -93,7 +93,7 @@ export default {
       return Math.trunc(x)
     },
     getPartScore(part) {
-      const partCatalog = this.getCatalogByPart(part)
+      const partCatalog = this.getCatalogByPart(part) || {}
       const partRecipe = this.getRecipeByPart(part) || {}
       const item = partCatalog[partRecipe.key] || {}
       const defaultItemSpec = item.性能 || {}
