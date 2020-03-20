@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex">
+  <div class="container flex flex-col">
     <div class="col3way column flex flex-col">
       <div class="row flex-auto">
         <div class="">マシン</div>
@@ -64,7 +64,8 @@ export default {
 }
 
 .col3way {
-  width: 420px;
+  /* width: 420px; */
+  width: 100%;
 }
 
 .row,

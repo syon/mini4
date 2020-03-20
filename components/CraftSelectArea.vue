@@ -1,6 +1,6 @@
 <template>
   <div class="xx-CraftLelectArea">
-    <button @click="closeDialog">×</button>
+    <button class="w-full border text-lg" @click="closeDialog">×</button>
     <h3>craftIndex: {{ craftIndex }}</h3>
     <hr />
     <label>
@@ -71,6 +71,7 @@ export default {
         level: isNone ? 0 : this.level
       }
       this.$store.dispatch('recipe/changeCraft', arg)
+      this.closeDialog()
     },
     closeDialog() {
       this.$store.commit('ing/setCrafting', false)
@@ -81,8 +82,10 @@ export default {
 
 <style lang="less" scoped>
 .xx-CraftLelectArea {
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
+  z-index: 9;
   background-color: #838888;
 }
 </style>
