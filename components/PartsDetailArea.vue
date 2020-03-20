@@ -58,18 +58,12 @@ export default {
     }),
     ingItem() {
       const partCatalog = this.getCatalogByPart(this.ingPart)
-      const partRecipe = this.getRecipeByPart(this.ingPart)
-      const key = partRecipe ? partRecipe.key : ''
-      if (!key) return { 性能: {} }
-      return partCatalog[key] || { 性能: {} }
+      const partRecipe = this.getRecipeByPart(this.ingPart) || {}
+      const item = partCatalog[partRecipe.key] || {}
+      return item
     },
     score() {
-      const defaultItemSpec = this.ingItem.性能
-      const partRecipe = this.getRecipeByPart(this.ingPart)
-      if (!partRecipe) return {}
-      const category = Mini4.resolveCategoryByPart(this.ingPart)
-      const partCrafts = this.craftMaster[category]
-      const r = Mini4.calcCraftResult(defaultItemSpec, partRecipe, partCrafts)
+      const r = this.getPartScore(this.ingPart)
       const basic = {}
       const skill = {}
       for (const [k, v] of Object.entries(r)) {
@@ -97,6 +91,16 @@ export default {
     showInt(x) {
       if (!x) return 0
       return Math.trunc(x)
+    },
+    getPartScore(part) {
+      const partCatalog = this.getCatalogByPart(part)
+      const partRecipe = this.getRecipeByPart(part) || {}
+      const item = partCatalog[partRecipe.key] || {}
+      const defaultItemSpec = item.性能 || {}
+      const category = Mini4.resolveCategoryByPart(part)
+      const partCrafts = this.craftMaster[category]
+      const r = Mini4.calcCraftResult(defaultItemSpec, partRecipe, partCrafts)
+      return r
     }
   }
 }
