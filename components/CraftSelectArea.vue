@@ -1,8 +1,5 @@
 <template>
   <div class="xx-CraftLelectArea">
-    <button class="w-full border text-lg" @click="closeDialog">×</button>
-    <h3>craftIndex: {{ craftIndex }}</h3>
-    <hr />
     <label>
       <input v-model="quarity" type="radio" value="イイ感じ" />
       <span>イイ感じ</span>
@@ -82,10 +79,6 @@ export default {
 
 <style lang="less" scoped>
 .xx-CraftLelectArea {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9;
   background-color: #838888;
 }
 </style>

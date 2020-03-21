@@ -3,6 +3,7 @@
     <div class="w-full flex flex-col">
       <div class="row flex-auto">
         <total-area />
+        <parts-detail-area />
       </div>
     </div>
     <div class="flex-1 flex overflow-hidden">
@@ -10,19 +11,28 @@
         <setting-area />
       </div>
       <div class="w-5/12 overflow-auto flex flex-col">
-        <template v-if="isCrafting">
-          <craft-select-area />
-        </template>
-        <div class="row">
-          <parts-choise-area />
+        <div class="flex justify-between">
+          <button class="flex-auto border" @click="handleSwitchTab('付替')">
+            付替
+          </button>
+          <button class="flex-auto border" @click="handleSwitchTab('改造')">
+            改造
+          </button>
+          <button class="flex-auto border" @click="handleSwitchTab('強化')">
+            強化
+          </button>
         </div>
-        <div class="row">
-          <parts-detail-area />
+        <div class="migisita">
+          <template v-if="mode === '付替'">
+            <parts-choise-area />
+          </template>
+          <template v-if="mode === '改造'">
+            <craft-select-area />
+          </template>
+          <template v-if="mode === '強化'">
+            <remodel-area />
+          </template>
         </div>
-        <div class="row flex-auto">
-          <remodel-area />
-        </div>
-        <div class="row">その他</div>
       </div>
     </div>
   </div>
@@ -46,10 +56,20 @@ export default {
     RemodelArea,
     CraftSelectArea
   },
+  data() {
+    return {
+      mode: '付替'
+    }
+  },
   computed: {
     ...mapState('ing', {
       isCrafting: (state) => state.isCrafting
     })
+  },
+  methods: {
+    handleSwitchTab(mode) {
+      this.mode = mode
+    }
   }
 }
 </script>
@@ -59,5 +79,8 @@ export default {
   margin: 0 auto;
   height: 100vh;
   min-height: 100vh;
+}
+.migisita {
+  width: 300px;
 }
 </style>
