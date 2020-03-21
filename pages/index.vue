@@ -2,13 +2,8 @@
   <div class="container flex flex-col">
     <div class="col3way column flex flex-col">
       <div class="row flex-auto">
-        <div class="">マシン</div>
-      </div>
-      <div class="row flex-auto">
         <total-area />
       </div>
-      <div class="row flex-auto">スキル</div>
-      <div class="row flex-auto">その他</div>
     </div>
     <div class="col3way column flex">
       <template v-if="isCrafting">

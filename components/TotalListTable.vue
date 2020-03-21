@@ -1,38 +1,50 @@
 <template>
-  <div class="flex m-2">
-    <div class="flex items-center text-2xl">{{ showInt(totalScore) }}</div>
-    <div>
-      <table class="w-full text-xs">
-        <thead>
-          <tr>
-            <th class="border px-2 text-right">スピード</th>
-            <th class="border px-2 text-right">パワー</th>
-            <th class="border px-2 text-right">コーナー安定</th>
-            <th class="border px-2 text-right">スタミナ耐久</th>
-            <th class="border px-2 text-right">重さ</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th class="border px-2 text-right">
-              {{ showInt(allPartScoresSum.スピード, 2) }}
-            </th>
-            <th class="border px-2 text-right">
-              {{ showInt(allPartScoresSum.パワー, 2) }}
-            </th>
-            <th class="border px-2 text-right">
-              {{ showInt(allPartScoresSum.コーナー安定, 2) }}
-            </th>
-            <th class="border px-2 text-right">
-              {{ showInt(allPartScoresSum.スタミナ耐久, 2) }}
-            </th>
-            <th class="border px-2 text-right">
-              {{ showInt(allPartScoresSum.重さ, 2) }}
-            </th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+  <div>
+    <table class="w-full text-xs">
+      <thead>
+        <tr>
+          <th class="border px-2 text-right">スピード</th>
+          <th class="border px-2 text-right">パワー</th>
+          <th class="border px-2 text-right">コーナー安定</th>
+          <th class="border px-2 text-right">スタミナ耐久</th>
+          <th class="border px-2 text-right">重さ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(ps, idx) in allPartScores" :key="idx">
+          <td class="border px-2 text-right">
+            {{ showInt(ps.basic.スピード) }}
+          </td>
+          <td class="border px-2 text-right">{{ showInt(ps.basic.パワー) }}</td>
+          <td class="border px-2 text-right">
+            {{ showInt(ps.basic.コーナー安定) }}
+          </td>
+          <td class="border px-2 text-right">
+            {{ showInt(ps.basic.スタミナ耐久) }}
+          </td>
+          <td class="border px-2 text-right">{{ showInt(ps.basic.重さ) }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="border px-2 text-right">
+            {{ fixedNum(allPartScoresSum.スピード, 2) }}
+          </th>
+          <th class="border px-2 text-right">
+            {{ fixedNum(allPartScoresSum.パワー, 2) }}
+          </th>
+          <th class="border px-2 text-right">
+            {{ fixedNum(allPartScoresSum.コーナー安定, 2) }}
+          </th>
+          <th class="border px-2 text-right">
+            {{ fixedNum(allPartScoresSum.スタミナ耐久, 2) }}
+          </th>
+          <th class="border px-2 text-right">
+            {{ fixedNum(allPartScoresSum.重さ, 2) }}
+          </th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </template>
 
@@ -64,13 +76,6 @@ export default {
         }
       }
       return result
-    },
-    totalScore() {
-      let score = 0
-      for (const key of Object.keys(this.allPartScoresSum)) {
-        score = score + this.allPartScoresSum[key]
-      }
-      return score
     }
   },
   methods: {
