@@ -1,27 +1,29 @@
 <template>
   <div class="container flex flex-col">
-    <div class="col3way column flex flex-col">
+    <div class="w-full flex flex-col">
       <div class="row flex-auto">
         <total-area />
       </div>
     </div>
-    <div class="col3way column flex">
-      <template v-if="isCrafting">
-        <craft-select-area />
-      </template>
-      <setting-area />
-    </div>
-    <div class="col3way column flex flex-col">
-      <div class="row">
-        <parts-choise-area />
+    <div class="flex-1 flex overflow-hidden">
+      <div class="w-7/12 overflow-auto">
+        <setting-area />
       </div>
-      <div class="row">
-        <parts-detail-area />
+      <div class="w-5/12 overflow-auto flex flex-col">
+        <template v-if="isCrafting">
+          <craft-select-area />
+        </template>
+        <div class="row">
+          <parts-choise-area />
+        </div>
+        <div class="row">
+          <parts-detail-area />
+        </div>
+        <div class="row flex-auto">
+          <remodel-area />
+        </div>
+        <div class="row">その他</div>
       </div>
-      <div class="row flex-auto">
-        <remodel-area />
-      </div>
-      <div class="row">その他</div>
     </div>
   </div>
 </template>
@@ -55,16 +57,7 @@ export default {
 <style>
 .container {
   margin: 0 auto;
+  height: 100vh;
   min-height: 100vh;
-}
-
-.col3way {
-  /* width: 420px; */
-  width: 100%;
-}
-
-.row,
-.column {
-  border: 1px solid #ddd;
 }
 </style>
