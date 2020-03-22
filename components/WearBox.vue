@@ -110,7 +110,8 @@ export default {
     align-items: center;
     padding: 3px;
     line-height: 1;
-    font-size: 0.6em;
+    font-size: 0.55em;
+    letter-spacing: -0.1em;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
