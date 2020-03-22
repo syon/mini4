@@ -1,5 +1,5 @@
 <template>
-  <div class="xx-CraftLelectArea">
+  <div class="xx-CraftSelectArea">
     <label>
       <input v-model="quarity" type="radio" value="イイ感じ" />
       <span>イイ感じ</span>
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.xx-CraftLelectArea {
+.xx-CraftSelectArea {
   background-color: #838888;
 }
 </style>

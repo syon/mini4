@@ -4,11 +4,11 @@
     <table class="speclist">
       <tr>
         <th>コース適性</th>
-        <td></td>
+        <td>{{ ingItem.コース適性 }}</td>
       </tr>
       <tr>
         <th>ボディ特性</th>
-        <td></td>
+        <td>{{ ingItem.ボディ特性 }}</td>
       </tr>
     </table>
 

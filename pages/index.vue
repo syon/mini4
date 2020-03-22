@@ -77,7 +77,6 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  height: 100vh;
   min-height: 100vh;
 }
 .migisita {
