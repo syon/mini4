@@ -5,34 +5,17 @@
     @click="handleClick"
   >
     <div class="xx-titlebar flex justify-between">
-      <div>{{ x.action }}</div>
-      <div>詳細</div>
+      <div>{{ x.action || '&nbsp;' }}</div>
     </div>
     <div class="flex flex-1">
-      <div class="flex w-24">
-        <div
-          class="xx-quarity flex-auto flex flex-col items-center justify-center h-24"
-        >
-          <div class="xx-quarity-label">{{ x.quarity }}</div>
-          <div class="xx-quarity-level">Lv.{{ x.level }}</div>
-        </div>
+      <div
+        v-if="x.quarity || x.level"
+        class="xx-quarity flex-auto flex flex-col items-center justify-center p-2"
+      >
+        <div class="xx-quarity-label">{{ x.quarity }}</div>
+        <div class="xx-quarity-level">Lv.{{ x.level }}</div>
       </div>
-
-      <div class="flex-1 flex flex-col">
-        <template v-for="(e, idx) in x.effects">
-          <div
-            :key="idx"
-            :class="{ isMerit: e.メリデメ === 'メリット' }"
-            class="xx-merideme flex"
-          >
-            <div class="xx-merideme-label w-20">{{ e.メリデメ }}</div>
-            <div class="xx-merideme-topic flex-1 flex justify-between">
-              <div>{{ e.影響 }}</div>
-              <div class="xx-merideme-marks">{{ e.表示 }}</div>
-            </div>
-          </div>
-        </template>
-      </div>
+      <div v-else class="h-10"></div>
     </div>
   </div>
 </template>
@@ -79,16 +62,18 @@ export default {
   padding: 2px 4px;
   color: #fff;
   background-color: #20272a;
+  line-height: 1;
+  font-size: 0.8em;
 }
 
 .xx-quarity {
   .xx-quarity-label {
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bold;
     line-height: 1.2;
   }
   .xx-quarity-level {
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bold;
     line-height: 1.2;
   }

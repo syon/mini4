@@ -8,28 +8,11 @@
     <div class="flex-1 flex">
       <setting-area class="w-7/12" />
       <div class="w-5/12 flex flex-col">
-        <div class="flex justify-between">
-          <button class="flex-auto border" @click="handleSwitchTab('付替')">
-            付替
-          </button>
-          <button class="flex-auto border" @click="handleSwitchTab('改造')">
-            改造
-          </button>
-          <button class="flex-auto border" @click="handleSwitchTab('強化')">
-            強化
-          </button>
-        </div>
         <div class="migisita">
-          <template v-if="mode === '付替'">
-            <parts-choise-area />
-            <parts-detail-area />
-          </template>
-          <template v-if="mode === '改造'">
-            <craft-select-area />
-          </template>
-          <template v-if="mode === '強化'">
-            <remodel-area />
-          </template>
+          <parts-choise-area />
+          <parts-detail-area />
+          <craft-select-area />
+          <remodel-area />
         </div>
       </div>
     </div>
@@ -54,20 +37,10 @@ export default {
     RemodelArea,
     CraftSelectArea
   },
-  data() {
-    return {
-      mode: '付替'
-    }
-  },
   computed: {
     ...mapState('ing', {
       isCrafting: (state) => state.isCrafting
     })
-  },
-  methods: {
-    handleSwitchTab(mode) {
-      this.mode = mode
-    }
   }
 }
 </script>

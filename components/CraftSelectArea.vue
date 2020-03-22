@@ -1,5 +1,6 @@
 <template>
-  <div class="xx-CraftSelectArea">
+  <div v-if="isCrafting" class="xx-CraftSelectArea w-7/12">
+    <button class="w-full border my-4" @click="closeDialog">閉じる</button>
     <label>
       <input v-model="quarity" type="radio" value="イイ感じ" />
       <span>イイ感じ</span>
@@ -41,6 +42,7 @@ export default {
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
+      isCrafting: (state) => state.isCrafting,
       craftIndex: (state) => state.craftIndex
     }),
     ...mapState('craft', {
@@ -79,6 +81,9 @@ export default {
 
 <style lang="less" scoped>
 .xx-CraftSelectArea {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #838888;
 }
 </style>

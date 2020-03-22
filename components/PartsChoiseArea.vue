@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <select v-model="ingItem" class="text-lg border m-4">
+  <div class="PartsChoiseArea zzBg-gray1">
+    <select v-model="ingItem" class="text-lg border m-4 text-black">
       <option value="">選択なし</option>
       <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
         key

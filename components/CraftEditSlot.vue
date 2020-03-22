@@ -4,10 +4,10 @@
       <div>{{ x.action }}</div>
       <div>詳細</div>
     </div>
-    <div class="flex flex-1">
+    <div class="flex flex-col flex-1">
       <div class="flex w-24">
         <div
-          class="xx-quarity flex-auto flex flex-col items-center justify-center h-24"
+          class="xx-quarity flex-auto flex flex-col items-center justify-center"
         >
           <div class="xx-craftinfo">回数制限 99</div>
         </div>
@@ -20,7 +20,7 @@
             :class="{ isMerit: e.メリデメ === 'メリット' }"
             class="xx-merideme flex"
           >
-            <div class="xx-merideme-label w-24">{{ e.メリデメ }}</div>
+            <div class="xx-merideme-label w-20 text-xs">{{ e.メリデメ }}</div>
             <div class="xx-merideme-topic flex-1 flex justify-between">
               <div>{{ e.影響 }}</div>
               <div class="xx-merideme-marks">{{ e.表示 }}</div>
