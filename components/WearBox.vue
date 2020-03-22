@@ -51,7 +51,7 @@ export default {
 .WearBox {
   display: flex;
   position: relative;
-  // height: 90px;
+  // min-height: 90px;
   cursor: pointer;
 
   .WearBox-inner {

@@ -6,9 +6,7 @@
       </div>
     </div>
     <div class="flex-1 flex">
-      <div class="w-7/12">
-        <setting-area />
-      </div>
+      <setting-area class="w-7/12" />
       <div class="w-5/12 flex flex-col">
         <div class="flex justify-between">
           <button class="flex-auto border" @click="handleSwitchTab('付替')">
