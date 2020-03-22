@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isCrafting" class="xx-CraftSelectArea w-7/12">
+  <div v-if="isCrafting" class="xx-CraftSelectArea w-7/12 zzBg-gray1 shadow-md">
     <button class="w-full border my-4" @click="closeDialog">閉じる</button>
     <label>
       <input v-model="quarity" type="radio" value="イイ感じ" />
@@ -14,7 +14,7 @@
       <span>至高の逸品</span>
     </label>
     <hr />
-    <input v-model="level" type="number" class="m-2" />
+    <input v-model="level" type="number" class="m-2 text-black" />
     <hr />
     <template v-for="(x, idx) in ingCraftsWithBlank">
       <div :key="idx" class="flex m-2" @click="handleClickSlot(x)">
@@ -82,8 +82,7 @@ export default {
 <style lang="less" scoped>
 .xx-CraftSelectArea {
   position: absolute;
-  top: 0;
+  top: 100px;
   left: 0;
-  background-color: #838888;
 }
 </style>

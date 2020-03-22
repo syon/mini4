@@ -10,12 +10,12 @@
     <div class="flex flex-1">
       <div
         v-if="x.quarity || x.level"
-        class="xx-quarity flex-auto flex flex-col items-center justify-center p-2"
+        class="xx-quarity flex-auto flex items-center justify-between text-black p-2"
       >
         <div class="xx-quarity-label">{{ x.quarity }}</div>
         <div class="xx-quarity-level">Lv.{{ x.level }}</div>
       </div>
-      <div v-else class="h-10"></div>
+      <div v-else class="h-8"></div>
     </div>
   </div>
 </template>

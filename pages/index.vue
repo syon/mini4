@@ -8,7 +8,7 @@
     <div class="flex-1 flex">
       <setting-area class="w-7/12" />
       <div class="w-5/12 flex flex-col">
-        <div class="migisita">
+        <div class="migisita zzBg-gray1 p-1">
           <parts-choise-area />
           <parts-detail-area />
           <craft-select-area />

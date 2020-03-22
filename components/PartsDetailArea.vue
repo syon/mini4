@@ -1,5 +1,5 @@
 <template>
-  <div class="PartsDetailArea p-2 zzBg-gray1">
+  <div class="PartsDetailArea p-1 zzBg-gray1">
     <hr />
     <table class="speclist">
       <tr>

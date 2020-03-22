@@ -4,7 +4,7 @@
       <div>{{ x.action }}</div>
       <div>詳細</div>
     </div>
-    <div class="flex flex-col flex-1">
+    <div class="flex flex-col flex-1 text-black">
       <div class="flex w-24">
         <div
           class="xx-quarity flex-auto flex flex-col items-center justify-center"
@@ -20,7 +20,7 @@
             :class="{ isMerit: e.メリデメ === 'メリット' }"
             class="xx-merideme flex"
           >
-            <div class="xx-merideme-label w-20 text-xs">{{ e.メリデメ }}</div>
+            <div class="xx-merideme-label w-12 text-xs">{{ e.メリデメ }}</div>
             <div class="xx-merideme-topic flex-1 flex justify-between">
               <div>{{ e.影響 }}</div>
               <div class="xx-merideme-marks">{{ e.表示 }}</div>
@@ -72,11 +72,11 @@ export default {
     margin-bottom: 8px;
   }
   .xx-merideme-label {
-    margin-right: 10px;
+    margin-right: 5px;
     text-align: center;
   }
   .xx-merideme-topic {
-    padding-left: 10px;
+    padding-left: 5px;
   }
   &.isMerit {
     .xx-merideme-label {
