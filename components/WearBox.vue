@@ -51,7 +51,7 @@ export default {
 .WearBox {
   display: flex;
   position: relative;
-  height: 90px;
+  // height: 90px;
   cursor: pointer;
 
   .WearBox-inner {
@@ -59,8 +59,8 @@ export default {
     align-items: flex-start;
     width: 100%;
     background-clip: padding-box;
-    border: solid 3px transparent;
-    border-radius: 3px;
+    border: solid 2px transparent;
+    border-radius: 2px;
     position: relative;
     z-index: 0;
 
@@ -72,7 +72,7 @@ export default {
       bottom: 0;
       left: 0;
       z-index: -1;
-      margin: -3px;
+      margin: -2px;
       border-radius: inherit;
       background: linear-gradient(to bottom right, #fcfba6, #f7de79, #894f1a);
     }
@@ -84,6 +84,7 @@ export default {
     height: 100%;
     z-index: 0;
     background-color: rgb(83, 91, 96);
+    border-radius: 1px;
   }
 
   &.isEmpty {
@@ -107,14 +108,14 @@ export default {
   .xx-parts-name {
     display: flex;
     align-items: center;
-    // height: 100%;
     padding: 3px;
-    line-height: 1.2;
-    font-size: 0.75em;
+    line-height: 1;
+    font-size: 0.6em;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
+    border-radius: 1px;
   }
 }
 </style>

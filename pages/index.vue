@@ -81,6 +81,6 @@ export default {
   min-height: 100vh;
 }
 .migisita {
-  width: 300px;
+  overflow: hidden;
 }
 </style>

@@ -217,15 +217,15 @@ export default {
 
 <style lang="less" scoped>
 .xx-SettingArea {
-  padding: 15px;
+  padding: 5px;
   background-color: #85898a;
 
   .grid-setting {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
+    grid-column-gap: 3px;
+    grid-row-gap: 3px;
     justify-items: stretch;
     align-items: stretch;
 

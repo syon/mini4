@@ -40,12 +40,12 @@
         </table>
       </div>
     </div>
-    <div v-if="isDetailOpen" class="mt-3 py-2 px-4 zzBg-gray2">
+    <div v-if="isDetailOpen" class="mt-3 py-2 px-8 zzBg-gray2 text-xs">
       <table class="w-full">
         <tr
           v-for="(s, key) in allPartScoresSum"
           :key="key"
-          class="border-b border-gray-500 leading-tight"
+          class="border-b border-gray-600 leading-tight"
         >
           <td>{{ key }}</td>
           <td class="text-right">{{ fixedNum(s, 3) }}</td>

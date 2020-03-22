@@ -1,39 +1,51 @@
 <template>
-  <div>
-    <div class="flex">
-      <div class="w-16 h-16 bg-gray-300"></div>
-      <div class="flex-auto flex flex-col items-center justify-center text-xs">
-        <div>スピード</div>
-        <div class="text-lg">{{ showInt(score.basic.スピード) }}</div>
-      </div>
-      <div class="flex-auto flex flex-col items-center justify-center text-xs">
-        <div>パワー</div>
-        <div class="text-lg">{{ showInt(score.basic.パワー) }}</div>
-      </div>
-      <div class="flex-auto flex flex-col items-center justify-center text-xs">
-        <div>コーナー安定</div>
-        <div class="text-lg">{{ showInt(score.basic.コーナー安定) }}</div>
-      </div>
-      <div class="flex-auto flex flex-col items-center justify-center text-xs">
-        <div>スタミナ耐久</div>
-        <div class="text-lg">{{ showInt(score.basic.スタミナ耐久) }}</div>
-      </div>
-      <div class="flex-auto flex flex-col items-center justify-center text-xs">
-        <div>重さ</div>
-        <div class="text-lg">{{ showInt(score.basic.重さ) }}g</div>
-      </div>
-    </div>
-    <div class="flex">
+  <div class="p-2">
+    <hr />
+    <table class="speclist">
+      <tr>
+        <th>コース適性</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>ボディ特性</th>
+        <td></td>
+      </tr>
+    </table>
+
+    <hr />
+    <table class="speclist">
+      <tr>
+        <th>スピード</th>
+        <td>{{ score.basic.スピード }}</td>
+      </tr>
+      <tr>
+        <th>パワー</th>
+        <td>{{ score.basic.パワー }}</td>
+      </tr>
+      <tr>
+        <th>コーナー安定</th>
+        <td>{{ score.basic.コーナー安定 }}</td>
+      </tr>
+      <tr>
+        <th>スタミナ耐久</th>
+        <td>{{ score.basic.スタミナ耐久 }}</td>
+      </tr>
+      <tr>
+        <th>重さ</th>
+        <td>{{ score.basic.重さ }}</td>
+      </tr>
+    </table>
+
+    <hr />
+    <table class="speclist">
       <template v-for="(sVal, sKey) in score.skill">
-        <div
-          :key="sKey"
-          class="flex-auto flex flex-col items-center justify-center tracking-tighter"
-        >
-          <div class="text-xs">{{ sKey }}</div>
-          <div class="text-sm">{{ sVal }}</div>
-        </div>
+        <tr :key="sKey">
+          <th>{{ sKey }}</th>
+          <td>{{ sVal }}</td>
+        </tr>
       </template>
-    </div>
+    </table>
+    <hr />
   </div>
 </template>
 
@@ -105,3 +117,17 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.speclist {
+  width: 100%;
+  font-size: 0.6em;
+  th {
+    text-align: left;
+    font-weight: normal;
+  }
+  td {
+    text-align: right;
+  }
+}
+</style>
