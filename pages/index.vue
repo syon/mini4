@@ -3,7 +3,6 @@
     <div class="w-full flex flex-col">
       <div class="row flex-auto">
         <total-area />
-        <parts-detail-area />
       </div>
     </div>
     <div class="flex-1 flex overflow-hidden">
@@ -25,6 +24,7 @@
         <div class="migisita">
           <template v-if="mode === '付替'">
             <parts-choise-area />
+            <parts-detail-area />
           </template>
           <template v-if="mode === '改造'">
             <craft-select-area />
