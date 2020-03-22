@@ -5,11 +5,11 @@
         <total-area />
       </div>
     </div>
-    <div class="flex-1 flex overflow-hidden">
-      <div class="w-7/12 overflow-auto">
+    <div class="flex-1 flex">
+      <div class="w-7/12">
         <setting-area />
       </div>
-      <div class="w-5/12 overflow-auto flex flex-col">
+      <div class="w-5/12 flex flex-col">
         <div class="flex justify-between">
           <button class="flex-auto border" @click="handleSwitchTab('付替')">
             付替
