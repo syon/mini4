@@ -32,7 +32,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@assets/app.less'],
   /*
    ** Plugins to load before mounting the App
    */
