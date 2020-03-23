@@ -4,8 +4,7 @@
     class="xx-CraftEditSlot w-full flex flex-col text-sm"
   >
     <div class="xx-titlebar flex justify-between">
-      <div>{{ x.action }}</div>
-      <div>詳細</div>
+      <div>{{ x.action || '&nbsp;' }}</div>
     </div>
     <div class="flex flex-col flex-1 text-black p-1">
       <div class="flex">
