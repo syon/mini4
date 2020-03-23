@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import CraftEditSlot from '@/components/CraftEditSlot'
 import Mini4 from '@/models/Mini4'
 
@@ -48,6 +48,9 @@ export default {
     ...mapState('craft', {
       craftMaster: (state) => state.craft
     }),
+    ...mapGetters({
+      getRecipeByPart: 'recipe/getRecipeByPart'
+    }),
     ingCrafts() {
       const category = Mini4.resolveCategoryByPart(this.ingPart)
       const partCrafts = this.craftMaster[category]
@@ -56,6 +59,12 @@ export default {
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)
       arr.unshift({ action: '' })
+      const recipe = this.getRecipeByPart(this.ingPart) || {}
+      const recipeCrafts = recipe.crafts || []
+      for (const a of arr) {
+        const hit = recipeCrafts.filter((x) => x.action === a.action)
+        a.craftedCount = hit.length
+      }
       return arr
     }
   },
