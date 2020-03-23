@@ -1,5 +1,8 @@
 <template>
-  <div class="xx-RemodelSlot w-full flex flex-col text-sm">
+  <div
+    :class="{ isNomoreCraft: nomore }"
+    class="xx-RemodelSlot w-full flex flex-col text-sm"
+  >
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
       <div>詳細</div>
@@ -15,7 +18,7 @@
               残り: {{ x.回数制限 - x.craftedCount }}
             </span>
           </template>
-          <div v-if="x.回数制限 - x.craftedCount <= 0" class="xx-nomorecraft">
+          <div v-if="x.回数制限 - x.craftedCount <= 0" class="xx-limitmessage">
             これ以上改造できません。
           </div>
         </div>
@@ -31,7 +34,9 @@
             <div class="xx-merideme-label flex items-center justify-center">
               {{ e.メリデメ }}
             </div>
-            <div class="xx-merideme-topic flex-1 flex justify-between">
+            <div
+              class="xx-merideme-topic flex-1 flex items-center justify-between"
+            >
               <div>{{ e.影響 }}</div>
               <div class="xx-merideme-marks">{{ e.表示 }}</div>
             </div>
@@ -48,6 +53,9 @@ export default {
   computed: {
     x() {
       return this.arg || {}
+    },
+    nomore() {
+      return this.x.回数制限 - this.x.craftedCount <= 0
     }
   }
 }
@@ -56,11 +64,18 @@ export default {
 <style lang="less" scoped>
 .xx-RemodelSlot {
   background-color: #f0f4f4;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 0.25rem;
+
+  &.isNomoreCraft {
+    background-color: rgb(105, 116, 117);
+  }
 }
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
   background-color: #20272a;
+  border-radius: 0.2rem 0.2rem 0 0;
 }
 .xx-craftinfo {
   .xx-limittip {
@@ -70,7 +85,7 @@ export default {
     margin-right: 0.5em;
   }
 
-  .xx-nomorecraft {
+  .xx-limitmessage {
     font-size: 0.6em;
     border-radius: 0.15rem;
     padding: 0.2em 0.4em;
@@ -91,8 +106,9 @@ export default {
     text-align: center;
   }
   .xx-merideme-topic {
+    padding: 0 5px;
     font-size: 0.75rem;
-    padding-left: 5px;
+    line-height: 1;
   }
   // Merit
   .xx-merideme-label {
@@ -117,7 +133,7 @@ export default {
       background-color: rgb(231, 218, 218);
     }
     .xx-merideme-marks {
-      color: #0d7827;
+      color: rgb(122, 39, 4);
       font-weight: bold;
     }
   }
