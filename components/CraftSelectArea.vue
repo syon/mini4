@@ -14,7 +14,28 @@
       <span>至高の逸品</span>
     </label>
     <hr />
-    <input v-model="level" type="number" class="m-2 text-black" />
+    <div class="flex items-center text-black">
+      <button class="border bg-gray-200 w-8" @click="handleLevel('One')">
+        1
+      </button>
+      <button class="border bg-gray-200 w-8" @click="handleLevel('Minus')">
+        ー
+      </button>
+      <input
+        v-model="level"
+        type="number"
+        class="text-black w-10 text-center"
+      />
+      <button class="border bg-gray-200 w-8" @click="handleLevel('Plus')">
+        ＋
+      </button>
+      <button class="border bg-gray-200 w-8" @click="handleLevel('Now')">
+        37
+      </button>
+      <button class="border bg-gray-200 w-8" @click="handleLevel('Max')">
+        50
+      </button>
+    </div>
     <hr />
     <template v-for="(x, idx) in ingCraftsWithBlank">
       <div :key="idx" class="flex m-2" @click="handleClickSlot(x)">
@@ -90,6 +111,25 @@ export default {
     }
   },
   methods: {
+    handleLevel(sub) {
+      switch (sub) {
+        case 'One':
+          this.level = 1
+          break
+        case 'Minus':
+          this.level = this.level - 1
+          break
+        case 'Plus':
+          this.level = this.level + 1
+          break
+        case 'Now':
+          this.level = 37
+          break
+        case 'Max':
+          this.level = 50
+          break
+      }
+    },
     handleClickSlot(x) {
       const isNone = x.action === ''
       const arg = {
