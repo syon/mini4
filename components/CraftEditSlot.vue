@@ -9,7 +9,7 @@
         <div
           class="xx-quarity flex-auto flex flex-col items-center justify-center"
         >
-          <div class="xx-craftinfo">回数制限 99</div>
+          <div class="xx-craftinfo">回数制限: {{ x.回数制限 }}</div>
         </div>
       </div>
 
