@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="{ isNomoreCraft: nomore }"
-    class="xx-RemodelSlot w-full flex flex-col text-sm"
+    :class="{ active: x.isActive, isNomoreCraft: nomore }"
+    class="xx-CraftEditSlot w-full flex flex-col text-sm"
   >
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action }}</div>
@@ -48,9 +48,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: { arg: { type: Object, default: () => {} } },
   computed: {
+    ...mapState('ing', {
+      ingPart: (state) => state.part,
+      craftIndex: (state) => state.craftIndex
+    }),
     x() {
       return this.arg || {}
     },
@@ -67,11 +73,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.xx-RemodelSlot {
+.xx-CraftEditSlot {
   background-color: #f0f4f4;
   border: 1px solid rgb(180, 180, 180);
   border-radius: 0.2rem;
 
+  &.active {
+    background-color: #fffca0;
+    border: 1px solid #f1f658;
+  }
   &.isNomoreCraft {
     background-color: rgb(105, 116, 117);
   }

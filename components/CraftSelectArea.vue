@@ -64,6 +64,7 @@ export default {
       for (const a of arr) {
         const hit = recipeCrafts.filter((x) => x.action === a.action)
         a.craftedCount = hit.length
+        a.isActive = a.action === recipeCrafts[this.craftIndex].action
       }
       return arr
     }
