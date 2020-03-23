@@ -71,6 +71,24 @@ export default {
       return arr
     }
   },
+  watch: {
+    quarity(quarity) {
+      const payload = {
+        part: this.ingPart,
+        craftIndex: this.craftIndex,
+        quarity
+      }
+      this.$store.dispatch('recipe/changeCraftquarity', payload)
+    },
+    level(level) {
+      const payload = {
+        part: this.ingPart,
+        craftIndex: this.craftIndex,
+        level
+      }
+      this.$store.dispatch('recipe/changeCraftLevel', payload)
+    }
+  },
   methods: {
     handleClickSlot(x) {
       const isNone = x.action === ''
