@@ -18,7 +18,7 @@
               残り: {{ x.回数制限 - x.craftedCount }}
             </span>
           </template>
-          <div v-if="x.回数制限 - x.craftedCount <= 0" class="xx-limitmessage">
+          <div v-if="nomore" class="xx-limitmessage">
             これ以上改造できません。
           </div>
         </div>
@@ -55,7 +55,12 @@ export default {
       return this.arg || {}
     },
     nomore() {
-      return this.x.回数制限 - this.x.craftedCount <= 0
+      return this.x.回数制限 && this.x.回数制限 - this.x.craftedCount <= 0
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit('click')
     }
   }
 }
@@ -65,7 +70,7 @@ export default {
 .xx-RemodelSlot {
   background-color: #f0f4f4;
   border: 1px solid rgb(180, 180, 180);
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
 
   &.isNomoreCraft {
     background-color: rgb(105, 116, 117);
@@ -75,7 +80,7 @@ export default {
   padding: 2px 4px;
   color: #fff;
   background-color: #20272a;
-  border-radius: 0.2rem 0.2rem 0 0;
+  border-radius: 0.15rem 0.15rem 0 0;
 }
 .xx-craftinfo {
   .xx-limittip {
