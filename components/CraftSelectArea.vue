@@ -43,7 +43,8 @@ export default {
     ...mapState('ing', {
       ingPart: (state) => state.part,
       isCrafting: (state) => state.isCrafting,
-      craftIndex: (state) => state.craftIndex
+      craftIndex: (state) => state.craftIndex,
+      craftAction: (state) => state.craftAction
     }),
     ...mapState('craft', {
       craftMaster: (state) => state.craft
@@ -56,15 +57,16 @@ export default {
       const partCrafts = this.craftMaster[category]
       return partCrafts || []
     },
+    crrRecipeCrafts() {
+      const recipe = this.getRecipeByPart(this.ingPart) || {}
+      return recipe.crafts || []
+    },
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)
       arr.unshift({ action: '' })
-      const recipe = this.getRecipeByPart(this.ingPart) || {}
-      const recipeCrafts = recipe.crafts || []
       for (const a of arr) {
-        const hit = recipeCrafts.filter((x) => x.action === a.action)
+        const hit = this.crrRecipeCrafts.filter((x) => x.action === a.action)
         a.craftedCount = hit.length
-        a.isActive = a.action === recipeCrafts[this.craftIndex].action
       }
       return arr
     }

@@ -42,7 +42,11 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$store.dispatch('ing/changeCraftIndex', this.craftIndex)
+      const payload = {
+        craftIndex: this.craftIndex,
+        craftAction: this.x.action
+      }
+      this.$store.dispatch('ing/changeCraftIndex', payload)
     }
   }
 }

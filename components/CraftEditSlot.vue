@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ active: x.isActive, isNomoreCraft: nomore }"
+    :class="{ active: x.action === craftAction, isNomoreCraft: nomore }"
     class="xx-CraftEditSlot w-full flex flex-col text-sm"
   >
     <div class="xx-titlebar flex justify-between">
@@ -55,7 +55,8 @@ export default {
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
-      craftIndex: (state) => state.craftIndex
+      craftIndex: (state) => state.craftIndex,
+      craftAction: (state) => state.craftAction
     }),
     x() {
       return this.arg || {}
