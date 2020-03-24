@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isCrafting" class="xx-CraftSelectArea w-7/12 zzBg-gray1 shadow-md">
-    <button class="w-full border my-4" @click="closeDialog">閉じる</button>
+  <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
+    <button class="w-full border" @click="closeDialog">閉じる</button>
     <div class="quarityChoise my-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
@@ -15,31 +15,46 @@
         <span style="letter-spacing: -0.05em;">至高の逸品</span>
       </label>
     </div>
-    <div class="flex items-center justify-center text-black my-2">
-      <button class="border bg-gray-200 w-8" @click="handleLevel('One')">
+    <div class="flex items-center justify-around text-black my-2">
+      <button
+        class="border bg-gray-200 w-8 rounded"
+        @click="handleLevel('One')"
+      >
         1
       </button>
-      <button class="border bg-gray-200 w-8" @click="handleLevel('Minus')">
+      <button
+        class="border bg-gray-200 w-8 rounded"
+        @click="handleLevel('Minus')"
+      >
         ー
       </button>
       <input
         v-model="level"
         type="number"
-        class="text-black w-10 text-center"
+        class="text-white bg-gray-800 w-10 text-center"
       />
-      <button class="border bg-gray-200 w-8" @click="handleLevel('Plus')">
+      <button
+        class="border bg-gray-200 w-8 rounded"
+        @click="handleLevel('Plus')"
+      >
         ＋
       </button>
-      <button class="border bg-gray-200 w-8" @click="handleLevel('Now')">
+      <button
+        class="border bg-gray-200 w-8 rounded"
+        @click="handleLevel('Now')"
+      >
         37
       </button>
-      <button class="border bg-gray-200 w-8" @click="handleLevel('Max')">
+      <button
+        class="border bg-gray-200 w-8 rounded"
+        @click="handleLevel('Max')"
+      >
         50
       </button>
     </div>
     <hr />
     <template v-for="(x, idx) in ingCraftsWithBlank">
-      <div :key="idx" class="flex m-2" @click="handleClickSlot(x)">
+      <div :key="idx" class="flex mx-1 my-2" @click="handleClickSlot(x)">
         <craft-edit-slot :arg="x" />
       </div>
     </template>
@@ -143,8 +158,8 @@ export default {
         part: this.ingPart,
         craftIndex: this.craftIndex,
         action: x.action,
-        quarity: isNone ? '' : this.quarity,
-        level: isNone ? 0 : this.level
+        quarity: isNone ? '' : this.quarity || 'イイ感じ',
+        level: isNone ? 0 : this.level || 1
       }
       this.$store.dispatch('recipe/changeCraft', arg)
       this.closeDialog()
@@ -159,8 +174,12 @@ export default {
 <style lang="less" scoped>
 .xx-CraftSelectArea {
   position: absolute;
-  top: 100px;
+  top: 75px;
   left: 0;
+  width: 58vw;
+  border: 1px solid #c8c8c8;
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .quarityChoise {
