@@ -53,11 +53,13 @@
       </button>
     </div>
     <hr />
-    <template v-for="(x, idx) in ingCraftsWithBlank">
-      <div :key="idx" class="flex mx-1 my-2" @click="handleClickSlot(x)">
-        <craft-edit-slot :arg="x" />
-      </div>
-    </template>
+    <div class="CraftEditSlotList">
+      <template v-for="(x, idx) in ingCraftsWithBlank">
+        <div :key="idx" class="flex mx-1 my-2" @click="handleClickSlot(x)">
+          <craft-edit-slot :arg="x" />
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -206,5 +208,11 @@ export default {
     display: none;
     appearance: none;
   }
+}
+
+.CraftEditSlotList {
+  height: 64vh;
+  overflow: auto;
+  padding: 0 0 30px;
 }
 </style>
