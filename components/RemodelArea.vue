@@ -1,9 +1,7 @@
 <template>
-  <div class="xx-RemodelArea flex flex-col">
+  <div class="xx-RemodelArea">
     <template v-for="(x, idx) in ingCrafts">
-      <div :key="idx" class="flex mb-2">
-        <remodel-slot :arg="x" :craft-index="idx" />
-      </div>
+      <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
     <button @click="dump">export</button>
   </div>

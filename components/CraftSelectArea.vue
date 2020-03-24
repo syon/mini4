@@ -56,10 +56,10 @@
         50
       </button>
     </div>
-    <hr />
+    <hr class="my-1" />
     <div class="CraftEditSlotList">
       <template v-for="(x, idx) in ingCraftsWithBlank">
-        <div :key="idx" class="flex mx-1 my-2" @click="handleClickSlot(x)">
+        <div :key="idx" class="flex mx-1 my-1" @click="handleClickSlot(x)">
           <craft-edit-slot :arg="x" />
         </div>
       </template>
