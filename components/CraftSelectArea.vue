@@ -17,15 +17,15 @@
         <span style="letter-spacing: -0.05em;">至高の逸品</span>
       </label>
     </div>
-    <div class="flex items-center justify-around text-black my-2">
+    <div class="levelChoise flex items-center justify-around text-black my-2">
       <button
-        class="border bg-gray-200 w-8 rounded"
+        class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('One')"
       >
         1
       </button>
       <button
-        class="border bg-gray-200 w-8 rounded"
+        class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('Minus')"
       >
         ー
@@ -33,22 +33,22 @@
       <input
         v-model="level"
         type="number"
-        class="text-white bg-gray-800 w-10 text-center"
+        class="text-white bg-gray-800 w-10 h-6 text-center"
       />
       <button
-        class="border bg-gray-200 w-8 rounded"
+        class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('Plus')"
       >
         ＋
       </button>
       <button
-        class="border bg-gray-200 w-8 rounded"
+        class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('Now')"
       >
         37
       </button>
       <button
-        class="border bg-gray-200 w-8 rounded"
+        class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('Max')"
       >
         50
@@ -215,6 +215,10 @@ export default {
     display: none;
     appearance: none;
   }
+}
+
+.levelChoise {
+  font-size: 0.8rem;
 }
 
 .CraftEditSlotList {
