@@ -1,11 +1,13 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
-    <div class="m-4">
-      <select v-model="ingItemKey" class="text-lg border text-black">
-        <option value="">選択なし</option>
-        <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
-          key
-        }}</option>
+    <div class="my-4">
+      <select v-model="ingItemKey" class="border text-black">
+        <optgroup label="">
+          <option value="">選択なし</option>
+          <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
+            key
+          }}</option>
+        </optgroup>
       </select>
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
