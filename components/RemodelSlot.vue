@@ -68,18 +68,18 @@ export default {
   padding: 2px 4px;
   color: #fff;
   background-color: #20272a;
-  line-height: 1;
-  font-size: 0.8em;
+  line-height: 1.2;
+  font-size: 0.8rem;
 }
 
 .xx-quarity {
   .xx-quarity-label {
-    font-size: 1em;
+    font-size: 0.8rem;
     font-weight: bold;
     line-height: 1.2;
   }
   .xx-quarity-level {
-    font-size: 1em;
+    font-size: 0.8rem;
     font-weight: bold;
     line-height: 1.2;
   }
