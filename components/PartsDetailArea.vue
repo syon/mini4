@@ -121,7 +121,8 @@ export default {
 <style lang="less" scoped>
 .speclist {
   width: 100%;
-  font-size: 0.6em;
+  font-size: 0.7em;
+  letter-spacing: -0.025em;
   th {
     text-align: left;
     font-weight: normal;
