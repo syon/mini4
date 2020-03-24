@@ -58,6 +58,7 @@ export default {
 .xx-RemodelSlot {
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
+  border-radius: 0.2rem;
   &.active {
     background-color: #fffca0;
     border: 1px solid #f1f658;
@@ -67,9 +68,10 @@ export default {
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
+  font-size: 0.8rem;
   background-color: #20272a;
   line-height: 1.2;
-  font-size: 0.8rem;
+  border-radius: 0.15rem 0.15rem 0 0;
 }
 
 .xx-quarity {
