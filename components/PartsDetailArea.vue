@@ -6,7 +6,7 @@
         <th>コース適性</th>
         <td>{{ ingItem.コース適性 }}</td>
       </tr>
-      <tr>
+      <tr v-if="ingItem.ボディ特性">
         <th>ボディ特性</th>
         <td>{{ ingItem.ボディ特性 }}</td>
       </tr>
