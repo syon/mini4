@@ -1,7 +1,8 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
-    <div class="my-4">
-      <select v-model="ingItemKey" class="border text-black">
+    <div class="PartsName my-4 w-full">
+      <div class="PartsName-label h-8">{{ ingItemKey }}</div>
+      <select v-model="ingItemKey" class="PartsName-select">
         <optgroup label="">
           <option value="">選択なし</option>
           <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
@@ -70,3 +71,19 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.PartsName {
+  position: relative;
+}
+.PartsName-label {
+  line-height: 1;
+}
+.PartsName-select {
+  opacity: 0.01;
+  position: absolute;
+  top: 0;
+  width: inherit;
+  height: 100%;
+}
+</style>
