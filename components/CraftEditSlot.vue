@@ -9,7 +9,7 @@
     <div class="flex flex-col flex-1 text-black p-1">
       <div class="flex">
         <div class="xx-craftinfo flex-auto flex items-center">
-          <span class="xx-limittip zzBg-gray1">
+          <span v-if="x.craftedCount > 0" class="xx-limittip zzBg-gray1">
             済み: {{ x.craftedCount }}
           </span>
           <template v-if="x.回数制限">
@@ -94,6 +94,8 @@ export default {
   border-radius: 0.15rem 0.15rem 0 0;
 }
 .xx-craftinfo {
+  line-height: 1;
+
   .xx-limittip {
     font-size: 0.6em;
     border-radius: 0.15rem;
