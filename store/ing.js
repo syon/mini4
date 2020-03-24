@@ -1,7 +1,7 @@
 export const state = () => ({
   part: 'ボディ',
   isCrafting: false,
-  craftIndex: 0,
+  craftIndex: null,
   craftAction: '',
   craftQuality: null,
   craftLevel: null
