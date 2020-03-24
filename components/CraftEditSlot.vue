@@ -27,7 +27,10 @@
           </div>
         </div>
 
-        <div class="flex-1 flex flex-col">
+        <div
+          :class="{ isNomore: nomore }"
+          class="xx-merideme-list flex-1 flex flex-col"
+        >
           <template v-for="(e, idx) in x.effects">
             <div
               :key="idx"
@@ -119,6 +122,12 @@ export default {
   padding: 0.2em 0.4em;
   color: #fff;
   background-color: rgb(220, 47, 33);
+}
+
+.xx-merideme-list {
+  &.isNomore {
+    opacity: 0.3;
+  }
 }
 
 .xx-merideme {
