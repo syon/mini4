@@ -157,3 +157,9 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+thead th {
+  font-weight: normal;
+}
+</style>
