@@ -1,11 +1,19 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
-    <select v-model="ingItem" class="text-lg border m-4 text-black">
-      <option value="">選択なし</option>
-      <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
-        key
-      }}</option>
-    </select>
+    <div class="m-4">
+      <select v-model="ingItemKey" class="text-lg border text-black">
+        <option value="">選択なし</option>
+        <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
+          key
+        }}</option>
+      </select>
+    </div>
+    <div class="flex items-center justify-center">
+      <label class="flex items-center text-xs">
+        <input type="checkbox" class="mr-1" />
+        <span>肉抜きする({{ ingItem.肉抜き }}箇所)</span>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -24,7 +32,17 @@ export default {
       getRecipeByPart: 'recipe/getRecipeByPart',
       getCatalogByPart: 'catalog/getCatalogByPart'
     }),
-    ingItem: {
+    ...mapGetters({
+      getCatalogByPart: 'catalog/getCatalogByPart',
+      getRecipeByPart: 'recipe/getRecipeByPart'
+    }),
+    ingItem() {
+      const partCatalog = this.getCatalogByPart(this.ingPart) || {}
+      const partRecipe = this.getRecipeByPart(this.ingPart) || {}
+      const item = partCatalog[partRecipe.key] || {}
+      return item
+    },
+    ingItemKey: {
       get() {
         const partRecipe = this.getRecipeByPart(this.ingPart)
         return partRecipe ? partRecipe.key : ''
