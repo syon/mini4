@@ -5,16 +5,17 @@
         <total-area />
       </div>
     </div>
-    <div class="flex-1 flex">
+    <div class="flex">
       <setting-area class="w-7/12" />
-      <div class="w-5/12 flex flex-col">
-        <div class="migisita zzBg-gray1 p-1">
-          <parts-choise-area />
-          <parts-detail-area />
-          <craft-select-area />
-          <remodel-area />
-        </div>
+      <div class="w-5/12 migisita zzBg-gray1 p-1">
+        <parts-choise-area />
+        <parts-detail-area />
+        <craft-select-area />
+        <remodel-area />
       </div>
+    </div>
+    <div class="zzBg-gray2 h-64">
+      テキストコピペエリア
     </div>
   </div>
 </template>
