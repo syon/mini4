@@ -108,7 +108,7 @@ export default {
     },
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)
-      arr.unshift({ action: '(改造なし)' })
+      arr.unshift({ action: '' })
       for (const a of arr) {
         const hit = this.crrRecipeCrafts.filter((x) => x.action === a.action)
         a.craftedCount = hit.length

@@ -4,7 +4,7 @@
     class="xx-CraftEditSlot w-full flex flex-col text-sm"
   >
     <div class="xx-titlebar flex justify-between">
-      <div>{{ x.action || '&nbsp;' }}</div>
+      <div>{{ x.action || '(改造なし)' }}</div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
       <div v-if="nomore" class="xx-limitmessage">
@@ -14,7 +14,7 @@
         <div class="flex">
           <div class="xx-craftinfo flex-auto flex items-stretch">
             <span
-              v-if="x.craftedCount > 0"
+              v-if="x.craftedCount > 0 && x.action"
               class="xx-limittip zzBg-gray1 text-center"
             >
               済み: {{ x.craftedCount }}
@@ -85,6 +85,7 @@ export default {
   background-color: #f0f4f4;
   border: 1px solid rgb(180, 180, 180);
   border-radius: 0.2rem;
+  min-height: 40px;
 
   &.active {
     background-color: #fffca0;
