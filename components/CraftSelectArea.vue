@@ -65,7 +65,9 @@ export default {
       ingPart: (state) => state.part,
       isCrafting: (state) => state.isCrafting,
       craftIndex: (state) => state.craftIndex,
-      craftAction: (state) => state.craftAction
+      craftAction: (state) => state.craftAction,
+      craftQuality: (state) => state.craftQuality,
+      craftLevel: (state) => state.craftLevel
     }),
     ...mapState('craft', {
       craftMaster: (state) => state.craft
@@ -93,6 +95,10 @@ export default {
     }
   },
   watch: {
+    craftIndex() {
+      this.quarity = this.craftQuality
+      this.level = this.craftLevel
+    },
     quarity(quarity) {
       const payload = {
         part: this.ingPart,

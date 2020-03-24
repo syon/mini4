@@ -44,7 +44,9 @@ export default {
     handleClick() {
       const payload = {
         craftIndex: this.craftIndex,
-        craftAction: this.x.action
+        craftAction: this.x.action,
+        craftQuality: this.x.quarity,
+        craftLevel: this.x.level
       }
       this.$store.dispatch('ing/changeCraftIndex', payload)
     }
