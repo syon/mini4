@@ -89,6 +89,7 @@ export default {
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
+  font-size: 0.8rem;
   background-color: #20272a;
   border-radius: 0.15rem 0.15rem 0 0;
 }
@@ -110,19 +111,20 @@ export default {
 }
 
 .xx-merideme {
-  margin: 4px 0 0;
+  margin: 2px 0 0;
   &:last-child {
     margin-bottom: 0;
   }
   .xx-merideme-label {
     width: 50px;
-    margin-right: 5px;
+    margin-right: 2px;
     font-size: 0.6rem;
     text-align: center;
+    line-height: 1.1;
   }
   .xx-merideme-topic {
     padding: 0 5px;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     line-height: 1;
   }
   // Merit
