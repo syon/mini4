@@ -1,6 +1,8 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
-    <button class="w-full border" @click="closeDialog">閉じる</button>
+    <div class="xx-close">
+      <button class="w-full" @click="closeDialog">閉じる</button>
+    </div>
     <div class="quarityChoise my-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
@@ -182,6 +184,11 @@ export default {
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.xx-close {
+  font-size: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .quarityChoise {

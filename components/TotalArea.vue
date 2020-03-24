@@ -3,12 +3,12 @@
     <div class="flex p-2 zzBg-gray2 justify-between">
       <div class="flex-1 flex items-center justify-center">
         <div class="flex flex-col items-center">
-          <div class="text-xs">総合評価</div>
+          <div>総合評価</div>
           <div class="text-2xl">{{ showInt(totalScore) }}</div>
         </div>
       </div>
       <div class="flex items-center">
-        <table class="w-full text-xs">
+        <table class="w-full">
           <thead>
             <tr>
               <th class="px-2 text-center">スピード</th>
@@ -164,6 +164,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.TotalArea {
+  font-size: 0.8rem;
+}
+
 thead th {
   font-weight: normal;
 }
