@@ -3,7 +3,7 @@
     <div class="xx-close">
       <button class="w-full" @click="closeDialog">閉じる</button>
     </div>
-    <div class="quarityChoise my-2">
+    <div class="quarityChoise mt-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
         <span>イイ感じ</span>
@@ -17,7 +17,9 @@
         <span style="letter-spacing: -0.05em;">至高の逸品</span>
       </label>
     </div>
-    <div class="levelChoise flex items-center justify-around text-black my-2">
+    <div
+      class="levelChoise flex items-center justify-around text-black mt-1 mb-2"
+    >
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
         @click="handleLevel('One')"
