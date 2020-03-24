@@ -1,20 +1,21 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea w-7/12 zzBg-gray1 shadow-md">
     <button class="w-full border my-4" @click="closeDialog">閉じる</button>
-    <label>
-      <input v-model="quarity" type="radio" value="イイ感じ" />
-      <span>イイ感じ</span>
-    </label>
-    <label>
-      <input v-model="quarity" type="radio" value="職人技" />
-      <span>職人技</span>
-    </label>
-    <label>
-      <input v-model="quarity" type="radio" value="至高の逸品" />
-      <span>至高の逸品</span>
-    </label>
-    <hr />
-    <div class="flex items-center text-black">
+    <div class="quarityChoise my-2">
+      <label :class="{ active: quarity === 'イイ感じ' }">
+        <input v-model="quarity" type="radio" value="イイ感じ" />
+        <span>イイ感じ</span>
+      </label>
+      <label :class="{ active: quarity === '職人技' }">
+        <input v-model="quarity" type="radio" value="職人技" />
+        <span>職人技</span>
+      </label>
+      <label :class="{ active: quarity === '至高の逸品' }">
+        <input v-model="quarity" type="radio" value="至高の逸品" />
+        <span style="letter-spacing: -0.05em;">至高の逸品</span>
+      </label>
+    </div>
+    <div class="flex items-center justify-center text-black my-2">
       <button class="border bg-gray-200 w-8" @click="handleLevel('One')">
         1
       </button>
@@ -56,8 +57,8 @@ export default {
   },
   data() {
     return {
-      quarity: '至高の逸品',
-      level: 50
+      quarity: null,
+      level: null
     }
   },
   computed: {
@@ -160,5 +161,31 @@ export default {
   position: absolute;
   top: 100px;
   left: 0;
+}
+
+.quarityChoise {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: bold;
+  > label {
+    flex: 1;
+    text-align: center;
+    color: #000;
+    background-color: #f0f4f4;
+    border: 1px solid #b4b4b4;
+    border-radius: 0.2rem;
+    padding: 5px 0;
+    margin: 2px;
+    &.active {
+      background-color: #fffca0;
+      border: 1px solid #f1f658;
+    }
+  }
+  input[type='radio'] {
+    display: none;
+    appearance: none;
+  }
 }
 </style>
