@@ -6,41 +6,46 @@
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action || '&nbsp;' }}</div>
     </div>
-    <div class="flex flex-col flex-1 text-black p-1">
+    <div class="flex-1 flex flex-col text-black p-1">
+      <div v-if="nomore" class="xx-limitmessage">
+        これ以上改造できません。
+      </div>
       <div class="flex">
-        <div class="xx-craftinfo flex-auto flex items-center">
-          <span v-if="x.craftedCount > 0" class="xx-limittip zzBg-gray1">
-            済み: {{ x.craftedCount }}
-          </span>
-          <template v-if="x.回数制限">
-            <span class="xx-limittip zzBg-gray1">
-              残り: {{ x.回数制限 - x.craftedCount }}
+        <div class="flex">
+          <div class="xx-craftinfo flex-auto flex items-stretch">
+            <span
+              v-if="x.craftedCount > 0"
+              class="xx-limittip zzBg-gray1 text-center"
+            >
+              済み: {{ x.craftedCount }}
             </span>
-          </template>
-          <div v-if="nomore" class="xx-limitmessage">
-            これ以上改造できません。
+            <template v-if="x.回数制限">
+              <span class="xx-limittip zzBg-gray1 text-center">
+                残り: {{ x.回数制限 - x.craftedCount }}
+              </span>
+            </template>
           </div>
         </div>
-      </div>
 
-      <div class="flex-1 flex flex-col">
-        <template v-for="(e, idx) in x.effects">
-          <div
-            :key="idx"
-            :class="{ isDemerit: e.メリデメ === 'デメリット' }"
-            class="xx-merideme flex"
-          >
-            <div class="xx-merideme-label flex items-center justify-center">
-              {{ e.メリデメ }}
-            </div>
+        <div class="flex-1 flex flex-col">
+          <template v-for="(e, idx) in x.effects">
             <div
-              class="xx-merideme-topic flex-1 flex items-center justify-between"
+              :key="idx"
+              :class="{ isDemerit: e.メリデメ === 'デメリット' }"
+              class="xx-merideme flex"
             >
-              <div>{{ e.影響 }}</div>
-              <div class="xx-merideme-marks">{{ e.表示 }}</div>
+              <div class="xx-merideme-label flex items-center justify-center">
+                {{ e.メリデメ }}
+              </div>
+              <div
+                class="xx-merideme-topic flex-1 flex items-center justify-between"
+              >
+                <div>{{ e.影響 }}</div>
+                <div class="xx-merideme-marks">{{ e.表示 }}</div>
+              </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -94,22 +99,26 @@ export default {
   border-radius: 0.15rem 0.15rem 0 0;
 }
 .xx-craftinfo {
+  display: flex;
+  flex-direction: column;
   line-height: 1;
+  width: 36px;
+  letter-spacing: -0.05em;
 
   .xx-limittip {
     font-size: 0.6em;
     border-radius: 0.15rem;
-    padding: 0.2em 0.4em;
-    margin-right: 0.5em;
+    padding: 0.2em 0.2em;
+    margin: 0.25em 0 0;
   }
+}
 
-  .xx-limitmessage {
-    font-size: 0.6em;
-    border-radius: 0.15rem;
-    padding: 0.2em 0.4em;
-    color: #fff;
-    background-color: rgb(220, 47, 33);
-  }
+.xx-limitmessage {
+  font-size: 0.6em;
+  border-radius: 0.15rem;
+  padding: 0.2em 0.4em;
+  color: #fff;
+  background-color: rgb(220, 47, 33);
 }
 
 .xx-merideme {
@@ -118,8 +127,8 @@ export default {
     margin-bottom: 0;
   }
   .xx-merideme-label {
-    width: 50px;
-    margin-right: 2px;
+    width: 48px;
+    margin: 0 2px;
     font-size: 0.6rem;
     text-align: center;
     line-height: 1.1;
