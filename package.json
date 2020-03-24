@@ -13,8 +13,9 @@
     "now-deploy:prod": "now --prod"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.9.5",
     "nuxt": "^2.11.0",
-    "@nuxtjs/axios": "^5.9.5"
+    "viewport-units-buggyfill": "^0.6.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.2",
