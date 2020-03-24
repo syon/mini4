@@ -8,9 +8,9 @@
         }}</option>
       </select>
     </div>
-    <div class="flex items-center justify-center">
+    <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
       <label class="flex items-center text-xs">
-        <input type="checkbox" class="mr-1" />
+        <input v-model="isDrill" type="checkbox" class="mr-1" />
         <span>肉抜きする({{ ingItem.肉抜き }}箇所)</span>
       </label>
     </div>
@@ -51,6 +51,15 @@ export default {
         const part = this.ingPart
         const item = v
         this.$store.dispatch('recipe/change', { part, item })
+      }
+    },
+    isDrill: {
+      get() {
+        return this.ingItem.肉抜き > 0
+      },
+      set(bool) {
+        const cnt = bool ? this.ingItem.肉抜き : 0
+        this.$store.dispatch('recipe/changeDrill', cnt)
       }
     },
     ingCatalog() {

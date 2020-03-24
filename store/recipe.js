@@ -105,21 +105,24 @@ export const mutations = {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
     ingPart.crafts[craftIndex] = { action, quarity, level }
-    state[partKey] = { key: ingPart.key, crafts: ingPart.crafts }
+    state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftquarity(state, { part, craftIndex, quarity }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
     const c = ingPart.crafts[craftIndex]
     ingPart.crafts[craftIndex] = { ...c, quarity }
-    state[partKey] = { key: ingPart.key, crafts: ingPart.crafts }
+    state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftLevel(state, { part, craftIndex, level }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
     const c = ingPart.crafts[craftIndex]
     ingPart.crafts[craftIndex] = { ...c, level }
-    state[partKey] = { key: ingPart.key, crafts: ingPart.crafts }
+    state[partKey] = { ...ingPart, crafts: ingPart.crafts }
+  },
+  setDrill(state, arg) {
+    state.body = { ...state.body, 肉抜き: arg }
   }
 }
 
@@ -140,6 +143,9 @@ export const actions = {
   },
   changeCraftLevel({ commit }, arg) {
     commit('setPartCraftLevel', arg)
+  },
+  changeDrill({ commit }, arg) {
+    commit('setDrill', arg)
   },
   dump({ state }, partJapanese) {
     const part = resolvePartKey(partJapanese)

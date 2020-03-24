@@ -100,7 +100,12 @@ export default {
       const defaultItemSpec = item.性能 || {}
       const category = Mini4.resolveCategoryByPart(part)
       const partCrafts = this.craftMaster[category]
-      const r = Mini4.calcCraftResult(defaultItemSpec, partRecipe, partCrafts)
+      const r = Mini4.calcCraftResult(
+        part,
+        defaultItemSpec,
+        partRecipe,
+        partCrafts
+      )
       return r
     },
     scoreFormat(score) {

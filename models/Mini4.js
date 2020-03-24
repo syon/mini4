@@ -147,7 +147,7 @@ export default class Mini4 {
     }
   }
 
-  static calcCraftResult(defaultItemSpec, partRecipe, partCrafts) {
+  static calcCraftResult(part, defaultItemSpec, partRecipe, partCrafts) {
     const crafts = partRecipe.crafts || []
     const args = crafts.map((x) => Mini4.getCalcArgs(partCrafts, x)).flat()
     const resultSpecs = Object.assign({}, defaultItemSpec)
@@ -162,6 +162,11 @@ export default class Mini4 {
       const growVal = (para + kaizouVal) * grow
       // 増分 == kaizouVal + growVal
       resultSpecs[affect] = para + kaizouVal + growVal
+    }
+    if (part === 'ボディ') {
+      if (partRecipe.肉抜き > 0) {
+        resultSpecs.重さ = resultSpecs.重さ - partRecipe.肉抜き * 0.32
+      }
     }
     return resultSpecs
   }
