@@ -1,5 +1,9 @@
 export const state = () => ({
   part: 'ボディ',
+  partCatalog: {},
+  partRecipe: {},
+  item: {},
+  crafts: [],
   isCrafting: false,
   craftIndex: null,
   craftAction: '',
@@ -12,6 +16,18 @@ export const getters = {}
 export const mutations = {
   setPart(state, part) {
     state.part = part
+  },
+  setPartCatalog(state, partCatalog) {
+    state.partCatalog = partCatalog
+  },
+  setPartRecipe(state, partRecipe) {
+    state.partRecipe = partRecipe
+  },
+  setItem(state, item) {
+    state.item = item
+  },
+  setCrafts(state, crafts) {
+    state.crafts = crafts
   },
   setCraftIndex(state, craftIndex) {
     state.craftIndex = craftIndex
@@ -31,8 +47,16 @@ export const mutations = {
 }
 
 export const actions = {
-  trans({ commit }, part) {
+  transIngPart({ commit, rootState, rootGetters }, part) {
+    const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
+    const partRecipe = rootGetters['recipe/getRecipeByPart'](part) || {}
+    const item = partCatalog[partRecipe.key] || {}
+    const crafts = rootState.craft.craft[item.改造カテゴリ] || []
     commit('setPart', part)
+    commit('setPartCatalog', partCatalog)
+    commit('setPartRecipe', partRecipe)
+    commit('setItem', item)
+    commit('setCrafts', crafts)
   },
   changeCraftIndex({ state, commit }, payload) {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload

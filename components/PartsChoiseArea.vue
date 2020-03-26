@@ -26,7 +26,8 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapState('ing', {
-      ingPart: (state) => state.part
+      ingPart: (state) => state.part,
+      ingItem: (state) => state.item
     }),
     ...mapState('catalog', {
       catalog: (state) => state.dataset
@@ -35,16 +36,6 @@ export default {
       getRecipeByPart: 'recipe/getRecipeByPart',
       getCatalogByPart: 'catalog/getCatalogByPart'
     }),
-    ...mapGetters({
-      getCatalogByPart: 'catalog/getCatalogByPart',
-      getRecipeByPart: 'recipe/getRecipeByPart'
-    }),
-    ingItem() {
-      const partCatalog = this.getCatalogByPart(this.ingPart) || {}
-      const partRecipe = this.getRecipeByPart(this.ingPart) || {}
-      const item = partCatalog[partRecipe.key] || {}
-      return item
-    },
     ingItemKey: {
       get() {
         const partRecipe = this.getRecipeByPart(this.ingPart)
@@ -54,6 +45,7 @@ export default {
         const part = this.ingPart
         const item = v
         this.$store.dispatch('recipe/change', { part, item })
+        this.$store.dispatch('ing/transIngPart', part)
       }
     },
     isDrill: {

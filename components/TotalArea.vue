@@ -70,6 +70,11 @@ export default {
     }
   },
   computed: {
+    ...mapState('ing', {
+      ingPartRecipe: (state) => state.partRecipe,
+      ingItem: (state) => state.item,
+      ingCrafts: (state) => state.crafts
+    }),
     ...mapState('craft', {
       craftMaster: (state) => state.craft
     }),
@@ -127,8 +132,7 @@ export default {
       const partRecipe = this.getRecipeByPart(part) || {}
       const item = partCatalog[partRecipe.key] || {}
       const defaultItemSpec = item.性能 || {}
-      const category = Mini4.resolveCategoryByPart(part)
-      const partCrafts = this.craftMaster[category]
+      const partCrafts = this.craftMaster[item.改造カテゴリ]
       const r = Mini4.calcCraftResult(
         part,
         defaultItemSpec,

@@ -209,7 +209,7 @@ export default {
   },
   methods: {
     handleTrans(part) {
-      this.$store.dispatch('ing/trans', part)
+      this.$store.dispatch('ing/transIngPart', part)
     }
   }
 }

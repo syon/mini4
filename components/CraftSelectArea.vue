@@ -70,7 +70,6 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import CraftEditSlot from '@/components/CraftEditSlot'
-import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
@@ -85,26 +84,20 @@ export default {
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
+      ingPartRecipe: (state) => state.partRecipe,
+      ingItem: (state) => state.item,
+      ingCrafts: (state) => state.crafts,
       isCrafting: (state) => state.isCrafting,
       craftIndex: (state) => state.craftIndex,
       craftAction: (state) => state.craftAction,
       craftQuality: (state) => state.craftQuality,
       craftLevel: (state) => state.craftLevel
     }),
-    ...mapState('craft', {
-      craftMaster: (state) => state.craft
-    }),
     ...mapGetters({
       getRecipeByPart: 'recipe/getRecipeByPart'
     }),
-    ingCrafts() {
-      const category = Mini4.resolveCategoryByPart(this.ingPart)
-      const partCrafts = this.craftMaster[category]
-      return partCrafts || []
-    },
     crrRecipeCrafts() {
-      const recipe = this.getRecipeByPart(this.ingPart) || {}
-      return recipe.crafts || []
+      return this.ingPartRecipe.crafts || []
     },
     ingCraftsWithBlank() {
       const arr = Array.from(this.ingCrafts)

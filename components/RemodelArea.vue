@@ -1,6 +1,6 @@
 <template>
   <div class="xx-RemodelArea">
-    <template v-for="(x, idx) in ingCrafts">
+    <template v-for="(x, idx) in remodelSlots">
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
     <button @click="dump">export</button>
@@ -8,9 +8,8 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import RemodelSlot from '@/components/RemodelSlot'
-import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
@@ -18,42 +17,28 @@ export default {
   },
   computed: {
     ...mapState('ing', {
-      ingPart: (state) => state.part
+      ingPart: (state) => state.part,
+      ingPartRecipe: (state) => state.partRecipe,
+      ingCrafts: (state) => state.crafts
     }),
-    ...mapState('craft', {
-      craftMaster: (state) => state.craft
-    }),
-    ...mapGetters({
-      getRecipeByPart: 'recipe/getRecipeByPart'
-    }),
-    ingCrafts() {
-      const partRecipe = this.getRecipeByPart(this.ingPart)
-      if (!partRecipe) return []
-      this.prepareCrafts(partRecipe)
-      return (partRecipe.crafts || []).map((x) => this.getRemodel(x))
-    }
-  },
-  methods: {
-    // TODO: Original Class
-    prepareCrafts(partRecipe) {
-      if (!partRecipe.crafts) {
-        partRecipe.crafts = []
-      }
+    remodelSlots() {
+      const remodels = Array.from(this.ingPartRecipe.crafts || [])
       ;[...Array(6)].map((_, i) => {
-        if (!partRecipe.crafts[i]) {
-          partRecipe.crafts[i] = {
+        if (!remodels[i]) {
+          remodels[i] = {
             action: '',
             quarity: '',
             level: 0
           }
         }
       })
-    },
+      return remodels.map((x) => this.getRemodel(x))
+    }
+  },
+  methods: {
     getRemodel(recipeCraft) {
       const { action, quarity, level } = recipeCraft
-      const category = Mini4.resolveCategoryByPart(this.ingPart)
-      const partCrafts = this.craftMaster[category]
-      const c = partCrafts.find((x) => x.action === action)
+      const c = this.ingCrafts.find((x) => x.action === action)
       const remodel = {
         action,
         effects: c ? c.effects : [],

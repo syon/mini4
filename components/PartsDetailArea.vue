@@ -50,30 +50,18 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import Mini4 from '@/models/Mini4'
 
 export default {
   computed: {
     ...mapState('ing', {
-      ingPart: (state) => state.part
+      ingPart: (state) => state.part,
+      ingPartCatalog: (state) => state.partCatalog,
+      ingPartRecipe: (state) => state.partRecipe,
+      ingItem: (state) => state.item,
+      ingCrafts: (state) => state.crafts
     }),
-    ...mapState('catalog', {
-      dataset: (state) => state.dataset
-    }),
-    ...mapState('craft', {
-      craftMaster: (state) => state.craft
-    }),
-    ...mapGetters({
-      getCatalogByPart: 'catalog/getCatalogByPart',
-      getRecipeByPart: 'recipe/getRecipeByPart'
-    }),
-    ingItem() {
-      const partCatalog = this.getCatalogByPart(this.ingPart) || {}
-      const partRecipe = this.getRecipeByPart(this.ingPart) || {}
-      const item = partCatalog[partRecipe.key] || {}
-      return item
-    },
     score() {
       const r = this.getPartScore(this.ingPart)
       const basic = {}
@@ -105,17 +93,12 @@ export default {
       return Math.trunc(x)
     },
     getPartScore(part) {
-      const partCatalog = this.getCatalogByPart(part) || {}
-      const partRecipe = this.getRecipeByPart(part) || {}
-      const item = partCatalog[partRecipe.key] || {}
-      const defaultItemSpec = item.性能 || {}
-      const category = Mini4.resolveCategoryByPart(part)
-      const partCrafts = this.craftMaster[category]
+      const defaultItemSpec = this.ingItem.性能 || {}
       const r = Mini4.calcCraftResult(
         part,
         defaultItemSpec,
-        partRecipe,
-        partCrafts
+        this.ingPartRecipe,
+        this.ingCrafts
       )
       return r
     }
