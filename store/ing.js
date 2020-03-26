@@ -58,6 +58,9 @@ export const actions = {
     commit('setItem', item)
     commit('setCrafts', crafts)
   },
+  refresh({ dispatch, state }) {
+    dispatch('transIngPart', state.part)
+  },
   changeCraftIndex({ state, commit }, payload) {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload
     if (craftIndex === state.craftIndex && state.isCrafting) {

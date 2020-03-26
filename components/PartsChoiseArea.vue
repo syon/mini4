@@ -45,7 +45,6 @@ export default {
         const part = this.ingPart
         const item = v
         this.$store.dispatch('recipe/change', { part, item })
-        this.$store.dispatch('ing/transIngPart', part)
       }
     },
     isDrill: {

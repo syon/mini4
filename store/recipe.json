@@ -1,33 +1,13 @@
 {
   "ボディ": {
-    "key": "ブーメラン・10",
+    "key": "トライダガーX",
     "肉抜き": 3,
     "crafts": [
-      {
-        "action": "冷却能力向上",
-        "quarity": "イイ感じ",
-        "level": 1
-      },
-      {
-        "action": "冷却能力向上",
-        "quarity": "職人技",
-        "level": 25
-      },
-      {
-        "action": "冷却能力向上",
-        "quarity": "職人技",
-        "level": 25
-      },
-      {
-        "action": "冷却能力向上",
-        "quarity": "イイ感じ",
-        "level": 1
-      },
-      {
-        "action": "限界軽量化",
-        "quarity": "イイ感じ",
-        "level": 1
-      }
+      { "action": "冷却能力向上", "quarity": "イイ感じ", "level": "22" },
+      { "action": "冷却能力向上", "quarity": "職人技", "level": "22" },
+      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "22" },
+      { "action": "限界軽量化", "quarity": "職人技", "level": "22" },
+      { "action": "", "quarity": "", "level": 0 }
     ]
   },
   "モーター": {
@@ -279,6 +259,29 @@
         "quarity": "",
         "level": 0
       }
+    ]
+  },
+  "アクセサリー・１": {
+    "key": "メタル軸受け",
+    "crafts": [
+      { "action": "ベアリング抵抗減少", "quarity": "イイ感じ", "level": 1 }
+    ]
+  },
+  "アクセサリー・２": {
+    "key": "ピニオンギヤ(紫)",
+    "crafts": []
+  },
+  "アクセサリー・３": {
+    "key": "ゴールドターミナル",
+    "crafts": []
+  },
+  "アクセサリー・４": {
+    "key": "放熱フィン",
+    "crafts": [
+      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": 28 },
+      { "action": "冷却能力向上", "quarity": "職人技", "level": 28 },
+      { "action": "剛性補強", "quarity": "職人技", "level": 28 },
+      { "action": "冷却能力向上", "quarity": "職人技", "level": 28 }
     ]
   }
 }

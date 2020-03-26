@@ -132,20 +132,25 @@ export const actions = {
     const payload = initialState
     commit('setAll', payload)
   },
-  change({ commit }, { part, item }) {
+  change({ commit, dispatch }, { part, item }) {
     commit('setPartItem', { part, item })
+    dispatch('ing/refresh', null, { root: true })
   },
-  changeCraft({ commit }, arg) {
+  changeCraft({ commit, dispatch }, arg) {
     commit('setPartCraft', arg)
+    dispatch('ing/refresh', null, { root: true })
   },
-  changeCraftquarity({ commit }, arg) {
+  changeCraftquarity({ commit, dispatch }, arg) {
     commit('setPartCraftquarity', arg)
+    dispatch('ing/refresh', null, { root: true })
   },
-  changeCraftLevel({ commit }, arg) {
+  changeCraftLevel({ commit, dispatch }, arg) {
     commit('setPartCraftLevel', arg)
+    dispatch('ing/refresh', null, { root: true })
   },
-  changeDrill({ commit }, arg) {
+  changeDrill({ commit, dispatch }, arg) {
     commit('setDrill', arg)
+    dispatch('ing/refresh', null, { root: true })
   },
   dump({ state }, partJapanese) {
     const part = resolvePartKey(partJapanese)
