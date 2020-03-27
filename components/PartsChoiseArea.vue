@@ -2,7 +2,7 @@
   <div class="PartsChoiseArea zzBg-gray1">
     <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
     <div class="PartsName mb-4 px-2 py-2" @click="handleShowcase">
-      {{ ingItem.key }}
+      {{ ingItem.key || '&nbsp;' }}
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
       <label class="flex items-center text-xs">
