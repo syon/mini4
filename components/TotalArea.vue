@@ -170,6 +170,8 @@ export default {
 <style lang="less" scoped>
 .TotalArea {
   font-size: 0.8rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: normal;
 }
 
 thead th {
