@@ -8,7 +8,8 @@ export const state = () => ({
   craftIndex: null,
   craftAction: '',
   craftQuality: null,
-  craftLevel: null
+  craftLevel: null,
+  isShowcase: false
 })
 
 export const getters = {}
@@ -43,6 +44,9 @@ export const mutations = {
   },
   setCrafting(state, isCrafting) {
     state.isCrafting = isCrafting
+  },
+  toggleShowcase(state) {
+    state.isShowcase = !state.isShowcase
   }
 }
 
@@ -55,7 +59,7 @@ export const actions = {
     commit('setPart', part)
     commit('setPartCatalog', partCatalog)
     commit('setPartRecipe', partRecipe)
-    commit('setItem', item)
+    commit('setItem', { key: partRecipe.key, ...item })
     commit('setCrafts', crafts)
   },
   refresh({ dispatch, state }) {
@@ -72,5 +76,8 @@ export const actions = {
       commit('setCraftQuality', craftQuality)
       commit('setCraftLevel', craftLevel)
     }
+  },
+  toggleShowcase({ commit }) {
+    commit('toggleShowcase')
   }
 }

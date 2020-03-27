@@ -1,15 +1,8 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
-    <div class="PartsName my-4 w-full">
-      <div class="PartsName-label h-8">{{ ingItemKey }}</div>
-      <select v-model="ingItemKey" class="PartsName-select">
-        <optgroup label="">
-          <option value="">選択なし</option>
-          <option v-for="(x, key) of ingCatalog" :key="key" :value="key">{{
-            key
-          }}</option>
-        </optgroup>
-      </select>
+    <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
+    <div class="PartsName mb-4 px-2 py-2" @click="handleShowcase">
+      {{ ingItemKey }}
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
       <label class="flex items-center text-xs">
@@ -43,8 +36,8 @@ export default {
       },
       set(v) {
         const part = this.ingPart
-        const item = v
-        this.$store.dispatch('recipe/change', { part, item })
+        const name = v
+        this.$store.dispatch('recipe/change', { part, name })
       }
     },
     isDrill: {
@@ -55,26 +48,36 @@ export default {
         const cnt = bool ? this.ingItem.肉抜き : 0
         this.$store.dispatch('recipe/changeDrill', cnt)
       }
-    },
-    ingCatalog() {
-      return this.getCatalogByPart(this.ingPart)
+    }
+  },
+  methods: {
+    handleShowcase() {
+      this.$store.dispatch('ing/toggleShowcase')
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.PartsName {
-  position: relative;
-}
-.PartsName-label {
+.PartsHeader {
+  color: black;
+  font-size: 0.6rem;
+  background: linear-gradient(
+    0deg,
+    rgba(211, 212, 208, 1) 0%,
+    rgba(178, 178, 171, 1) 100%
+  );
+  border: 1px solid #b5babd;
+  border-radius: 0.2rem 0.2rem 0 0;
   line-height: 1;
 }
-.PartsName-select {
-  opacity: 0.01;
-  position: absolute;
-  top: 0;
-  width: inherit;
-  height: 100%;
+.PartsName {
+  color: black;
+  font-size: 0.8rem;
+  background-color: #f0f4f4;
+  border: 1px solid #b5babd;
+  border-top: 0;
+  border-radius: 0 0 0.2rem 0.2rem;
+  line-height: 1.2;
 }
 </style>

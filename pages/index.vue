@@ -9,6 +9,7 @@
       <setting-area class="w-7/12" />
       <div class="w-5/12 migisita zzBg-gray1 p-1">
         <parts-choise-area />
+        <showcase-area />
         <parts-detail-area />
         <craft-select-area />
         <remodel-area />
@@ -28,6 +29,7 @@ import PartsChoiseArea from '@/components/PartsChoiseArea'
 import PartsDetailArea from '@/components/PartsDetailArea'
 import RemodelArea from '@/components/RemodelArea'
 import CraftSelectArea from '@/components/CraftSelectArea'
+import ShowcaseArea from '@/components/ShowcaseArea'
 
 export default {
   components: {
@@ -36,7 +38,8 @@ export default {
     PartsChoiseArea,
     PartsDetailArea,
     RemodelArea,
-    CraftSelectArea
+    CraftSelectArea,
+    ShowcaseArea
   },
   computed: {
     ...mapState('ing', {

@@ -97,9 +97,9 @@ export const mutations = {
       state[partKey] = v
     }
   },
-  setPartItem(state, { part, item }) {
+  setPartItem(state, { part, name }) {
     const partKey = resolvePartKey(part)
-    state[partKey] = { ...state[partKey], key: item }
+    state[partKey] = { ...state[partKey], key: name }
   },
   setPartCraft(state, { part, craftIndex, action, quarity, level }) {
     const partKey = resolvePartKey(part)
@@ -132,8 +132,8 @@ export const actions = {
     const payload = initialState
     commit('setAll', payload)
   },
-  change({ commit, dispatch }, { part, item }) {
-    commit('setPartItem', { part, item })
+  change({ commit, dispatch }, { part, name }) {
+    commit('setPartItem', { part, name })
     dispatch('ing/refresh', null, { root: true })
   },
   changeCraft({ commit, dispatch }, arg) {
