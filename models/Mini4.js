@@ -223,8 +223,7 @@ export default class Mini4 {
       case 'リヤ・タイヤ#大径タイヤ':
         return { part: 'リヤ・ホイール', category: '大径ホイール' }
       default:
-        alert('[resolvePair] default?')
-        return {}
+        return { part: null, category: null }
     }
   }
 }
