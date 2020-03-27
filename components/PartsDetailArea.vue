@@ -2,48 +2,54 @@
   <div class="PartsDetailArea p-1 zzBg-gray1">
     <hr />
     <table class="speclist">
-      <tr>
-        <th>コース適性</th>
-        <td>{{ ingItem.コース適性 }}</td>
-      </tr>
-      <tr v-if="ingItem.ボディ特性">
-        <th>ボディ特性</th>
-        <td>{{ ingItem.ボディ特性 }}</td>
-      </tr>
-    </table>
-
-    <hr />
-    <table class="speclist">
-      <tr>
-        <th>スピード</th>
-        <td>{{ score.basic.スピード }}</td>
-      </tr>
-      <tr>
-        <th>パワー</th>
-        <td>{{ score.basic.パワー }}</td>
-      </tr>
-      <tr>
-        <th>コーナー安定</th>
-        <td>{{ score.basic.コーナー安定 }}</td>
-      </tr>
-      <tr>
-        <th>スタミナ耐久</th>
-        <td>{{ score.basic.スタミナ耐久 }}</td>
-      </tr>
-      <tr>
-        <th>重さ</th>
-        <td>{{ score.basic.重さ }}</td>
-      </tr>
-    </table>
-
-    <hr />
-    <table class="speclist">
-      <template v-for="(sVal, sKey) in score.skill">
-        <tr :key="sKey">
-          <th>{{ sKey }}</th>
-          <td>{{ sVal }}</td>
+      <tbody>
+        <tr>
+          <th>コース適性</th>
+          <td>{{ ingItem.コース適性 }}</td>
         </tr>
-      </template>
+        <tr v-if="ingItem.ボディ特性">
+          <th>ボディ特性</th>
+          <td>{{ ingItem.ボディ特性 }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+    <table class="speclist">
+      <tbody>
+        <tr>
+          <th>スピード</th>
+          <td>{{ score.basic.スピード }}</td>
+        </tr>
+        <tr>
+          <th>パワー</th>
+          <td>{{ score.basic.パワー }}</td>
+        </tr>
+        <tr>
+          <th>コーナー安定</th>
+          <td>{{ score.basic.コーナー安定 }}</td>
+        </tr>
+        <tr>
+          <th>スタミナ耐久</th>
+          <td>{{ score.basic.スタミナ耐久 }}</td>
+        </tr>
+        <tr>
+          <th>重さ</th>
+          <td>{{ score.basic.重さ }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+    <table class="speclist">
+      <tbody>
+        <template v-for="(sVal, sKey) in score.skill">
+          <tr :key="sKey">
+            <th>{{ sKey }}</th>
+            <td>{{ sVal }}</td>
+          </tr>
+        </template>
+      </tbody>
     </table>
     <hr />
   </div>
