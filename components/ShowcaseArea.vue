@@ -12,7 +12,7 @@
               :key="name"
               :class="{ active: name === ingItem.key }"
               class="xx-item m-1 px-2 py-1"
-              @click="handleSelectItem(name)"
+              @click="handleSelectItem(name, item)"
             >
               {{ name }}
             </div>
@@ -25,14 +25,9 @@
 
 <script>
 import { mapState } from 'vuex'
+import Mini4 from '../models/Mini4'
 
 export default {
-  data() {
-    return {
-      quarity: null,
-      level: null
-    }
-  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
@@ -55,10 +50,19 @@ export default {
     }
   },
   methods: {
-    handleSelectItem(name) {
-      const part = this.ingPart
-      this.$store.dispatch('recipe/change', { part, name })
+    handleSelectItem(name, item) {
+      const basePart = this.ingPart
+      this.checkPair(basePart, item.ペアカテゴリ)
+      this.$store.dispatch('recipe/change', { part: basePart, name })
       this.closeDialog()
+    },
+    checkPair(basePart, basePairCategory) {
+      const { part, category } = Mini4.resolvePair(basePart, basePairCategory)
+      const r = this.$store.getters['recipe/getRecipeByPart'](part)
+      const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
+      if (i.ペアカテゴリ !== category) {
+        this.$store.dispatch('recipe/detach', { part })
+      }
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleShowcase')

@@ -183,4 +183,48 @@ export default class Mini4 {
       }
     })
   }
+
+  static resolvePair(basePart, basePairCategory) {
+    const sequence = `${basePart}#${basePairCategory}`
+    switch (sequence) {
+      case 'ボディ#ボディ':
+        return { part: 'シャーシ', category: 'シャーシ' }
+      case 'ボディ#FMボディ':
+        return { part: 'シャーシ', category: 'FMシャーシ' }
+      case 'シャーシ#シャーシ':
+        return { part: 'ボディ', category: 'ボディ' }
+      case 'シャーシ#FMシャーシ':
+        return { part: 'ボディ', category: 'FMボディ' }
+      case 'フロント・ホイール#小径ホイール':
+        return { part: 'フロント・タイヤ', category: '小径タイヤ' }
+      case 'フロント・ホイール#小径ローハイトホイール':
+        return { part: 'フロント・タイヤ', category: '小径ローハイトタイヤ' }
+      case 'フロント・ホイール#大径ホイール':
+        return { part: 'フロント・タイヤ', category: '大径タイヤ' }
+      case 'フロント・タイヤ#小径タイヤ':
+        return { part: 'フロント・ホイール', category: '小径ホイール' }
+      case 'フロント・タイヤ#小径ローハイトタイヤ':
+        return {
+          part: 'フロント・ホイール',
+          category: '小径ローハイトホイール'
+        }
+      case 'フロント・タイヤ#大径タイヤ':
+        return { part: 'フロント・ホイール', category: '大径ホイール' }
+      case 'リヤ・ホイール#小径ホイール':
+        return { part: 'リヤ・タイヤ', category: '小径タイヤ' }
+      case 'リヤ・ホイール#小径ローハイトホイール':
+        return { part: 'リヤ・タイヤ', category: '小径ローハイトタイヤ' }
+      case 'リヤ・ホイール#大径ホイール':
+        return { part: 'リヤ・タイヤ', category: '大径タイヤ' }
+      case 'リヤ・タイヤ#小径タイヤ':
+        return { part: 'リヤ・ホイール', category: '小径ホイール' }
+      case 'リヤ・タイヤ#小径ローハイトタイヤ':
+        return { part: 'リヤ・ホイール', category: '小径ローハイトホイール' }
+      case 'リヤ・タイヤ#大径タイヤ':
+        return { part: 'リヤ・ホイール', category: '大径ホイール' }
+      default:
+        alert('[resolvePair] default?')
+        return {}
+    }
+  }
 }

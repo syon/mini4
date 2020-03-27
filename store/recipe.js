@@ -101,6 +101,10 @@ export const mutations = {
     const partKey = resolvePartKey(part)
     state[partKey] = { ...state[partKey], key: name }
   },
+  clearPartItem(state, { part }) {
+    const partKey = resolvePartKey(part)
+    state[partKey] = { key: '', crafts: [] }
+  },
   setPartCraft(state, { part, craftIndex, action, quarity, level }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
@@ -135,6 +139,9 @@ export const actions = {
   change({ commit, dispatch }, { part, name }) {
     commit('setPartItem', { part, name })
     dispatch('ing/refresh', null, { root: true })
+  },
+  detach({ commit }, { part }) {
+    commit('clearPartItem', { part })
   },
   changeCraft({ commit, dispatch }, arg) {
     commit('setPartCraft', arg)

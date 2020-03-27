@@ -9,6 +9,10 @@ export const getters = {
   getCatalogByPart: (state) => (part) => {
     const category = Mini4.resolveCategoryByPart(part)
     return state.dataset[category]
+  },
+  getItemInfo: (state, getters) => (part, key) => {
+    const c = getters.getCatalogByPart(part)
+    return c[key]
   }
 }
 
