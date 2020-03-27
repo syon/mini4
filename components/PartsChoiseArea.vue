@@ -2,7 +2,7 @@
   <div class="PartsChoiseArea zzBg-gray1">
     <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
     <div class="PartsName mb-4 px-2 py-2" @click="handleShowcase">
-      {{ ingItemKey }}
+      {{ ingItem.key }}
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
       <label class="flex items-center text-xs">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   computed: {
@@ -25,21 +25,6 @@ export default {
     ...mapState('catalog', {
       catalog: (state) => state.dataset
     }),
-    ...mapGetters({
-      getRecipeByPart: 'recipe/getRecipeByPart',
-      getCatalogByPart: 'catalog/getCatalogByPart'
-    }),
-    ingItemKey: {
-      get() {
-        const partRecipe = this.getRecipeByPart(this.ingPart)
-        return partRecipe ? partRecipe.key : ''
-      },
-      set(v) {
-        const part = this.ingPart
-        const name = v
-        this.$store.dispatch('recipe/change', { part, name })
-      }
-    },
     isDrill: {
       get() {
         return this.ingItem.肉抜き > 0
