@@ -64,8 +64,8 @@ export default {
   font-size: 0.6rem;
   background: linear-gradient(
     0deg,
-    rgba(211, 212, 208, 1) 0%,
-    rgba(178, 178, 171, 1) 100%
+    rgba(178, 178, 171, 1) 0%,
+    rgba(211, 212, 208, 1) 100%
   );
   border: 1px solid #b5babd;
   border-radius: 0.2rem 0.2rem 0 0;
