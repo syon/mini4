@@ -52,9 +52,29 @@ export default {
   methods: {
     handleSelectItem(name, item) {
       const basePart = this.ingPart
-      this.checkPair(basePart, item.ペアカテゴリ)
+      if (Mini4.isAccessory(basePart)) {
+        this.checkAccessory(basePart, item.ペアカテゴリ)
+      } else {
+        this.checkPair(basePart, item.ペアカテゴリ)
+      }
       this.$store.dispatch('recipe/change', { part: basePart, name })
       this.closeDialog()
+    },
+    checkAccessory(basePart, basePairCategory) {
+      const others = [
+        'アクセサリー・１',
+        'アクセサリー・２',
+        'アクセサリー・３',
+        'アクセサリー・４'
+      ].filter((x) => x !== basePart)
+      for (const part of others) {
+        const r = this.$store.getters['recipe/getRecipeByPart'](part)
+        if (!r.key) continue
+        const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
+        if (i.ペアカテゴリ === basePairCategory) {
+          this.$store.dispatch('recipe/detach', { part })
+        }
+      }
     },
     checkPair(basePart, basePairCategory) {
       const { part, category } = Mini4.resolvePair(basePart, basePairCategory)

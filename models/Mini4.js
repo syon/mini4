@@ -29,6 +29,10 @@ export default class Mini4 {
     ]
   }
 
+  static isAccessory(part) {
+    return part.startsWith('アクセサリー')
+  }
+
   /**
    * 装着箇所を引数に、選択できるパーツの種類を返す。
    */
