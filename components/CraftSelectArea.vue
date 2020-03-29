@@ -138,10 +138,10 @@ export default {
           this.level = 1
           break
         case 'Minus':
-          this.level = this.level - 1
+          this.level = Number(this.level) - 1
           break
         case 'Plus':
-          this.level = this.level + 1
+          this.level = Number(this.level) + 1
           break
         case 'Now':
           this.level = 37
