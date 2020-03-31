@@ -92,7 +92,8 @@ export default {
   methods: {
     fixedNum(x, n) {
       if (isNaN(x)) return ''
-      return x.toFixed(n)
+      const base = 10 ** 3
+      return Math.round(x * base) / base
     },
     showInt(x) {
       if (!x) return 0
