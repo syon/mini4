@@ -44,7 +44,7 @@ export default {
     handleClick() {
       const payload = {
         craftIndex: this.craftIndex,
-        craftAction: this.x.action,
+        craftAction: this.x.action || '',
         craftQuality: this.x.quarity || 'イイ感じ',
         craftLevel: this.x.level || 1
       }

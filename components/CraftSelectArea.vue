@@ -133,7 +133,7 @@ export default {
       const lv = Number(this.level)
       switch (sub) {
         case 'Minus10':
-          if (this.level - 10 <= 1) {
+          if (lv - 10 <= 1) {
             this.level = 1
             break
           }
@@ -152,7 +152,7 @@ export default {
           this.level = lv + 1
           break
         case 'Plus10':
-          if (this.level + 10 >= 50) {
+          if (lv + 10 >= 50) {
             this.level = 50
             break
           }
