@@ -12,9 +12,13 @@ export const state = () => ({
   frontStay: { key: '', crafts: [] },
   sideStay: { key: '', crafts: [] },
   rearStay: { key: '', crafts: [] },
+  frontRollerHigh: { key: '', crafts: [] },
+  sideRollerHigh: { key: '', crafts: [] },
+  rearRollerHigh: { key: '', crafts: [] },
   frontRollerMiddle: { key: '', crafts: [] },
   sideRollerMiddle: { key: '', crafts: [] },
   rearRollerMiddle: { key: '', crafts: [] },
+  rearRollerLow: { key: '', crafts: [] },
   bodyOption: { key: '', crafts: [] },
   wingRoller: { key: '', crafts: [] },
   frontStabilizer: { key: '', crafts: [] },
@@ -52,12 +56,20 @@ function resolvePartKey(partJapanese) {
       return 'sideStay'
     case 'リヤステー':
       return 'rearStay'
+    case 'フロント・ローラー上':
+      return 'frontRollerHigh'
+    case 'サイド・ローラー上':
+      return 'sideRollerHigh'
+    case 'リヤ・ローラー上':
+      return 'rearRollerHigh'
     case 'フロント・ローラー中':
       return 'frontRollerMiddle'
     case 'サイド・ローラー中':
       return 'sideRollerMiddle'
     case 'リヤ・ローラー中':
       return 'rearRollerMiddle'
+    case 'リヤ・ローラー下':
+      return 'rearRollerLow'
     case 'ボディオプション':
       return 'bodyOption'
     case 'ウイングローラー':

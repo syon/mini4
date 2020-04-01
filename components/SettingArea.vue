@@ -72,6 +72,25 @@
       />
 
       <wear-box
+        :item="sFrontRollerHigh"
+        part="フロント・ローラー上"
+        class="cate-front-roller-high"
+        @click="handleTrans('フロント・ローラー上')"
+      />
+      <wear-box
+        :item="sSideRollerHigh"
+        part="サイド・ローラー上"
+        class="cate-side-roller-high"
+        @click="handleTrans('サイド・ローラー上')"
+      />
+      <wear-box
+        :item="sRearRollerHigh"
+        part="リヤ・ローラー上"
+        class="cate-rear-roller-high"
+        @click="handleTrans('リヤ・ローラー上')"
+      />
+
+      <wear-box
         :item="sFrontRollerMiddle"
         part="フロント・ローラー中"
         class="cate-front-roller-middle"
@@ -88,6 +107,13 @@
         part="リヤ・ローラー中"
         class="cate-rear-roller-middle"
         @click="handleTrans('リヤ・ローラー中')"
+      />
+
+      <wear-box
+        :item="sRearRollerLow"
+        part="リヤ・ローラー下"
+        class="cate-rear-roller-low"
+        @click="handleTrans('リヤ・ローラー下')"
       />
 
       <wear-box
@@ -187,9 +213,13 @@ export default {
       sFrontStay: (state) => state.frontStay,
       sSideStay: (state) => state.sideStay,
       sRearStay: (state) => state.rearStay,
+      sFrontRollerHigh: (state) => state.frontRollerHigh,
+      sSideRollerHigh: (state) => state.sideRollerHigh,
+      sRearRollerHigh: (state) => state.rearRollerHigh,
       sFrontRollerMiddle: (state) => state.frontRollerMiddle,
       sSideRollerMiddle: (state) => state.sideRollerMiddle,
       sRearRollerMiddle: (state) => state.rearRollerMiddle,
+      sRearRollerLow: (state) => state.rearRollerLow,
       sBodyOption: (state) => state.bodyOption,
       sWingRoller: (state) => state.wingRoller,
       sFrontStabilizer: (state) => state.frontStabilizer,
@@ -273,6 +303,18 @@ export default {
       grid-row: ~'4/5';
       grid-column: ~'4/5';
     }
+    .cate-front-roller-high {
+      grid-row: ~'5/6';
+      grid-column: ~'2/3';
+    }
+    .cate-side-roller-high {
+      grid-row: ~'5/6';
+      grid-column: ~'3/4';
+    }
+    .cate-rear-roller-high {
+      grid-row: ~'5/6';
+      grid-column: ~'4/5';
+    }
     .cate-front-roller-middle {
       grid-row: ~'6/7';
       grid-column: ~'2/3';
@@ -283,6 +325,10 @@ export default {
     }
     .cate-rear-roller-middle {
       grid-row: ~'6/7';
+      grid-column: ~'4/5';
+    }
+    .cate-rear-roller-low {
+      grid-row: ~'7/8';
       grid-column: ~'4/5';
     }
     .cate-bodyoption {
