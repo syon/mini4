@@ -1,3 +1,5 @@
+import RankMaster from './rank.json'
+
 export default class Mini4 {
   static getAllPartNames() {
     return [
@@ -229,5 +231,20 @@ export default class Mini4 {
       default:
         return { part: null, category: null }
     }
+  }
+
+  static resolveRank({ mode, affect, score }) {
+    if (mode === 'TOTAL') {
+      const ranks = RankMaster.TOTAL[affect]
+      ranks.sort((a, b) => {
+        return b.score - a.score
+      })
+      for (const r of ranks) {
+        if (score >= r.score) {
+          return r.label
+        }
+      }
+    }
+    return '!?'
   }
 }

@@ -4,10 +4,10 @@
       <div class="flex-1 flex items-center justify-center">
         <div class="flex flex-col items-center">
           <div>総合評価</div>
-          <div class="text-2xl">{{ showInt(totalScore) }}</div>
+          <div class="xx-totalscore text-2xl">{{ showInt(totalScore) }}</div>
         </div>
       </div>
-      <div class="flex items-center">
+      <div class="xx-affects flex items-center">
         <table class="w-full">
           <thead>
             <tr>
@@ -18,23 +18,62 @@
               <th class="px-2 text-center">重さ</th>
             </tr>
           </thead>
-          <tfoot>
+          <tbody class="xx-ranks">
             <tr>
-              <th class="px-2 text-center">
+              <td class="px-2 text-center">
+                <score-rank
+                  mode="TOTAL"
+                  affect="スピード"
+                  :score="allPartScoresSum.スピード"
+                />
+              </td>
+              <td class="px-2 text-center">
+                <score-rank
+                  mode="TOTAL"
+                  affect="パワー"
+                  :score="allPartScoresSum.パワー"
+                />
+              </td>
+              <td class="px-2 text-center">
+                <score-rank
+                  mode="TOTAL"
+                  affect="コーナー安定"
+                  :score="allPartScoresSum.コーナー安定"
+                />
+              </td>
+              <td class="px-2 text-center">
+                <score-rank
+                  mode="TOTAL"
+                  affect="スタミナ耐久"
+                  :score="allPartScoresSum.スタミナ耐久"
+                />
+              </td>
+              <td class="px-2 text-center">
+                <score-rank
+                  mode="TOTAL"
+                  affect="重さ"
+                  :score="allPartScoresSum.重さ"
+                />
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="xx-scores">
+            <tr>
+              <td class="px-2 text-center">
                 {{ showInt(allPartScoresSum.スピード, 2) }}
-              </th>
-              <th class="px-2 text-center">
+              </td>
+              <td class="px-2 text-center">
                 {{ showInt(allPartScoresSum.パワー, 2) }}
-              </th>
-              <th class="px-2 text-center">
+              </td>
+              <td class="px-2 text-center">
                 {{ showInt(allPartScoresSum.コーナー安定, 2) }}
-              </th>
-              <th class="px-2 text-center">
+              </td>
+              <td class="px-2 text-center">
                 {{ showInt(allPartScoresSum.スタミナ耐久, 2) }}
-              </th>
-              <th class="px-2 text-center">
+              </td>
+              <td class="px-2 text-center">
                 {{ showInt(allPartScoresSum.重さ, 2) }}
-              </th>
+              </td>
             </tr>
           </tfoot>
         </table>
@@ -62,8 +101,12 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Mini4 from '@/models/Mini4'
+import ScoreRank from '@/components/ScoreRank'
 
 export default {
+  components: {
+    ScoreRank
+  },
   data() {
     return {
       isDetailOpen: false
@@ -169,9 +212,20 @@ export default {
 
 <style lang="less" scoped>
 .TotalArea {
-  font-size: 0.8rem;
-  font-family: 'Anton', sans-serif;
+  font-size: 0.7rem;
   font-weight: normal;
+
+  .xx-totalscore {
+    font-size: 1.5rem;
+    font-family: 'Anton', sans-serif;
+  }
+
+  .xx-affects {
+    .xx-scores {
+      font-size: 0.8rem;
+      font-family: 'Anton', sans-serif;
+    }
+  }
 }
 
 thead th {

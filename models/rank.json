@@ -1,0 +1,52 @@
+{
+  "TOTAL": {
+    "スピード": [
+      { "label": "A", "score": 2500 },
+      { "label": "B", "score": 2250 },
+      { "label": "C", "score": 1740 },
+      { "label": "D", "score": 1620 },
+      { "label": "E", "score": 1430 },
+      { "label": "?", "score": 0 }
+    ],
+    "パワー": [
+      { "label": "A", "score": 1524 },
+      { "label": "B", "score": 1350 },
+      { "label": "C", "score": 1268 },
+      { "label": "?", "score": 1159 },
+      { "label": "D", "score": 900 },
+      { "label": "E", "score": 700 },
+      { "label": "?", "score": 0 }
+    ],
+    "コーナー安定": [
+      { "label": "A", "score": 1500 },
+      { "label": "B", "score": 1200 },
+      { "label": "C", "score": 900 },
+      { "label": "D", "score": 600 },
+      { "label": "E", "score": 300 },
+      { "label": "F", "score": 100 },
+      { "label": "G", "score": 50 },
+      { "label": "H", "score": 0 }
+    ],
+    "スタミナ耐久": [
+      { "label": "A", "score": 200 },
+      { "label": "B", "score": 150 },
+      { "label": "C", "score": 100 },
+      { "label": "D", "score": 75 },
+      { "label": "E", "score": 50 },
+      { "label": "F", "score": 25 },
+      { "label": "G", "score": 10 },
+      { "label": "H", "score": 0 }
+    ],
+    "重さ": [
+      { "label": "H", "score": 160.0 },
+      { "label": "G", "score": 150.0 },
+      { "label": "F", "score": 140.0 },
+      { "label": "E", "score": 130.0 },
+      { "label": "D", "score": 120.0 },
+      { "label": "C", "score": 110.0 },
+      { "label": "B", "score": 100.0 },
+      { "label": "A", "score": 74.5 },
+      { "label": "?", "score": 0 }
+    ]
+  }
+}
