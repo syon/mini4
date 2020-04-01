@@ -1,8 +1,5 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
-    <div class="xx-close">
-      <button class="w-full" @click="closeDialog">閉じる</button>
-    </div>
     <div class="quarityChoise mt-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />

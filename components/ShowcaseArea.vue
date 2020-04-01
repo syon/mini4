@@ -1,8 +1,5 @@
 <template>
   <div v-if="isShowcase" class="xx-ShowcaseArea zzBg-gray1">
-    <div class="xx-close">
-      <button class="w-full" @click="closeDialog">閉じる</button>
-    </div>
     <div class="CraftEditSlotList">
       <template v-for="(categorySet, key) in sortedCatalog">
         <div :key="key" class="mx-1 my-1">
