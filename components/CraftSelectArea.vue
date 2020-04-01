@@ -19,13 +19,13 @@
     >
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
-        @click="handleLevel('One')"
+        @click="handleLevel('Minus10')"
       >
-        1
+        -10
       </button>
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
-        @click="handleLevel('Minus')"
+        @click="handleLevel('Minus1')"
       >
         ー
       </button>
@@ -36,15 +36,15 @@
       />
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
-        @click="handleLevel('Plus')"
+        @click="handleLevel('Plus1')"
       >
         ＋
       </button>
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
-        @click="handleLevel('Now')"
+        @click="handleLevel('Plus10')"
       >
-        37
+        +10
       </button>
       <button
         class="border bg-gray-200 w-8 h-6 rounded"
@@ -130,18 +130,33 @@ export default {
   },
   methods: {
     handleLevel(sub) {
+      const lv = Number(this.level)
       switch (sub) {
-        case 'One':
-          this.level = 1
+        case 'Minus10':
+          if (this.level - 10 <= 1) {
+            this.level = 1
+            break
+          }
+          this.level = lv - 10
           break
-        case 'Minus':
-          this.level = Number(this.level) - 1
+        case 'Minus1':
+          if (lv === 1) {
+            break
+          }
+          this.level = lv - 1
           break
-        case 'Plus':
-          this.level = Number(this.level) + 1
+        case 'Plus1':
+          if (lv === 50) {
+            break
+          }
+          this.level = lv + 1
           break
-        case 'Now':
-          this.level = 37
+        case 'Plus10':
+          if (this.level + 10 >= 50) {
+            this.level = 50
+            break
+          }
+          this.level = lv + 10
           break
         case 'Max':
           this.level = 50
