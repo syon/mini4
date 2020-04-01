@@ -164,7 +164,7 @@ export default {
       this.closeDialog()
     },
     closeDialog() {
-      this.$store.commit('ing/setCrafting', false)
+      this.$store.dispatch('ing/toggleCrafting')
     }
   }
 }
@@ -175,6 +175,7 @@ export default {
   position: absolute;
   top: 75px;
   left: 0;
+  z-index: 9;
   width: 58vw;
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;

@@ -18,6 +18,7 @@
     <div class="zzBg-gray2 h-64">
       テキストコピペエリア
     </div>
+    <black-barrier />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import PartsDetailArea from '@/components/PartsDetailArea'
 import RemodelArea from '@/components/RemodelArea'
 import CraftSelectArea from '@/components/CraftSelectArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
+import BlackBarrier from '@/components/BlackBarrier'
 
 export default {
   components: {
@@ -39,7 +41,8 @@ export default {
     PartsDetailArea,
     RemodelArea,
     CraftSelectArea,
-    ShowcaseArea
+    ShowcaseArea,
+    BlackBarrier
   },
   computed: {
     ...mapState('ing', {

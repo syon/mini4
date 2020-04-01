@@ -9,7 +9,8 @@ export const state = () => ({
   craftAction: '',
   craftQuality: null,
   craftLevel: null,
-  isShowcase: false
+  isShowcase: false,
+  isBarrier: false
 })
 
 export const getters = {}
@@ -45,8 +46,11 @@ export const mutations = {
   setCrafting(state, isCrafting) {
     state.isCrafting = isCrafting
   },
-  toggleShowcase(state) {
-    state.isShowcase = !state.isShowcase
+  setShowcase(state, isShowcase) {
+    state.isShowcase = isShowcase
+  },
+  setBarrier(state, isBarrier) {
+    state.isBarrier = isBarrier
   }
 }
 
@@ -69,15 +73,37 @@ export const actions = {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload
     if (craftIndex === state.craftIndex && state.isCrafting) {
       commit('setCrafting', false)
+      commit('setBarrier', false)
     } else {
       commit('setCrafting', true)
+      commit('setBarrier', true)
       commit('setCraftIndex', craftIndex)
       commit('setCraftAction', craftAction)
       commit('setCraftQuality', craftQuality)
       commit('setCraftLevel', craftLevel)
     }
   },
-  toggleShowcase({ commit }) {
-    commit('toggleShowcase')
+  toggleShowcase({ commit, state, dispatch }) {
+    const nextBool = !state.isShowcase
+    commit('setShowcase', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
+  toggleCrafting({ commit, state, dispatch }) {
+    const nextBool = !state.isCrafting
+    commit('setCrafting', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
+  hideBarrier({ commit }) {
+    commit('setCrafting', false)
+    commit('setShowcase', false)
+    commit('setBarrier', false)
   }
 }
