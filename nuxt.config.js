@@ -19,6 +19,10 @@ export default {
         rel: 'stylesheet',
         href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css'
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap'
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
