@@ -80,6 +80,7 @@ export default {
       const { part, category } = Mini4.resolvePair(basePart, basePairCategory)
       if (!part) return
       const r = this.$store.getters['recipe/getRecipeByPart'](part)
+      if (!r.key) return
       const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
       if (i.ペアカテゴリ !== category) {
         this.$store.dispatch('recipe/detach', { part })
