@@ -1,7 +1,7 @@
 <template>
   <div class="TotalArea zzBg-gray1 pt-3">
     <div class="flex p-2 zzBg-gray2 justify-between">
-      <div class="flex-1 flex items-center justify-center">
+      <div class="xx-total flex items-center justify-center">
         <div class="flex flex-col items-center">
           <div>総合評価</div>
           <div class="xx-totalscore text-2xl">{{ showInt(totalScore) }}</div>
@@ -11,11 +11,11 @@
         <table class="w-full">
           <thead>
             <tr>
-              <th class="px-2 text-center">スピード</th>
-              <th class="px-2 text-center">パワー</th>
-              <th class="px-2 text-center">ｺｰﾅｰ安定</th>
-              <th class="px-2 text-center">ｽﾀﾐﾅ耐久</th>
-              <th class="px-2 text-center">重さ</th>
+              <th class="text-center">スピード</th>
+              <th class="text-center">パワー</th>
+              <th class="text-center">ｺｰﾅｰ安定</th>
+              <th class="text-center">ｽﾀﾐﾅ耐久</th>
+              <th class="text-center">重さ</th>
             </tr>
           </thead>
           <tbody class="xx-ranks">
@@ -215,15 +215,25 @@ export default {
   font-size: 0.7rem;
   font-weight: normal;
 
+  .xx-total {
+    flex: 2;
+  }
+
   .xx-totalscore {
     font-size: 1.5rem;
     font-family: 'Anton', sans-serif;
   }
 
   .xx-affects {
+    flex: 5;
+
     .xx-scores {
       font-size: 0.8rem;
       font-family: 'Anton', sans-serif;
+    }
+
+    table {
+      table-layout: fixed;
     }
   }
 }
