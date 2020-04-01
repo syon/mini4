@@ -178,6 +178,7 @@ export default class Mini4 {
   }
 
   static getCalcArgs(partCrafts, { action, quarity, level }) {
+    if (!partCrafts) return []
     const c = partCrafts.find((x) => x.action === action)
     if (!c) return []
     return c.effects.map((e) => {
