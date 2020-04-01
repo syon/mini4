@@ -1,13 +1,14 @@
 {
   "ボディ": {
-    "key": "トライダガーX",
+    "key": "シャイニングスコーピオン",
     "肉抜き": 3,
     "crafts": [
-      { "action": "冷却能力向上", "quarity": "イイ感じ", "level": "22" },
-      { "action": "冷却能力向上", "quarity": "職人技", "level": "22" },
-      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "22" },
-      { "action": "限界軽量化", "quarity": "職人技", "level": "22" },
-      { "action": "", "quarity": "", "level": 0 }
+      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "47" },
+      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" }
     ]
   },
   "モーター": {

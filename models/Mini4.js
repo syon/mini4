@@ -167,7 +167,8 @@ export default class Mini4 {
       const para = resultSpecs[affect] || 0
       const growVal = (para + kaizouVal) * grow
       // 増分 == kaizouVal + growVal
-      resultSpecs[affect] = para + kaizouVal + growVal
+      const raw = para + kaizouVal + growVal
+      resultSpecs[affect] = Math.round(raw * 1000000) / 1000000
     }
     if (part === 'ボディ') {
       if (partRecipe.肉抜き > 0) {
