@@ -95,8 +95,8 @@ export default {
 
 <style lang="less" scoped>
 .xx-ShowcaseArea {
-  position: absolute;
-  top: 75px;
+  position: fixed;
+  bottom: 10px;
   left: 0;
   z-index: 9;
   width: 58vw;
@@ -111,7 +111,7 @@ export default {
 }
 
 .CraftEditSlotList {
-  height: 64vh;
+  height: 80vh;
   overflow: auto;
   padding: 0 0 30px;
 }

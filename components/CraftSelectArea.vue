@@ -169,8 +169,8 @@ export default {
 
 <style lang="less" scoped>
 .xx-CraftSelectArea {
-  position: absolute;
-  top: 75px;
+  position: fixed;
+  bottom: 10px;
   left: 0;
   z-index: 9;
   width: 58vw;
