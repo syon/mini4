@@ -3,7 +3,12 @@
     <template v-for="(x, idx) in remodelSlots">
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
-    <button @click="dump">export</button>
+    <div class="flex flex-col">
+      <button class="zzBtn1 m-2" @click="removeAllCrafts">
+        改造をすべて取り消す
+      </button>
+      <button class="zzBtn1 m-2" @click="dump">export</button>
+    </div>
   </div>
 </template>
 
@@ -46,6 +51,10 @@ export default {
         level
       }
       return remodel
+    },
+    removeAllCrafts() {
+      this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)
+      this.$store.dispatch('ing/transIngPart', this.ingPart)
     },
     dump() {
       this.$store.dispatch('recipe/dump', this.ingPart)

@@ -137,6 +137,11 @@ export const mutations = {
     ingPart.crafts[craftIndex] = { ...c, level }
     state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
+  clearAllPartCrafts(state, { part }) {
+    const partKey = resolvePartKey(part)
+    const partRecipe = state[partKey]
+    state[partKey] = { ...partRecipe, crafts: [] }
+  },
   setDrill(state, arg) {
     state.body = { ...state.body, 肉抜き: arg }
   }
@@ -171,14 +176,14 @@ export const actions = {
     commit('setDrill', arg)
     dispatch('ing/refresh', null, { root: true })
   },
-  cleanupCrafts({ commit, state }, partJP) {
-    const part = resolvePartKey(partJP)
-    const partCrafts = state[part].crafts || []
+  cleanupCrafts({ commit, state }, part) {
+    const partKey = resolvePartKey(part)
+    const partCrafts = state[partKey].crafts || []
     for (let i = 0; i < partCrafts.length; i++) {
       const c = partCrafts[i] || {}
       if (!c.action && (c.quarity || c.level)) {
         const payload = {
-          part: partJP,
+          part,
           craftIndex: i,
           action: '',
           quarity: '',
@@ -187,6 +192,9 @@ export const actions = {
         commit('setPartCraft', payload)
       }
     }
+  },
+  removeAllCrafts({ commit }, part) {
+    commit('clearAllPartCrafts', { part })
   },
   dump({ state }, partJapanese) {
     const part = resolvePartKey(partJapanese)
