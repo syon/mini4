@@ -2,6 +2,7 @@
   <div
     :class="{ active: x.action === craftAction, isNomoreCraft: nomore }"
     class="xx-CraftEditSlot w-full flex flex-col text-sm"
+    @click="handleClick"
   >
     <div class="xx-titlebar flex justify-between">
       <div>{{ x.action || '(改造なし)' }}</div>
@@ -74,7 +75,9 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$emit('click')
+      if (!this.nomore) {
+        this.$emit('go')
+      }
     }
   }
 }
