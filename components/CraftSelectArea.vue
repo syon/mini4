@@ -1,6 +1,6 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
-    <div class="quarityChoise mt-2">
+    <div class="zzQualityChoise mt-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
         <span>イイ感じ</span>
@@ -167,32 +167,6 @@ export default {
 .xx-close {
   font-size: 0.8rem;
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-.quarityChoise {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  font-weight: bold;
-  > label {
-    flex: 1;
-    text-align: center;
-    color: #000;
-    background-color: #f0f4f4;
-    border: 1px solid #b4b4b4;
-    border-radius: 0.2rem;
-    padding: 5px 0;
-    margin: 2px;
-    &.active {
-      background-color: #fffca0;
-      border: 1px solid #f1f658;
-    }
-  }
-  input[type='radio'] {
-    display: none;
-    appearance: none;
-  }
 }
 
 .levelChoise {

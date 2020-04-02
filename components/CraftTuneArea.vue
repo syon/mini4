@@ -1,6 +1,6 @@
 <template>
   <div v-if="isTune" class="xx-CraftTuneArea zzBg-gray1">
-    <div class="quarityChoise mt-2">
+    <div class="zzQualityChoise mt-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
         <span>イイ感じ</span>
