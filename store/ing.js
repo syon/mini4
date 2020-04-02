@@ -10,7 +10,8 @@ export const state = () => ({
   craftQuality: null,
   craftLevel: null,
   isShowcase: false,
-  isBarrier: false
+  isBarrier: false,
+  isTune: false
 })
 
 export const getters = {}
@@ -57,6 +58,9 @@ export const mutations = {
   },
   setBarrier(state, isBarrier) {
     state.isBarrier = isBarrier
+  },
+  setTune(state, isTune) {
+    state.isTune = isTune
   }
 }
 
@@ -108,11 +112,21 @@ export const actions = {
     }
   },
   hideBarrier({ commit, state, dispatch }) {
-    commit('setCrafting', false)
-    commit('setShowcase', false)
     commit('setBarrier', false)
     commit('resetCraft', false)
+    commit('setCrafting', false)
+    commit('setShowcase', false)
+    commit('setTune', false)
     const { part } = state
     dispatch('recipe/cleanupCrafts', part, { root: true })
+  },
+  toggleCraftTune({ commit, state, dispatch }) {
+    const nextBool = !state.isTune
+    commit('setTune', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
   }
 }

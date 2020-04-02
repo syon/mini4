@@ -249,4 +249,32 @@ export default class Mini4 {
     }
     return '!?'
   }
+
+  static controlLevel(theCase, crrLevel) {
+    const lv = Number(crrLevel)
+    switch (theCase) {
+      case 'Minus10':
+        if (lv - 10 <= 1) {
+          return 1
+        }
+        return lv - 10
+      case 'Minus1':
+        if (lv <= 1) {
+          return 1
+        }
+        return lv - 1
+      case 'Plus1':
+        if (lv >= 50) {
+          return 50
+        }
+        return lv + 1
+      case 'Plus10':
+        if (lv + 10 >= 50) {
+          return 50
+        }
+        return lv + 10
+      case 'Max':
+        return 50
+    }
+  }
 }

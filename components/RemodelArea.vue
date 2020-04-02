@@ -3,11 +3,14 @@
     <template v-for="(x, idx) in remodelSlots">
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
-    <div class="flex flex-col">
-      <button class="zzBtn1 m-2" @click="removeAllCrafts">
+    <div class="flex flex-col p-2">
+      <button class="zzBtn1 my-1" @click="toggleCraftTune">
+        一括調整
+      </button>
+      <button class="zzBtn1 my-1" @click="removeAllCrafts">
         改造をすべて取り消す
       </button>
-      <button class="zzBtn1 m-2" @click="dump">export</button>
+      <button class="zzBtn1 my-1" @click="dump">export</button>
     </div>
   </div>
 </template>
@@ -51,6 +54,9 @@ export default {
         level
       }
       return remodel
+    },
+    toggleCraftTune() {
+      this.$store.dispatch('ing/toggleCraftTune')
     },
     removeAllCrafts() {
       this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)

@@ -66,6 +66,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import Mini4 from '../models/Mini4'
 import CraftEditSlot from '@/components/CraftEditSlot'
 
 export default {
@@ -129,39 +130,8 @@ export default {
     }
   },
   methods: {
-    handleLevel(sub) {
-      const lv = Number(this.level)
-      switch (sub) {
-        case 'Minus10':
-          if (lv - 10 <= 1) {
-            this.level = 1
-            break
-          }
-          this.level = lv - 10
-          break
-        case 'Minus1':
-          if (lv === 1) {
-            break
-          }
-          this.level = lv - 1
-          break
-        case 'Plus1':
-          if (lv === 50) {
-            break
-          }
-          this.level = lv + 1
-          break
-        case 'Plus10':
-          if (lv + 10 >= 50) {
-            this.level = 50
-            break
-          }
-          this.level = lv + 10
-          break
-        case 'Max':
-          this.level = 50
-          break
-      }
+    handleLevel(theCase) {
+      this.level = Mini4.controlLevel(theCase, this.level)
     },
     handleClickSlot(x) {
       const isNone = x.action === ''
