@@ -107,10 +107,12 @@ export const actions = {
       dispatch('hideBarrier')
     }
   },
-  hideBarrier({ commit }) {
+  hideBarrier({ commit, state, dispatch }) {
     commit('setCrafting', false)
     commit('setShowcase', false)
     commit('setBarrier', false)
     commit('resetCraft', false)
+    const { part } = state
+    dispatch('recipe/cleanupCrafts', part, { root: true })
   }
 }

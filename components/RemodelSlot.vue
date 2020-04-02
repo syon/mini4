@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-1">
       <div
-        v-if="x.quarity || x.level"
+        v-if="x.action && (x.quarity || x.level)"
         class="xx-quarity flex-auto flex items-center justify-between text-black p-2"
       >
         <div class="xx-quarity-label">{{ x.quarity }}</div>
