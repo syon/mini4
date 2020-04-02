@@ -46,6 +46,12 @@ export const mutations = {
   setCrafting(state, isCrafting) {
     state.isCrafting = isCrafting
   },
+  resetCraft(state) {
+    state.craftIndex = null
+    state.craftAction = ''
+    state.craftQuality = null
+    state.craftLevel = null
+  },
   setShowcase(state, isShowcase) {
     state.isShowcase = isShowcase
   },
@@ -105,5 +111,6 @@ export const actions = {
     commit('setCrafting', false)
     commit('setShowcase', false)
     commit('setBarrier', false)
+    commit('resetCraft', false)
   }
 }
