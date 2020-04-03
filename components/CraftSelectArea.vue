@@ -1,5 +1,12 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
+    <div class="text-center pt-2">
+      <label class="inline-flex items-center">
+        <input v-model="isFlood" type="checkbox" />
+        <span class="ml-1 text-xs">選択スロット以下をまとめて改造</span>
+      </label>
+    </div>
+    <hr class="my-1" />
     <div class="zzQualityChoise mt-2">
       <label :class="{ active: quarity === 'イイ感じ' }">
         <input v-model="quarity" type="radio" value="イイ感じ" />
@@ -76,7 +83,8 @@ export default {
   data() {
     return {
       quarity: null,
-      level: null
+      level: null,
+      isFlood: false
     }
   },
   computed: {
@@ -113,20 +121,44 @@ export default {
       this.level = this.craftLevel
     },
     quarity(quarity) {
-      const payload = {
-        part: this.ingPart,
-        craftIndex: this.craftIndex,
-        quarity
+      const { ingPart: part } = this
+      if (this.isFlood) {
+        for (let i = this.craftIndex; i < 6; i++) {
+          const payload = {
+            part,
+            craftIndex: i,
+            quarity
+          }
+          this.$store.dispatch('recipe/changeCraftquarity', payload)
+        }
+      } else {
+        const payload = {
+          part,
+          craftIndex: this.craftIndex,
+          quarity
+        }
+        this.$store.dispatch('recipe/changeCraftquarity', payload)
       }
-      this.$store.dispatch('recipe/changeCraftquarity', payload)
     },
     level(level) {
-      const payload = {
-        part: this.ingPart,
-        craftIndex: this.craftIndex,
-        level
+      const { ingPart: part } = this
+      if (this.isFlood) {
+        for (let i = this.craftIndex; i < 6; i++) {
+          const payload = {
+            part,
+            craftIndex: i,
+            level
+          }
+          this.$store.dispatch('recipe/changeCraftLevel', payload)
+        }
+      } else {
+        const payload = {
+          part,
+          craftIndex: this.craftIndex,
+          level
+        }
+        this.$store.dispatch('recipe/changeCraftLevel', payload)
       }
-      this.$store.dispatch('recipe/changeCraftLevel', payload)
     }
   },
   methods: {
@@ -134,16 +166,39 @@ export default {
       this.level = Mini4.controlLevel(theCase, this.level)
     },
     handleClickSlot(x) {
-      const isNone = x.action === ''
+      const { ingPart: part, quarity, level } = this
+      const action = x.action
+      if (this.isFlood) {
+        for (let i = this.craftIndex; i < 6; i++) {
+          this.changeCraft({
+            part,
+            craftIndex: i,
+            action,
+            quarity,
+            level
+          })
+        }
+      } else {
+        this.changeCraft({
+          part,
+          craftIndex: this.craftIndex,
+          action,
+          quarity,
+          level
+        })
+        this.closeDialog()
+      }
+    },
+    changeCraft({ part, craftIndex, action, quarity, level }) {
+      const isNone = action === ''
       const arg = {
-        part: this.ingPart,
-        craftIndex: this.craftIndex,
-        action: x.action,
-        quarity: isNone ? '' : this.quarity || 'イイ感じ',
-        level: isNone ? 0 : this.level || 1
+        part,
+        craftIndex,
+        action,
+        quarity: isNone ? '' : quarity || 'イイ感じ',
+        level: isNone ? 0 : level || 1
       }
       this.$store.dispatch('recipe/changeCraft', arg)
-      this.closeDialog()
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleCrafting')
