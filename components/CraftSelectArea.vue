@@ -120,50 +120,46 @@ export default {
       this.quality = this.craftQuality
       this.level = this.craftLevel
     },
+    isFlood() {
+      this.applyQuality(this.quality)
+      this.applyLevel(this.level)
+    },
     quality(quality) {
-      const { ingPart: part } = this
-      if (this.isFlood) {
-        for (let i = this.craftIndex; i < 6; i++) {
-          const payload = {
-            part,
-            craftIndex: i,
-            quality
-          }
-          this.$store.dispatch('recipe/changeCraftQuality', payload)
-        }
-      } else {
-        const payload = {
-          part,
-          craftIndex: this.craftIndex,
-          quality
-        }
-        this.$store.dispatch('recipe/changeCraftQuality', payload)
-      }
+      this.applyQuality(quality)
     },
     level(level) {
-      const { ingPart: part } = this
-      if (this.isFlood) {
-        for (let i = this.craftIndex; i < 6; i++) {
-          const payload = {
-            part,
-            craftIndex: i,
-            level
-          }
-          this.$store.dispatch('recipe/changeCraftLevel', payload)
-        }
-      } else {
-        const payload = {
-          part,
-          craftIndex: this.craftIndex,
-          level
-        }
-        this.$store.dispatch('recipe/changeCraftLevel', payload)
-      }
+      this.applyLevel(level)
     }
   },
   methods: {
     handleLevel(theCase) {
       this.level = Mini4.controlLevel(theCase, this.level)
+    },
+    applyQuality(quality) {
+      const { ingPart: part } = this
+      if (!this.craftIndex) return
+      if (this.isFlood) {
+        for (let i = this.craftIndex; i < 6; i++) {
+          const payload = { part, craftIndex: i, quality }
+          this.$store.dispatch('recipe/changeCraftQuality', payload)
+        }
+      } else {
+        const payload = { part, craftIndex: this.craftIndex, quality }
+        this.$store.dispatch('recipe/changeCraftQuality', payload)
+      }
+    },
+    applyLevel(level) {
+      const { ingPart: part } = this
+      if (!this.craftIndex) return
+      if (this.isFlood) {
+        for (let i = this.craftIndex; i < 6; i++) {
+          const payload = { part, craftIndex: i, level }
+          this.$store.dispatch('recipe/changeCraftLevel', payload)
+        }
+      } else {
+        const payload = { part, craftIndex: this.craftIndex, level }
+        this.$store.dispatch('recipe/changeCraftLevel', payload)
+      }
     },
     handleClickSlot(x) {
       const { ingPart: part, quality, level } = this
@@ -186,7 +182,7 @@ export default {
           quality,
           level
         })
-        this.closeDialog()
+        // this.closeDialog()
       }
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
