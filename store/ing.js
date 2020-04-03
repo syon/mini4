@@ -93,6 +93,13 @@ export const actions = {
       commit('setCraftLevel', craftLevel)
     }
   },
+  updateCraft({ state, commit }, payload) {
+    const { craftIndex, craftAction, craftQuality, craftLevel } = payload
+    commit('setCraftIndex', craftIndex)
+    commit('setCraftAction', craftAction)
+    commit('setCraftQuality', craftQuality)
+    commit('setCraftLevel', craftLevel)
+  },
   toggleShowcase({ commit, state, dispatch }) {
     const nextBool = !state.isShowcase
     commit('setShowcase', nextBool)

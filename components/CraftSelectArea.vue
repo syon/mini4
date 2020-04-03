@@ -182,8 +182,14 @@ export default {
           quality,
           level
         })
-        // this.closeDialog()
       }
+      const payload = {
+        craftIndex: this.craftIndex,
+        craftAction: x.action || '',
+        craftQuality: x.quality || 'イイ感じ',
+        craftLevel: x.level || 1
+      }
+      this.$store.dispatch('ing/updateCraft', payload)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
       const isNone = action === ''
