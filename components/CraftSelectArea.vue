@@ -62,15 +62,18 @@
     </div>
     <hr class="my-1" />
     <div class="CraftEditSlotList">
-      <template v-for="(obj, idx) in showingCrafts">
-        <div :key="idx" class="flex mx-1 my-1">
+      <div class="px-1">
+        <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
+        <template v-for="(obj, idx) in showingCrafts">
           <craft-edit-slot
+            :key="idx"
             :arg="obj.arg"
             :hit="obj.hit"
+            class="flex my-1"
             @go="handleClickSlot(obj.arg)"
           />
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
   </div>
 </template>

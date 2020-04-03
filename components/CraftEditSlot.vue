@@ -69,7 +69,7 @@ export default {
       craftAction: (state) => state.craftAction
     }),
     x() {
-      return this.arg
+      return this.arg || {}
     },
     nomore() {
       return this.x.回数制限 && this.x.回数制限 - this.hit <= 0
