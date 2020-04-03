@@ -15,14 +15,14 @@
         <div class="flex">
           <div class="xx-craftinfo flex-auto flex items-stretch">
             <span
-              v-if="x.craftedCount > 0 && x.action"
+              v-if="hit > 0 && x.action"
               class="xx-limittip zzBg-gray1 text-center"
             >
-              済み: {{ x.craftedCount }}
+              済み: {{ hit }}
             </span>
             <template v-if="x.回数制限">
               <span class="xx-limittip zzBg-gray1 text-center">
-                残り: {{ x.回数制限 - x.craftedCount }}
+                残り: {{ x.回数制限 - hit }}
               </span>
             </template>
           </div>
@@ -59,18 +59,20 @@
 import { mapState } from 'vuex'
 
 export default {
-  props: { arg: { type: Object, default: () => {} } },
+  props: {
+    arg: { type: Object, default: () => {} },
+    hit: { type: Number, required: true }
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
-      craftIndex: (state) => state.craftIndex,
       craftAction: (state) => state.craftAction
     }),
     x() {
-      return this.arg || {}
+      return this.arg
     },
     nomore() {
-      return this.x.回数制限 && this.x.回数制限 - this.x.craftedCount <= 0
+      return this.x.回数制限 && this.x.回数制限 - this.hit <= 0
     }
   },
   methods: {

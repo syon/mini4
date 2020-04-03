@@ -93,7 +93,7 @@ export const actions = {
       commit('setCraftLevel', craftLevel)
     }
   },
-  updateCraft({ state, commit }, payload) {
+  updateCraft({ commit }, payload) {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload
     commit('setCraftIndex', craftIndex)
     commit('setCraftAction', craftAction)

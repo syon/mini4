@@ -62,9 +62,13 @@
     </div>
     <hr class="my-1" />
     <div class="CraftEditSlotList">
-      <template v-for="(x, idx) in ingCraftsWithBlank">
+      <template v-for="(obj, idx) in showingCrafts">
         <div :key="idx" class="flex mx-1 my-1">
-          <craft-edit-slot :arg="x" @go="handleClickSlot(x)" />
+          <craft-edit-slot
+            :arg="obj.arg"
+            :hit="obj.hit"
+            @go="handleClickSlot(obj.arg)"
+          />
         </div>
       </template>
     </div>
@@ -102,17 +106,12 @@ export default {
     ...mapGetters({
       getRecipeByPart: 'recipe/getRecipeByPart'
     }),
-    crrRecipeCrafts() {
-      return this.ingPartRecipe.crafts || []
-    },
-    ingCraftsWithBlank() {
-      const arr = Array.from(this.ingCrafts)
-      arr.unshift({ action: '' })
-      for (const a of arr) {
-        const hit = this.crrRecipeCrafts.filter((x) => x.action === a.action)
-        a.craftedCount = hit.length
-      }
-      return arr
+    showingCrafts() {
+      const crafts = this.ingPartRecipe.crafts || []
+      return this.ingCrafts.map((c) => {
+        const hit = crafts.filter((x) => x.action === c.action)
+        return { arg: c, hit: hit.length }
+      })
     }
   },
   watch: {
@@ -189,6 +188,7 @@ export default {
         craftQuality: x.quality || 'イイ感じ',
         craftLevel: x.level || 1
       }
+      this.$store.dispatch('ing/refresh', part)
       this.$store.dispatch('ing/updateCraft', payload)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
