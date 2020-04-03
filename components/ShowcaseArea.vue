@@ -1,21 +1,23 @@
 <template>
   <div v-if="isShowcase" class="xx-ShowcaseArea zzBg-gray1">
-    <div class="CraftEditSlotList">
-      <template v-for="(categorySet, key) in sortedCatalog">
-        <div :key="key" class="mx-1 my-1">
-          <div class="xx-category mt-4 px-2">{{ key }}</div>
-          <template v-for="(item, name) in categorySet">
-            <div
-              :key="name"
-              :class="{ active: name === ingItem.key }"
-              class="xx-item m-1 px-2 py-1"
-              @click="handleSelectItem(name, item)"
-            >
-              {{ name }}
-            </div>
-          </template>
-        </div>
-      </template>
+    <div class="xx-List">
+      <div class="CraftEditSlotList">
+        <template v-for="(categorySet, key) in sortedCatalog">
+          <div :key="key" class="mx-1 my-1">
+            <div class="xx-category mt-4 px-2">{{ key }}</div>
+            <template v-for="(item, name) in categorySet">
+              <div
+                :key="name"
+                :class="{ active: name === ingItem.key }"
+                class="xx-item m-1 px-2 py-1"
+                @click="handleSelectItem(name, item)"
+              >
+                {{ name }}
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
     </div>
     <div class="text-center">
       <button class="zzBtn1 my-2 w-24" @click="handleDetach">取り外す</button>
@@ -118,9 +120,12 @@ export default {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.CraftEditSlotList {
+.xx-List {
   height: 80vh;
   overflow: auto;
+}
+
+.CraftEditSlotList {
   padding: 0 0 30px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
