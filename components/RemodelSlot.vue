@@ -9,11 +9,11 @@
     </div>
     <div class="flex flex-1">
       <div
-        v-if="x.action && (x.quarity || x.level)"
-        class="xx-quarity flex-auto flex items-center justify-between text-black p-2"
+        v-if="x.action && (x.quality || x.level)"
+        class="xx-quality flex-auto flex items-center justify-between text-black p-2"
       >
-        <div class="xx-quarity-label">{{ x.quarity }}</div>
-        <div class="xx-quarity-level">Lv.{{ x.level }}</div>
+        <div class="xx-quality-label">{{ x.quality }}</div>
+        <div class="xx-quality-level">Lv.{{ x.level }}</div>
       </div>
       <div v-else class="h-8"></div>
     </div>
@@ -45,7 +45,7 @@ export default {
       const payload = {
         craftIndex: this.craftIndex,
         craftAction: this.x.action || '',
-        craftQuality: this.x.quarity || 'イイ感じ',
+        craftQuality: this.x.quality || 'イイ感じ',
         craftLevel: this.x.level || 1
       }
       this.$store.dispatch('ing/changeCraftIndex', payload)
@@ -74,13 +74,13 @@ export default {
   border-radius: 0.15rem 0.15rem 0 0;
 }
 
-.xx-quarity {
-  .xx-quarity-label {
+.xx-quality {
+  .xx-quality-label {
     font-size: 0.8rem;
     font-weight: bold;
     line-height: 1.2;
   }
-  .xx-quarity-level {
+  .xx-quality-level {
     font-size: 0.8rem;
     font-weight: bold;
     line-height: 1.2;

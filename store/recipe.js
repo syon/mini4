@@ -117,17 +117,17 @@ export const mutations = {
     const partKey = resolvePartKey(part)
     state[partKey] = { key: '', crafts: [] }
   },
-  setPartCraft(state, { part, craftIndex, action, quarity, level }) {
+  setPartCraft(state, { part, craftIndex, action, quality, level }) {
     const partKey = resolvePartKey(part)
     const partRecipe = state[partKey]
-    partRecipe.crafts[craftIndex] = { action, quarity, level }
+    partRecipe.crafts[craftIndex] = { action, quality, level }
     state[partKey] = { ...partRecipe, crafts: partRecipe.crafts }
   },
-  setPartCraftquarity(state, { part, craftIndex, quarity }) {
+  setPartCraftQuality(state, { part, craftIndex, quality }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
     const c = ingPart.crafts[craftIndex]
-    ingPart.crafts[craftIndex] = { ...c, quarity }
+    ingPart.crafts[craftIndex] = { ...c, quality }
     state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftLevel(state, { part, craftIndex, level }) {
@@ -164,8 +164,8 @@ export const actions = {
     commit('setPartCraft', arg)
     dispatch('ing/refresh', null, { root: true })
   },
-  changeCraftquarity({ commit, dispatch }, arg) {
-    commit('setPartCraftquarity', arg)
+  changeCraftQuality({ commit, dispatch }, arg) {
+    commit('setPartCraftQuality', arg)
     dispatch('ing/refresh', null, { root: true })
   },
   changeCraftLevel({ commit, dispatch }, arg) {
@@ -181,12 +181,12 @@ export const actions = {
     const partCrafts = state[partKey].crafts || []
     for (let i = 0; i < partCrafts.length; i++) {
       const c = partCrafts[i] || {}
-      if (!c.action && (c.quarity || c.level)) {
+      if (!c.action && (c.quality || c.level)) {
         const payload = {
           part,
           craftIndex: i,
           action: '',
-          quarity: '',
+          quality: '',
           level: 0
         }
         commit('setPartCraft', payload)

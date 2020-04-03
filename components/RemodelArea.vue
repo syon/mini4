@@ -35,7 +35,7 @@ export default {
         if (!remodels[i]) {
           remodels[i] = {
             action: '',
-            quarity: '',
+            quality: '',
             level: 0
           }
         }
@@ -45,12 +45,12 @@ export default {
   },
   methods: {
     getRemodel(recipeCraft) {
-      const { action, quarity, level } = recipeCraft
+      const { action, quality, level } = recipeCraft
       const c = this.ingCrafts.find((x) => x.action === action)
       const remodel = {
         action,
         effects: c ? c.effects : [],
-        quarity,
+        quality,
         level
       }
       return remodel

@@ -1,16 +1,16 @@
 <template>
   <div v-if="isTune" class="xx-CraftTuneArea zzBg-gray1">
     <div class="zzQualityChoise mt-2">
-      <label :class="{ active: quarity === 'イイ感じ' }">
-        <input v-model="quarity" type="radio" value="イイ感じ" />
+      <label :class="{ active: quality === 'イイ感じ' }">
+        <input v-model="quality" type="radio" value="イイ感じ" />
         <span>イイ感じ</span>
       </label>
-      <label :class="{ active: quarity === '職人技' }">
-        <input v-model="quarity" type="radio" value="職人技" />
+      <label :class="{ active: quality === '職人技' }">
+        <input v-model="quality" type="radio" value="職人技" />
         <span>職人技</span>
       </label>
-      <label :class="{ active: quarity === '至高の逸品' }">
-        <input v-model="quarity" type="radio" value="至高の逸品" />
+      <label :class="{ active: quality === '至高の逸品' }">
+        <input v-model="quality" type="radio" value="至高の逸品" />
         <span style="letter-spacing: -0.05em;">至高の逸品</span>
       </label>
     </div>
@@ -63,7 +63,7 @@ import Mini4 from '../models/Mini4'
 export default {
   data() {
     return {
-      quarity: null,
+      quality: null,
       level: null
     }
   },
@@ -76,20 +76,20 @@ export default {
   },
   watch: {
     isTune() {
-      this.quarity = null
+      this.quality = null
       this.level = null
     },
-    quarity(quarity) {
-      if (!quarity) return
+    quality(quality) {
+      if (!quality) return
       const crafts = this.ingRecipe.crafts || []
       for (let i = 0; i < crafts.length; i++) {
         if (crafts[i].action) {
           const payload = {
             part: this.ingPart,
             craftIndex: i,
-            quarity
+            quality
           }
-          this.$store.dispatch('recipe/changeCraftquarity', payload)
+          this.$store.dispatch('recipe/changeCraftQuality', payload)
         }
       }
     },

@@ -8,16 +8,16 @@
     </div>
     <hr class="my-1" />
     <div class="zzQualityChoise mt-2">
-      <label :class="{ active: quarity === 'イイ感じ' }">
-        <input v-model="quarity" type="radio" value="イイ感じ" />
+      <label :class="{ active: quality === 'イイ感じ' }">
+        <input v-model="quality" type="radio" value="イイ感じ" />
         <span>イイ感じ</span>
       </label>
-      <label :class="{ active: quarity === '職人技' }">
-        <input v-model="quarity" type="radio" value="職人技" />
+      <label :class="{ active: quality === '職人技' }">
+        <input v-model="quality" type="radio" value="職人技" />
         <span>職人技</span>
       </label>
-      <label :class="{ active: quarity === '至高の逸品' }">
-        <input v-model="quarity" type="radio" value="至高の逸品" />
+      <label :class="{ active: quality === '至高の逸品' }">
+        <input v-model="quality" type="radio" value="至高の逸品" />
         <span style="letter-spacing: -0.05em;">至高の逸品</span>
       </label>
     </div>
@@ -82,7 +82,7 @@ export default {
   },
   data() {
     return {
-      quarity: null,
+      quality: null,
       level: null,
       isFlood: false
     }
@@ -117,27 +117,27 @@ export default {
   },
   watch: {
     craftIndex() {
-      this.quarity = this.craftQuality
+      this.quality = this.craftQuality
       this.level = this.craftLevel
     },
-    quarity(quarity) {
+    quality(quality) {
       const { ingPart: part } = this
       if (this.isFlood) {
         for (let i = this.craftIndex; i < 6; i++) {
           const payload = {
             part,
             craftIndex: i,
-            quarity
+            quality
           }
-          this.$store.dispatch('recipe/changeCraftquarity', payload)
+          this.$store.dispatch('recipe/changeCraftQuality', payload)
         }
       } else {
         const payload = {
           part,
           craftIndex: this.craftIndex,
-          quarity
+          quality
         }
-        this.$store.dispatch('recipe/changeCraftquarity', payload)
+        this.$store.dispatch('recipe/changeCraftQuality', payload)
       }
     },
     level(level) {
@@ -166,7 +166,7 @@ export default {
       this.level = Mini4.controlLevel(theCase, this.level)
     },
     handleClickSlot(x) {
-      const { ingPart: part, quarity, level } = this
+      const { ingPart: part, quality, level } = this
       const action = x.action
       if (this.isFlood) {
         for (let i = this.craftIndex; i < 6; i++) {
@@ -174,7 +174,7 @@ export default {
             part,
             craftIndex: i,
             action,
-            quarity,
+            quality,
             level
           })
         }
@@ -183,19 +183,19 @@ export default {
           part,
           craftIndex: this.craftIndex,
           action,
-          quarity,
+          quality,
           level
         })
         this.closeDialog()
       }
     },
-    changeCraft({ part, craftIndex, action, quarity, level }) {
+    changeCraft({ part, craftIndex, action, quality, level }) {
       const isNone = action === ''
       const arg = {
         part,
         craftIndex,
         action,
-        quarity: isNone ? '' : quarity || 'イイ感じ',
+        quality: isNone ? '' : quality || 'イイ感じ',
         level: isNone ? 0 : level || 1
       }
       this.$store.dispatch('recipe/changeCraft', arg)

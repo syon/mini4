@@ -178,14 +178,14 @@ export default class Mini4 {
     return resultSpecs
   }
 
-  static getCalcArgs(partCrafts, { action, quarity, level }) {
+  static getCalcArgs(partCrafts, { action, quality, level }) {
     if (!partCrafts) return []
     const c = partCrafts.find((x) => x.action === action)
     if (!c) return []
     return c.effects.map((e) => {
       return {
         affect: e.影響,
-        benefit: e[quarity],
+        benefit: e[quality],
         grow: e.強化 * level,
         fix: e.固定
       }

@@ -3,12 +3,12 @@
     "key": "シャイニングスコーピオン",
     "肉抜き": 3,
     "crafts": [
-      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "47" },
-      { "action": "限界軽量化", "quarity": "至高の逸品", "level": "47" },
-      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
-      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
-      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" },
-      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": "47" }
+      { "action": "限界軽量化", "quality": "至高の逸品", "level": "47" },
+      { "action": "限界軽量化", "quality": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quality": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quality": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quality": "至高の逸品", "level": "47" },
+      { "action": "冷却能力向上", "quality": "至高の逸品", "level": "47" }
     ]
   },
   "モーター": {
@@ -16,32 +16,32 @@
     "crafts": [
       {
         "action": "冷却ブレークイン(トルク重視)",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "35"
       },
       {
         "action": "冷却ブレークイン(トルク重視)",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "35"
       },
       {
         "action": "冷却ブレークイン(回転数重視)",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "18"
       },
       {
         "action": "冷却ブレークイン(回転数重視)",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "36"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -51,32 +51,32 @@
     "crafts": [
       {
         "action": "ギヤフローティング加工",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "1"
       },
       {
         "action": "ギヤフローティング加工",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "1"
       },
       {
         "action": "ギヤ位置の固定",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "1"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -86,32 +86,32 @@
     "crafts": [
       {
         "action": "超制振対策",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "5"
       },
       {
         "action": "限界軽量化",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "5"
       },
       {
         "action": "剛性補強",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "5"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -121,32 +121,32 @@
     "crafts": [
       {
         "action": "タイヤの固定",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "5"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -162,32 +162,32 @@
     "crafts": [
       {
         "action": "トレッドパターン加工",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "30"
       },
       {
         "action": "トレッドパターン加工",
-        "quarity": "至高の逸品",
+        "quality": "至高の逸品",
         "level": 50
       },
       {
         "action": "タイヤウォーミングアップ",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "1"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -197,32 +197,32 @@
     "crafts": [
       {
         "action": "限界軽量化",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "1"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -232,32 +232,32 @@
     "crafts": [
       {
         "action": "ローラーチェック",
-        "quarity": "職人技",
+        "quality": "職人技",
         "level": "25"
       },
       {
         "action": "ローラー抵抗抜き",
-        "quarity": "イイ感じ",
+        "quality": "イイ感じ",
         "level": "1"
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       },
       {
         "action": "",
-        "quarity": "",
+        "quality": "",
         "level": 0
       }
     ]
@@ -265,7 +265,7 @@
   "アクセサリー・１": {
     "key": "メタル軸受け",
     "crafts": [
-      { "action": "ベアリング抵抗減少", "quarity": "イイ感じ", "level": 1 }
+      { "action": "ベアリング抵抗減少", "quality": "イイ感じ", "level": 1 }
     ]
   },
   "アクセサリー・２": {
@@ -279,10 +279,10 @@
   "アクセサリー・４": {
     "key": "放熱フィン",
     "crafts": [
-      { "action": "冷却能力向上", "quarity": "至高の逸品", "level": 28 },
-      { "action": "冷却能力向上", "quarity": "職人技", "level": 28 },
-      { "action": "剛性補強", "quarity": "職人技", "level": 28 },
-      { "action": "冷却能力向上", "quarity": "職人技", "level": 28 }
+      { "action": "冷却能力向上", "quality": "至高の逸品", "level": 28 },
+      { "action": "冷却能力向上", "quality": "職人技", "level": 28 },
+      { "action": "剛性補強", "quality": "職人技", "level": 28 },
+      { "action": "冷却能力向上", "quality": "職人技", "level": 28 }
     ]
   }
 }
