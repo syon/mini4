@@ -17,6 +17,9 @@
         </div>
       </template>
     </div>
+    <div class="text-center">
+      <button class="zzBtn1 my-2 w-24" @click="handleDetach">取り外す</button>
+    </div>
   </div>
 </template>
 
@@ -83,6 +86,11 @@ export default {
         this.$store.dispatch('recipe/detach', { part })
       }
     },
+    handleDetach() {
+      this.$store.dispatch('recipe/detach', { part: this.ingPart })
+      this.$store.dispatch('ing/refresh')
+      this.closeDialog()
+    },
     closeDialog() {
       this.$store.dispatch('ing/toggleShowcase')
     },
@@ -114,6 +122,7 @@ export default {
   height: 80vh;
   overflow: auto;
   padding: 0 0 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .xx-category {
