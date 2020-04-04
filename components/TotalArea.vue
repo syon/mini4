@@ -24,72 +24,94 @@
                 <score-rank
                   mode="TOTAL"
                   affect="スピード"
-                  :score="gAllPartScoresSum.スピード"
+                  :score="scores.スピード"
                 />
               </td>
               <td class="px-2 text-center">
                 <score-rank
                   mode="TOTAL"
                   affect="パワー"
-                  :score="gAllPartScoresSum.パワー"
+                  :score="scores.パワー"
                 />
               </td>
               <td class="px-2 text-center">
                 <score-rank
                   mode="TOTAL"
                   affect="コーナー安定"
-                  :score="gAllPartScoresSum.コーナー安定"
+                  :score="scores.コーナー安定"
                 />
               </td>
               <td class="px-2 text-center">
                 <score-rank
                   mode="TOTAL"
                   affect="スタミナ耐久"
-                  :score="gAllPartScoresSum.スタミナ耐久"
+                  :score="scores.スタミナ耐久"
                 />
               </td>
               <td class="px-2 text-center">
-                <score-rank
-                  mode="TOTAL"
-                  affect="重さ"
-                  :score="gAllPartScoresSum.重さ"
-                />
+                <score-rank mode="TOTAL" affect="重さ" :score="scores.重さ" />
               </td>
             </tr>
           </tbody>
           <tfoot class="xx-scores">
             <tr>
               <td class="px-2 text-center">
-                {{ showInt(gAllPartScoresSum.スピード, 2) }}
+                {{ showInt(scores.スピード, 2) }}
               </td>
               <td class="px-2 text-center">
-                {{ showInt(gAllPartScoresSum.パワー, 2) }}
+                {{ showInt(scores.パワー, 2) }}
               </td>
               <td class="px-2 text-center">
-                {{ showInt(gAllPartScoresSum.コーナー安定, 2) }}
+                {{ showInt(scores.コーナー安定, 2) }}
               </td>
               <td class="px-2 text-center">
-                {{ showInt(gAllPartScoresSum.スタミナ耐久, 2) }}
+                {{ showInt(scores.スタミナ耐久, 2) }}
               </td>
               <td class="px-2 text-center">
-                {{ showInt(gAllPartScoresSum.重さ, 2) }}
+                {{ showInt(scores.重さ, 2) }}
               </td>
             </tr>
           </tfoot>
         </table>
       </div>
     </div>
-    <div v-if="isDetailOpen" class="mt-3 py-2 px-8 zzBg-gray2 text-xs">
-      <table class="w-full">
-        <tr
-          v-for="(s, key) in gAllPartScoresSum"
-          :key="key"
-          class="border-b border-gray-600 leading-tight"
-        >
-          <td>{{ key }}</td>
-          <td class="text-right">{{ fixedNum(s, 3) }}</td>
-        </tr>
-      </table>
+    <div
+      v-if="isDetailOpen"
+      class="TotalArea-Detail mt-3 py-2 px-4 zzBg-gray2 text-xs"
+    >
+      <div class="flex">
+        <div class="flex-1 px-2">
+          <score-cell label="スピード" :score="scores.スピード" />
+          <score-cell label="パワー" :score="scores.パワー" />
+          <score-cell label="コーナー安定" :score="scores.コーナー安定" />
+          <score-cell label="スタミナ耐久" :score="scores.スタミナ耐久" />
+          <score-cell label="重さ" :score="scores.重さ" />
+          <score-cell label="ギヤ負荷" :score="scores.ギヤ負荷" />
+          <score-cell label="パワーロス" :score="scores.パワーロス" />
+          <score-cell label="スピードロス" :score="scores.スピードロス" />
+          <score-cell
+            label="エアロダウンフォース"
+            :score="scores.エアロダウンフォース"
+          />
+          <score-cell label="節電" :score="scores.節電" />
+          <score-cell label="制振" :score="scores.制振" />
+          <score-cell label="スラスト角" :score="scores.スラスト角" />
+        </div>
+        <div class="flex-1 px-2">
+          <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
+          <score-cell label="タイヤ旋回" :score="scores.タイヤ旋回" />
+          <score-cell label="タイヤ反発" :score="scores.タイヤ反発" />
+          <score-cell label="タイヤ径" :score="scores.タイヤ径" />
+          <score-cell label="ローラー摩擦" :score="scores.ローラー摩擦" />
+          <score-cell label="ローラー抵抗" :score="scores.ローラー抵抗" />
+          <score-cell label="ウェーブ" :score="scores.ウェーブ" />
+          <score-cell label="オフロード" :score="scores.オフロード" />
+          <score-cell label="ギヤ比" :score="scores.ギヤ比" />
+          <score-cell label="消費電流" :score="scores.消費電流" />
+          <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
+          <score-cell label="スタビ減速" :score="scores.スタビ減速" />
+        </div>
+      </div>
     </div>
     <button class="w-full text-center border" @click="toggleDetail">
       <span v-if="isDetailOpen">▲</span>
@@ -101,10 +123,12 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
+import ScoreCell from '@/components/ScoreCell'
 
 export default {
   components: {
-    ScoreRank
+    ScoreRank,
+    ScoreCell
   },
   data() {
     return {
@@ -121,7 +145,7 @@ export default {
       craftMaster: (state) => state.craft
     }),
     ...mapGetters({
-      gAllPartScoresSum: 'recipe/gAllPartScoresSum'
+      scores: 'recipe/gAllPartScoresSum'
     }),
     totalScore() {
       let score = 0
@@ -132,9 +156,9 @@ export default {
         'スタミナ耐久',
         '重さ'
       ]
-      for (const key of Object.keys(this.gAllPartScoresSum)) {
+      for (const key of Object.keys(this.scores)) {
         if (basics.includes(key)) {
-          score = score + this.gAllPartScoresSum[key]
+          score = score + this.scores[key]
         }
       }
       return score
@@ -206,6 +230,12 @@ export default {
     table {
       table-layout: fixed;
     }
+  }
+}
+
+.TotalArea-Detail {
+  .isZero {
+    color: #888;
   }
 }
 
