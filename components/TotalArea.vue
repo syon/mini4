@@ -122,12 +122,10 @@ export default {
       craftMaster: (state) => state.craft
     }),
     ...mapGetters({
-      getCatalogByPart: 'catalog/getCatalogByPart',
-      getRecipeByPart: 'recipe/getRecipeByPart'
+      gAllEquips: 'recipe/gAllEquips'
     }),
     allPartScores() {
-      const allEquips = this.getAllEquips()
-      return allEquips.map((x) => Mini4.getPartScore(x))
+      return this.gAllEquips.map((x) => Mini4.getPartScore(x))
     },
     allPartScoresSum() {
       const result = {}
@@ -156,23 +154,6 @@ export default {
     }
   },
   methods: {
-    getAllEquips() {
-      const parts = Mini4.getAllPartNames()
-      const allEquips = parts.map((part) => {
-        const partCatalog = this.getCatalogByPart(part) || {}
-        const partRecipe = this.getRecipeByPart(part) || {}
-        const item = partCatalog[partRecipe.key] || {}
-        return { part, item, partRecipe }
-      })
-      const accessories = allEquips.filter((e) => {
-        return Mini4.isAccessory(e.part)
-      })
-      const normalEquips = Mini4.resolveEquipAccessories(
-        accessories,
-        this.$store
-      )
-      return allEquips.concat(normalEquips)
-    },
     calcScoreSum(acc, crr) {
       for (const key in Object.keys(crr.basic)) {
         acc.basic[key] = acc.basic[key] + crr.basic[key]

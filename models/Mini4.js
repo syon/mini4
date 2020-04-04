@@ -154,7 +154,7 @@ export default class Mini4 {
     }
   }
 
-  static resolveEquipAccessories(accessories, $store) {
+  static resolveNormalEquips(accessories, funcGetItem) {
     return [
       'ターミナル',
       'ピニオンギヤ',
@@ -169,7 +169,7 @@ export default class Mini4 {
         if (!equip) {
           const part = 'アクセサリー'
           const key = `(ノーマル${cat})`
-          const item = $store.getters['catalog/getItemInfo'](part, key)
+          const item = funcGetItem(part, key)
           const partRecipe = { key, crafts: [] }
           return { part, item, partRecipe }
         }

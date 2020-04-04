@@ -1,4 +1,5 @@
 import initialState from './recipe.json'
+import Mini4 from '@/models/Mini4'
 
 export const state = () => ({
   body: { key: '', crafts: [] },
@@ -99,6 +100,21 @@ export const getters = {
   getRecipeByPart: (state) => (part) => {
     const partKey = resolvePartKey(part)
     return state[partKey]
+  },
+  gAllEquips(state, getters, rootState, rootGetters) {
+    const parts = Mini4.getAllPartNames()
+    const allEquips = parts.map((part) => {
+      const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
+      const partRecipe = getters.getRecipeByPart(part) || {}
+      const item = partCatalog[partRecipe.key] || {}
+      return { part, item, partRecipe }
+    })
+    const accessories = allEquips.filter((e) => {
+      return Mini4.isAccessory(e.part)
+    })
+    const funcGetItem = rootGetters['catalog/getItemInfo']
+    const normalEquips = Mini4.resolveNormalEquips(accessories, funcGetItem)
+    return allEquips.concat(normalEquips)
   }
 }
 
