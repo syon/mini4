@@ -100,7 +100,6 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Mini4 from '@/models/Mini4'
 import ScoreRank from '@/components/ScoreRank'
 
 export default {
@@ -122,14 +121,11 @@ export default {
       craftMaster: (state) => state.craft
     }),
     ...mapGetters({
-      gAllEquips: 'recipe/gAllEquips'
+      gAllPartScores: 'recipe/gAllPartScores'
     }),
-    allPartScores() {
-      return this.gAllEquips.map((x) => Mini4.getPartScore(x))
-    },
     allPartScoresSum() {
       const result = {}
-      for (const b of this.allPartScores) {
+      for (const b of this.gAllPartScores) {
         for (const key of Object.keys(b)) {
           result[key] = (result[key] || 0) + Number(b[key] || 0)
         }
