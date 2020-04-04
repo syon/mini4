@@ -127,7 +127,7 @@ export default {
     }),
     allPartScores() {
       const allEquips = this.getAllEquips()
-      return allEquips.map((x) => this.getPartScore(x))
+      return allEquips.map((x) => Mini4.getPartScore(x))
     },
     allPartScoresSum() {
       const result = {}
@@ -167,30 +167,11 @@ export default {
       const accessories = allEquips.filter((e) => {
         return Mini4.isAccessory(e.part)
       })
-      const normalEquips = this.resolveEquipAccessories(accessories)
+      const normalEquips = Mini4.resolveEquipAccessories(
+        accessories,
+        this.$store
+      )
       return allEquips.concat(normalEquips)
-    },
-    resolveEquipAccessories(accessories) {
-      return [
-        'ターミナル',
-        'ピニオンギヤ',
-        'プロペラシャフト',
-        '軸受け',
-        'シャフト'
-      ]
-        .map((cat) => {
-          const equip = accessories.find((a) => {
-            return a.item.改造カテゴリ === cat
-          })
-          if (!equip) {
-            const part = 'アクセサリー'
-            const key = `(ノーマル${cat})`
-            const item = this.$store.getters['catalog/getItemInfo'](part, key)
-            const partRecipe = { key, crafts: [] }
-            return { part, item, partRecipe }
-          }
-        })
-        .filter((x) => !!x)
     },
     calcScoreSum(acc, crr) {
       for (const key in Object.keys(crr.basic)) {
@@ -205,17 +186,6 @@ export default {
     showInt(x) {
       if (!x) return 0
       return Math.trunc(x)
-    },
-    getPartScore({ part, item, partRecipe }) {
-      const defaultItemSpec = item.性能 || {}
-      const partCrafts = this.craftMaster[item.改造カテゴリ]
-      const r = Mini4.calcCraftResult(
-        part,
-        defaultItemSpec,
-        partRecipe,
-        partCrafts
-      )
-      return r
     },
     scoreFormat(score) {
       const basic = {}

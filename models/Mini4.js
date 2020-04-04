@@ -1,3 +1,4 @@
+import CraftMaster from '../store/craft.json'
 import RankMaster from './rank.json'
 
 export default class Mini4 {
@@ -151,6 +152,45 @@ export default class Mini4 {
       case 'アクセサリー・４':
         return 'Accessory4'
     }
+  }
+
+  static resolveEquipAccessories(accessories, $store) {
+    return [
+      'ターミナル',
+      'ピニオンギヤ',
+      'プロペラシャフト',
+      '軸受け',
+      'シャフト'
+    ]
+      .map((cat) => {
+        const equip = accessories.find((a) => {
+          return a.item.改造カテゴリ === cat
+        })
+        if (!equip) {
+          const part = 'アクセサリー'
+          const key = `(ノーマル${cat})`
+          const item = $store.getters['catalog/getItemInfo'](part, key)
+          const partRecipe = { key, crafts: [] }
+          return { part, item, partRecipe }
+        }
+      })
+      .filter((x) => !!x)
+  }
+
+  static getCraftLineup(craftCategory) {
+    return CraftMaster[craftCategory]
+  }
+
+  static getPartScore({ part, item, partRecipe }) {
+    const defaultItemSpec = item.性能 || {}
+    const partCrafts = Mini4.getCraftLineup(item.改造カテゴリ)
+    const r = Mini4.calcCraftResult(
+      part,
+      defaultItemSpec,
+      partRecipe,
+      partCrafts
+    )
+    return r
   }
 
   static calcCraftResult(part, defaultItemSpec, partRecipe, partCrafts) {
