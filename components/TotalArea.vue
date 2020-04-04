@@ -126,8 +126,8 @@ export default {
       getRecipeByPart: 'recipe/getRecipeByPart'
     }),
     allPartScores() {
-      const parts = Mini4.getAllPartNames()
-      return parts.map((x) => this.getPartScore(x))
+      const allEquips = this.getAllEquips()
+      return allEquips.map((x) => this.getPartScore(x))
     },
     allPartScoresSum() {
       const result = {}
@@ -156,6 +156,16 @@ export default {
     }
   },
   methods: {
+    getAllEquips() {
+      const parts = Mini4.getAllPartNames()
+      const allEquips = parts.map((part) => {
+        const partCatalog = this.getCatalogByPart(part) || {}
+        const partRecipe = this.getRecipeByPart(part) || {}
+        const item = partCatalog[partRecipe.key] || {}
+        return { part, item, partRecipe }
+      })
+      return allEquips
+    },
     calcScoreSum(acc, crr) {
       for (const key in Object.keys(crr.basic)) {
         acc.basic[key] = acc.basic[key] + crr.basic[key]
@@ -170,10 +180,7 @@ export default {
       if (!x) return 0
       return Math.trunc(x)
     },
-    getPartScore(part) {
-      const partCatalog = this.getCatalogByPart(part) || {}
-      const partRecipe = this.getRecipeByPart(part) || {}
-      const item = partCatalog[partRecipe.key] || {}
+    getPartScore({ part, item, partRecipe }) {
       const defaultItemSpec = item.性能 || {}
       const partCrafts = this.craftMaster[item.改造カテゴリ]
       const r = Mini4.calcCraftResult(
