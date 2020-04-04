@@ -1,5 +1,5 @@
 <template>
-  <div class="TotalArea zzBg-gray1 pt-3">
+  <div class="TotalArea zzBg-gray1">
     <div class="flex p-2 zzBg-gray2 justify-between">
       <div class="xx-total flex items-center justify-center">
         <div class="flex flex-col items-center">
@@ -77,8 +77,16 @@
     </div>
     <div
       v-if="isDetailOpen"
-      class="TotalArea-Detail mt-3 py-2 px-4 zzBg-gray2 text-xs"
+      class="TotalArea-Detail py-2 px-4 zzBg-gray2 text-xs"
     >
+      <div class="BodyFeature mb-2 mx-2">
+        <div class="BodyFeature-Floor">
+          <div class="BodyFeature-Content">
+            <div class="BodyFeature-Label">ボディ特性</div>
+            <div class="BodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
+          </div>
+        </div>
+      </div>
       <div class="flex">
         <div class="flex-1 px-2">
           <score-cell label="スピード" :score="scores.スピード" />
@@ -145,8 +153,12 @@ export default {
       craftMaster: (state) => state.craft
     }),
     ...mapGetters({
+      getEquipByPart: 'recipe/getEquipByPart',
       scores: 'recipe/gAllPartScoresSum'
     }),
+    bodyInfo() {
+      return this.getEquipByPart('ボディ')
+    },
     totalScore() {
       let score = 0
       const basics = [

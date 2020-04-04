@@ -9,6 +9,10 @@ html {
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
+.zzBg-black {
+  background-color: rgb(22, 30, 30);
+}
+
 .zzBg-gray1 {
   color: #fff;
   background-color: #85898a;
@@ -56,5 +60,42 @@ html {
   input[type='radio'] {
     display: none;
     appearance: none;
+  }
+}
+
+.BodyFeature {
+  background-color: rgb(2, 4, 5);
+  border: 1px solid #73e6ea;
+  border-radius: 4px;
+
+  .BodyFeature-Floor {
+    background: radial-gradient(
+      circle,
+      rgba(2, 4, 5, 1) 0%,
+      rgba(55, 93, 116, 1) 75%
+    );
+    border-radius: 3px;
+  }
+  .BodyFeature-Content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4em;
+  }
+  .BodyFeature-Label {
+    font-size: 0.6rem;
+    background-color: #5fcffa;
+    color: black;
+    padding: 0 0.5em;
+    border-radius: 4px;
+    margin-right: 1em;
+  }
+  .BodyFeature-Hr {
+    margin: 0.2em 0;
+    border: 0;
+    border-bottom: 1px solid #59a6f2;
+  }
+  .BodyFeature-Text {
+    flex: 1;
+    text-align: right;
   }
 }

@@ -101,6 +101,10 @@ export const getters = {
     const partKey = resolvePartKey(part)
     return state[partKey]
   },
+  getEquipByPart: (state, getters, rootState, rootGetters) => (part) => {
+    const r = getters.getRecipeByPart(part)
+    return rootGetters['catalog/getItemInfo'](part, r.key) || {}
+  },
   gAllEquips(state, getters, rootState, rootGetters) {
     const parts = Mini4.getAllPartNames()
     const allEquips = parts.map((part) => {
