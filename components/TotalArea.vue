@@ -164,7 +164,33 @@ export default {
         const item = partCatalog[partRecipe.key] || {}
         return { part, item, partRecipe }
       })
-      return allEquips
+      const accessories = allEquips.filter((e) => {
+        return Mini4.isAccessory(e.part)
+      })
+      const normalEquips = this.resolveEquipAccessories(accessories)
+      return allEquips.concat(normalEquips)
+    },
+    resolveEquipAccessories(accessories) {
+      return [
+        'ターミナル',
+        'ピニオンギヤ',
+        'プロペラシャフト',
+        '軸受け',
+        'シャフト'
+      ]
+        .map((cat) => {
+          const equip = accessories.find((a) => {
+            return a.item.改造カテゴリ === cat
+          })
+          if (!equip) {
+            const part = 'アクセサリー'
+            const key = `(ノーマル${cat})`
+            const item = this.$store.getters['catalog/getItemInfo'](part, key)
+            const partRecipe = { key, crafts: [] }
+            return { part, item, partRecipe }
+          }
+        })
+        .filter((x) => !!x)
     },
     calcScoreSum(acc, crr) {
       for (const key in Object.keys(crr.basic)) {
