@@ -120,11 +120,15 @@ export const getters = {
     return getters.gAllEquips.map((x) => Mini4.getPartScore(x))
   },
   gAllPartScoresSum(state, getters) {
-    const result = {}
+    const sums = {}
     for (const b of getters.gAllPartScores) {
       for (const key of Object.keys(b)) {
-        result[key] = (result[key] || 0) + Number(b[key] || 0)
+        sums[key] = (sums[key] || 0) + Number(b[key] || 0)
       }
+    }
+    const result = {}
+    for (const label of Mini4.getAllAffects()) {
+      result[label] = sums[label] || 0
     }
     return result
   }
