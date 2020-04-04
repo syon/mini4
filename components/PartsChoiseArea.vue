@@ -20,18 +20,18 @@ export default {
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
-      ingItem: (state) => state.item
+      ingItem: (state) => state.item,
+      ingPartRecipe: (state) => state.partRecipe
     }),
     ...mapState('catalog', {
       catalog: (state) => state.dataset
     }),
     isDrill: {
       get() {
-        return this.ingItem.肉抜き > 0
+        return this.ingPartRecipe.肉抜き
       },
       set(bool) {
-        const cnt = bool ? this.ingItem.肉抜き : 0
-        this.$store.dispatch('recipe/changeDrill', cnt)
+        this.$store.dispatch('recipe/changeDrill', bool)
       }
     }
   },

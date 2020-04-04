@@ -178,8 +178,8 @@ export const mutations = {
     const partRecipe = state[partKey]
     state[partKey] = { ...partRecipe, crafts: [] }
   },
-  setDrill(state, arg) {
-    state.body = { ...state.body, 肉抜き: arg }
+  setDrill(state, bool) {
+    state.body = { ...state.body, 肉抜き: bool }
   }
 }
 
@@ -208,8 +208,8 @@ export const actions = {
     commit('setPartCraftLevel', arg)
     dispatch('ing/refresh', null, { root: true })
   },
-  changeDrill({ commit, dispatch }, arg) {
-    commit('setDrill', arg)
+  changeDrill({ commit, dispatch }, bool) {
+    commit('setDrill', bool)
     dispatch('ing/refresh', null, { root: true })
   },
   cleanupCrafts({ commit, state }, part) {
