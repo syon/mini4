@@ -16,8 +16,8 @@
         <remodel-area />
       </div>
     </div>
-    <div class="zzBg-gray2 h-64">
-      テキストコピペエリア
+    <div class="zzBg-gray2">
+      <text-dump />
     </div>
     <black-barrier />
   </div>
@@ -34,6 +34,7 @@ import CraftSelectArea from '@/components/CraftSelectArea'
 import CraftTuneArea from '@/components/CraftTuneArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
 import BlackBarrier from '@/components/BlackBarrier'
+import TextDump from '@/components/TextDump'
 
 export default {
   components: {
@@ -45,7 +46,8 @@ export default {
     CraftSelectArea,
     CraftTuneArea,
     ShowcaseArea,
-    BlackBarrier
+    BlackBarrier,
+    TextDump
   },
   computed: {
     ...mapState('ing', {
