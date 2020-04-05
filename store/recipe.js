@@ -234,6 +234,7 @@ export const actions = {
   },
   dump({ state }, partJapanese) {
     const part = resolvePartKey(partJapanese)
+    // eslint-disable-next-line no-console
     console.log(JSON.stringify(state[part]))
   }
 }
