@@ -4,30 +4,47 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '超速シミュ',
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: 'ミニ四駆 超速グランプリ 改造シミュレータ',
+      },
+      { hid: 'og:site_name', property: 'og:site_name', content: '超速シミュ' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'https://mini4.now.sh/' },
+      { hid: 'og:title', property: 'og:title', content: '超速シミュ' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'ミニ四駆 超速グランプリ 改造シミュレータ',
+      },
+      // {
+      //   hid: 'og:image',
+      //   property: 'og:image',
+      //   content: 'https://example.com/img/ogp/common.jpg',
+      // },
     ],
     link: [
       {
         rel: 'stylesheet',
-        href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css'
+        href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css',
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap',
       },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
   env: {
-    BASE_URL: process.env.BASE_URL
+    BASE_URL: process.env.BASE_URL,
   },
   /*
    ** Customize the progress-bar color
@@ -50,16 +67,16 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-37634759-16'
-      }
-    ]
+        id: 'UA-37634759-16',
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
   ],
   /*
    ** Axios module configuration
@@ -73,6 +90,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 }
