@@ -11,7 +11,8 @@ export const state = () => ({
   craftLevel: null,
   isShowcase: false,
   isBarrier: false,
-  isTune: false
+  isTune: false,
+  isAbout: false
 })
 
 export const getters = {}
@@ -61,6 +62,9 @@ export const mutations = {
   },
   setTune(state, isTune) {
     state.isTune = isTune
+  },
+  setAbout(state, isAbout) {
+    state.isAbout = isAbout
   }
 }
 

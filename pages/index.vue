@@ -20,6 +20,9 @@
       <text-dump />
     </div>
     <black-barrier />
+    <footer>
+      <footer-area />
+    </footer>
   </div>
 </template>
 
@@ -35,6 +38,7 @@ import CraftTuneArea from '@/components/CraftTuneArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
 import BlackBarrier from '@/components/BlackBarrier'
 import TextDump from '@/components/TextDump'
+import FooterArea from '@/components/FooterArea'
 
 export default {
   components: {
@@ -47,7 +51,8 @@ export default {
     CraftTuneArea,
     ShowcaseArea,
     BlackBarrier,
-    TextDump
+    TextDump,
+    FooterArea
   },
   computed: {
     ...mapState('ing', {
