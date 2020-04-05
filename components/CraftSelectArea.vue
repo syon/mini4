@@ -139,7 +139,7 @@ export default {
     },
     applyQuality(quality) {
       const { ingPart: part } = this
-      if (isNaN(this.craftIndex)) return
+      if (!(this.craftIndex >= 0 && this.craftIndex <= 5)) return
       if (this.isFlood) {
         for (let i = this.craftIndex; i < 6; i++) {
           const payload = { part, craftIndex: i, quality }
@@ -152,7 +152,7 @@ export default {
     },
     applyLevel(level) {
       const { ingPart: part } = this
-      if (isNaN(this.craftIndex)) return
+      if (!(this.craftIndex >= 0 && this.craftIndex <= 5)) return
       if (this.isFlood) {
         for (let i = this.craftIndex; i < 6; i++) {
           const payload = { part, craftIndex: i, level }
