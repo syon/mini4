@@ -33,6 +33,7 @@ export default class Mini4 {
       'アクセサリー・２',
       'アクセサリー・３',
       'アクセサリー・４',
+      '電池',
     ]
   }
 
@@ -188,6 +189,9 @@ export default class Mini4 {
       if (partRecipe.肉抜き) {
         resultSpecs.重さ = resultSpecs.重さ - defaultItem.肉抜き * 0.32
       }
+    }
+    if (part === '電池') {
+      resultSpecs.重さ = 36.8
     }
     return resultSpecs
   }
