@@ -1,5 +1,8 @@
 <template>
   <div v-if="isShowcase" class="xx-ShowcaseArea zzBg-gray1">
+    <div class="text-center">
+      <button class="zzBtn1 my-2 w-20" @click="handleDetach">外す</button>
+    </div>
     <div class="xx-List">
       <div class="CraftEditSlotList">
         <template v-for="(categorySet, key) in sortedCatalog">
@@ -18,9 +21,6 @@
           </div>
         </template>
       </div>
-    </div>
-    <div class="text-center">
-      <button class="zzBtn1 my-2 w-24" @click="handleDetach">取り外す</button>
     </div>
   </div>
 </template>
@@ -124,12 +124,11 @@ export default {
 .xx-List {
   height: 80vh;
   overflow: auto;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .CraftEditSlotList {
   padding: 0 0 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .xx-category {
