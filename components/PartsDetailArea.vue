@@ -15,7 +15,6 @@
                   <div>
                     <span class="BodyFeature-Label">ボディ特性</span>
                   </div>
-                  <hr class="BodyFeature-Hr" />
                   <div class="text-right">
                     <span class="BodyFeature-Text">{{
                       ingItem.ボディ特性
