@@ -25,13 +25,17 @@ export default {
         property: 'og:description',
         content: 'ミニ四駆 超速グランプリ 改造シミュレータ',
       },
-      // {
-      //   hid: 'og:image',
-      //   property: 'og:image',
-      //   content: 'https://example.com/img/ogp/common.jpg',
-      // },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://mini4.now.sh/ogimage.png',
+      },
     ],
     link: [
+      {
+        rel: 'canonical',
+        href: 'https://mini4.now.sh/',
+      },
       {
         rel: 'stylesheet',
         href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css',
