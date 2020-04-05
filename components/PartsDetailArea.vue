@@ -13,7 +13,9 @@
               <div class="BodyFeature-Floor">
                 <div class="BodyFeature-Content">
                   <div>
-                    <span class="BodyFeature-Label">ボディ特性</span>
+                    <div class="BodyFeature-Label leading-tight">
+                      ボディ<br />特性
+                    </div>
                   </div>
                   <div class="text-right">
                     <span class="BodyFeature-Text">{{
