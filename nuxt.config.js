@@ -57,7 +57,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '@/plugins/viewportunits', mode: 'client' }],
+  plugins: [
+    { src: '@/plugins/localStorage', mode: 'client' },
+    { src: '@/plugins/viewportunits', mode: 'client' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
