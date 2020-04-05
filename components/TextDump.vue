@@ -28,9 +28,9 @@ export default {
       return (crafts || [])
         .filter((x) => x.action)
         .map((c) => {
-          const act = c.action.slice(0, 2)
-          const qua = c.quality.slice(0, 2)
-          const lev = c.level
+          const act = (c.action || '').slice(0, 2)
+          const qua = (c.quality || '').slice(0, 2)
+          const lev = c.level || ''
           return `${act}(${qua}:${lev})`
         })
         .join('/')

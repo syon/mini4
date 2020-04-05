@@ -116,10 +116,10 @@ export default {
       return Math.trunc(x)
     },
     getPartScore(part) {
-      const defaultItemSpec = this.ingItem.性能 || {}
+      const defaultItem = this.ingItem
       const r = Mini4.calcCraftResult(
         part,
-        defaultItemSpec,
+        defaultItem,
         this.ingPartRecipe,
         this.ingCrafts
       )
