@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import TotalArea from '@/components/TotalArea'
 import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
@@ -53,11 +52,6 @@ export default {
     BlackBarrier,
     TextDump,
     FooterArea,
-  },
-  computed: {
-    ...mapState('ing', {
-      isCrafting: (state) => state.isCrafting,
-    }),
   },
 }
 </script>

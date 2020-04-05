@@ -1,7 +1,7 @@
 <template>
   <div>
     <about-modal />
-    <div class="text-center py-2 px-4">
+    <div class="flex items-center justify-center p-4">
       <button class="zzBtn1" @click="handleAbout">About</button>
     </div>
   </div>

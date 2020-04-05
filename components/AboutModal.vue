@@ -1,15 +1,28 @@
 <template>
   <div v-if="isAbout" class="AboutModal" @click.self="handleModal">
-    <div class="AboutModal-Panel zzBg-gray2">
+    <div class="AboutModal-Panel zzBg-gray3">
       <div class="AboutModal-Head zzBg-black">
-        ミニ四駆 超速グランプリ 改造シミュレータ
+        About
       </div>
       <div class="AboutModal-Body">
+        <div class="zzCategoryHeader my-2">
+          ミニ四駆 超速グランプリ 改造シミュレータ
+        </div>
         <div>
           当サイトの提供コンテンツは個人による制作物であり、公式とは一切関係ありません。
           また、シミュレーション結果を保証するものではありませんのでご了承ください。
         </div>
-        <hr class="AboutModal-Divider" />
+        <div>
+          <div class="AboutModal-SubHeader">ソースコード</div>
+          <div>GitHubにて公開を予定しています（準備中）。</div>
+        </div>
+        <div>
+          <div class="AboutModal-SubHeader">情報提供</div>
+          <div>
+            Twitter ハッシュタグ <span class="hashtag">#超速シミュ</span>
+          </div>
+        </div>
+        <div class="zzCategoryHeader mt-4 mb-2">公式</div>
         <div>
           <a href="https://mini4wd-app.bn-ent.net/" about="_blank">
             <img src="/mini4wd-og.jpg" :alt="officialSite" />
@@ -62,8 +75,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  color: red;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.67);
 }
 
 .AboutModal-Panel {
@@ -72,17 +84,28 @@ export default {
   width: 80%;
   height: 80%;
   font-size: 0.8rem;
+  border: 1px solid #c8c8c8;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
 }
 
 .AboutModal-Head {
   padding: 0.2rem 0.5rem;
+  border-radius: 4px 4px 0 0;
 }
 
 .AboutModal-Body {
   flex: 1;
   overflow: auto;
   padding: 0.2rem 0.5rem;
+
+  .AboutModal-SubHeader {
+    display: inline-block;
+    margin: 0.75em 0 0.25em;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.7rem;
+    background-color: #747272;
+  }
 }
 
 .AboutModal-Divider {
@@ -94,5 +117,13 @@ export default {
   margin-top: 0.5em;
   font-size: 0.6rem;
   line-height: 1.2;
+}
+
+.hashtag {
+  font-size: 0.9em;
+  padding: 0 0.5em;
+  color: black;
+  background-color: #5fcffa;
+  border-radius: 4px;
 }
 </style>
