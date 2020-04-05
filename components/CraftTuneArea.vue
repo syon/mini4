@@ -64,15 +64,15 @@ export default {
   data() {
     return {
       quality: null,
-      level: null
+      level: null,
     }
   },
   computed: {
     ...mapState('ing', {
       isTune: (state) => state.isTune,
       ingPart: (state) => state.part,
-      ingRecipe: (state) => state.partRecipe
-    })
+      ingRecipe: (state) => state.partRecipe,
+    }),
   },
   watch: {
     isTune() {
@@ -87,7 +87,7 @@ export default {
           const payload = {
             part: this.ingPart,
             craftIndex: i,
-            quality
+            quality,
           }
           this.$store.dispatch('recipe/changeCraftQuality', payload)
         }
@@ -101,12 +101,12 @@ export default {
           const payload = {
             part: this.ingPart,
             craftIndex: i,
-            level
+            level,
           }
           this.$store.dispatch('recipe/changeCraftLevel', payload)
         }
       }
-    }
+    },
   },
   methods: {
     handleLevel(theCase) {
@@ -114,8 +114,8 @@ export default {
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleCraftTune')
-    }
-  }
+    },
+  },
 }
 </script>
 

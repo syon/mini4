@@ -11,19 +11,19 @@
 export default {
   props: {
     label: { type: String, required: true },
-    score: { type: Number, required: true }
+    score: { type: Number, required: true },
   },
   computed: {
     isZero() {
       return this.fixedNum(this.score, 3) === '0.000'
-    }
+    },
   },
   methods: {
     fixedNum(x, n) {
       if (isNaN(x)) return ''
       return x.toFixed(n)
-    }
-  }
+    },
+  },
 }
 </script>
 

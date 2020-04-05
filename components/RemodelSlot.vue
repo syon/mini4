@@ -26,19 +26,19 @@ import { mapState } from 'vuex'
 export default {
   props: {
     arg: { type: Object, default: () => {} },
-    craftIndex: { type: Number, required: true }
+    craftIndex: { type: Number, required: true },
   },
   computed: {
     ...mapState('ing', {
       isCrafting: (state) => state.isCrafting,
-      ingCraftIndex: (state) => state.craftIndex
+      ingCraftIndex: (state) => state.craftIndex,
     }),
     x() {
       return this.arg || {}
     },
     isActive() {
       return this.craftIndex === this.ingCraftIndex && this.isCrafting
-    }
+    },
   },
   methods: {
     handleClick() {
@@ -46,11 +46,11 @@ export default {
         craftIndex: this.craftIndex,
         craftAction: this.x.action || '',
         craftQuality: this.x.quality || 'イイ感じ',
-        craftLevel: this.x.level || 1
+        craftLevel: this.x.level || 1,
       }
       this.$store.dispatch('ing/changeCraftIndex', payload)
-    }
-  }
+    },
+  },
 }
 </script>
 

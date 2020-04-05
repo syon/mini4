@@ -52,13 +52,13 @@ export default {
     ShowcaseArea,
     BlackBarrier,
     TextDump,
-    FooterArea
+    FooterArea,
   },
   computed: {
     ...mapState('ing', {
-      isCrafting: (state) => state.isCrafting
-    })
-  }
+      isCrafting: (state) => state.isCrafting,
+    }),
+  },
 }
 </script>
 

@@ -13,7 +13,7 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState('recipe', {
-      allRecipe: (state) => state
+      allRecipe: (state) => state,
     }),
     showingRecipe() {
       return Object.entries(this.allRecipe)
@@ -21,7 +21,7 @@ export default {
           return { part: k, ...v }
         })
         .filter((x) => x.key)
-    }
+    },
   },
   methods: {
     formatCrafts(crafts) {
@@ -34,8 +34,8 @@ export default {
           return `${act}(${qua}:${lev})`
         })
         .join('/')
-    }
-  }
+    },
+  },
 }
 </script>
 

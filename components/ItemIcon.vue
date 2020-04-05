@@ -6,16 +6,16 @@
 export default {
   props: {
     name: { type: String, required: true },
-    color: { type: String, default: 'silver' }
+    color: { type: String, default: 'silver' },
   },
   computed: {
     style() {
       return {
         backgroundColor: this.color,
-        maskImage: `url(/item-icon/${this.name}.svg)`
+        maskImage: `url(/item-icon/${this.name}.svg)`,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -12,12 +12,12 @@ import AboutModal from '@/components/AboutModal'
 
 export default {
   components: {
-    AboutModal
+    AboutModal,
   },
   methods: {
     handleAbout() {
       this.$store.commit('ing/setAbout', true)
-    }
-  }
+    },
+  },
 }
 </script>

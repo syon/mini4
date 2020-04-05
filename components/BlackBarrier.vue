@@ -8,14 +8,14 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState('ing', {
-      isBarrier: (state) => state.isBarrier
-    })
+      isBarrier: (state) => state.isBarrier,
+    }),
   },
   methods: {
     handleClick() {
       this.$store.dispatch('ing/hideBarrier')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -195,11 +195,11 @@ import WearBox from './WearBox'
 
 export default {
   components: {
-    WearBox
+    WearBox,
   },
   computed: {
     ...mapState('ing', {
-      ingPart: (state) => state.part
+      ingPart: (state) => state.part,
     }),
     ...mapState('recipe', {
       sBody: (state) => state.body,
@@ -230,8 +230,8 @@ export default {
       sAccessory1: (state) => state.accessory1,
       sAccessory2: (state) => state.accessory2,
       sAccessory3: (state) => state.accessory3,
-      sAccessory4: (state) => state.accessory4
-    })
+      sAccessory4: (state) => state.accessory4,
+    }),
   },
   async mounted() {
     await this.$store.dispatch('recipe/load')
@@ -240,8 +240,8 @@ export default {
   methods: {
     handleTrans(part) {
       this.$store.dispatch('ing/transIngPart', part)
-    }
-  }
+    },
+  },
 }
 </script>
 

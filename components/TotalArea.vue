@@ -136,25 +136,25 @@ import ScoreCell from '@/components/ScoreCell'
 export default {
   components: {
     ScoreRank,
-    ScoreCell
+    ScoreCell,
   },
   data() {
     return {
-      isDetailOpen: false
+      isDetailOpen: false,
     }
   },
   computed: {
     ...mapState('ing', {
       ingPartRecipe: (state) => state.partRecipe,
       ingItem: (state) => state.item,
-      ingCrafts: (state) => state.crafts
+      ingCrafts: (state) => state.crafts,
     }),
     ...mapState('craft', {
-      craftMaster: (state) => state.craft
+      craftMaster: (state) => state.craft,
     }),
     ...mapGetters({
       getEquipByPart: 'recipe/getEquipByPart',
-      scores: 'recipe/gAllPartScoresSum'
+      scores: 'recipe/gAllPartScoresSum',
     }),
     bodyInfo() {
       return this.getEquipByPart('ボディ')
@@ -166,7 +166,7 @@ export default {
         'パワー',
         'コーナー安定',
         'スタミナ耐久',
-        '重さ'
+        '重さ',
       ]
       for (const key of Object.keys(this.scores)) {
         if (basics.includes(key)) {
@@ -174,7 +174,7 @@ export default {
         }
       }
       return score
-    }
+    },
   },
   methods: {
     calcScoreSum(acc, crr) {
@@ -200,7 +200,7 @@ export default {
           'パワー',
           'コーナー安定',
           'スタミナ耐久',
-          '重さ'
+          '重さ',
         ]
         if (basicKeys.includes(k)) {
           basic[k] = this.fixedNum(v, 3)
@@ -212,8 +212,8 @@ export default {
     },
     toggleDetail() {
       this.isDetailOpen = !this.isDetailOpen
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,7 +1,7 @@
 import craft from './craft.json'
 
 export const state = () => ({
-  craft
+  craft,
 })
 
 export const getters = {}

@@ -85,13 +85,13 @@ import CraftEditSlot from '@/components/CraftEditSlot'
 
 export default {
   components: {
-    CraftEditSlot
+    CraftEditSlot,
   },
   data() {
     return {
       quality: null,
       level: null,
-      isFlood: false
+      isFlood: false,
     }
   },
   computed: {
@@ -104,10 +104,10 @@ export default {
       craftIndex: (state) => state.craftIndex,
       craftAction: (state) => state.craftAction,
       craftQuality: (state) => state.craftQuality,
-      craftLevel: (state) => state.craftLevel
+      craftLevel: (state) => state.craftLevel,
     }),
     ...mapGetters({
-      getRecipeByPart: 'recipe/getRecipeByPart'
+      getRecipeByPart: 'recipe/getRecipeByPart',
     }),
     showingCrafts() {
       const crafts = this.ingPartRecipe.crafts || []
@@ -115,7 +115,7 @@ export default {
         const hit = crafts.filter((x) => x.action === c.action)
         return { arg: c, hit: hit.length }
       })
-    }
+    },
   },
   watch: {
     craftIndex() {
@@ -131,7 +131,7 @@ export default {
     },
     level(level) {
       this.applyLevel(level)
-    }
+    },
   },
   methods: {
     handleLevel(theCase) {
@@ -173,7 +173,7 @@ export default {
             craftIndex: i,
             action,
             quality,
-            level
+            level,
           })
         }
       } else {
@@ -182,14 +182,14 @@ export default {
           craftIndex: this.craftIndex,
           action,
           quality,
-          level
+          level,
         })
       }
       const payload = {
         craftIndex: this.craftIndex,
         craftAction: x.action || '',
         craftQuality: x.quality || 'イイ感じ',
-        craftLevel: x.level || 1
+        craftLevel: x.level || 1,
       }
       this.$store.dispatch('ing/refresh', part)
       this.$store.dispatch('ing/updateCraft', payload)
@@ -201,7 +201,7 @@ export default {
         craftIndex,
         action,
         quality: isNone ? '' : quality || 'イイ感じ',
-        level: isNone ? 0 : level || 1
+        level: isNone ? 0 : level || 1,
       }
       this.$store.dispatch('recipe/changeCraft', arg)
     },
@@ -210,8 +210,8 @@ export default {
     },
     isNumber(value) {
       return typeof value === 'number' && isFinite(value)
-    }
-  }
+    },
+  },
 }
 </script>
 

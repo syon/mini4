@@ -21,10 +21,10 @@ export default {
     ...mapState('ing', {
       ingPart: (state) => state.part,
       ingItem: (state) => state.item,
-      ingPartRecipe: (state) => state.partRecipe
+      ingPartRecipe: (state) => state.partRecipe,
     }),
     ...mapState('catalog', {
-      catalog: (state) => state.dataset
+      catalog: (state) => state.dataset,
     }),
     isDrill: {
       get() {
@@ -32,14 +32,14 @@ export default {
       },
       set(bool) {
         this.$store.dispatch('recipe/changeDrill', bool)
-      }
-    }
+      },
+    },
   },
   methods: {
     handleShowcase() {
       this.$store.dispatch('ing/toggleShowcase')
-    }
-  }
+    },
+  },
 }
 </script>
 

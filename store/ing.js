@@ -12,7 +12,7 @@ export const state = () => ({
   isShowcase: false,
   isBarrier: false,
   isTune: false,
-  isAbout: false
+  isAbout: false,
 })
 
 export const getters = {}
@@ -65,7 +65,7 @@ export const mutations = {
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
-  }
+  },
 }
 
 export const actions = {
@@ -139,5 +139,5 @@ export const actions = {
     } else {
       dispatch('hideBarrier')
     }
-  }
+  },
 }

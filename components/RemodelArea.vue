@@ -21,13 +21,13 @@ import RemodelSlot from '@/components/RemodelSlot'
 
 export default {
   components: {
-    RemodelSlot
+    RemodelSlot,
   },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
       ingPartRecipe: (state) => state.partRecipe,
-      ingCrafts: (state) => state.crafts
+      ingCrafts: (state) => state.crafts,
     }),
     remodelSlots() {
       const remodels = Array.from(this.ingPartRecipe.crafts || [])
@@ -36,12 +36,12 @@ export default {
           remodels[i] = {
             action: '',
             quality: '',
-            level: 0
+            level: 0,
           }
         }
       })
       return remodels.map((x) => this.getRemodel(x))
-    }
+    },
   },
   methods: {
     getRemodel(recipeCraft) {
@@ -51,7 +51,7 @@ export default {
         action,
         effects: c ? c.effects : [],
         quality,
-        level
+        level,
       }
       return remodel
     },
@@ -64,8 +64,8 @@ export default {
     },
     dump() {
       this.$store.dispatch('recipe/dump', this.ingPart)
-    }
-  }
+    },
+  },
 }
 </script>
 

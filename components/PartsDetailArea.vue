@@ -81,7 +81,7 @@ export default {
       ingPartCatalog: (state) => state.partCatalog,
       ingPartRecipe: (state) => state.partRecipe,
       ingItem: (state) => state.item,
-      ingCrafts: (state) => state.crafts
+      ingCrafts: (state) => state.crafts,
     }),
     score() {
       const r = this.getPartScore(this.ingPart)
@@ -93,7 +93,7 @@ export default {
           'パワー',
           'コーナー安定',
           'スタミナ耐久',
-          '重さ'
+          '重さ',
         ]
         if (basicKeys.includes(k)) {
           basic[k] = this.fixedNum(v, 3)
@@ -102,7 +102,7 @@ export default {
         }
       }
       return { basic, skill }
-    }
+    },
   },
   methods: {
     fixedNum(x, n) {
@@ -124,8 +124,8 @@ export default {
         this.ingCrafts
       )
       return r
-    }
-  }
+    },
+  },
 }
 </script>
 

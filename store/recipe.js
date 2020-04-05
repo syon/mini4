@@ -30,7 +30,7 @@ export const state = () => ({
   accessory1: { key: '', crafts: [] },
   accessory2: { key: '', crafts: [] },
   accessory3: { key: '', crafts: [] },
-  accessory4: { key: '', crafts: [] }
+  accessory4: { key: '', crafts: [] },
 })
 
 function resolvePartKey(partJapanese) {
@@ -135,7 +135,7 @@ export const getters = {
       result[label] = sums[label] || 0
     }
     return result
-  }
+  },
 }
 
 export const mutations = {
@@ -180,7 +180,7 @@ export const mutations = {
   },
   setDrill(state, bool) {
     state.body = { ...state.body, 肉抜き: bool }
-  }
+  },
 }
 
 export const actions = {
@@ -223,7 +223,7 @@ export const actions = {
           craftIndex: i,
           action: '',
           quality: '',
-          level: 0
+          level: 0,
         }
         commit('setPartCraft', payload)
       }
@@ -236,5 +236,5 @@ export const actions = {
     const part = resolvePartKey(partJapanese)
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(state[part]))
-  }
+  },
 }

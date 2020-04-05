@@ -28,7 +28,7 @@ export default class Mini4 {
       'アクセサリー・１',
       'アクセサリー・２',
       'アクセサリー・３',
-      'アクセサリー・４'
+      'アクセサリー・４',
     ]
   }
 
@@ -179,7 +179,7 @@ export default class Mini4 {
       'ギヤ比',
       '消費電流',
       'ブレーキ減速',
-      'スタビ減速'
+      'スタビ減速',
     ]
   }
 
@@ -189,7 +189,7 @@ export default class Mini4 {
       'ピニオンギヤ',
       'プロペラシャフト',
       '軸受け',
-      'シャフト'
+      'シャフト',
     ]
       .map((cat) => {
         const equip = accessories.find((a) => {
@@ -252,7 +252,7 @@ export default class Mini4 {
         affect: e.影響,
         benefit: e[quality],
         grow: e.強化 * level,
-        fix: e.固定
+        fix: e.固定,
       }
     })
   }
@@ -279,7 +279,7 @@ export default class Mini4 {
       case 'フロント・タイヤ#小径ローハイトタイヤ':
         return {
           part: 'フロント・ホイール',
-          category: '小径ローハイトホイール'
+          category: '小径ローハイトホイール',
         }
       case 'フロント・タイヤ#大径タイヤ':
         return { part: 'フロント・ホイール', category: '大径ホイール' }

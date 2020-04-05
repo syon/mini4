@@ -16,15 +16,15 @@ import Mini4 from '@/models/Mini4'
 
 export default {
   components: {
-    ItemIcon
+    ItemIcon,
   },
   props: {
     item: { type: Object, default: () => {} },
-    part: { type: String, required: true }
+    part: { type: String, required: true },
   },
   computed: {
     ...mapState('catalog', {
-      catalog: (state) => state.dataset
+      catalog: (state) => state.dataset,
     }),
     x() {
       const partCatalog = this.catalog[this.part] || {}
@@ -37,13 +37,13 @@ export default {
       const category = Mini4.resolveCategoryByPart(this.part)
       const code = Mini4.resolveCodeByCategory(category)
       return code
-    }
+    },
   },
   methods: {
     handleClick() {
       this.$emit('click')
-    }
-  }
+    },
+  },
 }
 </script>
 

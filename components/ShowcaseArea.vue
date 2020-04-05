@@ -35,7 +35,7 @@ export default {
       ingPart: (state) => state.part,
       ingPartCatalog: (state) => state.partCatalog,
       ingItem: (state) => state.item,
-      isShowcase: (state) => state.isShowcase
+      isShowcase: (state) => state.isShowcase,
     }),
     sortedCatalog() {
       const entries = Object.entries(this.ingPartCatalog)
@@ -50,7 +50,7 @@ export default {
         }
       }
       return catalog
-    }
+    },
   },
   methods: {
     handleSelectItem(name, item) {
@@ -68,7 +68,7 @@ export default {
         'アクセサリー・１',
         'アクセサリー・２',
         'アクセサリー・３',
-        'アクセサリー・４'
+        'アクセサリー・４',
       ].filter((x) => x !== basePart)
       for (const part of others) {
         const r = this.$store.getters['recipe/getRecipeByPart'](part)
@@ -99,8 +99,8 @@ export default {
     },
     uniq(array) {
       return Array.from(new Set(array))
-    }
-  }
+    },
+  },
 }
 </script>
 

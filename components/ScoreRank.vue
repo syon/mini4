@@ -14,7 +14,7 @@ export default {
   props: {
     mode: { type: String, required: true },
     affect: { type: String, required: true },
-    score: { type: Number, default: 0 }
+    score: { type: Number, default: 0 },
   },
   computed: {
     alphabet() {
@@ -23,8 +23,8 @@ export default {
     },
     classOfRank() {
       return `rank-${this.alphabet}`
-    }
-  }
+    },
+  },
 }
 </script>
 

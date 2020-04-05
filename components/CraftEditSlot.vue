@@ -61,27 +61,27 @@ import { mapState } from 'vuex'
 export default {
   props: {
     arg: { type: Object, default: () => {} },
-    hit: { type: Number, required: true }
+    hit: { type: Number, required: true },
   },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
-      craftAction: (state) => state.craftAction
+      craftAction: (state) => state.craftAction,
     }),
     x() {
       return this.arg || {}
     },
     nomore() {
       return this.x.回数制限 && this.x.回数制限 - this.hit <= 0
-    }
+    },
   },
   methods: {
     handleClick() {
       if (!this.nomore) {
         this.$emit('go')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

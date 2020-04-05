@@ -2,7 +2,7 @@ import catalog from './catalog.json'
 import Mini4 from '@/models/Mini4'
 
 export const state = () => ({
-  dataset: catalog
+  dataset: catalog,
 })
 
 export const getters = {
@@ -13,7 +13,7 @@ export const getters = {
   getItemInfo: (state, getters) => (part, key) => {
     const c = getters.getCatalogByPart(part)
     return c[key]
-  }
+  },
 }
 
 export const mutations = {}

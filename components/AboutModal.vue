@@ -36,19 +36,19 @@ export default {
   data() {
     return {
       officialSite:
-        'ミニ四駆 超速グランプリ | バンダイナムコエンターテインメント公式サイト'
+        'ミニ四駆 超速グランプリ | バンダイナムコエンターテインメント公式サイト',
     }
   },
   computed: {
     ...mapState('ing', {
-      isAbout: (state) => state.isAbout
-    })
+      isAbout: (state) => state.isAbout,
+    }),
   },
   methods: {
     handleModal() {
       this.$store.commit('ing/setAbout', false)
-    }
-  }
+    },
+  },
 }
 </script>
 
