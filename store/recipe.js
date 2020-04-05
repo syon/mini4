@@ -162,14 +162,16 @@ export const mutations = {
   setPartCraftQuality(state, { part, craftIndex, quality }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
-    const c = ingPart.crafts[craftIndex]
+    if (!ingPart.crafts) ingPart.crafts = []
+    const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, quality }
     state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftLevel(state, { part, craftIndex, level }) {
     const partKey = resolvePartKey(part)
     const ingPart = state[partKey]
-    const c = ingPart.crafts[craftIndex]
+    if (!ingPart.crafts) ingPart.crafts = []
+    const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, level }
     state[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
