@@ -45,6 +45,7 @@ export default {
       for (const cate of categories) {
         const arr = entries.filter(([k, v]) => v.表示カテゴリ === cate)
         for (const [k, v] of arr) {
+          if (k.startsWith('(ノーマル')) continue
           catalog[cate][k] = v
         }
       }
