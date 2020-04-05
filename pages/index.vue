@@ -5,9 +5,9 @@
         <total-area />
       </div>
     </div>
-    <div class="flex">
+    <div class="flex zzBg-gray1 pt-1">
       <setting-area class="w-7/12" />
-      <div class="w-5/12 migisita zzBg-gray1 p-1">
+      <div class="w-5/12 migisita p-1">
         <parts-choise-area />
         <showcase-area />
         <parts-detail-area />

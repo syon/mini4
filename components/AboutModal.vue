@@ -97,7 +97,7 @@ export default {
 .AboutModal-Body {
   flex: 1;
   overflow: auto;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.5rem 2rem;
 
   .AboutModal-SubHeader {
     display: inline-block;
