@@ -24,7 +24,7 @@
         </div>
         <div class="zzCategoryHeader mt-4 mb-2">公式</div>
         <div>
-          <a href="https://mini4wd-app.bn-ent.net/" about="_blank">
+          <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
             <img src="/mini4wd-og.jpg" :alt="officialSite" />
             <div class="leading-tight py-1">{{ officialSite }}</div>
           </a>
