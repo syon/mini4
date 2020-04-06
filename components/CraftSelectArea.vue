@@ -14,6 +14,9 @@
         </template>
       </div>
     </div>
+    <div class="relative">
+      <div class="zzScrollShadow"></div>
+    </div>
     <div class="zzQualityChoise mt-2">
       <label :class="{ active: quality === 'イイ感じ' }">
         <input v-model="quality" type="radio" value="イイ感じ" />
@@ -221,8 +224,27 @@ export default {
 }
 
 .CraftEditSlotList {
+  position: relative;
   max-height: 64vh;
   overflow: auto;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.zzScrollShadow {
+  position: absolute;
+  top: -12px;
+  height: 12px;
+  width: 100%;
+  opacity: 0.5;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.595) 50%,
+    rgba(0, 0, 0, 0.7225) 65%,
+    rgba(0, 0, 0, 0.78625) 75.5%,
+    rgba(0, 0, 0, 0.81855) 82.85%,
+    rgba(0, 0, 0, 0.83385) 88%,
+    rgba(0, 0, 0, 0.85)
+  );
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
 }
 </style>
