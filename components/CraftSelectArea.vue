@@ -1,12 +1,19 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
-    <div class="text-center pt-2">
-      <label class="inline-flex items-center">
-        <input v-model="isFlood" type="checkbox" />
-        <span class="ml-1 text-xs">選択スロット以下をまとめて改造</span>
-      </label>
+    <div class="CraftEditSlotList">
+      <div class="px-1 pb-6">
+        <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
+        <template v-for="(obj, idx) in showingCrafts">
+          <craft-edit-slot
+            :key="idx"
+            :arg="obj.arg"
+            :hit="obj.hit"
+            class="flex my-1"
+            @go="handleClickSlot(obj.arg)"
+          />
+        </template>
+      </div>
     </div>
-    <hr class="my-1" />
     <div class="zzQualityChoise mt-2">
       <label :class="{ active: quality === 'イイ感じ' }">
         <input v-model="quality" type="radio" value="イイ感じ" />
@@ -60,20 +67,11 @@
         最大
       </button>
     </div>
-    <hr class="my-1" />
-    <div class="CraftEditSlotList">
-      <div class="px-1">
-        <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
-        <template v-for="(obj, idx) in showingCrafts">
-          <craft-edit-slot
-            :key="idx"
-            :arg="obj.arg"
-            :hit="obj.hit"
-            class="flex my-1"
-            @go="handleClickSlot(obj.arg)"
-          />
-        </template>
-      </div>
+    <hr class="xxHr my-1" />
+    <div class="text-center pb-2">
+      <button class="zzBtn1" @click="handleFlood">
+        選択スロット以下をまとめて改造
+      </button>
     </div>
   </div>
 </template>
@@ -91,7 +89,6 @@ export default {
     return {
       quality: null,
       level: null,
-      isFlood: false,
     }
   },
   computed: {
@@ -122,10 +119,6 @@ export default {
       this.quality = this.craftQuality
       this.level = this.craftLevel
     },
-    isFlood() {
-      this.applyQuality(this.quality)
-      this.applyLevel(this.level)
-    },
     quality(quality) {
       this.applyQuality(quality)
     },
@@ -140,51 +133,25 @@ export default {
     applyQuality(quality) {
       const { ingPart: part } = this
       if (!this.isNumber(this.craftIndex)) return
-      if (this.isFlood) {
-        for (let i = this.craftIndex; i < 6; i++) {
-          const payload = { part, craftIndex: i, quality }
-          this.$store.dispatch('recipe/changeCraftQuality', payload)
-        }
-      } else {
-        const payload = { part, craftIndex: this.craftIndex, quality }
-        this.$store.dispatch('recipe/changeCraftQuality', payload)
-      }
+      const payload = { part, craftIndex: this.craftIndex, quality }
+      this.$store.dispatch('recipe/changeCraftQuality', payload)
     },
     applyLevel(level) {
       const { ingPart: part } = this
       if (!this.isNumber(this.craftIndex)) return
-      if (this.isFlood) {
-        for (let i = this.craftIndex; i < 6; i++) {
-          const payload = { part, craftIndex: i, level }
-          this.$store.dispatch('recipe/changeCraftLevel', payload)
-        }
-      } else {
-        const payload = { part, craftIndex: this.craftIndex, level }
-        this.$store.dispatch('recipe/changeCraftLevel', payload)
-      }
+      const payload = { part, craftIndex: this.craftIndex, level }
+      this.$store.dispatch('recipe/changeCraftLevel', payload)
     },
     handleClickSlot(x) {
       const { ingPart: part, quality, level } = this
       const action = x.action
-      if (this.isFlood) {
-        for (let i = this.craftIndex; i < 6; i++) {
-          this.changeCraft({
-            part,
-            craftIndex: i,
-            action,
-            quality,
-            level,
-          })
-        }
-      } else {
-        this.changeCraft({
-          part,
-          craftIndex: this.craftIndex,
-          action,
-          quality,
-          level,
-        })
-      }
+      this.changeCraft({
+        part,
+        craftIndex: this.craftIndex,
+        action,
+        quality,
+        level,
+      })
       const payload = {
         craftIndex: this.craftIndex,
         craftAction: x.action || '',
@@ -193,6 +160,19 @@ export default {
       }
       this.$store.dispatch('ing/refresh', part)
       this.$store.dispatch('ing/updateCraft', payload)
+    },
+    handleFlood() {
+      const { ingPart: part, quality, level } = this
+      for (let i = this.craftIndex; i < 6; i++) {
+        this.changeCraft({
+          part,
+          craftIndex: i,
+          action: this.craftAction,
+          quality,
+          level,
+        })
+      }
+      this.$store.dispatch('ing/refresh', part)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
       const isNone = action === ''
@@ -236,9 +216,13 @@ export default {
   font-size: 0.8rem;
 }
 
+.xxHr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .CraftEditSlotList {
-  height: 64vh;
+  max-height: 64vh;
   overflow: auto;
-  padding: 0 0 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>
