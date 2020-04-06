@@ -1,5 +1,8 @@
+import debug from 'debug'
 import initialState from './recipe.json'
 import Mini4 from '@/models/Mini4'
+
+const dg = debug('@:recipe')
 
 export const state = () => ({
   body: { key: '', crafts: [] },
@@ -186,10 +189,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit }) {
-    await 0
-    const payload = initialState
-    commit('setAll', payload)
+  load({ commit }) {
+    dg('[#load]', initialState)
+    commit('setAll', initialState)
   },
   change({ commit, dispatch }, { part, name }) {
     commit('setPartItem', { part, name })

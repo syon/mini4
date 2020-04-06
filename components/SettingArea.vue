@@ -233,8 +233,8 @@ export default {
       sAccessory4: (state) => state.accessory4,
     }),
   },
-  async mounted() {
-    await this.$store.dispatch('recipe/load')
+  mounted() {
+    this.$store.dispatch('recipe/load')
     this.handleTrans('ボディ')
   },
   methods: {
