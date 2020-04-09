@@ -204,6 +204,10 @@ export const actions = {
     commit('setPartCraft', arg)
     dispatch('ing/refresh', null, { root: true })
   },
+  clearCraft({ dispatch }, { part, craftIndex }) {
+    const arg = { part, craftIndex, action: '', quality: 0, level: 0 }
+    dispatch('changeCraft', arg)
+  },
   changeCraftQuality({ commit, dispatch }, arg) {
     commit('setPartCraftQuality', arg)
     dispatch('ing/refresh', null, { root: true })
