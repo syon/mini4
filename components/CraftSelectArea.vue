@@ -33,13 +33,13 @@
         class="levelChoise flex items-center justify-around text-black mt-1 mb-2"
       >
         <button
-          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Minus10')"
         >
           -10
         </button>
         <button
-          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Minus1')"
         >
           ー
@@ -47,22 +47,22 @@
         <input
           v-model="level"
           type="number"
-          class="text-white bg-gray-800 w-10 h-6 text-center"
+          class="text-white bg-gray-800 w-10 h-8 text-center"
         />
         <button
-          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Plus1')"
         >
           ＋
         </button>
         <button
-          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Plus10')"
         >
           +10
         </button>
         <button
-          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Max')"
         >
           最大
