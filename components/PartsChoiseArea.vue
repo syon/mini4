@@ -5,10 +5,15 @@
       {{ ingItem.key || '&nbsp;' }}
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
-      <label class="flex items-center text-xs">
-        <input v-model="isDrill" type="checkbox" class="mr-1" />
-        <span>肉抜きする({{ ingItem.肉抜き }}箇所)</span>
-      </label>
+      <template v-if="drillAvailable">
+        <label class="flex items-center text-xs">
+          <input v-model="isDrill" type="checkbox" class="mr-1" />
+          <span>肉抜きする({{ ingItem.肉抜き }}箇所)</span>
+        </label>
+      </template>
+      <template v-else>
+        <span class="text-xs">(肉抜き情報なし)</span>
+      </template>
     </div>
   </div>
 </template>
@@ -33,6 +38,16 @@ export default {
       set(bool) {
         this.$store.dispatch('recipe/changeDrill', bool)
       },
+    },
+    drillAvailable() {
+      return this.ingItem.肉抜き > 0
+    },
+  },
+  watch: {
+    ingItem(v) {
+      if (!this.drillAvailable && this.isDrill) {
+        this.$store.dispatch('recipe/changeDrill', false)
+      }
     },
   },
   methods: {
