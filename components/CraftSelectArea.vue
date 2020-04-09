@@ -1,6 +1,6 @@
 <template>
   <div v-if="isCrafting" class="xx-CraftSelectArea zzBg-gray1">
-    <div class="CraftEditSlotList">
+    <div class="CraftEditSlotList zzBg-gray1">
       <div class="px-1 pb-6">
         <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
         <template v-for="(obj, idx) in showingCrafts">
@@ -14,67 +14,66 @@
         </template>
       </div>
     </div>
-    <div class="relative">
-      <div class="zzScrollShadow"></div>
-    </div>
-    <div class="zzQualityChoise mt-2">
-      <label :class="{ active: quality === 'イイ感じ' }">
-        <input v-model="quality" type="radio" value="イイ感じ" />
-        <span>イイ感じ</span>
-      </label>
-      <label :class="{ active: quality === '職人技' }">
-        <input v-model="quality" type="radio" value="職人技" />
-        <span>職人技</span>
-      </label>
-      <label :class="{ active: quality === '至高の逸品' }">
-        <input v-model="quality" type="radio" value="至高の逸品" />
-        <span style="letter-spacing: -0.05em;">至高の逸品</span>
-      </label>
-    </div>
-    <div
-      class="levelChoise flex items-center justify-around text-black mt-1 mb-2"
-    >
-      <button
-        class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
-        @click="handleLevel('Minus10')"
+    <div class="zzBg-black">
+      <div class="zzQualityChoise mt-2">
+        <label :class="{ active: quality === 'イイ感じ' }">
+          <input v-model="quality" type="radio" value="イイ感じ" />
+          <span>イイ感じ</span>
+        </label>
+        <label :class="{ active: quality === '職人技' }">
+          <input v-model="quality" type="radio" value="職人技" />
+          <span>職人技</span>
+        </label>
+        <label :class="{ active: quality === '至高の逸品' }">
+          <input v-model="quality" type="radio" value="至高の逸品" />
+          <span style="letter-spacing: -0.05em;">至高の逸品</span>
+        </label>
+      </div>
+      <div
+        class="levelChoise flex items-center justify-around text-black mt-1 mb-2"
       >
-        -10
-      </button>
-      <button
-        class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
-        @click="handleLevel('Minus1')"
-      >
-        ー
-      </button>
-      <input
-        v-model="level"
-        type="number"
-        class="text-white bg-gray-800 w-10 h-6 text-center"
-      />
-      <button
-        class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
-        @click="handleLevel('Plus1')"
-      >
-        ＋
-      </button>
-      <button
-        class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
-        @click="handleLevel('Plus10')"
-      >
-        +10
-      </button>
-      <button
-        class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
-        @click="handleLevel('Max')"
-      >
-        最大
-      </button>
-    </div>
-    <hr class="xxHr my-1" />
-    <div class="text-center pb-2">
-      <button class="zzBtn1" @click="handleFlood">
-        選択スロット以下をまとめて改造
-      </button>
+        <button
+          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          @click="handleLevel('Minus10')"
+        >
+          -10
+        </button>
+        <button
+          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          @click="handleLevel('Minus1')"
+        >
+          ー
+        </button>
+        <input
+          v-model="level"
+          type="number"
+          class="text-white bg-gray-800 w-10 h-6 text-center"
+        />
+        <button
+          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          @click="handleLevel('Plus1')"
+        >
+          ＋
+        </button>
+        <button
+          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          @click="handleLevel('Plus10')"
+        >
+          +10
+        </button>
+        <button
+          class="border bg-gray-200 w-8 h-6 rounded tracking-tighter"
+          @click="handleLevel('Max')"
+        >
+          最大
+        </button>
+      </div>
+      <hr class="xxHr my-1" />
+      <div class="text-center pb-2">
+        <button class="zzBtn1" @click="handleFlood">
+          選択スロット以下をまとめて改造
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -201,13 +200,14 @@ export default {
 <style lang="less" scoped>
 .xx-CraftSelectArea {
   position: fixed;
-  bottom: 10px;
+  bottom: 50px;
   left: 0;
   z-index: 9;
   width: 58vw;
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+  background-color: rgb(59, 58, 60);
 }
 
 .xx-close {
