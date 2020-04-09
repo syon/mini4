@@ -164,17 +164,22 @@ export default {
       this.$store.dispatch('ing/updateCraft', payload)
     },
     handleFlood() {
+      // eslint-disable-next-line no-unused-vars
       const { ingPart: part, quality, level } = this
       const cIdx = this.craftIndex
       const cAct = this.craftAction
+      // first, remove all same crafts in recipe
+      const crafts = this.ingPartRecipe.crafts || []
+      for (let i = 0; i < crafts.length; i++) {
+        if (crafts[i].action === cAct) {
+          this.$store.dispatch('recipe/clearCraft', { part, craftIndex: i })
+        }
+      }
       const sc = this.ingCrafts.find((x) => {
         return x.action === cAct
       })
-      const aboves = this.ingPartRecipe.crafts.filter((x, idx) => {
-        return idx < cIdx && x.action === cAct
-      })
-      const remain = sc.回数制限 ? sc.回数制限 - aboves.length : 0
-      for (let i = cIdx; i < cIdx + remain && i < 6; i++) {
+      const limit = sc ? sc.回数制限 || 6 : 6
+      for (let i = cIdx; i < cIdx + limit && i < 6; i++) {
         this.changeCraft({
           part,
           craftIndex: i,
@@ -183,7 +188,7 @@ export default {
           level,
         })
       }
-      this.$store.dispatch('ing/refresh', part)
+      // this.$store.dispatch('ing/refresh', part)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
       const isNone = action === ''
