@@ -165,11 +165,20 @@ export default {
     },
     handleFlood() {
       const { ingPart: part, quality, level } = this
-      for (let i = this.craftIndex; i < 6; i++) {
+      const cIdx = this.craftIndex
+      const cAct = this.craftAction
+      const sc = this.ingCrafts.find((x) => {
+        return x.action === cAct
+      })
+      const aboves = this.ingPartRecipe.crafts.filter((x, idx) => {
+        return idx < cIdx && x.action === cAct
+      })
+      const remain = sc.回数制限 ? sc.回数制限 - aboves.length : 0
+      for (let i = cIdx; i < cIdx + remain && i < 6; i++) {
         this.changeCraft({
           part,
           craftIndex: i,
-          action: this.craftAction,
+          action: cAct,
           quality,
           level,
         })
