@@ -47,7 +47,7 @@
         <input
           v-model="level"
           type="number"
-          class="text-white bg-gray-800 w-10 h-8 text-center"
+          class="text-white bg-gray-800 w-8 h-8 text-center"
         />
         <button
           class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
