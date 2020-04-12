@@ -171,7 +171,7 @@ export default {
       // first, remove all same crafts in recipe
       const crafts = this.ingPartRecipe.crafts || []
       for (let i = 0; i < crafts.length; i++) {
-        if (crafts[i].action === cAct) {
+        if (cIdx !== i && crafts[i].action === cAct) {
           this.$store.dispatch('recipe/clearCraft', { part, craftIndex: i })
         }
       }
