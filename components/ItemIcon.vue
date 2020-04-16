@@ -8,11 +8,18 @@
 export default {
   props: {
     name: { type: String, required: true },
-    color: { type: String, default: 'silver' },
+    color1: { type: String, default: 'silver' },
+    color2: { type: String, default: 'silver' },
   },
   computed: {
     theIcon() {
       return () => import(`@/assets/item-icon/${this.name}.svg`)
+    },
+    fillColor1() {
+      return this.color1
+    },
+    fillColor2() {
+      return this.color2
     },
   },
 }
