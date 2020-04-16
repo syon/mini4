@@ -254,8 +254,8 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 3px;
-    grid-row-gap: 3px;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
     justify-items: stretch;
     align-items: stretch;
 
