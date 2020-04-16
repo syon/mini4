@@ -10,7 +10,6 @@ export default {
     name: { type: String, required: true },
     color1: { type: String, default: 'white' },
     color2: { type: String, default: 'white' },
-    color3: { type: String, default: 'white' },
   },
   computed: {
     theIcon() {
@@ -20,7 +19,7 @@ export default {
       return {
         '--color1': this.color1,
         '--color2': this.color2,
-        '--color3': this.color3,
+        '--color3': '#85898a',
       }
     },
   },
