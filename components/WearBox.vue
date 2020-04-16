@@ -62,8 +62,8 @@ export default {
   .WearBox-inner {
     display: flex;
     align-items: flex-start;
-    width: 13vmin;
-    height: 13vmin;
+    width: 13vw;
+    height: 13vw;
     background-clip: padding-box;
     border: solid 2px transparent;
     border-radius: 2px;
