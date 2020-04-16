@@ -100,9 +100,6 @@ export default {
     .WearBox-inner:before {
       background: #c1c1c1;
     }
-    .ItemIcon {
-      background-color: #bbb !important;
-    }
     .xx-parts-name {
       display: none;
     }

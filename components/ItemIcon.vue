@@ -19,7 +19,6 @@ export default {
       return {
         '--color1': this.color1,
         '--color2': this.color2,
-        '--color3': '#85898a',
       }
     },
   },
@@ -32,7 +31,6 @@ export default {
   height: 100%;
   --color1: white;
   --color2: white;
-  --color3: white;
 
   .icon-col1 {
     fill: var(--color1);
@@ -41,7 +39,17 @@ export default {
     fill: var(--color2);
   }
   .icon-col3 {
-    fill: var(--color3);
+    fill: #000000;
+  }
+}
+</style>
+
+<style lang="less">
+.isEmpty .ItemIcon {
+  .icon-col1,
+  .icon-col2,
+  .icon-col3 {
+    fill: #c1c1c1;
   }
 }
 </style>
