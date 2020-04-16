@@ -111,7 +111,7 @@ export default {
   .xx-parts-name {
     display: flex;
     align-items: center;
-    padding: 3px;
+    padding: 2px;
     line-height: 1;
     font-size: 0.55em;
     letter-spacing: -0.1em;
