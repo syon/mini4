@@ -33,10 +33,10 @@ export default {
       return this.getItemInfo(this.part, this.item.key) || {}
     },
     color1() {
-      return this.x.色 || '#bbb'
+      return this.x.色
     },
     color2() {
-      return this.x.色2 || '#bbb'
+      return this.x.色2
     },
     icon() {
       const category = Mini4.resolveCategoryByPart(this.part)

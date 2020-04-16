@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -12 64 64">
-<g id="color3" fill="#0000FF">
+<g class="icon-bodyoption icon-col3" fill="#0000FF">
 <polygon points="50.382,28.677 46.5,34.5 18.583,26.523 19,27 47,35 51,29 "/>
 <polygon points="10.5,1.5 10.5,4.5 8.5,4.5 2.5,10.5 1,12 1,13 3,11 9,5 11,5 11,1 "/>
 <polygon points="56.5,25.5 56.5,30.5 54.5,34.5 47,40.125 47,41 55,35 57,31 57,25 "/>
 </g>
-<g id="color2" fill="#00FF00">
+<g class="icon-bodyoption icon-col2" fill="#00FF00">
 <polygon points="10,4 10,0 0,10 0,12 2,10 8,4 "/>
 <polygon points="54,26 46,37.732 46,40 54,34 56,30 56,24 "/>
 </g>
-<g id="color1" fill="#FF0000">
+<g class="icon-bodyoption icon-col1" fill="#FF0000">
 <polygon points="50,28 8,6 4,10 18,26 46,34 "/>
 </g>
 </svg>

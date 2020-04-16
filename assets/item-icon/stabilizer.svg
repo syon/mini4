@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-26 -8 64 64">
-<g id="color3" fill="#0000FF">
+<g class="icon-stabilizer icon-col3" fill="#0000FF">
 <polygon points="8.5,43 8.5,50.5 5,50.5 5,51 9,51 9,43 "/>
 <polygon points="10.5,9 10.5,10.5 3,10.5 3,11 11,11 11,9 "/>
 <polygon points="8.5,13 8.5,30.5 5,30.5 5,31 9,31 9,13 "/>
@@ -7,13 +7,13 @@
 <polygon points="10.5,39 10.5,40.5 3,40.5 3,41 11,41 11,39 "/>
 <path d="M11.555,1.945C12.136,2.641,12.5,3.523,12.5,4.5v1.944H1v0.5h12V5C13,3.768,12.431,2.68,11.555,1.945z"/>
 </g>
-<g id="color2" fill="#00FF00">
+<g class="icon-stabilizer icon-col2" fill="#00FF00">
 <rect x="4" y="12" width="4" height="18"/>
 <rect x="4" y="32" width="4" height="4"/>
 <rect x="2" y="38" width="8" height="2"/>
 <rect x="4" y="42" width="4" height="8"/>
 </g>
-<g id="color1" fill="#FF0000">
+<g class="icon-stabilizer icon-col1" fill="#FF0000">
 <rect x="2" y="8" width="8" height="2"/>
 <path d="M8,0H4C1.791,0,0,1.791,0,4v1.944h12V4C12,1.791,10.209,0,8,0z"/>
 </g>
