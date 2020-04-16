@@ -1,16 +1,5 @@
 <template>
-  <div ref="icon" class="ItemIcon">
-    <style>
-      .ItemIcon .icon-{{ name }}.icon-col1 {
-        fill: {{ color1 }};
-      }
-      .ItemIcon .icon-{{ name }}.icon-col2 {
-        fill: {{ color2 }};
-      }
-      .ItemIcon .icon-{{ name }}.icon-col3 {
-        fill: {{ color3 }};
-      }
-    </style>
+  <div ref="icon" class="ItemIcon" :style="styles">
     <component :is="theIcon" />
   </div>
 </template>
@@ -27,32 +16,33 @@ export default {
     theIcon() {
       return () => import(`@/assets/item-icon/${this.name}.svg`)
     },
-  },
-  mounted() {
-    if (this.$refs.icon) {
-      for (const el of this.$el.querySelectorAll('.color1')) {
-        el.setAttribute('fill', this.color1)
-        el.style.fill = this.color1
-        console.log(el)
+    styles() {
+      return {
+        '--color1': this.color1,
+        '--color2': this.color2,
+        '--color3': this.color3,
       }
-      for (const el of this.$el.querySelectorAll('.color2')) {
-        el.setAttribute('fill', this.color2)
-        el.style.fill = this.color2
-        console.log(el)
-      }
-      for (const el of this.$el.querySelectorAll('.color3')) {
-        el.setAttribute('fill', this.color3)
-        el.style.fill = this.color3
-        console.log(el)
-      }
-    }
+    },
   },
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .ItemIcon {
   width: 100%;
   height: 100%;
+  --color1: white;
+  --color2: white;
+  --color3: white;
+
+  .icon-col1 {
+    fill: var(--color1);
+  }
+  .icon-col2 {
+    fill: var(--color2);
+  }
+  .icon-col3 {
+    fill: var(--color3);
+  }
 }
 </style>
