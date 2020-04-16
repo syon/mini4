@@ -22,6 +22,11 @@ export default {
       return this.color2
     },
   },
+  watch: {
+    theIcon() {
+      console.log('watch theIcon.')
+    },
+  },
 }
 </script>
 
