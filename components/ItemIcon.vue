@@ -1,5 +1,7 @@
 <template>
-  <div class="ItemIcon" :style="style" />
+  <div class="ItemIcon">
+    <component :is="theIcon" />
+  </div>
 </template>
 
 <script>
@@ -9,11 +11,8 @@ export default {
     color: { type: String, default: 'silver' },
   },
   computed: {
-    style() {
-      return {
-        backgroundColor: this.color,
-        maskImage: `url(/item-icon/${this.name}.svg)`,
-      }
+    theIcon() {
+      return () => import(`@/assets/item-icon/${this.name}.svg`)
     },
   },
 }
@@ -23,9 +22,5 @@ export default {
 .ItemIcon {
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: 0;
-  mask-position: 50%;
-  mask-repeat: no-repeat;
 }
 </style>
