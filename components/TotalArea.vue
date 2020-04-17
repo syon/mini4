@@ -81,11 +81,20 @@
       v-if="isDetailOpen"
       class="TotalArea-Detail py-2 px-4 zzBg-gray2 text-xs"
     >
-      <div class="BodyFeature mb-2 mx-2">
-        <div class="BodyFeature-Floor">
-          <div class="BodyFeature-Content">
-            <div class="BodyFeature-Label">ボディ特性</div>
-            <div class="BodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
+      <div class="flex items-center justify-between mb-2 mx-2">
+        <div>
+          <span v-for="a in aptSet" :key="a" class="mx-1"
+            >{{ a }}:{{ totalAptitude[a] }}</span
+          >
+        </div>
+        <div class="BodyFeature">
+          <div class="BodyFeature-Floor">
+            <div class="BodyFeature-Content">
+              <div class="BodyFeature-Label leading-tight">
+                ボディ<br />特性
+              </div>
+              <div class="BodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,6 +164,7 @@ export default {
       craftMaster: (state) => state.craft,
     }),
     ...mapGetters({
+      gAllEquips: 'recipe/gAllEquips',
       getEquipByPart: 'recipe/getEquipByPart',
       scores: 'recipe/gAllPartScoresSum',
     }),
@@ -176,6 +186,19 @@ export default {
         }
       }
       return score
+    },
+    aptSet() {
+      return ['St', 'U', 'Co', 'Kp', 'J']
+    },
+    totalAptitude() {
+      const apts = this.gAllEquips
+        .map((x) => x.item.コース適性)
+        .filter((x) => this.aptSet.includes(x))
+      const result = {}
+      for (const a of apts) {
+        result[a] = (result[a] || 0) + 1
+      }
+      return result
     },
   },
   methods: {
