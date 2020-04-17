@@ -107,7 +107,7 @@ export default {
 <style lang="less" scoped>
 .xx-ShowcaseArea {
   position: fixed;
-  bottom: 10px;
+  bottom: 50px;
   left: 0;
   z-index: 9;
   width: 58vw;
