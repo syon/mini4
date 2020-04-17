@@ -83,7 +83,7 @@
     >
       <div class="flex items-center justify-between mb-2 mx-2">
         <div class="flex">
-          <div v-for="a in aptSet" :key="a" class="flex mr-3">
+          <div v-for="a in aptSet" :key="a" class="flex mr-2">
             <apti-hex :type="a" />
             <span class="zzAnton pl-1">{{ totalAptitude[a] }}</span>
           </div>
@@ -91,9 +91,7 @@
         <div class="BodyFeature">
           <div class="BodyFeature-Floor">
             <div class="BodyFeature-Content">
-              <div class="BodyFeature-Label leading-tight">
-                ボディ<br />特性
-              </div>
+              <div class="BodyFeature-Label">ボディ<br />特性</div>
               <div class="BodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
             </div>
           </div>
