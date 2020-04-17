@@ -8,9 +8,6 @@
       <div>{{ x.action || '(改造なし)' }}</div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
-      <div v-if="nomore" class="xx-limitmessage">
-        これ以上改造できません。
-      </div>
       <div class="flex">
         <div class="flex">
           <div class="xx-craftinfo flex-auto flex items-stretch">
@@ -22,7 +19,10 @@
             </span>
             <template v-if="x.回数制限">
               <span class="xx-limittip zzBg-gray1 text-center zzAnton">
-                残り: {{ x.回数制限 - hit }}
+                <span>残り:</span>
+                <span :class="{ isNomore: nomore }">{{
+                  x.回数制限 - hit
+                }}</span>
               </span>
             </template>
           </div>
@@ -50,6 +50,9 @@
             </div>
           </template>
         </div>
+      </div>
+      <div v-if="nomore" class="xx-limitmessage mt-1">
+        これ以上改造できません。
       </div>
     </div>
   </div>
@@ -120,6 +123,9 @@ export default {
     border-radius: 0.15rem;
     padding: 0.2em 0.2em;
     margin: 0.25em 0 0;
+    .isNomore {
+      color: rgb(220, 47, 33);
+    }
   }
 }
 
