@@ -130,3 +130,47 @@ html {
     text-align: right;
   }
 }
+
+.Apti {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-family: 'Anton', sans-serif;
+  border: 1px solid black;
+}
+
+.hexagon {
+  position: relative;
+  width: 20px;
+  overflow: hidden;
+  &::before {
+    display: block;
+    padding-top: 86.602540378%; /*  2√3 / 4 x 100  */
+    content: '';
+  }
+  .hexagon__inner-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: rotate(60deg);
+  }
+  .hexagon__inner-2 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: rotate(60deg);
+  }
+  .hexagon__inner-3 {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-120deg);
+  }
+  .hexagon__inner-image {
+    width: 100%;
+    height: 100%;
+  }
+}

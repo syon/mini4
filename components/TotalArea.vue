@@ -82,10 +82,11 @@
       class="TotalArea-Detail py-2 px-4 zzBg-gray2 text-xs"
     >
       <div class="flex items-center justify-between mb-2 mx-2">
-        <div>
-          <span v-for="a in aptSet" :key="a" class="mx-1"
-            >{{ a }}:{{ totalAptitude[a] }}</span
-          >
+        <div class="flex">
+          <div v-for="a in aptSet" :key="a" class="flex mr-3">
+            <apti-hex :type="a" />
+            <span class="zzAnton pl-1">{{ totalAptitude[a] }}</span>
+          </div>
         </div>
         <div class="BodyFeature">
           <div class="BodyFeature-Floor">
@@ -143,11 +144,13 @@
 import { mapState, mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
 import ScoreCell from '@/components/ScoreCell'
+import AptiHex from '@/components/AptiHex'
 
 export default {
   components: {
     ScoreRank,
     ScoreCell,
+    AptiHex,
   },
   data() {
     return {
