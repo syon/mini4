@@ -252,7 +252,6 @@ export default {
 
 .CraftEditSlotList {
   position: relative;
-  max-height: 64vh;
   overflow: auto;
 }
 
