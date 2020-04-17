@@ -26,6 +26,7 @@ export default {
   methods: {
     formatCrafts(crafts) {
       return (crafts || [])
+        .filter(Boolean)
         .filter((x) => x.action)
         .map((c) => {
           const act = (c.action || '').slice(0, 2)

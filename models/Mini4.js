@@ -168,7 +168,7 @@ export default class Mini4 {
   }
 
   static calcCraftResult(part, defaultItem, partRecipe, partCrafts) {
-    const crafts = partRecipe.crafts || []
+    const crafts = (partRecipe.crafts || []).filter(Boolean)
     const args = crafts.map((x) => Mini4.getCalcArgs(partCrafts, x)).flat()
     const defaultSpecs = defaultItem.性能 || {}
     const resultSpecs = Object.assign({}, defaultSpecs)
