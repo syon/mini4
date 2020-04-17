@@ -14,8 +14,9 @@
         </template>
       </div>
     </div>
-    <div class="zzBg-black">
-      <div class="zzQualityChoise mt-2">
+    <div class="xx-CraftControls relative">
+      <div class="zzScrollShadow"></div>
+      <div class="zzQualityChoise pt-2">
         <label :class="{ active: quality === 'イイ感じ' }">
           <input v-model="quality" type="radio" value="イイ感じ" />
           <span>イイ感じ</span>
@@ -245,10 +246,10 @@ export default {
 
 .zzScrollShadow {
   position: absolute;
-  top: -12px;
-  height: 12px;
+  top: -8px;
+  height: 8px;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.25;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
