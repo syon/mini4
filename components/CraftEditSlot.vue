@@ -16,12 +16,12 @@
           <div class="xx-craftinfo flex-auto flex items-stretch">
             <span
               v-if="hit > 0 && x.action"
-              class="xx-limittip zzBg-gray1 text-center"
+              class="xx-limittip zzBg-gray1 text-center zzAnton"
             >
               済み: {{ hit }}
             </span>
             <template v-if="x.回数制限">
-              <span class="xx-limittip zzBg-gray1 text-center">
+              <span class="xx-limittip zzBg-gray1 text-center zzAnton">
                 残り: {{ x.回数制限 - hit }}
               </span>
             </template>

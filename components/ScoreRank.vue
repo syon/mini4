@@ -1,5 +1,5 @@
 <template>
-  <div :class="classOfRank" class="ScoreRank">
+  <div :class="classOfRank" class="ScoreRank zzAnton">
     <div class="xx-alphabet">
       {{ alphabet }}
     </div>
@@ -39,7 +39,6 @@ export default {
   width: 1.2em;
   height: 1.2em;
   line-height: 1;
-  font-family: 'Anton', sans-serif;
 }
 .gradient-wrapper {
   width: 100%;

@@ -5,7 +5,7 @@
       <tbody>
         <tr>
           <th>コース適性</th>
-          <td>{{ ingItem.コース適性 }}</td>
+          <td class="zzAnton">{{ ingItem.コース適性 }}</td>
         </tr>
         <tr v-if="ingItem.ボディ特性">
           <th colspan="2">
@@ -35,23 +35,23 @@
       <tbody>
         <tr>
           <th>スピード</th>
-          <td>{{ score.basic.スピード }}</td>
+          <td class="zzAnton">{{ score.basic.スピード }}</td>
         </tr>
         <tr>
           <th>パワー</th>
-          <td>{{ score.basic.パワー }}</td>
+          <td class="zzAnton">{{ score.basic.パワー }}</td>
         </tr>
         <tr>
           <th>コーナー安定</th>
-          <td>{{ score.basic.コーナー安定 }}</td>
+          <td class="zzAnton">{{ score.basic.コーナー安定 }}</td>
         </tr>
         <tr>
           <th>スタミナ耐久</th>
-          <td>{{ score.basic.スタミナ耐久 }}</td>
+          <td class="zzAnton">{{ score.basic.スタミナ耐久 }}</td>
         </tr>
         <tr>
           <th>重さ</th>
-          <td>{{ score.basic.重さ }}</td>
+          <td class="zzAnton">{{ score.basic.重さ }}</td>
         </tr>
       </tbody>
     </table>
@@ -62,7 +62,7 @@
         <template v-for="(sVal, sKey) in score.skill">
           <tr :key="sKey">
             <th>{{ sKey }}</th>
-            <td>{{ sVal }}</td>
+            <td class="zzAnton">{{ sVal }}</td>
           </tr>
         </template>
       </tbody>

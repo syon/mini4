@@ -13,7 +13,7 @@
         class="xx-quality flex-auto flex items-center justify-between text-black p-2"
       >
         <div class="xx-quality-label">{{ x.quality }}</div>
-        <div class="xx-quality-level">Lv.{{ x.level }}</div>
+        <div class="xx-quality-level zzAnton">Lv.{{ x.level }}</div>
       </div>
       <div v-else class="h-8"></div>
     </div>
@@ -82,7 +82,6 @@ export default {
   }
   .xx-quality-level {
     font-size: 0.8rem;
-    font-weight: bold;
     line-height: 1.2;
   }
 }

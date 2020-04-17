@@ -4,7 +4,9 @@
       <div class="xx-total flex items-center justify-center">
         <div class="flex flex-col items-center">
           <div>総合評価</div>
-          <div class="xx-totalscore text-2xl">{{ showInt(totalScore) }}</div>
+          <div class="xx-totalscore zzAnton text-2xl">
+            {{ showInt(totalScore) }}
+          </div>
         </div>
       </div>
       <div class="xx-affects flex items-center">
@@ -53,7 +55,7 @@
               </td>
             </tr>
           </tbody>
-          <tfoot class="xx-scores">
+          <tfoot class="xx-scores zzAnton">
             <tr>
               <td class="px-2 text-center">
                 {{ showInt(scores.スピード, 2) }}
@@ -228,7 +230,6 @@ export default {
 
   .xx-totalscore {
     font-size: 1.5rem;
-    font-family: 'Anton', sans-serif;
   }
 
   .xx-affects {
@@ -236,7 +237,6 @@ export default {
 
     .xx-scores {
       font-size: 0.8rem;
-      font-family: 'Anton', sans-serif;
     }
 
     table {

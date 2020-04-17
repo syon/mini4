@@ -30,10 +30,10 @@
         </label>
       </div>
       <div
-        class="levelChoise flex items-center justify-around text-black mt-1 mb-2"
+        class="levelChoise zzAnton flex items-center justify-around text-black mt-1 mb-2"
       >
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
           @click="handleLevel('Minus10')"
         >
           -10
@@ -47,7 +47,7 @@
         <input
           v-model="level"
           type="number"
-          class="text-white bg-gray-800 w-8 h-8 text-center"
+          class="text-white bg-gray-800 w-8 h-8 text-center tracking-wider text-sm"
         />
         <button
           class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
@@ -56,7 +56,7 @@
           ＋
         </button>
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+          class="border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
           @click="handleLevel('Plus10')"
         >
           +10

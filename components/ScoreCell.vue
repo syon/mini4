@@ -1,7 +1,7 @@
 <template>
   <div class="ScoreCell flex justify-between">
     <div class="tracking-tighter">{{ label }}</div>
-    <div :class="{ isZero }" class="ScoreCell-score text-right">
+    <div :class="{ isZero }" class="ScoreCell-score zzAnton text-right">
       {{ fixedNum(score, 3) }}
     </div>
   </div>
@@ -29,9 +29,6 @@ export default {
 
 <style lang="less" scoped>
 .ScoreCell {
-  .ScoreCell-score {
-    font-family: 'Anton', sans-serif;
-  }
   .isZero {
     color: #888;
   }
