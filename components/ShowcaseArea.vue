@@ -109,7 +109,7 @@ export default {
 <style lang="less" scoped>
 .floating {
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   z-index: 9;
   width: 58vw;
@@ -119,7 +119,7 @@ export default {
 .xx-ShowcaseArea {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
