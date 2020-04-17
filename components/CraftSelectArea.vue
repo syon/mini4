@@ -34,13 +34,13 @@
         class="levelChoise zzAnton flex items-center justify-around text-black mt-1 mb-2"
       >
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
+          class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
           @click="handleLevel('Minus10')"
         >
           -10
         </button>
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+          class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Minus1')"
         >
           ー
@@ -51,19 +51,19 @@
           class="text-white bg-gray-800 w-8 h-8 text-center tracking-wider text-sm"
         />
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+          class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Plus1')"
         >
           ＋
         </button>
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
+          class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
           @click="handleLevel('Plus10')"
         >
           +10
         </button>
         <button
-          class="border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+          class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
           @click="handleLevel('Max')"
         >
           最大
