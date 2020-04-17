@@ -9,6 +9,9 @@
         <item-icon v-if="icon" :name="icon" :color1="color1" :color2="color2" />
       </div>
       <div class="xx-parts-name">{{ item.key }}</div>
+      <div class="xx-aptihex">
+        <apti-hex :type="x.コース適性" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,10 +20,12 @@
 import { mapState, mapGetters } from 'vuex'
 import ItemIcon from './ItemIcon'
 import Mini4 from '@/models/Mini4'
+import AptiHex from '@/components/AptiHex'
 
 export default {
   components: {
     ItemIcon,
+    AptiHex,
   },
   props: {
     item: { type: Object, default: () => {} },
@@ -132,6 +137,11 @@ export default {
     position: relative;
     z-index: 1;
     border-radius: 1px;
+  }
+  .xx-aptihex {
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
   }
 }
 </style>

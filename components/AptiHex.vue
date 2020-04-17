@@ -1,6 +1,6 @@
 <template>
   <div class="AptiHex relative">
-    <svg :fill="color" viewBox="0 0 110 120">
+    <svg v-if="color" :fill="color" viewBox="0 0 110 120">
       <path
         d="M105.047 32.369L56.155 4.43a2.323 2.323 0 00-2.31 0L4.953 32.369a2.328 2.328 0 00-1.173 2.02V85.61c0 .834.447 1.607 1.173 2.021l48.892 27.938a2.319 2.319 0 002.31 0l48.892-27.938a2.328 2.328 0 001.173-2.02V34.39a2.328 2.328 0 00-1.173-2.021z"
       />
@@ -26,7 +26,7 @@ export default {
         case 'J':
           return '#d23ef0'
       }
-      return 'black'
+      return null
     },
   },
 }
