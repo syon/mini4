@@ -118,7 +118,7 @@ export default {
     showingCrafts() {
       const crafts = this.ingPartRecipe.crafts || []
       return this.ingCrafts.map((c) => {
-        const hit = crafts.filter((x) => x.action === c.action)
+        const hit = crafts.filter(Boolean).filter((x) => x.action === c.action)
         return { arg: c, hit: hit.length }
       })
     },
@@ -176,7 +176,7 @@ export default {
       const cIdx = this.craftIndex
       const cAct = this.craftAction
       // first, remove all same crafts in recipe
-      const crafts = this.ingPartRecipe.crafts || []
+      const crafts = (this.ingPartRecipe.crafts || []).filter(Boolean)
       for (let i = 0; i < crafts.length; i++) {
         if (cIdx !== i && crafts[i].action === cAct) {
           this.$store.dispatch('recipe/clearCraft', { part, craftIndex: i })
