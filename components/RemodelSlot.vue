@@ -10,12 +10,12 @@
     <div class="flex flex-1">
       <div
         v-if="x.action && (x.quality || x.level)"
-        class="xx-quality flex-auto flex items-center justify-between text-black p-2"
+        class="xx-quality flex-auto flex items-center justify-between text-black h-6 px-2"
       >
         <div class="xx-quality-label">{{ x.quality }}</div>
         <div class="xx-quality-level zzAnton">Lv.{{ x.level }}</div>
       </div>
-      <div v-else class="h-8"></div>
+      <div v-else class="h-6"></div>
     </div>
   </div>
 </template>
