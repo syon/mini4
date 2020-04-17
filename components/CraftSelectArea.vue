@@ -240,20 +240,20 @@ export default {
 }
 
 .xxHr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .CraftEditSlotList {
   position: relative;
   overflow: auto;
   border: 1px solid #c8c8c8;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .CraftControls {
   border: 1px solid #c8c8c8;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
