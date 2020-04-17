@@ -1,25 +1,27 @@
 <template>
-  <div v-if="isShowcase" class="xx-ShowcaseArea zzBg-gray1">
-    <div class="text-center">
-      <button class="zzBtn1 my-2 w-20" @click="handleDetach">外す</button>
-    </div>
-    <div class="xx-List">
-      <div class="CraftEditSlotList">
-        <template v-for="(categorySet, key) in sortedCatalog">
-          <div :key="key" class="mx-1 my-1">
-            <div class="xx-category mt-4 px-2">{{ key }}</div>
-            <template v-for="(item, name) in categorySet">
-              <div
-                :key="name"
-                :class="{ active: name === ingItem.key }"
-                class="xx-item m-1 px-2 py-1"
-                @click="handleSelectItem(name, item)"
-              >
-                {{ name }}
-              </div>
-            </template>
-          </div>
-        </template>
+  <div v-if="isShowcase" class="floating">
+    <div class="xx-ShowcaseArea zzBg-gray1">
+      <div class="text-center">
+        <button class="zzBtn1 my-2 w-20" @click="handleDetach">外す</button>
+      </div>
+      <div class="xx-List">
+        <div class="CraftEditSlotList">
+          <template v-for="(categorySet, key) in sortedCatalog">
+            <div :key="key" class="mx-1 my-1">
+              <div class="xx-category mt-4 px-2">{{ key }}</div>
+              <template v-for="(item, name) in categorySet">
+                <div
+                  :key="name"
+                  :class="{ active: name === ingItem.key }"
+                  class="xx-item m-1 px-2 py-1"
+                  @click="handleSelectItem(name, item)"
+                >
+                  {{ name }}
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -105,12 +107,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.xx-ShowcaseArea {
+.floating {
   position: fixed;
-  bottom: 50px;
+  top: 0;
   left: 0;
   z-index: 9;
   width: 58vw;
+  height: 100%;
+}
+
+.xx-ShowcaseArea {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 50px);
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
@@ -122,7 +131,7 @@ export default {
 }
 
 .xx-List {
-  height: 80vh;
+  // height: 80vh;
   overflow: auto;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
