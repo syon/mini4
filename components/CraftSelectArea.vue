@@ -257,8 +257,8 @@ export default {
 
 .zzScrollShadow {
   position: absolute;
-  top: -8px;
-  height: 8px;
+  top: -3px;
+  height: 3px;
   width: 100%;
   opacity: 0.25;
   background-image: linear-gradient(
