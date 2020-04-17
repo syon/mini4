@@ -195,7 +195,21 @@ export const actions = {
   },
   change({ commit, dispatch }, { part, name }) {
     commit('setPartItem', { part, name })
+    dispatch('reviewCrafts', part)
     dispatch('ing/refresh', null, { root: true })
+  },
+  reviewCrafts({ dispatch, getters, rootState, rootGetters }, part) {
+    const { key, crafts } = getters.getRecipeByPart(part)
+    const item = rootGetters['catalog/getItemInfo'](part, key)
+    const craftMaster = rootState.craft.craft
+    const craftables = craftMaster[item.改造カテゴリ]
+    const craftableActions = craftables.map((x) => x.action)
+    for (let i = 0; i < crafts.length; i++) {
+      const { action } = crafts[i]
+      if (!craftableActions.includes(action)) {
+        dispatch('clearCraft', { part, craftIndex: i })
+      }
+    }
   },
   detach({ commit }, { part }) {
     commit('clearPartItem', { part })
