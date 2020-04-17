@@ -131,9 +131,8 @@ export default {
 }
 
 .xx-List {
-  // height: 80vh;
   overflow: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .CraftEditSlotList {

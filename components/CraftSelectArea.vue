@@ -1,6 +1,6 @@
 <template>
   <div v-if="isCrafting" class="floating">
-    <div class="xx-CraftSelectArea flex flex-col zzBg-gray1">
+    <div class="xx-CraftSelectArea flex flex-col">
       <div class="CraftEditSlotList flex-1 zzBg-gray1">
         <div class="px-1 pb-6">
           <craft-edit-slot
@@ -19,8 +19,9 @@
           </template>
         </div>
       </div>
-      <div class="xx-CraftControls relative">
-        <div class="zzScrollShadow"></div>
+      <div class="mt-1"></div>
+      <div class="CraftControls zzBg-gray1 relative">
+        <!-- <div class="zzScrollShadow"></div> -->
         <div class="zzQualityChoise pt-2">
           <label :class="{ active: quality === 'イイ感じ' }">
             <input v-model="quality" type="radio" value="イイ感じ" />
@@ -227,10 +228,6 @@ export default {
 .xx-CraftSelectArea {
   width: 58vw;
   height: calc(100% - 100px);
-  border: 1px solid #c8c8c8;
-  border-radius: 0.4rem;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-  background-color: rgb(59, 58, 60);
 }
 
 .xx-close {
@@ -249,12 +246,21 @@ export default {
 .CraftEditSlotList {
   position: relative;
   overflow: auto;
+  border: 1px solid #c8c8c8;
+  border-radius: 0.2rem;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.CraftControls {
+  border: 1px solid #c8c8c8;
+  border-radius: 0.2rem;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .zzScrollShadow {
   position: absolute;
-  top: -3px;
-  height: 3px;
+  top: -7px;
+  height: 6px;
   width: 100%;
   opacity: 0.25;
   background-image: linear-gradient(
