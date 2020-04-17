@@ -1,5 +1,9 @@
 <template>
-  <div :class="{ isEmpty: !item.key }" class="WearBox" @click="handleClick">
+  <div
+    :class="{ isEmpty: !item.key, active: part === ingPart }"
+    class="WearBox"
+    @click="handleClick"
+  >
     <div class="WearBox-inner">
       <div class="zabuton">
         <item-icon v-if="icon" :name="icon" :color1="color1" :color2="color2" />
@@ -23,6 +27,9 @@ export default {
     part: { type: String, required: true },
   },
   computed: {
+    ...mapState('ing', {
+      ingPart: (state) => state.part,
+    }),
     ...mapState('catalog', {
       catalog: (state) => state.dataset,
     }),
@@ -58,6 +65,11 @@ export default {
   position: relative;
   min-height: 7vmax;
   cursor: pointer;
+
+  &.active .WearBox-inner {
+    box-shadow: 0 1px 4px 3px rgba(255, 242, 127, 0.6),
+      0 1px 9px 4px rgba(255, 235, 59, 0.4);
+  }
 
   .WearBox-inner {
     display: flex;
