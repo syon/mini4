@@ -135,6 +135,7 @@ export default {
   padding: 0.2em 0.4em;
   color: #fff;
   background-color: rgb(220, 47, 33);
+  text-align: center;
 }
 
 .xx-merideme-list {
