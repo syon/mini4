@@ -172,19 +172,26 @@ export default {
       this.$store.dispatch('ing/updateCraft', payload)
     },
     handleFlood() {
-      // eslint-disable-next-line no-unused-vars
       const { ingPart: part, quality, level } = this
       const cIdx = this.craftIndex
       const cAct = this.craftAction
       const crafts = this.ingPartRecipe.crafts || []
       const sc = this.showingCrafts.find((x) => x.arg.action === cAct)
       const limit = sc ? sc.arg.回数制限 || 6 : 6
-      const remain = limit - (sc ? sc.hit : 0)
-      const reset = crafts.filter((x, i) => {
+      // Count over current
+      const keep = crafts.filter((x, i) => {
         if (!x) return false
-        return cIdx <= i && i <= cIdx + remain && x.action === cAct
+        return i < cIdx && x.action === cAct
       }).length
-      for (let i = cIdx; i < cIdx + reset + remain && i < 6; i++) {
+      const remain = limit - keep
+      // Clear under current
+      for (let i = cIdx + 1; i < crafts.length; i++) {
+        const c = crafts[i]
+        if (c.action === cAct) {
+          this.$store.dispatch('recipe/clearCraft', { part, craftIndex: i })
+        }
+      }
+      for (let i = cIdx; i < cIdx + remain && i < 6; i++) {
         this.changeCraft({
           part,
           craftIndex: i,
