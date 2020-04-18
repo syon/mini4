@@ -1,38 +1,19 @@
 <template>
   <div class="PartsDetailArea p-1 zzBg-gray1">
-    <hr />
-    <table class="speclist">
-      <tbody>
-        <tr>
-          <th>コース適性</th>
-          <td>
-            <apti-hex :type="ingItem.コース適性" class="ml-auto" />
-          </td>
-        </tr>
-        <tr v-if="ingItem.ボディ特性">
-          <th colspan="2">
-            <div class="BodyFeature mb-1">
-              <div class="BodyFeature-Floor">
-                <div class="BodyFeature-Content">
-                  <div>
-                    <div class="BodyFeature-Label leading-tight">
-                      ボディ<br />特性
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <span class="BodyFeature-Text">{{
-                      ingItem.ボディ特性
-                    }}</span>
-                  </div>
-                </div>
+    <template v-if="ingItem.ボディ特性">
+      <div class="BodyFeature mb-1">
+        <div class="BodyFeature-Floor">
+          <div class="BodyFeature-Content">
+            <div>
+              <div class="BodyFeature-Label leading-tight">
+                ボディ<br />特性
               </div>
             </div>
-          </th>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr />
+            <div class="BodyFeature-Text">{{ ingItem.ボディ特性 }}</div>
+          </div>
+        </div>
+      </div>
+    </template>
     <table class="speclist">
       <tbody>
         <tr>
@@ -76,12 +57,8 @@
 <script>
 import { mapState } from 'vuex'
 import Mini4 from '@/models/Mini4'
-import AptiHex from '@/components/AptiHex'
 
 export default {
-  components: {
-    AptiHex,
-  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,

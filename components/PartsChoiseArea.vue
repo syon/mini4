@@ -1,10 +1,23 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
     <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
-    <div class="PartsName mb-4 px-2 py-2" @click="handleShowcase">
-      {{ ingItem.key || '&nbsp;' }}
+    <div class="PartsName flex mb-2">
+      <div class="flex mr-1">
+        <div
+          class="w-1 rounded-bl-sm"
+          :style="{ backgroundColor: ingItem.色 }"
+        ></div>
+        <div class="w-1" :style="{ backgroundColor: ingItem.色2 }"></div>
+      </div>
+      <div class="pr-2 py-2" @click="handleShowcase">
+        {{ ingItem.key || '&nbsp;' }}
+      </div>
+      <apti-hex :type="ingItem.コース適性" class="PartsApti" />
     </div>
-    <div v-if="ingPart === 'ボディ'" class="flex items-center justify-center">
+    <div
+      v-if="ingPart === 'ボディ'"
+      class="flex items-center justify-center my-2"
+    >
       <template v-if="drillAvailable">
         <label class="flex items-center text-xs">
           <input v-model="isDrill" type="checkbox" class="mr-1" />
@@ -20,8 +33,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import AptiHex from '@/components/AptiHex'
 
 export default {
+  components: {
+    AptiHex,
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
@@ -79,5 +96,11 @@ export default {
   border-top: 0;
   border-radius: 0 0 0.2rem 0.2rem;
   line-height: 1.2;
+  position: relative;
+}
+.PartsApti {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
 }
 </style>
