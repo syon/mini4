@@ -1,7 +1,7 @@
 <template>
   <div class="PartsChoiseArea zzBg-gray1">
     <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
-    <div class="PartsName flex mb-2">
+    <div class="PartsName flex mb-2" @click="handleShowcase">
       <div class="flex mr-1">
         <div
           class="w-1 rounded-bl-sm"
@@ -9,7 +9,7 @@
         ></div>
         <div class="w-1" :style="{ backgroundColor: ingItem.色2 }"></div>
       </div>
-      <div class="pr-2 py-2" @click="handleShowcase">
+      <div class="pr-2 py-2">
         {{ ingItem.key || '&nbsp;' }}
       </div>
       <apti-hex :type="ingItem.コース適性" class="PartsApti" />
@@ -97,6 +97,7 @@ export default {
   border-radius: 0 0 0.2rem 0.2rem;
   line-height: 1.2;
   position: relative;
+  cursor: pointer;
 }
 .PartsApti {
   position: absolute;
