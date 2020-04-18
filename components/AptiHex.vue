@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: { type: { type: String, required: true } },
+  props: { type: { type: String, default: '' } },
   computed: {
     color() {
       switch (this.type) {
