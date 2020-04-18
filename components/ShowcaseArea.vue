@@ -13,10 +13,11 @@
                 <div
                   :key="name"
                   :class="{ active: name === ingItem.key }"
-                  class="xx-item m-1 px-2 py-1"
+                  class="ShowcaseBox m-1 px-2 py-1"
                   @click="handleSelectItem(name, item)"
                 >
-                  {{ name }}
+                  <div>{{ name }}</div>
+                  <div class="apti"><apti-hex :type="item.コース適性" /></div>
                 </div>
               </template>
             </div>
@@ -30,8 +31,10 @@
 <script>
 import { mapState } from 'vuex'
 import Mini4 from '../models/Mini4'
+import AptiHex from '@/components/AptiHex'
 
 export default {
+  components: { AptiHex },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
@@ -145,15 +148,22 @@ export default {
   background-color: rgb(76, 79, 80);
 }
 
-.xx-item {
+.ShowcaseBox {
   color: black;
   font-size: 0.8rem;
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
   border-radius: 0.2rem;
+  position: relative;
   &.active {
     background-color: #fffca0;
     border: 1px solid #f1f658;
+  }
+  .apti {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    z-index: 1;
   }
 }
 </style>
