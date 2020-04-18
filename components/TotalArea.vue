@@ -1,89 +1,105 @@
 <template>
-  <div class="TotalArea zzBg-gray1">
-    <div class="flex p-2 zzBg-gray2 justify-between">
-      <div class="xx-total flex items-center justify-center">
-        <div class="flex flex-col items-center">
-          <div>総合評価</div>
-          <div class="xx-totalscore zzAnton text-2xl">
-            {{ showInt(totalScore) }}
+  <div class="TotalArea">
+    <div class="TotalWindow rounded-md">
+      <div class="TotalWindowPanel">
+        <div class="xx-panelhead rounded-t-md"></div>
+        <div class="xx-panelbody p-2 zzBg-gray2">
+          <div class="flex items-center justify-center">
+            <div class="xx-total">
+              <div class="flex flex-col items-center">
+                <div>総合評価</div>
+                <div class="xx-totalscore zzAnton text-2xl">
+                  {{ showInt(totalScore) }}
+                </div>
+              </div>
+            </div>
+            <div class="xx-affects flex items-center">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th class="text-center">スピード</th>
+                    <th class="text-center">パワー</th>
+                    <th class="text-center">ｺｰﾅｰ安定</th>
+                    <th class="text-center">ｽﾀﾐﾅ耐久</th>
+                    <th class="text-center">重さ</th>
+                  </tr>
+                </thead>
+                <tbody class="xx-ranks">
+                  <tr>
+                    <td class="px-2 text-center">
+                      <score-rank
+                        mode="TOTAL"
+                        affect="スピード"
+                        :score="scores.スピード"
+                      />
+                    </td>
+                    <td class="px-2 text-center">
+                      <score-rank
+                        mode="TOTAL"
+                        affect="パワー"
+                        :score="scores.パワー"
+                      />
+                    </td>
+                    <td class="px-2 text-center">
+                      <score-rank
+                        mode="TOTAL"
+                        affect="コーナー安定"
+                        :score="scores.コーナー安定"
+                      />
+                    </td>
+                    <td class="px-2 text-center">
+                      <score-rank
+                        mode="TOTAL"
+                        affect="スタミナ耐久"
+                        :score="scores.スタミナ耐久"
+                      />
+                    </td>
+                    <td class="px-2 text-center">
+                      <score-rank
+                        mode="TOTAL"
+                        affect="重さ"
+                        :score="scores.重さ"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot class="xx-scores zzAnton">
+                  <tr>
+                    <td class="px-2 text-center">
+                      {{ showInt(scores.スピード, 2) }}
+                    </td>
+                    <td class="px-2 text-center">
+                      {{ showInt(scores.パワー, 2) }}
+                    </td>
+                    <td class="px-2 text-center">
+                      {{ showInt(scores.コーナー安定, 2) }}
+                    </td>
+                    <td class="px-2 text-center">
+                      {{ showInt(scores.スタミナ耐久, 2) }}
+                    </td>
+                    <td class="px-2 text-center">
+                      {{ showInt(scores.重さ, 2) }}
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <div v-if="isDetailOpen" class="mt-2 p-2 text-xs">
+            <total-detail />
           </div>
         </div>
-      </div>
-      <div class="xx-affects flex items-center">
-        <table class="w-full">
-          <thead>
-            <tr>
-              <th class="text-center">スピード</th>
-              <th class="text-center">パワー</th>
-              <th class="text-center">ｺｰﾅｰ安定</th>
-              <th class="text-center">ｽﾀﾐﾅ耐久</th>
-              <th class="text-center">重さ</th>
-            </tr>
-          </thead>
-          <tbody class="xx-ranks">
-            <tr>
-              <td class="px-2 text-center">
-                <score-rank
-                  mode="TOTAL"
-                  affect="スピード"
-                  :score="scores.スピード"
-                />
-              </td>
-              <td class="px-2 text-center">
-                <score-rank
-                  mode="TOTAL"
-                  affect="パワー"
-                  :score="scores.パワー"
-                />
-              </td>
-              <td class="px-2 text-center">
-                <score-rank
-                  mode="TOTAL"
-                  affect="コーナー安定"
-                  :score="scores.コーナー安定"
-                />
-              </td>
-              <td class="px-2 text-center">
-                <score-rank
-                  mode="TOTAL"
-                  affect="スタミナ耐久"
-                  :score="scores.スタミナ耐久"
-                />
-              </td>
-              <td class="px-2 text-center">
-                <score-rank mode="TOTAL" affect="重さ" :score="scores.重さ" />
-              </td>
-            </tr>
-          </tbody>
-          <tfoot class="xx-scores zzAnton">
-            <tr>
-              <td class="px-2 text-center">
-                {{ showInt(scores.スピード, 2) }}
-              </td>
-              <td class="px-2 text-center">
-                {{ showInt(scores.パワー, 2) }}
-              </td>
-              <td class="px-2 text-center">
-                {{ showInt(scores.コーナー安定, 2) }}
-              </td>
-              <td class="px-2 text-center">
-                {{ showInt(scores.スタミナ耐久, 2) }}
-              </td>
-              <td class="px-2 text-center">
-                {{ showInt(scores.重さ, 2) }}
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+        <div class="xx-panelfoot rounded-b-md">
+          <button
+            class="xx-toggle w-full text-gray-700 text-center"
+            @click="toggleDetail"
+          >
+            <span v-if="isDetailOpen">▲</span>
+            <span v-else>▼</span>
+          </button>
+        </div>
       </div>
     </div>
-    <div v-if="isDetailOpen" class="py-2 px-4 zzBg-gray2 text-xs">
-      <total-detail />
-    </div>
-    <button class="w-full text-center border" @click="toggleDetail">
-      <span v-if="isDetailOpen">▲</span>
-      <span v-else>▼</span>
-    </button>
   </div>
 </template>
 
@@ -171,6 +187,40 @@ export default {
 .TotalArea {
   font-size: 0.7rem;
   font-weight: normal;
+  padding: 15px;
+  background: rgb(170, 177, 178);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 177, 178, 1) 0%,
+    rgba(241, 244, 242, 1) 50%
+  );
+
+  .TotalWindow {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    .TotalWindowPanel {
+      .xx-panelhead {
+        height: 1rem;
+        background: linear-gradient(
+          0deg,
+          rgba(178, 178, 171, 1) 0%,
+          rgba(211, 212, 208, 1) 100%
+        );
+      }
+      .xx-panelbody {
+        background: linear-gradient(
+          180deg,
+          rgba(49, 54, 53, 1) 0%,
+          rgba(81, 86, 83, 1) 50%
+        );
+        border-left: 1px solid #d3d4d0;
+        border-right: 1px solid #d3d4d0;
+      }
+      .xx-panelfoot {
+        // height: 1rem;
+        background: #b9bab6;
+      }
+    }
+  }
 
   .xx-total {
     flex: 2;
@@ -189,6 +239,12 @@ export default {
 
     table {
       table-layout: fixed;
+    }
+  }
+
+  .xx-toggle {
+    &:focus {
+      outline: none;
     }
   }
 }
