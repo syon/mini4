@@ -238,6 +238,9 @@ export default {
     },
     toggleDetail() {
       this.isDetailOpen = !this.isDetailOpen
+      if (this.isDetailOpen) {
+        this.$ga.screenview('TotalDetail')
+      }
     },
   },
 }

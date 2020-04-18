@@ -170,6 +170,7 @@ export default {
       }
       this.$store.dispatch('ing/refresh', part)
       this.$store.dispatch('ing/updateCraft', payload)
+      this.$ga.event('Remodel', this.ingItem.key, action, this.craftIndex)
     },
     handleFlood() {
       const { ingPart: part, quality, level } = this
@@ -200,6 +201,7 @@ export default {
           level,
         })
       }
+      this.$ga.event('RemodelFlood', this.ingItem.key, cAct, cIdx)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
       const isNone = action === ''

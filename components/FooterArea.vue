@@ -17,6 +17,7 @@ export default {
   methods: {
     handleAbout() {
       this.$store.commit('ing/setAbout', true)
+      this.$ga.screenview('About')
     },
   },
 }

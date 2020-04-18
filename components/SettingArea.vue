@@ -240,6 +240,7 @@ export default {
   methods: {
     handleTrans(part) {
       this.$store.dispatch('ing/transIngPart', part)
+      this.$ga.event('Trans', 'Part', part)
     },
   },
 }

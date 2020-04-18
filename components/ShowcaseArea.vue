@@ -64,6 +64,7 @@ export default {
       }
       this.$store.dispatch('recipe/change', { part: basePart, name })
       this.closeDialog()
+      this.$ga.event('Catalog', 'Equip', basePart, name)
     },
     checkAccessory(basePart, basePairCategory) {
       const others = [

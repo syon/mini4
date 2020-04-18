@@ -53,6 +53,9 @@ export default {
     TextDump,
     FooterArea,
   },
+  mounted() {
+    this.$ga.screenview('Index')
+  },
 }
 </script>
 
