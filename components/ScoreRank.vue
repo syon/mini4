@@ -88,4 +88,8 @@ export default {
 .rank-\? {
   background-color: transparent;
 }
+.xx-alphabet {
+  font-style: italic;
+  margin-left: -4px;
+}
 </style>
