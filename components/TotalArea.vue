@@ -85,7 +85,7 @@
               </table>
             </div>
           </div>
-          <div v-if="isDetailOpen" class="mt-2 p-2 text-xs">
+          <div v-if="isDetailOpen" class="mt-2 p-1 text-xs">
             <total-detail />
           </div>
         </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="TotalDetail">
     <div class="flex items-center justify-between mb-3 mx-2">
-      <div class="flex">
-        <div v-for="a in aptSet" :key="a" class="flex mr-2">
+      <div class="flex-1 flex justify-between mr-2">
+        <div v-for="a in aptSet" :key="a" class="flex items-center">
           <apti-hex :type="a" />
           <span class="zzAnton pl-1">{{ totalAptitude[a] }}</span>
         </div>
