@@ -13,10 +13,20 @@
                 <div
                   :key="name"
                   :class="{ active: name === ingItem.key }"
-                  class="ShowcaseBox m-1 px-2 py-1"
+                  class="ShowcaseBox flex m-1 pr-2"
                   @click="handleSelectItem(name, item)"
                 >
-                  <div>{{ name }}</div>
+                  <div class="flex mr-1">
+                    <div
+                      class="w-1 rounded-l-sm"
+                      :style="{ backgroundColor: item.色 }"
+                    ></div>
+                    <div
+                      class="w-1"
+                      :style="{ backgroundColor: item.色2 }"
+                    ></div>
+                  </div>
+                  <div class="py-1">{{ name }}</div>
                   <div class="apti"><apti-hex :type="item.コース適性" /></div>
                 </div>
               </template>
