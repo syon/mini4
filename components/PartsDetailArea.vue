@@ -5,7 +5,9 @@
       <tbody>
         <tr>
           <th>コース適性</th>
-          <td class="zzAnton">{{ ingItem.コース適性 }}</td>
+          <td>
+            <apti-hex :type="ingItem.コース適性" class="ml-auto" />
+          </td>
         </tr>
         <tr v-if="ingItem.ボディ特性">
           <th colspan="2">
@@ -74,8 +76,12 @@
 <script>
 import { mapState } from 'vuex'
 import Mini4 from '@/models/Mini4'
+import AptiHex from '@/components/AptiHex'
 
 export default {
+  components: {
+    AptiHex,
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
