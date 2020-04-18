@@ -19,7 +19,7 @@
           </template>
         </div>
       </div>
-      <div class="mt-1"></div>
+      <!-- <div class="mt-1"></div> -->
       <div class="CraftControls zzBg-gray1 relative">
         <!-- <div class="zzScrollShadow"></div> -->
         <div class="zzQualityChoise pt-2">
