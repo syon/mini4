@@ -173,16 +173,20 @@ export default class Mini4 {
     const defaultSpecs = defaultItem.性能 || {}
     const resultSpecs = Object.assign({}, defaultSpecs)
     for (const { affect, benefit, grow, fix } of args) {
-      let kaizouVal = 0
-      if (fix) {
-        kaizouVal = benefit
+      const base = resultSpecs[affect] || 0
+      let kaizou = 0
+      let slotPlus = 0
+      if (fix === '全固定') {
+        kaizou = benefit
+        slotPlus = kaizou + grow
+      } else if (fix === '固定') {
+        kaizou = benefit
+        slotPlus = kaizou + (base + kaizou) * grow
       } else {
-        kaizouVal = (defaultSpecs[affect] || 0) * benefit
+        kaizou = (defaultSpecs[affect] || 0) * benefit
+        slotPlus = kaizou + (base + kaizou) * grow
       }
-      const para = resultSpecs[affect] || 0
-      const growVal = (para + kaizouVal) * grow
-      // 増分 == kaizouVal + growVal
-      const raw = para + kaizouVal + growVal
+      const raw = base + slotPlus
       resultSpecs[affect] = Math.round(raw * 1000000) / 1000000
     }
     if (part === 'ボディ') {
