@@ -79,6 +79,11 @@ export default {
   min-height: 7vmax;
   cursor: pointer;
 
+  &.active .WearBox-inner {
+    box-shadow: 0 1px 4px 3px rgba(255, 242, 127, 0.6),
+      0 1px 9px 4px rgba(255, 235, 59, 0.4);
+  }
+
   .WearBox-inner {
     display: flex;
     align-items: flex-start;
