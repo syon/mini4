@@ -155,14 +155,14 @@ export default {
 
 .xx-check {
   position: absolute;
-  top: -13px;
-  right: -13px;
+  top: -14px;
+  right: -11px;
   z-index: 9;
 
   .the-check {
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
   }
 }
 </style>
