@@ -5,12 +5,11 @@
     </template>
     <div class="flex flex-col p-2">
       <button class="zzBtn1 my-1" @click="toggleCraftTune">
-        一括調整
+        まとめて改造
       </button>
       <button class="zzBtn1 my-1" @click="removeAllCrafts">
         改造をすべて取り消す
       </button>
-      <button class="zzBtn1 my-1" @click="dump">export</button>
     </div>
   </div>
 </template>
@@ -62,9 +61,9 @@ export default {
       this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)
       this.$store.dispatch('ing/transIngPart', this.ingPart)
     },
-    dump() {
-      this.$store.dispatch('recipe/dump', this.ingPart)
-    },
+    // dump() {
+    //   this.$store.dispatch('recipe/dump', this.ingPart)
+    // },
   },
 }
 </script>
