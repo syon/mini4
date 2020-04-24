@@ -2,21 +2,15 @@
   <div v-if="isTune" class="floating">
     <div class="xx-CraftTuneArea flex flex-col">
       <div class="CraftTuneList flex-1 zzBg-gray1">
-        <div class="CraftPreset zzBtn2 p-1 m-2 rounded">
-          <span>限界軽量2/軽量4</span>
-        </div>
-        <div class="CraftPreset zzBtn2 p-1 m-2 rounded">
-          <span>軽量4/限界軽量2</span>
-        </div>
-        <div class="CraftPreset zzBtn2 p-1 m-2 rounded">
-          <span>エアロDF増4/限界軽量2</span>
-        </div>
-        <div class="CraftPreset zzBtn2 p-1 m-2 rounded">
-          <span>エアロDF減4/限界軽量2</span>
-        </div>
-        <div class="CraftPreset zzBtn2 p-1 m-2 rounded">
-          <span>節電4/限界軽量2</span>
-        </div>
+        <template v-for="(cp, i) of ingCraftPreset">
+          <div
+            :key="i"
+            class="CraftPreset zzBtn2 p-1 m-2 rounded"
+            @click="handleCraftPreset(cp)"
+          >
+            <span>{{ cp.タイトル }}</span>
+          </div>
+        </template>
       </div>
       <div class="CraftControls zzBg-gray1">
         <div class="zzQualityChoise mt-2">
@@ -99,6 +93,7 @@ export default {
       isTune: (state) => state.isTune,
       ingPart: (state) => state.part,
       ingRecipe: (state) => state.partRecipe,
+      ingCraftPreset: (state) => state.partCraftPreset,
     }),
   },
   watch: {
@@ -136,6 +131,20 @@ export default {
     },
   },
   methods: {
+    handleCraftPreset(cp) {
+      for (let i = 0; i < cp.改造.length; i++) {
+        const action = cp.改造[i]
+        const isNone = action === ''
+        const arg = {
+          part: this.ingPart,
+          craftIndex: i,
+          action,
+          quality: isNone ? '' : this.quality || 'イイ感じ',
+          level: isNone ? 0 : this.level || 1,
+        }
+        this.$store.dispatch('recipe/changeCraft', arg)
+      }
+    },
     handleLevel(theCase) {
       this.level = Mini4.controlLevel(theCase, this.level)
     },

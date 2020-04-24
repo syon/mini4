@@ -2,6 +2,7 @@ export const state = () => ({
   part: 'ボディ',
   partCatalog: {},
   partRecipe: {},
+  partCraftPreset: {},
   item: {},
   crafts: [],
   isCrafting: false,
@@ -26,6 +27,9 @@ export const mutations = {
   },
   setPartRecipe(state, partRecipe) {
     state.partRecipe = partRecipe
+  },
+  setPartCraftPreset(state, partCraftPreset) {
+    state.partCraftPreset = partCraftPreset
   },
   setItem(state, item) {
     state.item = item
@@ -72,11 +76,13 @@ export const actions = {
   transIngPart({ commit, rootState, rootGetters }, part) {
     const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
     const partRecipe = rootGetters['recipe/getRecipeByPart'](part) || {}
+    const partCraftPreset = rootGetters['craft/getPresetByPart'](part) || {}
     const item = partCatalog[partRecipe.key] || {}
     const crafts = rootState.craft.craft[item.改造カテゴリ] || []
     commit('setPart', part)
     commit('setPartCatalog', partCatalog)
     commit('setPartRecipe', partRecipe)
+    commit('setPartCraftPreset', partCraftPreset)
     commit('setItem', { key: partRecipe.key, ...item })
     commit('setCrafts', crafts)
   },
