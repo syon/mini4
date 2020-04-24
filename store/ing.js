@@ -76,9 +76,10 @@ export const actions = {
   transIngPart({ commit, rootState, rootGetters }, part) {
     const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
     const partRecipe = rootGetters['recipe/getRecipeByPart'](part) || {}
-    const partCraftPreset = rootGetters['craft/getPresetByPart'](part) || {}
     const item = partCatalog[partRecipe.key] || {}
     const crafts = rootState.craft.craft[item.改造カテゴリ] || []
+    const partCraftPreset =
+      rootGetters['craft/getPresetByCraftCategory'](item.改造カテゴリ) || {}
     commit('setPart', part)
     commit('setPartCatalog', partCatalog)
     commit('setPartRecipe', partRecipe)
