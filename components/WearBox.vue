@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ isEmpty: !item.key, active: part === ingPart }"
+    :class="{ isEmpty: !item.key, active }"
     class="WearBox"
     @click="handleClick"
   >
@@ -13,6 +13,9 @@
         <apti-hex :type="x.コース適性" />
       </div>
     </div>
+    <div v-if="active" class="xx-check">
+      <the-check class="the-check" />
+    </div>
   </div>
 </template>
 
@@ -21,11 +24,13 @@ import { mapState, mapGetters } from 'vuex'
 import ItemIcon from './ItemIcon'
 import Mini4 from '@/models/Mini4'
 import AptiHex from '@/components/AptiHex'
+import TheCheck from '@/assets/check.svg'
 
 export default {
   components: {
     ItemIcon,
     AptiHex,
+    TheCheck,
   },
   props: {
     item: { type: Object, default: () => {} },
@@ -43,6 +48,9 @@ export default {
     }),
     x() {
       return this.getItemInfo(this.part, this.item.key) || {}
+    },
+    active() {
+      return this.part === this.ingPart
     },
     color1() {
       return this.x.色
@@ -70,11 +78,6 @@ export default {
   position: relative;
   min-height: 7vmax;
   cursor: pointer;
-
-  &.active .WearBox-inner {
-    box-shadow: 0 1px 4px 3px rgba(255, 242, 127, 0.6),
-      0 1px 9px 4px rgba(255, 235, 59, 0.4);
-  }
 
   .WearBox-inner {
     display: flex;
@@ -142,6 +145,19 @@ export default {
     position: absolute;
     bottom: -3px;
     left: -3px;
+  }
+}
+
+.xx-check {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  z-index: 9;
+
+  .the-check {
+    position: relative;
+    width: 32px;
+    height: 32px;
   }
 }
 </style>
