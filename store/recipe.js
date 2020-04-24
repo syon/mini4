@@ -202,7 +202,7 @@ export const actions = {
     const { key, crafts } = getters.getRecipeByPart(part)
     const item = rootGetters['catalog/getItemInfo'](part, key)
     const craftMaster = rootState.craft.craft
-    const craftables = craftMaster[item.改造カテゴリ]
+    const craftables = craftMaster[item.改造カテゴリ] || []
     const craftableActions = craftables.map((x) => x.action)
     for (let i = 0; i < crafts.length; i++) {
       const { action } = crafts[i]
