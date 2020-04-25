@@ -14,15 +14,24 @@
       </div>
       <div class="CraftControls zzBg-gray1">
         <div class="zzQualityChoise mt-2">
-          <label :class="{ active: quality === 'イイ感じ' }">
+          <label
+            :class="{ active: quality === 'イイ感じ' }"
+            @click="handleQuality('イイ感じ')"
+          >
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
           </label>
-          <label :class="{ active: quality === '職人技' }">
+          <label
+            :class="{ active: quality === '職人技' }"
+            @click="handleQuality('職人技')"
+          >
             <input v-model="quality" type="radio" value="職人技" />
             <span>職人技</span>
           </label>
-          <label :class="{ active: quality === '至高の逸品' }">
+          <label
+            :class="{ active: quality === '至高の逸品' }"
+            @click="handleQuality('至高の逸品')"
+          >
             <input v-model="quality" type="radio" value="至高の逸品" />
             <span style="letter-spacing: -0.05em;">至高の逸品</span>
           </label>
@@ -97,24 +106,6 @@ export default {
     }),
   },
   watch: {
-    isTune() {
-      this.quality = '職人技'
-      this.level = 50
-    },
-    quality(quality) {
-      if (!quality) return
-      const crafts = this.ingRecipe.crafts || []
-      for (let i = 0; i < crafts.length; i++) {
-        if (crafts[i] && crafts[i].action) {
-          const payload = {
-            part: this.ingPart,
-            craftIndex: i,
-            quality,
-          }
-          this.$store.dispatch('recipe/changeCraftQuality', payload)
-        }
-      }
-    },
     level(level) {
       if (!level) return
       const crafts = this.ingRecipe.crafts || []
@@ -145,8 +136,24 @@ export default {
         this.$store.dispatch('recipe/changeCraft', arg)
       }
     },
+    handleQuality(quality) {
+      this.applyQualities(quality)
+    },
     handleLevel(theCase) {
       this.level = Mini4.controlLevel(theCase, this.level)
+    },
+    applyQualities(quality) {
+      const crafts = this.ingRecipe.crafts || []
+      for (let i = 0; i < crafts.length; i++) {
+        if (crafts[i] && crafts[i].action) {
+          const payload = {
+            part: this.ingPart,
+            craftIndex: i,
+            quality,
+          }
+          this.$store.dispatch('recipe/changeCraftQuality', payload)
+        }
+      }
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleCraftTune')
