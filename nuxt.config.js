@@ -38,7 +38,8 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap',
+        href:
+          'https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap',
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],

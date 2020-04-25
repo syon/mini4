@@ -228,6 +228,7 @@ export default {
 
   .xx-totalscore {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 
   .xx-affects {
