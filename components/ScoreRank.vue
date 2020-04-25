@@ -13,14 +13,14 @@
 
 <script>
 import Mini4 from '@/models/Mini4'
-import RankIconA from '@/assets/rank-icon/A.svg'
-import RankIconB from '@/assets/rank-icon/B.svg'
-import RankIconC from '@/assets/rank-icon/C.svg'
-import RankIconD from '@/assets/rank-icon/D.svg'
-import RankIconE from '@/assets/rank-icon/E.svg'
-import RankIconF from '@/assets/rank-icon/F.svg'
-import RankIconG from '@/assets/rank-icon/G.svg'
-import RankIconH from '@/assets/rank-icon/H.svg'
+import RankIconA from '@/assets/rank-icon/a.svg'
+import RankIconB from '@/assets/rank-icon/b.svg'
+import RankIconC from '@/assets/rank-icon/c.svg'
+import RankIconD from '@/assets/rank-icon/d.svg'
+import RankIconE from '@/assets/rank-icon/e.svg'
+import RankIconF from '@/assets/rank-icon/f.svg'
+import RankIconG from '@/assets/rank-icon/g.svg'
+import RankIconH from '@/assets/rank-icon/h.svg'
 
 export default {
   components: {
