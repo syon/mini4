@@ -2,7 +2,7 @@ export const state = () => ({
   part: 'ボディ',
   partCatalog: {},
   partRecipe: {},
-  partCraftPreset: {},
+  partCraftPreset: [],
   item: {},
   crafts: [],
   isCrafting: false,
