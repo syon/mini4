@@ -84,8 +84,8 @@ import Mini4 from '../models/Mini4'
 export default {
   data() {
     return {
-      quality: null,
-      level: null,
+      quality: '職人技',
+      level: 50,
     }
   },
   computed: {
@@ -98,8 +98,8 @@ export default {
   },
   watch: {
     isTune() {
-      this.quality = null
-      this.level = null
+      this.quality = '職人技'
+      this.level = 50
     },
     quality(quality) {
       if (!quality) return
