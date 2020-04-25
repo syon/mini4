@@ -233,6 +233,7 @@ export default {
 
   .xx-affects {
     flex: 5;
+    line-height: 1;
 
     .xx-scores {
       font-size: 0.8rem;
