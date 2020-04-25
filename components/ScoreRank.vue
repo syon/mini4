@@ -1,16 +1,38 @@
 <template>
-  <div :class="classOfRank" class="ScoreRank zzAnton">
-    <div class="xx-alphabet">
-      {{ alphabet }}
-    </div>
-    <div class="gradient-wrapper"></div>
+  <div :class="classOfRank" class="ScoreRank">
+    <rank-icon-a v-if="alphabet === 'A'" />
+    <rank-icon-b v-if="alphabet === 'B'" />
+    <rank-icon-c v-if="alphabet === 'C'" />
+    <rank-icon-d v-if="alphabet === 'D'" />
+    <rank-icon-e v-if="alphabet === 'E'" />
+    <rank-icon-f v-if="alphabet === 'F'" />
+    <rank-icon-g v-if="alphabet === 'G'" />
+    <rank-icon-h v-if="alphabet === 'H'" />
   </div>
 </template>
 
 <script>
 import Mini4 from '@/models/Mini4'
+import RankIconA from '@/assets/rank-icon/A.svg'
+import RankIconB from '@/assets/rank-icon/B.svg'
+import RankIconC from '@/assets/rank-icon/C.svg'
+import RankIconD from '@/assets/rank-icon/D.svg'
+import RankIconE from '@/assets/rank-icon/E.svg'
+import RankIconF from '@/assets/rank-icon/F.svg'
+import RankIconG from '@/assets/rank-icon/G.svg'
+import RankIconH from '@/assets/rank-icon/H.svg'
 
 export default {
+  components: {
+    RankIconA,
+    RankIconB,
+    RankIconC,
+    RankIconD,
+    RankIconE,
+    RankIconF,
+    RankIconG,
+    RankIconH,
+  },
   props: {
     mode: { type: String, required: true },
     affect: { type: String, required: true },
@@ -20,6 +42,12 @@ export default {
     alphabet() {
       const { mode, affect, score } = this
       return Mini4.resolveRank({ mode, affect, score })
+    },
+    theIcon() {
+      if (/A-H/.test(this.alphabet)) {
+        return `RankIcon${this.alphabet}`
+      }
+      return `RankIconH`
     },
     classOfRank() {
       return `rank-${this.alphabet}`
@@ -36,60 +64,13 @@ export default {
   justify-content: center;
   font-size: 1.2rem;
   border-radius: 50%;
-  width: 1.2em;
-  height: 1.2em;
+  width: 32px;
+  height: 32px;
   line-height: 1;
-}
-.gradient-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(
-    0deg,
-    hsla(0, 0%, 0%, 0.25) 0%,
-    hsla(0, 0%, 0%, 0) 33%,
-    hsla(0, 0%, 0%, 0) 67%,
-    hsla(0, 0%, 0%, 0.25) 100%
-  );
-}
-.rank-A {
-  color: #816e1a;
-  background-color: #f8e56d;
-}
-.rank-B {
-  color: #699b36;
-  background-color: #d0ffa4;
-}
-.rank-C {
-  color: #5c859a;
-  background-color: #c7eeff;
-}
-.rank-D {
-  color: #6276b4;
-  background-color: #d6dffe;
-}
-.rank-E {
-  color: #727292;
-  background-color: #ddd9fe;
-}
-.rank-F {
-  color: #3d3d3d;
-  background-color: #b8b6b9;
-}
-.rank-G {
-  color: #333333;
-  background-color: #939393;
-}
-.rank-H {
-  color: #242424;
-  background-color: #5e5d5d;
-}
-.rank-\? {
-  background-color: transparent;
-}
-.xx-alphabet {
-  font-style: italic;
-  margin-left: -4px;
+
+  > svg {
+    width: 32px;
+    height: 32px;
+  }
 }
 </style>

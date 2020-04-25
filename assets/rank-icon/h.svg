@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<linearGradient id="rank_h_col1" gradientUnits="userSpaceOnUse" x1="32" y1="8.0801" x2="32" y2="55.9199">
+	<stop  offset="0.00" style="stop-color:#4D4D4D"/>
+	<stop  offset="0.40" style="stop-color:#5E5E5E"/>
+	<stop  offset="0.60" style="stop-color:#5E5E5E"/>
+	<stop  offset="1.00" style="stop-color:#4D4D4D"/>
+</linearGradient>
+<radialGradient id="rank_h_col2" cx="32" cy="31.999" r="28.29" gradientTransform="matrix(0.8132 -0.8132 0.7071 0.7071 -16.6493 35.3947)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0.73" style="stop-color:#5E5E5E;stop-opacity:0"/>
+	<stop  offset="0.78" style="stop-color:#5E5E5E"/>
+	<stop  offset="0.80" style="stop-color:#5E5E5E"/>
+	<stop  offset="0.85" style="stop-color:#5E5E5E;stop-opacity:0"/>
+</radialGradient>
+<linearGradient id="rank_h_col3" gradientUnits="userSpaceOnUse" x1="29.6353" y1="13.3086" x2="29.6353" y2="45">
+	<stop  offset="0.00" style="stop-color:#292929"/>
+	<stop  offset="0.40" style="stop-color:#212121"/>
+	<stop  offset="0.60" style="stop-color:#212121"/>
+	<stop  offset="1.00" style="stop-color:#161616"/>
+</linearGradient>
+<path fill="url(#rank_h_col1)" d="M55.92,32c-1.856,13.211-14.071,23.92-27.282,23.92C15.427,55.92,6.224,45.211,8.08,32
+	S22.151,8.08,35.361,8.08C48.572,8.08,57.777,18.789,55.92,32z"/>
+<path fill="url(#rank_h_col2)" d="M55.005,8.995c11.048,11.048,9.704,30.305-3.001,43.009C39.299,64.709,20.043,66.053,8.995,55.005
+	s-9.704-30.304,3-43.01C24.701-0.709,43.957-2.052,55.005,8.995z"/>
+<path fill="url(#rank_h_col3)" d="M26.014,13.309h6.487l-2.82,13.267h7.69l2.82-13.267h6.487L39.943,45h-6.487l3.112-14.64h-7.69L25.765,45h-6.487
+	L26.014,13.309z"/>
+</svg>
