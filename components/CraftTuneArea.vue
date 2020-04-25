@@ -5,7 +5,7 @@
         <template v-for="(cp, i) of ingCraftPreset">
           <div
             :key="i"
-            class="CraftPreset zzBtn2 p-1 m-2 rounded"
+            class="CraftPreset p-1 m-2 rounded"
             @click="handleCraftPreset(cp)"
           >
             <span>{{ cp.タイトル }}</span>
@@ -186,6 +186,14 @@ export default {
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.CraftPreset {
+  color: black;
+  font-size: 0.8rem;
+  background-color: #f0f4f4;
+  border: 1px solid #b5babd;
+  border-radius: 0.2rem;
 }
 
 .levelChoise {
