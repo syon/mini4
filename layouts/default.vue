@@ -17,6 +17,7 @@ html {
   box-sizing: border-box;
   font-feature-settings: 'palt';
   touch-action: manipulation;
+  user-select: none;
 }
 
 *,
