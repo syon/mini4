@@ -14,51 +14,68 @@
         </div>
       </div>
     </template>
-    <table class="speclist">
-      <tbody>
-        <tr>
-          <th>スピード</th>
-          <td class="zzAnton">{{ score.basic.スピード }}</td>
-        </tr>
-        <tr>
-          <th>パワー</th>
-          <td class="zzAnton">{{ score.basic.パワー }}</td>
-        </tr>
-        <tr>
-          <th>コーナー安定</th>
-          <td class="zzAnton">{{ score.basic.コーナー安定 }}</td>
-        </tr>
-        <tr>
-          <th>スタミナ耐久</th>
-          <td class="zzAnton">{{ score.basic.スタミナ耐久 }}</td>
-        </tr>
-        <tr>
-          <th>重さ</th>
-          <td class="zzAnton">{{ score.basic.重さ }}</td>
-        </tr>
-      </tbody>
-    </table>
 
-    <hr />
-    <table class="speclist">
-      <tbody>
-        <template v-for="(sVal, sKey) in score.skill">
-          <tr :key="sKey">
-            <th>{{ sKey }}</th>
-            <td class="zzAnton">{{ sVal }}</td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-    <hr />
+    <div @click="toggleSpec">
+      <parts-spec
+        spec-type="スピード"
+        :before-score="beforeSpec.スピード"
+        :after-score="score.basic.スピード"
+        :is-hold="isHold"
+      />
+      <parts-spec
+        spec-type="パワー"
+        :before-score="beforeSpec.パワー"
+        :after-score="score.basic.パワー"
+        :is-hold="isHold"
+      />
+      <parts-spec
+        spec-type="コーナー安定"
+        :before-score="beforeSpec.コーナー安定"
+        :after-score="score.basic.コーナー安定"
+        :is-hold="isHold"
+      />
+      <parts-spec
+        spec-type="スタミナ耐久"
+        :before-score="beforeSpec.スタミナ耐久"
+        :after-score="score.basic.スタミナ耐久"
+        :is-hold="isHold"
+      />
+      <parts-spec
+        spec-type="重さ"
+        :before-score="beforeSpec.重さ"
+        :after-score="score.basic.重さ"
+        :is-hold="isHold"
+      />
+
+      <hr />
+      <template v-for="(sVal, sKey) in score.skill">
+        <parts-spec
+          :key="sKey"
+          :spec-type="sKey"
+          :before-score="beforeSpec[sKey]"
+          :after-score="sVal"
+          :is-hold="isHold"
+        />
+      </template>
+      <hr />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
+import PartsSpec from '@/components/PartsSpec'
 import Mini4 from '@/models/Mini4'
 
 export default {
+  components: {
+    PartsSpec,
+  },
+  data() {
+    return {
+      isHold: false,
+    }
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
@@ -67,6 +84,13 @@ export default {
       ingItem: (state) => state.item,
       ingCrafts: (state) => state.crafts,
     }),
+    ...mapGetters({
+      getItemInfo: 'catalog/getItemInfo',
+    }),
+    beforeSpec() {
+      const info = this.getItemInfo(this.ingPart, this.ingItem.key)
+      return info ? info.性能 : {}
+    },
     score() {
       const r = this.getPartScore(this.ingPart)
       const basic = {}
@@ -108,6 +132,9 @@ export default {
         this.ingCrafts
       )
       return r
+    },
+    toggleSpec() {
+      this.isHold = !this.isHold
     },
   },
 }

@@ -298,4 +298,34 @@ export default class Mini4 {
         return 50
     }
   }
+
+  static isPositiveParameter(type) {
+    const params = {
+      スピード: true,
+      パワー: true,
+      コーナー安定: true,
+      スタミナ耐久: true,
+      重さ: false,
+      ギヤ負荷: false,
+      パワーロス: false,
+      スピードロス: false,
+      エアロダウンフォース: true,
+      節電: true,
+      制振: true,
+      スラスト角: true,
+      タイヤ摩擦: true,
+      タイヤ旋回: true,
+      タイヤ反発: false,
+      タイヤ径: true,
+      ローラー摩擦: true,
+      ローラー抵抗: false,
+      ウェーブ: true,
+      オフロード: true,
+      ギヤ比: false,
+      消費電流: false,
+      ブレーキ減速: true,
+      スタビ減速: true,
+    }
+    return params[type]
+  }
 }
