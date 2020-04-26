@@ -60,7 +60,6 @@ export default {
    */
   plugins: [
     { src: '@/plugins/localStorage', mode: 'client' },
-    { src: '@/plugins/touchevents', mode: 'client' },
     { src: '@/plugins/viewportunits', mode: 'client' },
   ],
   /*
