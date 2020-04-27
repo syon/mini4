@@ -105,22 +105,6 @@ export default {
       ingCraftPreset: (state) => state.partCraftPreset,
     }),
   },
-  watch: {
-    level(level) {
-      if (!level) return
-      const crafts = this.ingRecipe.crafts || []
-      for (let i = 0; i < crafts.length; i++) {
-        if (crafts[i] && crafts[i].action) {
-          const payload = {
-            part: this.ingPart,
-            craftIndex: i,
-            level,
-          }
-          this.$store.dispatch('recipe/changeCraftLevel', payload)
-        }
-      }
-    },
-  },
   methods: {
     handleCraftPreset(cp) {
       for (let i = 0; i < cp.改造.length; i++) {
@@ -141,6 +125,7 @@ export default {
     },
     handleLevel(theCase) {
       this.level = Mini4.controlLevel(theCase, this.level)
+      this.applyLevels(this.level)
     },
     applyQualities(quality) {
       const crafts = this.ingRecipe.crafts || []
@@ -152,6 +137,19 @@ export default {
             quality,
           }
           this.$store.dispatch('recipe/changeCraftQuality', payload)
+        }
+      }
+    },
+    applyLevels(level) {
+      const crafts = this.ingRecipe.crafts || []
+      for (let i = 0; i < crafts.length; i++) {
+        if (crafts[i] && crafts[i].action) {
+          const payload = {
+            part: this.ingPart,
+            craftIndex: i,
+            level,
+          }
+          this.$store.dispatch('recipe/changeCraftLevel', payload)
         }
       }
     },
