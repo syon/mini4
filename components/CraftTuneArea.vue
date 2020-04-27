@@ -14,24 +14,15 @@
       </div>
       <div class="CraftControls zzBg-gray1">
         <div class="zzQualityChoise mt-2">
-          <label
-            :class="{ active: quality === 'イイ感じ' }"
-            @click="handleQuality('イイ感じ')"
-          >
+          <label class="zzBtn2" @click="handleQuality('イイ感じ')">
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
           </label>
-          <label
-            :class="{ active: quality === '職人技' }"
-            @click="handleQuality('職人技')"
-          >
+          <label class="zzBtn2" @click="handleQuality('職人技')">
             <input v-model="quality" type="radio" value="職人技" />
             <span>職人技</span>
           </label>
-          <label
-            :class="{ active: quality === '至高の逸品' }"
-            @click="handleQuality('至高の逸品')"
-          >
+          <label class="zzBtn2" @click="handleQuality('至高の逸品')">
             <input v-model="quality" type="radio" value="至高の逸品" />
             <span style="letter-spacing: -0.05em;">至高の逸品</span>
           </label>
