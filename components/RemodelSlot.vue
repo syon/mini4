@@ -45,8 +45,8 @@ export default {
       const payload = {
         craftIndex: this.craftIndex,
         craftAction: this.x.action || '',
-        craftQuality: this.x.quality || 'イイ感じ',
-        craftLevel: this.x.level || 1,
+        craftQuality: this.x.quality || '職人技',
+        craftLevel: this.x.level || 50,
       }
       this.$store.dispatch('ing/changeCraftIndex', payload)
     },
