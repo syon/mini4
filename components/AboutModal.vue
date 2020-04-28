@@ -22,6 +22,7 @@
             Twitter ハッシュタグ
             <a
               href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
+              target="_blank"
               ><span class="hashtag">#超速シミュ</span></a
             >
           </div>
@@ -79,6 +80,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
   background-color: rgba(0, 0, 0, 0.67);
 }
 
