@@ -19,7 +19,11 @@
         <div>
           <div class="AboutModal-SubHeader">情報提供</div>
           <div>
-            Twitter ハッシュタグ <span class="hashtag">#超速シミュ</span>
+            Twitter ハッシュタグ
+            <a
+              href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
+              ><span class="hashtag">#超速シミュ</span></a
+            >
           </div>
         </div>
         <div class="zzCategoryHeader mt-4 mb-2">公式</div>
