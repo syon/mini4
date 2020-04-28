@@ -4,11 +4,8 @@
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
     <div class="flex flex-col p-2">
-      <button class="zzBtn1 my-1" @click="toggleCraftTune">
+      <button class="TuneBtn zzBtn1 my-1" @click="toggleCraftTune">
         まとめて改造
-      </button>
-      <button class="zzBtn1 my-1" @click="removeAllCrafts">
-        改造をすべて取り消す
       </button>
     </div>
   </div>
@@ -57,10 +54,6 @@ export default {
     toggleCraftTune() {
       this.$store.dispatch('ing/toggleCraftTune')
     },
-    removeAllCrafts() {
-      this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)
-      this.$store.dispatch('ing/transIngPart', this.ingPart)
-    },
     // dump() {
     //   this.$store.dispatch('recipe/dump', this.ingPart)
     // },
@@ -71,5 +64,8 @@ export default {
 <style lang="less" scoped>
 .xx-RemodelArea {
   background-color: #838888;
+}
+.TuneBtn {
+  font-size: 0.75rem;
 }
 </style>
