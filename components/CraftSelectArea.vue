@@ -187,7 +187,7 @@ export default {
       const remain = limit - keep
       // Clear under current
       for (let i = cIdx + 1; i < crafts.length; i++) {
-        const c = crafts[i]
+        const c = crafts[i] || {}
         if (c.action === cAct) {
           this.$store.dispatch('recipe/clearCraft', { part, craftIndex: i })
         }
