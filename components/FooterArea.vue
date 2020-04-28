@@ -26,7 +26,9 @@ export default {
   },
   methods: {
     handleReset() {
-      if (window.confirm('Reset?')) {
+      if (
+        window.confirm('リセットして最初からやり直します。よろしいですか？')
+      ) {
         window.localStorage.clear()
         window.location.reload()
       }
