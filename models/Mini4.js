@@ -104,6 +104,69 @@ export default class Mini4 {
     }
   }
 
+  static resolvePartJp(partEn) {
+    switch (partEn) {
+      case 'body':
+        return 'ボディ'
+      case 'motor':
+        return 'モーター'
+      case 'gear':
+        return 'ギヤ'
+      case 'chassis':
+        return 'シャーシ'
+      case 'frontWheel':
+        return 'フロント・ホイール'
+      case 'frontTire':
+        return 'フロント・タイヤ'
+      case 'rearWheel':
+        return 'リヤ・ホイール'
+      case 'rearTire':
+        return 'リヤ・タイヤ'
+      case 'frontStay':
+        return 'フロントステー'
+      case 'sideStay':
+        return 'サイドステー'
+      case 'rearStay':
+        return 'リヤステー'
+      case 'frontRollerHigh':
+        return 'フロント・ローラー上'
+      case 'sideRollerHigh':
+        return 'サイド・ローラー上'
+      case 'rearRollerHigh':
+        return 'リヤ・ローラー上'
+      case 'frontRollerMiddle':
+        return 'フロント・ローラー中'
+      case 'sideRollerMiddle':
+        return 'サイド・ローラー中'
+      case 'rearRollerMiddle':
+        return 'リヤ・ローラー中'
+      case 'rearRollerLow':
+        return 'リヤ・ローラー下'
+      case 'bodyOption':
+        return 'ボディオプション'
+      case 'wingRoller':
+        return 'ウイングローラー'
+      case 'frontStabilizer':
+        return 'フロント・スタビライザー'
+      case 'sideStabilizer':
+        return 'サイド・スタビライザー'
+      case 'rearStabilizer':
+        return 'リヤ・スタビライザー'
+      case 'frontSettingWeight':
+        return 'フロント・セッティングウェイト'
+      case 'rearSettingWeight':
+        return 'リヤ・セッティングウェイト'
+      case 'accessory1':
+        return 'アクセサリー・１'
+      case 'accessory2':
+        return 'アクセサリー・２'
+      case 'accessory3':
+        return 'アクセサリー・３'
+      case 'accessory4':
+        return 'アクセサリー・４'
+    }
+  }
+
   static getAllAffects() {
     return [
       'スピード',

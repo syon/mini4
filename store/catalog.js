@@ -6,12 +6,13 @@ export const state = () => ({
 })
 
 export const getters = {
-  getCatalogByPart: (state) => (part) => {
-    const category = Mini4.resolveCategoryByPart(part)
+  getCatalogByPart: (state) => (partJp) => {
+    const category = Mini4.resolveCategoryByPart(partJp)
     return state.dataset[category]
   },
-  getItemInfo: (state, getters) => (part, key) => {
-    const c = getters.getCatalogByPart(part)
+  getItemInfo: (state, getters) => (partJp, key) => {
+    if (!key) return { 性能: {} }
+    const c = getters.getCatalogByPart(partJp)
     return c[key]
   },
 }
