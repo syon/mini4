@@ -235,7 +235,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('recipe/load')
-    this.handleTrans('ボディ')
   },
   methods: {
     handleTrans(part) {
