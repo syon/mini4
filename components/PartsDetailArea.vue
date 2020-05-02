@@ -1,5 +1,5 @@
 <template>
-  <div class="PartsDetailArea p-1 zzBg-gray1">
+  <div class="PartsDetailArea p-1">
     <template v-if="ingItem.ボディ特性">
       <div class="BodyFeature mb-1">
         <div class="BodyFeature-Floor">

@@ -248,7 +248,6 @@ export default {
 <style lang="less" scoped>
 .xx-SettingArea {
   padding: 5px;
-  background-color: #85898a;
 
   .grid-setting {
     display: grid;
@@ -376,10 +375,5 @@ export default {
       grid-column: ~'4/5';
     }
   }
-}
-
-button {
-  color: blue;
-  text-decoration: underline;
 }
 </style>

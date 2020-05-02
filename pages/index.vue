@@ -5,7 +5,7 @@
         <total-area />
       </div>
     </div>
-    <div class="flex zzBg-gray1 pt-1">
+    <div class="GarageArea flex zzBg-gray1 pt-1">
       <setting-area class="w-7/12" />
       <div class="w-5/12 migisita p-1">
         <parts-choise-area />
@@ -60,6 +60,11 @@ export default {
 </script>
 
 <style>
+.GarageArea {
+  background-image: url('/bg_grid_w.svg');
+  background-size: 32px;
+}
+
 .migisita {
   overflow: hidden;
 }
