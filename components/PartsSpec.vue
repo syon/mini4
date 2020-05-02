@@ -1,6 +1,6 @@
 <template>
   <div class="PartsSpec flex justify-between">
-    <div>{{ specType }}</div>
+    <div class="PartsSpecType">{{ specType }}</div>
     <div class="zzAnton" :class="specStyle">
       {{ theScore }}
     </div>
@@ -59,6 +59,10 @@ export default {
 .PartsSpec {
   font-size: 0.75rem;
   line-height: 1.5;
+
+  .PartsSpecType {
+    letter-spacing: -0.025em;
+  }
 
   .isZero {
     color: #888;

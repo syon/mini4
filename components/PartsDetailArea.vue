@@ -1,5 +1,5 @@
 <template>
-  <div class="PartsDetailArea zzCheckerBg p-1 mb-2">
+  <div class="PartsDetailArea mb-2">
     <template v-if="ingItem.ボディ特性">
       <div class="BodyFeature mb-1">
         <div class="BodyFeature-Floor">
@@ -15,7 +15,7 @@
       </div>
     </template>
 
-    <div class="PartsSpecList" @click="toggleSpec">
+    <div class="PartsSpecList zzCheckerBg p-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
         :before-score="beforeSpec.スピード"
@@ -141,7 +141,6 @@ export default {
 
 <style lang="less" scoped>
 .PartsDetailArea {
-  border-radius: 0.15rem;
   hr {
     border-color: #c3c3c3;
     margin: 0.25em 0;
@@ -151,6 +150,9 @@ export default {
 .PartsSpecList {
   position: relative;
   z-index: 5;
+  border-radius: 0.15rem;
+  // border: 1px solid #b5babd;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .speclist {
