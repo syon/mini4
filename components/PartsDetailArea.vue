@@ -151,8 +151,7 @@ export default {
   position: relative;
   z-index: 5;
   border-radius: 0.15rem;
-  // border: 1px solid #b5babd;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid #b5babd;
 }
 
 .speclist {

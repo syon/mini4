@@ -61,7 +61,7 @@ export default {
   line-height: 1.5;
 
   .PartsSpecType {
-    letter-spacing: -0.025em;
+    letter-spacing: -0.05em;
   }
 
   .isZero {
