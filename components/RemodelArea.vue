@@ -62,9 +62,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.xx-RemodelArea {
-  background-color: #838888;
-}
 .TuneBtn {
   font-size: 0.75rem;
 }

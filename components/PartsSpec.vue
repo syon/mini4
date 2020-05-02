@@ -57,7 +57,8 @@ export default {
 
 <style lang="less" scoped>
 .PartsSpec {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
 
   .isZero {
     color: #888;
