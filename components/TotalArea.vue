@@ -194,9 +194,26 @@ export default {
     rgba(170, 177, 178, 1) 0%,
     rgba(241, 244, 242, 1) 50%
   );
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/bg_grid_b.svg');
+    background-size: 32px;
+    z-index: 2;
+  }
 
   .TotalWindow {
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 5;
     .TotalWindowPanel {
       .xx-panelhead {
         height: 1rem;
@@ -209,11 +226,27 @@ export default {
       .xx-panelbody {
         background: linear-gradient(
           180deg,
-          rgba(49, 54, 53, 1) 0%,
-          rgba(81, 86, 83, 1) 50%
+          hsla(144, 3%, 27%, 1) 0%,
+          hsla(168, 5%, 18%, 1) 30%,
+          hsla(168, 5%, 18%, 1) 70%,
+          hsla(144, 3%, 27%, 1) 100%
         );
         border-left: 1px solid #d3d4d0;
         border-right: 1px solid #d3d4d0;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('/bg_check_w.svg');
+          background-size: 42px;
+          z-index: 2;
+        }
       }
       .xx-panelfoot {
         // height: 1rem;
