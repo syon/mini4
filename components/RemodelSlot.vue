@@ -10,12 +10,12 @@
     <div class="flex flex-1">
       <div
         v-if="x.action && (x.quality || x.level)"
-        class="xx-quality flex-auto flex items-center justify-between text-black h-6 px-2"
+        class="xx-quality flex-auto flex items-center justify-between text-black h-5"
       >
         <div class="xx-quality-label">{{ x.quality }}</div>
         <div class="xx-quality-level zzAnton">Lv.{{ x.level }}</div>
       </div>
-      <div v-else class="h-6"></div>
+      <div v-else class="h-5"></div>
     </div>
   </div>
 </template>
@@ -68,20 +68,23 @@ export default {
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: -0.05em;
   background-color: #20272a;
   line-height: 1.2;
   border-radius: 0.15rem 0.15rem 0 0;
 }
 
 .xx-quality {
+  padding: 2px 4px;
   .xx-quality-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: bold;
     line-height: 1.2;
+    letter-spacing: -0.05em;
   }
   .xx-quality-level {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     line-height: 1.2;
   }
 }
