@@ -1,5 +1,5 @@
 <template>
-  <div class="PartsChoiseArea zzBg-gray1">
+  <div class="PartsChoiseArea">
     <div class="PartsHeader px-2 py-1">{{ ingPart }}</div>
     <div class="PartsName flex mb-2" @click="handleShowcase">
       <div class="flex mr-1">

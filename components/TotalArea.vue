@@ -205,7 +205,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/bg_grid_b.svg');
+    background-image: url('/bg_grid_w.svg');
     background-size: 32px;
     z-index: 2;
   }

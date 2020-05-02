@@ -57,7 +57,6 @@
           :is-hold="isHold"
         />
       </template>
-      <hr />
     </div>
   </div>
 </template>
@@ -141,6 +140,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.PartsDetailArea {
+  hr {
+    border-color: #c3c3c3;
+    margin: 0.25em 0;
+  }
+}
+
 .speclist {
   width: 100%;
   font-size: 0.7em;
