@@ -1,5 +1,6 @@
 <template>
-  <div
+  <a
+    href="#"
     :class="{ active: x.action === craftAction, isNomoreCraft: nomore }"
     class="xx-CraftEditSlot w-full flex flex-col text-sm"
     @click="handleClick"
@@ -55,7 +56,7 @@
         これ以上改造できません。
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>

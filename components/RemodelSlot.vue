@@ -1,5 +1,6 @@
 <template>
-  <div
+  <a
+    href="#"
     :class="{ active: isActive }"
     class="xx-RemodelSlot w-full flex flex-col text-sm"
     @click="handleClick"
@@ -17,7 +18,7 @@
       </div>
       <div v-else class="h-5"></div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>

@@ -10,7 +10,8 @@
             <div :key="key" class="mx-1 my-1">
               <div class="xx-category mt-4 px-2">{{ key }}</div>
               <template v-for="(item, name) in categorySet">
-                <div
+                <a
+                  href="#"
                   :key="name"
                   :class="{ active: name === ingItem.key }"
                   class="ShowcaseBox flex m-1 pr-2"
@@ -28,7 +29,7 @@
                   </div>
                   <div class="py-1">{{ name }}</div>
                   <div class="apti"><apti-hex :type="item.コース適性" /></div>
-                </div>
+                </a>
               </template>
             </div>
           </template>

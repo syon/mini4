@@ -3,13 +3,14 @@
     <div class="xx-CraftTuneArea flex flex-col">
       <div class="CraftTuneList flex-1 zzBg-gray1">
         <template v-for="(cp, i) of ingCraftPreset">
-          <div
+          <a
+            href="#"
             :key="i"
             class="CraftPreset p-1 m-2 rounded"
             @click="handleCraftPreset(cp)"
           >
             <span>{{ cp.タイトル }}</span>
-          </div>
+          </a>
         </template>
       </div>
       <div class="CraftControls zzBg-gray1">
@@ -185,6 +186,7 @@ export default {
 }
 
 .CraftPreset {
+  display: block;
   color: black;
   font-size: 0.8rem;
   background-color: #f0f4f4;
