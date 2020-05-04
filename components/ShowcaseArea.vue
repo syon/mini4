@@ -11,8 +11,8 @@
               <div class="xx-category mt-4 px-2">{{ key }}</div>
               <template v-for="(item, name) in categorySet">
                 <a
-                  href="#"
                   :key="name"
+                  href="#"
                   :class="{ active: name === ingItem.key }"
                   class="ShowcaseBox flex m-1 pr-2"
                   @click="handleSelectItem(name, item)"

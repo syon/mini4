@@ -4,8 +4,8 @@
       <div class="CraftTuneList flex-1 zzBg-gray1">
         <template v-for="(cp, i) of ingCraftPreset">
           <a
-            href="#"
             :key="i"
+            href="#"
             class="CraftPreset p-1 m-2 rounded"
             @click="handleCraftPreset(cp)"
           >
