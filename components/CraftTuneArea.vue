@@ -6,7 +6,7 @@
           <a
             :key="i"
             href="#"
-            class="CraftPreset p-1 m-2 rounded"
+            class="CraftPreset p-1 m-1 rounded"
             @click="handleCraftPreset($event, cp)"
           >
             <span>{{ cp.タイトル }}</span>
@@ -14,7 +14,7 @@
         </template>
       </div>
       <div class="CraftControls zzBg-gray1">
-        <div class="zzQualityChoise mt-2">
+        <div class="zzQualityChoise mt-2 mb-1">
           <label class="zzBtn2" @click="handleQuality('イイ感じ')">
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
@@ -68,8 +68,8 @@
           </button>
         </div>
         <hr class="xxHr my-1" />
-        <div class="text-center pb-2">
-          <button class="zzBtn1 my-1" @click="removeAllCrafts">
+        <div class="text-center mt-2 mb-2">
+          <button class="zzBtn1" @click="removeAllCrafts">
             改造をすべて取り消す
           </button>
         </div>
@@ -181,6 +181,7 @@ export default {
 }
 
 .CraftControls {
+  position: relative;
   border: 1px solid #c8c8c8;
   border-radius: 0.4rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);

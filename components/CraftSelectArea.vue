@@ -22,7 +22,7 @@
       <!-- <div class="mt-1"></div> -->
       <div class="CraftControls zzBg-gray1 relative">
         <!-- <div class="zzScrollShadow"></div> -->
-        <div class="zzQualityChoise pt-2">
+        <div class="zzQualityChoise mt-2 mb-1">
           <label :class="{ active: quality === 'イイ感じ' }">
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
@@ -76,7 +76,7 @@
           </button>
         </div>
         <hr class="xxHr my-1" />
-        <div class="text-center pb-2">
+        <div class="text-center my-2">
           <button class="zzBtn1" @click="handleFlood">
             選択スロット以下をまとめて改造
           </button>
