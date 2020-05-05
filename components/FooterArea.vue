@@ -1,12 +1,12 @@
 <template>
   <div>
     <about-modal />
-    <div class="flex items-center justify-between p-4">
+    <div class="flex items-center justify-between p-4 my-2">
       <div class="flex-1">
-        <button class="zzBtn1 my-2" @click="handleReset">Reset</button>
+        <button class="zzBtn1" @click="handleReset">Reset</button>
       </div>
-      <div class="flex-1 text-center">
-        <button class="zzBtn1 my-2" @click="handleAbout">About</button>
+      <div class="flex-1 flex justify-center">
+        <button class="zzBtn1" @click="handleAbout">About</button>
       </div>
       <div class="flex-1">
         <access-counter class="flex-1 ml-auto" />

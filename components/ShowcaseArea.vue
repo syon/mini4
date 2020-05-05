@@ -1,8 +1,8 @@
 <template>
   <div v-if="isShowcase" class="floating">
     <div class="xx-ShowcaseArea zzBg-gray1">
-      <div class="text-center">
-        <button class="zzBtn1 my-2 w-20" @click="handleDetach">外す</button>
+      <div class="flex justify-center my-2">
+        <button class="zzBtn1 w-20" @click="handleDetach">外す</button>
       </div>
       <div class="xx-List">
         <div class="CraftEditSlotList">
