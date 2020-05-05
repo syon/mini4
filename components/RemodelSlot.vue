@@ -45,7 +45,8 @@ export default {
     },
   },
   methods: {
-    handleClick() {
+    handleClick(e) {
+      e.preventDefault()
       const payload = {
         craftIndex: this.craftIndex,
         craftAction: this.x.action || '',

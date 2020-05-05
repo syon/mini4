@@ -7,7 +7,7 @@
             :key="i"
             href="#"
             class="CraftPreset p-1 m-2 rounded"
-            @click="handleCraftPreset(cp)"
+            @click="handleCraftPreset($event, cp)"
           >
             <span>{{ cp.タイトル }}</span>
           </a>
@@ -98,7 +98,8 @@ export default {
     }),
   },
   methods: {
-    handleCraftPreset(cp) {
+    handleCraftPreset($event, cp) {
+      $event.preventDefault()
       for (let i = 0; i < cp.改造.length; i++) {
         const action = cp.改造[i]
         const isNone = action === ''

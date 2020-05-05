@@ -132,7 +132,8 @@ export default {
       )
       return r
     },
-    toggleSpec() {
+    toggleSpec(e) {
+      e.preventDefault()
       this.isHold = !this.isHold
     },
   },

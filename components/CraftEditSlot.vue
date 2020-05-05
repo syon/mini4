@@ -80,7 +80,8 @@ export default {
     },
   },
   methods: {
-    handleClick() {
+    handleClick(e) {
+      e.preventDefault()
       if (!this.nomore) {
         this.$emit('go')
       }

@@ -15,7 +15,7 @@
                   href="#"
                   :class="{ active: name === ingItem.key }"
                   class="ShowcaseBox flex m-1 pr-2"
-                  @click="handleSelectItem(name, item)"
+                  @click="handleSelectItem($event, name, item)"
                 >
                   <div class="flex mr-1">
                     <div
@@ -69,7 +69,8 @@ export default {
     },
   },
   methods: {
-    handleSelectItem(name, item) {
+    handleSelectItem($event, name, item) {
+      $event.preventDefault()
       const basePart = this.ingPart
       if (Mini4.isAccessory(basePart)) {
         this.checkAccessory(basePart, item.ペアカテゴリ)
