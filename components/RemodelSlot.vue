@@ -11,12 +11,15 @@
     <div class="flex flex-1">
       <div
         v-if="x.action && (x.quality || x.level)"
-        class="xx-quality flex-auto flex items-center justify-between text-black h-5"
+        class="xx-quality flex-auto flex items-center justify-between text-black"
       >
         <div class="xx-quality-label">{{ x.quality }}</div>
         <div class="xx-quality-level zzAnton">Lv.{{ x.level }}</div>
       </div>
-      <div v-else class="h-5"></div>
+      <div v-else class="xx-quality flex">
+        <div class="xx-quality-label">&nbsp;</div>
+        <div class="xx-quality-level zzAnton">&nbsp;</div>
+      </div>
     </div>
   </a>
 </template>
@@ -80,7 +83,7 @@ export default {
   padding: 2px 4px;
   .xx-quality-label {
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.2;
     letter-spacing: -0.05em;
   }

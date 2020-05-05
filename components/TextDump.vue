@@ -80,6 +80,6 @@ export default {
 
 <style lang="less" scoped>
 .TextDump {
-  font-size: 0.7em;
+  font-size: 0.75em;
 }
 </style>

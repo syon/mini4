@@ -109,7 +109,7 @@ export default {
     display: inline-block;
     margin: 0.75em 0 0.25em;
     padding: 0.1rem 0.5rem;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     background-color: #747272;
   }
 }

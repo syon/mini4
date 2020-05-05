@@ -107,7 +107,7 @@ export default {
 .xx-titlebar {
   padding: 2px 4px;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   background-color: #20272a;
   line-height: 1.2;
   border-radius: 0.15rem 0.15rem 0 0;
