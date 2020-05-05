@@ -3,8 +3,8 @@
     <template v-for="(x, idx) in remodelSlots">
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
     </template>
-    <div class="flex flex-col p-2">
-      <button class="TuneBtn zzBtn1 my-1" @click="toggleCraftTune">
+    <div class="flex flex-col">
+      <button class="TuneBtn zzBtn1 my-2" @click="toggleCraftTune">
         まとめて改造
       </button>
     </div>

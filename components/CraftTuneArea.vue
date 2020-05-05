@@ -68,8 +68,8 @@
           </button>
         </div>
         <hr class="xxHr my-1" />
-        <div class="text-center mt-2 mb-2">
-          <button class="zzBtn1" @click="removeAllCrafts">
+        <div class="text-center">
+          <button class="zzBtn1 my-2" @click="removeAllCrafts">
             改造をすべて取り消す
           </button>
         </div>

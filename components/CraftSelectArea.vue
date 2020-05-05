@@ -76,8 +76,8 @@
           </button>
         </div>
         <hr class="xxHr my-1" />
-        <div class="text-center my-2">
-          <button class="zzBtn1" @click="handleFlood">
+        <div class="text-center">
+          <button class="zzBtn1 my-2" @click="handleFlood">
             選択スロット以下をまとめて改造
           </button>
         </div>
