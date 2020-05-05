@@ -66,19 +66,19 @@
                 <tfoot class="xx-scores zzAnton">
                   <tr>
                     <td class="px-2 text-center">
-                      {{ showInt(scores.スピード, 2) }}
+                      {{ showInt(scores.スピード) }}
                     </td>
                     <td class="px-2 text-center">
-                      {{ showInt(scores.パワー, 2) }}
+                      {{ showInt(scores.パワー) }}
                     </td>
                     <td class="px-2 text-center">
-                      {{ showInt(scores.コーナー安定, 2) }}
+                      {{ showInt(scores.コーナー安定) }}
                     </td>
                     <td class="px-2 text-center">
-                      {{ showInt(scores.スタミナ耐久, 2) }}
+                      {{ showInt(scores.スタミナ耐久) }}
                     </td>
                     <td class="px-2 text-center">
-                      {{ showInt(scores.重さ, 2) }}
+                      {{ showInt(scores.重さ) }}g
                     </td>
                   </tr>
                 </tfoot>
