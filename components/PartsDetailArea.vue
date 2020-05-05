@@ -15,7 +15,7 @@
       </div>
     </template>
 
-    <div class="PartsSpecList zzCheckerBg p-1" @click="toggleSpec">
+    <a href="#" class="PartsSpecList zzCheckerBg p-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
         :before-score="beforeSpec.スピード"
@@ -57,7 +57,7 @@
           :is-hold="isHold"
         />
       </template>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -148,6 +148,7 @@ export default {
 }
 
 .PartsSpecList {
+  display: block;
   position: relative;
   z-index: 5;
   border-radius: 0.15rem;
