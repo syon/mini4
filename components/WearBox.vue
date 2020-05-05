@@ -76,7 +76,6 @@ export default {
 .WearBox {
   display: flex;
   position: relative;
-  min-height: 7vmax;
   cursor: pointer;
 
   &.active .WearBox-inner {
@@ -87,8 +86,8 @@ export default {
   .WearBox-inner {
     display: flex;
     align-items: flex-start;
-    width: 13vw;
-    height: 13vw;
+    width: 13.4vw;
+    height: 13.4vw;
     background-clip: padding-box;
     border: solid 2px transparent;
     border-radius: 2px;
@@ -131,7 +130,6 @@ export default {
   }
   .ItemIcon {
     position: absolute;
-    height: 100%;
   }
   .xx-parts-name {
     display: flex;

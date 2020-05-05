@@ -247,14 +247,14 @@ export default {
 
 <style lang="less" scoped>
 .xx-SettingArea {
-  padding: 5px;
+  padding: 0.25rem;
 
   .grid-setting {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 3px;
-    grid-row-gap: 3px;
+    grid-column-gap: 0.25rem;
+    grid-row-gap: 0.25rem;
     justify-items: stretch;
     align-items: stretch;
 
