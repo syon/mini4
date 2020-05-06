@@ -205,7 +205,7 @@ export const actions = {
     const craftables = craftMaster[item.改造カテゴリ] || []
     const craftableActions = craftables.map((x) => x.action)
     for (let i = 0; i < crafts.length; i++) {
-      const { action } = crafts[i]
+      const { action } = crafts[i] || {}
       if (!craftableActions.includes(action)) {
         dispatch('clearCraft', { part, craftIndex: i })
       }

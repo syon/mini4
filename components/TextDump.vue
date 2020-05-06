@@ -19,6 +19,7 @@
         {{
           printLine([
             equips.frontStay,
+            equips.frontRollerHigh,
             equips.frontRollerMiddle,
             equips.frontStabilizer,
           ])
@@ -29,6 +30,7 @@
         {{
           printLine([
             equips.sideStay,
+            equips.sideRollerHigh,
             equips.sideRollerMiddle,
             equips.sideStabilizer,
           ])
@@ -39,7 +41,9 @@
         {{
           printLine([
             equips.rearStay,
+            equips.rearRollerHigh,
             equips.rearRollerMiddle,
+            equips.rearRollerLow,
             equips.rearStabilizer,
           ])
         }}
