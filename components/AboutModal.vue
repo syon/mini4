@@ -181,6 +181,10 @@ export default {
   margin: 1em 0;
 }
 
+.zzCategoryHeader {
+  font-size: 0.8rem;
+}
+
 .copyright {
   margin-top: 0.5em;
   font-size: 0.6rem;
