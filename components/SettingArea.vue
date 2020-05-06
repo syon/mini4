@@ -336,8 +336,7 @@ export default {
     .garage--row {
       display: flex;
       justify-content: space-between;
-      padding: 0 0.25rem;
-      margin-bottom: 0.25rem;
+      margin: 0.25rem;
     }
     .garage--cell {
       width: 50px;
