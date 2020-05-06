@@ -27,6 +27,54 @@
             >
           </div>
         </div>
+
+        <div class="zzCategoryHeader mt-4 mb-2">
+          開発継続のため、支援をお願い致します
+        </div>
+        <div>
+          ご支援いただき、ありがとうございます。本サービスの開発のため、大切に使用させていただきます。
+        </div>
+        <div class="AboutModal-SubHeader">支援の方法</div>
+        <div>
+          <input
+            id="copyTarget"
+            class="opacity-0 bg-transparent select-auto absolute top-0 right-0"
+            type="text"
+            value="tarolnetg+amzg@gmail.com"
+          />
+          <ol class="list-decimal list-inside pl-1">
+            <li>
+              受取人<code class="text-xxs underline px-1" @click="handleCopy"
+                >tarolnetg+amzg@gmail.com</code
+              >をコピーします（アドレスをタップするとコピーできます）
+            </li>
+            <li>
+              <a
+                href="https://www.amazon.co.jp/dp/B06X982RQ9/"
+                target="_blank"
+                class="hashtag"
+                >Amazonギフト券(Eメールタイプ)</a
+              >
+              を開きます
+            </li>
+            <li>
+              支援したい金額を入力します
+            </li>
+            <li>
+              レジに進みます
+            </li>
+          </ol>
+          <div class="AboutModal-SubHeader">ご注意ください</div>
+          <ul class="list-disc text-xxs pl-5">
+            <li>返金はできませんので、金額の再確認をお願い致します。</li>
+            <li>
+              贈り主に連絡先(Eメール、Twitter等)の記入がありましたら、受け取り時確認時にメッセージを送信させていただきます。未記入の場合は匿名となります。
+            </li>
+            <li>支援したことでサポートが優先的に行われることはありません。</li>
+            <li>トラブルを避けるため、返金は行っていません。</li>
+          </ul>
+        </div>
+
         <div class="zzCategoryHeader mt-4 mb-2">公式</div>
         <div>
           <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
@@ -65,6 +113,12 @@ export default {
   methods: {
     handleModal() {
       this.$store.commit('ing/setAbout', false)
+    },
+    handleCopy() {
+      const copyTarget = document.getElementById('copyTarget')
+      copyTarget.select()
+      document.execCommand('copy')
+      alert('コピーしました:\n' + copyTarget.value)
     },
   },
 }
