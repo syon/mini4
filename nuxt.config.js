@@ -82,6 +82,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/tailwindcss',
+    'nuxt-user-agent',
   ],
   /*
    ** Axios module configuration

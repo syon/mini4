@@ -53,6 +53,11 @@ export default {
     TextDump,
     FooterArea,
   },
+  asyncData(context) {
+    const deviceType = context.$ua.deviceType()
+    const isMobile = deviceType === 'smartphone'
+    context.store.commit('ing/setMobile', isMobile)
+  },
   mounted() {
     this.$ga.screenview('Index')
   },

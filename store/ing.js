@@ -1,4 +1,5 @@
 export const state = () => ({
+  isMobile: true,
   part: 'ボディ',
   partCatalog: {},
   partRecipe: {},
@@ -20,6 +21,9 @@ export const state = () => ({
 export const getters = {}
 
 export const mutations = {
+  setMobile(state, bool) {
+    state.isMobile = bool
+  },
   setPart(state, part) {
     state.part = part
   },
