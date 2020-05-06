@@ -2,6 +2,7 @@
   <div>
     <about-modal />
     <support-modal />
+    <!-- <button class="zzBtn1 m-auto" @click="hendleError">Error</button> -->
     <div class="flex items-center justify-between p-4 my-2">
       <div class="flex-1">
         <button class="zzBtn1" @click="handleReset">リセット</button>
@@ -31,6 +32,9 @@ export default {
     AccessCounter,
   },
   methods: {
+    hendleError() {
+      throw new Error('Test Error.')
+    },
     handleReset() {
       if (
         window.confirm('リセットして最初からやり直します。よろしいですか？')
