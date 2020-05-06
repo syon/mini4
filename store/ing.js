@@ -14,6 +14,7 @@ export const state = () => ({
   isBarrier: false,
   isTune: false,
   isAbout: false,
+  isSupport: false,
 })
 
 export const getters = {}
@@ -69,6 +70,9 @@ export const mutations = {
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
+  },
+  setSupport(state, isSupport) {
+    state.isSupport = isSupport
   },
 }
 
