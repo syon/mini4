@@ -1,37 +1,63 @@
 <template>
   <div class="TextDump pt-2 px-4 pb-8">
-    <!-- <div v-for="(r, idx) in showingRecipe" :key="idx" class="mt-1">
-      <div>■{{ r.part }} {{ r.略称 }}</div>
-      <div>{{ formatCrafts(r.crafts) }}</div>
-    </div> -->
     <div>
       <div>
-        {{ equips.body.略称 }}、{{ equips.motor.略称 }}、{{
-          equips.gear.略称
-        }}、{{ equips.chassis.略称 }}
-      </div>
-      <div>前輪:{{ equips.frontWheel.略称 }}、{{ equips.frontTire.略称 }}</div>
-      <div>後輪:{{ equips.rearWheel.略称 }}、{{ equips.rearTire.略称 }}</div>
-      <div>
-        F:{{ equips.frontStay.略称 }}、中{{ equips.frontRollerMiddle.略称 }}、{{
-          equips.frontStabilizer.略称
+        {{
+          printLine([equips.body, equips.motor, equips.gear, equips.chassis])
         }}
       </div>
       <div>
-        S:{{ equips.sideStay.略称 }}、中{{ equips.sideRollerMiddle.略称 }}、{{
-          equips.sideStabilizer.略称
+        前輪:
+        {{ printLine([equips.frontWheel, equips.frontTire]) }}
+      </div>
+      <div>
+        後輪:
+        {{ printLine([equips.rearWheel, equips.rearTire]) }}
+      </div>
+      <div>
+        F:
+        {{
+          printLine([
+            equips.frontStay,
+            equips.frontRollerMiddle,
+            equips.frontStabilizer,
+          ])
         }}
       </div>
       <div>
-        R:{{ equips.rearStay.略称 }}、中{{ equips.rearRollerMiddle.略称 }}、{{
-          equips.rearStabilizer.略称
+        S:
+        {{
+          printLine([
+            equips.sideStay,
+            equips.sideRollerMiddle,
+            equips.sideStabilizer,
+          ])
         }}
       </div>
-      <div>W:{{ equips.bodyOption.略称 }}、{{ equips.wingRoller.略称 }}</div>
       <div>
-        A:{{ equips.accessory1.略称 }}、{{ equips.accessory2.略称 }}、{{
-          equips.accessory3.略称
-        }}、{{ equips.accessory4.略称 }}
+        R:
+        {{
+          printLine([
+            equips.rearStay,
+            equips.rearRollerMiddle,
+            equips.rearStabilizer,
+          ])
+        }}
+      </div>
+      <div>
+        W:
+        {{ printLine([equips.bodyOption, equips.wingRoller]) }}
+      </div>
+      <div>
+        A:
+        {{
+          printLine([
+            equips.accessory1,
+            equips.accessory2,
+            equips.accessory3,
+            equips.accessory4,
+          ])
+        }}
       </div>
     </div>
   </div>
@@ -46,6 +72,9 @@ export default {
     ...mapState('recipe', {
       allRecipe: (state) => state,
     }),
+    ...mapState('craft', {
+      craftMaster: (state) => state.craft,
+    }),
     ...mapGetters({
       getItemInfo: 'catalog/getItemInfo',
     }),
@@ -53,7 +82,8 @@ export default {
       const entries = Object.entries(this.allRecipe).map(([k, v]) => {
         const partJp = Mini4.resolvePartJp(k)
         const item = this.getItemInfo(partJp, v.key) || {}
-        return [k, { part: k, ...v, 略称: item.略称 }]
+        const craftSummary = this.getCraftSummary(item.改造カテゴリ, v.crafts)
+        return [k, { part: k, ...v, 略称: item.略称, craftSummary }]
       })
       return Object.fromEntries(entries)
     },
@@ -62,17 +92,29 @@ export default {
     },
   },
   methods: {
-    formatCrafts(crafts) {
-      return (crafts || [])
+    getCraftSummary(craftCategory, crafts) {
+      if (!crafts) return ''
+      const master = this.craftMaster[craftCategory]
+      const hash = {}
+      for (const c of crafts) {
+        if (!c || !c.action) continue
+        const m = master.find((x) => x.action === c.action)
+        hash[m.別名] = (hash[m.別名] || 0) + 1
+      }
+      const list = Object.entries(hash).map(([k, v]) => {
+        return `${k}${v}`
+      })
+      return list.join('')
+    },
+    print(obj) {
+      if (!obj.略称) return ''
+      return `${obj.略称}(${obj.craftSummary})`
+    },
+    printLine(partArray) {
+      return partArray
+        .map((x) => this.print(x))
         .filter(Boolean)
-        .filter((x) => x.action)
-        .map((c) => {
-          const act = (c.action || '').slice(0, 2)
-          const qua = (c.quality || '').slice(0, 2)
-          const lev = c.level || ''
-          return `${act}(${qua}:${lev})`
-        })
-        .join('/')
+        .join('、')
     },
   },
 }
