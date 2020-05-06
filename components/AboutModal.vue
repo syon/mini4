@@ -28,55 +28,49 @@
           </div>
         </div>
 
-        <div class="zzCategoryHeader mt-4 mb-2">
+        <div class="zzCategoryHeader mt-6 mb-2">
           開発継続のため、支援をお願い致します
         </div>
         <div>
           ご支援いただき、ありがとうございます。本サービスの開発のため、大切に使用させていただきます。
         </div>
         <div class="AboutModal-SubHeader">支援の方法</div>
-        <div>
-          <input
-            id="copyTarget"
-            class="opacity-0 bg-transparent select-auto absolute top-0 right-0"
-            type="text"
-            value="tarolnetg+amzg@gmail.com"
-          />
-          <ol class="list-decimal list-inside pl-1">
-            <li>
-              受取人<code class="text-xxs underline px-1" @click="handleCopy"
-                >tarolnetg+amzg@gmail.com</code
-              >をコピーします（アドレスをタップするとコピーできます）
-            </li>
-            <li>
-              <a
-                href="https://www.amazon.co.jp/dp/B06X982RQ9/"
-                target="_blank"
-                class="hashtag"
-                >Amazonギフト券(Eメールタイプ)</a
-              >
-              を開きます
-            </li>
-            <li>
-              支援したい金額を入力します
-            </li>
-            <li>宛先(受取人)にコピーしたメールアドレスを貼り付けます</li>
-            <li>
-              レジに進みます
-            </li>
-          </ol>
-          <div class="AboutModal-SubHeader">ご注意ください</div>
-          <ul class="list-disc text-xxs pl-5">
-            <li>返金はできませんので、金額の再確認をお願い致します。</li>
-            <li>
-              贈り主に連絡先(Eメール、Twitter等)の記入がありましたら、受け取り確認時にメッセージを送信させていただきます。未記入の場合は匿名となります。
-            </li>
-            <li>支援したことでサポートが優先的に行われることはありません。</li>
-            <li>トラブルを避けるため、返金は行っていません。</li>
-          </ul>
-        </div>
+        <ol class="list-decimal list-inside pl-1">
+          <li class="relative">
+            受取人<code class="text-xxs tracking-tighter px-1"
+              >tarolnetg+amzg@gmail.com</code
+            >を<button class="zzBtn1 tapToCopy" @click="handleCopy">
+              コピー</button
+            >します
+          </li>
+          <li>
+            <a
+              href="https://www.amazon.co.jp/dp/B06X982RQ9/"
+              target="_blank"
+              class="hashtag"
+              >Amazonギフト券(Eメールタイプ)</a
+            >
+            を開きます
+          </li>
+          <li>
+            支援したい金額を入力します
+          </li>
+          <li>宛先(受取人)にコピーしたアドレスを貼り付けます</li>
+          <li>
+            レジに進みます
+          </li>
+        </ol>
+        <div class="AboutModal-SubHeader">ご注意ください</div>
+        <ul class="list-disc text-xxs pl-5">
+          <li>返金はできませんので、金額の再確認をお願い致します。</li>
+          <li>
+            贈り主に連絡先(Eメール、Twitter等)の記入がありましたら、受け取り確認時にメッセージを送信させていただきます。未記入の場合は匿名となります。
+          </li>
+          <li>支援したことでサポートが優先的に行われることはありません。</li>
+          <li>トラブルを避けるため、返金は行っていません。</li>
+        </ul>
 
-        <div class="zzCategoryHeader mt-4 mb-2">公式</div>
+        <div class="zzCategoryHeader mt-6 mb-2">公式</div>
         <div>
           <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
             <img src="/mini4wd-og.jpg" :alt="officialSite" />
@@ -116,10 +110,23 @@ export default {
       this.$store.commit('ing/setAbout', false)
     },
     handleCopy() {
-      const copyTarget = document.getElementById('copyTarget')
-      copyTarget.select()
-      document.execCommand('copy')
-      alert('コピーしました:\n' + copyTarget.value)
+      this.execCopy('tarolnetg+amzg@gmail.com')
+      alert('コピーしました:\n' + 'tarolnetg+amzg@gmail.com')
+    },
+    execCopy(string) {
+      const tmp = document.createElement('div')
+      const pre = document.createElement('pre')
+      pre.style.webkitUserSelect = 'auto'
+      pre.style.userSelect = 'auto'
+      tmp.appendChild(pre).textContent = string
+      const s = tmp.style
+      s.position = 'fixed'
+      s.right = '200%'
+      document.body.appendChild(tmp)
+      document.getSelection().selectAllChildren(tmp)
+      const result = document.execCommand('copy')
+      document.body.removeChild(tmp)
+      return result
     },
   },
 }
@@ -142,7 +149,7 @@ export default {
 .AboutModal-Panel {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 84%;
   height: 80%;
   font-size: 0.8rem;
   border: 1px solid #c8c8c8;
@@ -186,5 +193,15 @@ export default {
   color: black;
   background-color: #5fcffa;
   border-radius: 4px;
+}
+
+.tapToCopy {
+  display: inline-block;
+  font-size: 0.6rem;
+  color: black;
+  background-color: rgba(95, 207, 250, 0.5);
+  border-radius: 3px;
+  margin: 0 0.3em;
+  padding: 0 0.5em;
 }
 </style>
