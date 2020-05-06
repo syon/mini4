@@ -340,8 +340,8 @@ export default {
       margin-bottom: 0.25rem;
     }
     .garage--cell {
-      width: 13.4vw;
-      height: 13.4vw;
+      width: 50px;
+      height: 50px;
     }
   }
 }

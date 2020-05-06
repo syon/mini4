@@ -1,62 +1,31 @@
 <template>
-  <div class="flex flex-col">
-    <div class="w-full flex flex-col">
-      <div class="row flex-auto">
-        <total-area />
+  <div class="IndexPage" :class="{ isMobile, isDesktop: !isMobile }">
+    <div class="flex">
+      <div class="Simulator-Frame">
+        <simulator />
+      </div>
+      <div class="Extra flex-1">
+        <div class="p-4">
+          Extra Content
+        </div>
       </div>
     </div>
-    <div class="GarageArea flex py-3">
-      <setting-area class="w-7/12" />
-      <div class="w-5/12 migisita p-1">
-        <parts-choise-area />
-        <showcase-area />
-        <parts-detail-area />
-        <craft-select-area />
-        <craft-tune-area />
-        <remodel-area />
-      </div>
-    </div>
-    <div class="zzBg-gray2">
-      <text-dump />
-    </div>
-    <black-barrier />
-    <footer>
-      <footer-area />
-    </footer>
   </div>
 </template>
 
 <script>
-import TotalArea from '@/components/TotalArea'
-import SettingArea from '@/components/SettingArea'
-import PartsChoiseArea from '@/components/PartsChoiseArea'
-import PartsDetailArea from '@/components/PartsDetailArea'
-import RemodelArea from '@/components/RemodelArea'
-import CraftSelectArea from '@/components/CraftSelectArea'
-import CraftTuneArea from '@/components/CraftTuneArea'
-import ShowcaseArea from '@/components/ShowcaseArea'
-import BlackBarrier from '@/components/BlackBarrier'
-import TextDump from '@/components/TextDump'
-import FooterArea from '@/components/FooterArea'
+import Simulator from '@/components/Simulator'
 
 export default {
   components: {
-    TotalArea,
-    SettingArea,
-    PartsChoiseArea,
-    PartsDetailArea,
-    RemodelArea,
-    CraftSelectArea,
-    CraftTuneArea,
-    ShowcaseArea,
-    BlackBarrier,
-    TextDump,
-    FooterArea,
+    Simulator,
   },
   asyncData(context) {
     const deviceType = context.$ua.deviceType()
+    console.log({ deviceType })
     const isMobile = deviceType === 'smartphone'
     context.store.commit('ing/setMobile', isMobile)
+    return { isMobile }
   },
   mounted() {
     this.$ga.screenview('Index')
@@ -64,15 +33,38 @@ export default {
 }
 </script>
 
-<style>
-.GarageArea {
-  color: #eee;
-  background-color: #505657;
-  background-image: url('/bg_grid_w.svg');
-  background-size: 32px;
+<style lang="less" scoped>
+.IndexPage {
+  margin: auto;
+  .Simulator-Frame {
+    min-width: 320px;
+    max-width: 375px;
+    min-height: 100vh;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+  }
 }
 
-.migisita {
-  overflow: hidden;
+// Mobile
+@media screen and (max-width: 480px) {
+  .IndexPage {
+    .Simulator-Frame {
+      margin: auto;
+    }
+    .Extra {
+      display: none;
+    }
+  }
+}
+
+// Mobile & Landscape
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .IndexPage {
+    .Simulator-Frame {
+      margin: auto;
+    }
+    .Extra {
+      display: none;
+    }
+  }
 }
 </style>
