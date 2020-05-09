@@ -5,10 +5,9 @@
   "author": "syon",
   "private": true,
   "scripts": {
-    "dev": "now -A now.dev.json dev",
+    "develop": "now -A now.dev.json dev",
     "build": "nuxt build",
     "start": "nuxt start",
-    "now-dev": "nuxt",
     "now-deploy:dev": "now",
     "now-deploy:prod": "now --prod"
   },
