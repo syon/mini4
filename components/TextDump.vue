@@ -53,6 +53,10 @@
         {{ printLine([equips.bodyOption, equips.wingRoller]) }}
       </div>
       <div>
+        WT:
+        {{ printLine([equips.frontSettingWeight, equips.rearSettingWeight]) }}
+      </div>
+      <div>
         A:
         {{
           printLine([
@@ -112,6 +116,12 @@ export default {
     },
     print(obj) {
       if (!obj.略称) return ''
+      if (obj.part === 'frontSettingWeight') {
+        return `前${obj.略称}(${obj.craftSummary})`
+      }
+      if (obj.part === 'rearSettingWeight') {
+        return `後${obj.略称}(${obj.craftSummary})`
+      }
       return `${obj.略称}(${obj.craftSummary})`
     },
     printLine(partArray) {
