@@ -4,7 +4,7 @@ import Mini4 from '@/models/Mini4'
 
 const dg = debug('@:recipe')
 
-export const state = () => ({
+const obj = {
   body: { key: '', crafts: [] },
   motor: { key: '', crafts: [] },
   gear: { key: '', crafts: [] },
@@ -34,6 +34,14 @@ export const state = () => ({
   accessory2: { key: '', crafts: [] },
   accessory3: { key: '', crafts: [] },
   accessory4: { key: '', crafts: [] },
+}
+
+export const state = () => ({
+  M1: { ...obj },
+  M2: { ...obj },
+  M3: { ...obj },
+  M4: { ...obj },
+  M5: { ...obj },
 })
 
 function resolvePartKey(partJapanese) {
@@ -100,19 +108,19 @@ function resolvePartKey(partJapanese) {
 }
 
 export const getters = {
-  getRecipeByPart: (state) => (part) => {
+  getRecipeByPart: (state) => (tab, part) => {
     const partKey = resolvePartKey(part)
-    return state[partKey]
+    return state[tab][partKey]
   },
   getEquipByPart: (state, getters, rootState, rootGetters) => (part) => {
-    const r = getters.getRecipeByPart(part)
+    const r = getters.getRecipeByPart(rootState.ing.tab, part)
     return rootGetters['catalog/getItemInfo'](part, r.key) || {}
   },
   gAllEquips(state, getters, rootState, rootGetters) {
     const parts = Mini4.getAllPartNames()
     const allEquips = parts.map((part) => {
       const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
-      const partRecipe = getters.getRecipeByPart(part) || {}
+      const partRecipe = getters.getRecipeByPart(rootState.ing.tab, part) || {}
       const item = partCatalog[partRecipe.key] || {}
       return { part, item, partRecipe }
     })
@@ -148,23 +156,26 @@ export const mutations = {
       state[partKey] = v
     }
   },
-  setPartItem(state, { part, name }) {
+  setPartItem(state, { tab, part, name }) {
     const partKey = resolvePartKey(part)
-    state[partKey] = { ...state[partKey], key: name }
+    const machine = state[tab]
+    machine[partKey] = { ...machine[partKey], key: name }
   },
   clearPartItem(state, { part }) {
     const partKey = resolvePartKey(part)
     state[partKey] = { key: '', crafts: [] }
   },
-  setPartCraft(state, { part, craftIndex, action, quality, level }) {
+  setPartCraft(state, { tab, part, craftIndex, action, quality, level }) {
     const partKey = resolvePartKey(part)
-    const partRecipe = state[partKey]
+    const machine = state[tab]
+    const partRecipe = machine[partKey]
     partRecipe.crafts[craftIndex] = { action, quality, level }
     state[partKey] = { ...partRecipe, crafts: partRecipe.crafts }
   },
-  setPartCraftQuality(state, { part, craftIndex, quality }) {
+  setPartCraftQuality(state, { tab, part, craftIndex, quality }) {
     const partKey = resolvePartKey(part)
-    const ingPart = state[partKey]
+    const machine = state[tab]
+    const ingPart = machine[partKey]
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, quality }
@@ -193,13 +204,14 @@ export const actions = {
     dg('[#load]', initialState)
     commit('setAll', initialState)
   },
-  change({ commit, dispatch }, { part, name }) {
-    commit('setPartItem', { part, name })
+  change({ commit, rootState, dispatch }, { part, name }) {
+    const { tab } = rootState.ing
+    commit('setPartItem', { tab, part, name })
     dispatch('reviewCrafts', part)
     dispatch('ing/refresh', null, { root: true })
   },
   reviewCrafts({ dispatch, getters, rootState, rootGetters }, part) {
-    const { key, crafts } = getters.getRecipeByPart(part)
+    const { key, crafts } = getters.getRecipeByPart(rootState.ing.tab, part)
     const item = rootGetters['catalog/getItemInfo'](part, key)
     const craftMaster = rootState.craft.craft
     const craftables = craftMaster[item.改造カテゴリ] || []
@@ -214,16 +226,18 @@ export const actions = {
   detach({ commit }, { part }) {
     commit('clearPartItem', { part })
   },
-  changeCraft({ commit, dispatch }, arg) {
-    commit('setPartCraft', arg)
+  changeCraft({ commit, rootState, dispatch }, arg) {
+    const { tab } = rootState.ing
+    commit('setPartCraft', { ...arg, tab })
     dispatch('ing/refresh', null, { root: true })
   },
   clearCraft({ dispatch }, { part, craftIndex }) {
     const arg = { part, craftIndex, action: '', quality: 0, level: 0 }
     dispatch('changeCraft', arg)
   },
-  changeCraftQuality({ commit, dispatch }, arg) {
-    commit('setPartCraftQuality', arg)
+  changeCraftQuality({ commit, rootState, dispatch }, arg) {
+    const { tab } = rootState.ing
+    commit('setPartCraftQuality', { ...arg, tab })
     dispatch('ing/refresh', null, { root: true })
   },
   changeCraftLevel({ commit, dispatch }, arg) {
@@ -234,9 +248,10 @@ export const actions = {
     commit('setDrill', bool)
     dispatch('ing/refresh', null, { root: true })
   },
-  cleanupCrafts({ commit, state }, part) {
+  cleanupCrafts({ commit, rootState, state }, part) {
     const partKey = resolvePartKey(part)
-    const partCrafts = state[partKey].crafts || []
+    const machine = state[rootState.ing.tab]
+    const partCrafts = machine[partKey].crafts || []
     for (let i = 0; i < partCrafts.length; i++) {
       const c = partCrafts[i] || {}
       if (!c.action && (c.quality || c.level)) {

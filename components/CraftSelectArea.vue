@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import Mini4 from '../models/Mini4'
 import CraftEditSlot from '@/components/CraftEditSlot'
 
@@ -103,6 +103,7 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
       ingPartRecipe: (state) => state.partRecipe,
       ingItem: (state) => state.item,
@@ -112,9 +113,6 @@ export default {
       craftAction: (state) => state.craftAction,
       craftQuality: (state) => state.craftQuality,
       craftLevel: (state) => state.craftLevel,
-    }),
-    ...mapGetters({
-      getRecipeByPart: 'recipe/getRecipeByPart',
     }),
     showingCrafts() {
       const crafts = this.ingPartRecipe.crafts || []
@@ -204,8 +202,10 @@ export default {
       this.$ga.event('RemodelFlood', this.ingItem.key, cAct, cIdx)
     },
     changeCraft({ part, craftIndex, action, quality, level }) {
+      const { tab } = this
       const isNone = action === ''
       const arg = {
+        tab,
         part,
         craftIndex,
         action,

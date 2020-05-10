@@ -118,7 +118,7 @@ export default {
       return list.join('')
     },
     print(obj) {
-      if (!obj.略称) return ''
+      if (!obj || !obj.略称) return ''
       if (obj.part === 'frontSettingWeight') {
         return `前${obj.略称}(${obj.craftSummary})`
       }

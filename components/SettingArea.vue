@@ -282,40 +282,101 @@ export default {
   components: {
     WearBox,
   },
+  props: {
+    tab: { type: String, required: true },
+  },
   computed: {
     ...mapState('ing', {
       ingPart: (state) => state.part,
     }),
     ...mapState('recipe', {
-      sBody: (state) => state.body,
-      sMotor: (state) => state.motor,
-      sGear: (state) => state.gear,
-      sChassis: (state) => state.chassis,
-      sFrontWheel: (state) => state.frontWheel,
-      sFrontTire: (state) => state.frontTire,
-      sRearWheel: (state) => state.rearWheel,
-      sRearTire: (state) => state.rearTire,
-      sFrontStay: (state) => state.frontStay,
-      sSideStay: (state) => state.sideStay,
-      sRearStay: (state) => state.rearStay,
-      sFrontRollerHigh: (state) => state.frontRollerHigh,
-      sSideRollerHigh: (state) => state.sideRollerHigh,
-      sRearRollerHigh: (state) => state.rearRollerHigh,
-      sFrontRollerMiddle: (state) => state.frontRollerMiddle,
-      sSideRollerMiddle: (state) => state.sideRollerMiddle,
-      sRearRollerMiddle: (state) => state.rearRollerMiddle,
-      sRearRollerLow: (state) => state.rearRollerLow,
-      sBodyOption: (state) => state.bodyOption,
-      sWingRoller: (state) => state.wingRoller,
-      sFrontStabilizer: (state) => state.frontStabilizer,
-      sSideStabilizer: (state) => state.sideStabilizer,
-      sRearStabilizer: (state) => state.rearStabilizer,
-      sFrontSettingWeight: (state) => state.frontSettingWeight,
-      sRearSettingWeight: (state) => state.rearSettingWeight,
-      sAccessory1: (state) => state.accessory1,
-      sAccessory2: (state) => state.accessory2,
-      sAccessory3: (state) => state.accessory3,
-      sAccessory4: (state) => state.accessory4,
+      sBody(state) {
+        return state[this.tab].body
+      },
+      sMotor(state) {
+        return state[this.tab].motor
+      },
+      sGear(state) {
+        return state[this.tab].gear
+      },
+      sChassis(state) {
+        return state[this.tab].chassis
+      },
+      sFrontWheel(state) {
+        return state[this.tab].frontWheel
+      },
+      sFrontTire(state) {
+        return state[this.tab].frontTire
+      },
+      sRearWheel(state) {
+        return state[this.tab].rearWheel
+      },
+      sRearTire(state) {
+        return state[this.tab].rearTire
+      },
+      sFrontStay(state) {
+        return state[this.tab].frontStay
+      },
+      sSideStay(state) {
+        return state[this.tab].sideStay
+      },
+      sRearStay(state) {
+        return state[this.tab].rearStay
+      },
+      sFrontRollerHigh(state) {
+        return state[this.tab].frontRollerHigh
+      },
+      sSideRollerHigh(state) {
+        return state[this.tab].sideRollerHigh
+      },
+      sRearRollerHigh(state) {
+        return state[this.tab].rearRollerHigh
+      },
+      sFrontRollerMiddle(state) {
+        return state[this.tab].frontRollerMiddle
+      },
+      sSideRollerMiddle(state) {
+        return state[this.tab].sideRollerMiddle
+      },
+      sRearRollerMiddle(state) {
+        return state[this.tab].rearRollerMiddle
+      },
+      sRearRollerLow(state) {
+        return state[this.tab].rearRollerLow
+      },
+      sBodyOption(state) {
+        return state[this.tab].bodyOption
+      },
+      sWingRoller(state) {
+        return state[this.tab].wingRoller
+      },
+      sFrontStabilizer(state) {
+        return state[this.tab].frontStabilizer
+      },
+      sSideStabilizer(state) {
+        return state[this.tab].sideStabilizer
+      },
+      sRearStabilizer(state) {
+        return state[this.tab].rearStabilizer
+      },
+      sFrontSettingWeight(state) {
+        return state[this.tab].frontSettingWeight
+      },
+      sRearSettingWeight(state) {
+        return state[this.tab].rearSettingWeight
+      },
+      sAccessory1(state) {
+        return state[this.tab].accessory1
+      },
+      sAccessory2(state) {
+        return state[this.tab].accessory2
+      },
+      sAccessory3(state) {
+        return state[this.tab].accessory3
+      },
+      sAccessory4(state) {
+        return state[this.tab].accessory4
+      },
     }),
   },
   mounted() {
@@ -323,7 +384,8 @@ export default {
   },
   methods: {
     handleTrans(part) {
-      this.$store.dispatch('ing/transIngPart', part)
+      const tab = this.tab
+      this.$store.dispatch('ing/transIngPart', { tab, part })
       this.$ga.event('Trans', 'Part', part)
     },
   },

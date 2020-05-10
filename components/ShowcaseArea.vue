@@ -48,6 +48,7 @@ export default {
   components: { AptiHex },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
       ingPartCatalog: (state) => state.partCatalog,
       ingItem: (state) => state.item,
@@ -89,7 +90,7 @@ export default {
         'アクセサリー・４',
       ].filter((x) => x !== basePart)
       for (const part of others) {
-        const r = this.$store.getters['recipe/getRecipeByPart'](part)
+        const r = this.$store.getters['recipe/getRecipeByPart'](this.tab, part)
         if (!r.key) continue
         const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
         if (i.ペアカテゴリ === basePairCategory) {
@@ -100,7 +101,7 @@ export default {
     checkPair(basePart, basePairCategory) {
       const { part, category } = Mini4.resolvePair(basePart, basePairCategory)
       if (!part) return
-      const r = this.$store.getters['recipe/getRecipeByPart'](part)
+      const r = this.$store.getters['recipe/getRecipeByPart'](this.tab, part)
       if (!r.key) return
       const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
       if (i.ペアカテゴリ !== category) {

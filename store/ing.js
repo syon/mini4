@@ -1,5 +1,6 @@
 export const state = () => ({
   isMobile: true,
+  tab: 'M1',
   part: 'ボディ',
   partCatalog: {},
   partRecipe: {},
@@ -23,6 +24,9 @@ export const getters = {}
 export const mutations = {
   setMobile(state, bool) {
     state.isMobile = bool
+  },
+  setTab(state, tab) {
+    state.tab = tab
   },
   setPart(state, part) {
     state.part = part
@@ -81,13 +85,15 @@ export const mutations = {
 }
 
 export const actions = {
-  transIngPart({ commit, rootState, rootGetters }, part) {
+  transIngPart({ commit, state, rootState, rootGetters }, { tab, part }) {
     const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
-    const partRecipe = rootGetters['recipe/getRecipeByPart'](part) || {}
+    const partRecipe =
+      rootGetters['recipe/getRecipeByPart'](state.tab, part) || {}
     const item = partCatalog[partRecipe.key] || {}
     const crafts = rootState.craft.craft[item.改造カテゴリ] || []
     const partCraftPreset =
       rootGetters['craft/getPresetByCraftCategory'](item.改造カテゴリ) || {}
+    commit('setTab', tab)
     commit('setPart', part)
     commit('setPartCatalog', partCatalog)
     commit('setPartRecipe', partRecipe)
@@ -96,7 +102,8 @@ export const actions = {
     commit('setCrafts', crafts)
   },
   refresh({ dispatch, state }) {
-    dispatch('transIngPart', state.part)
+    const { tab, part } = state
+    dispatch('transIngPart', { tab, part })
   },
   changeCraftIndex({ state, commit }, payload) {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload
