@@ -2,16 +2,19 @@
   <div class="TextDump pt-2 px-4 pb-8">
     <div>
       <div>
-        {{
-          printLine([equips.body, equips.motor, equips.gear, equips.chassis])
-        }}
+        B:
+        {{ printLine([equips.body]) }}
       </div>
       <div>
-        前輪:
+        M:
+        {{ printLine([equips.motor, equips.gear, equips.chassis]) }}
+      </div>
+      <div>
+        FW:
         {{ printLine([equips.frontWheel, equips.frontTire]) }}
       </div>
       <div>
-        後輪:
+        RW:
         {{ printLine([equips.rearWheel, equips.rearTire]) }}
       </div>
       <div>
