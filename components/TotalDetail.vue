@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import ScoreCell from '@/components/ScoreCell'
 import AptiHex from '@/components/AptiHex'
 
@@ -63,13 +63,16 @@ export default {
     AptiHex,
   },
   computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+    }),
     ...mapGetters({
       gAllEquips: 'recipe/gAllEquips',
       getEquipByPart: 'recipe/getEquipByPart',
       scores: 'recipe/gAllPartScoresSum',
     }),
     bodyInfo() {
-      return this.getEquipByPart('ボディ')
+      return this.getEquipByPart(this.tab, 'ボディ')
     },
     aptSet() {
       return ['St', 'U', 'Co', 'Kp', 'J']

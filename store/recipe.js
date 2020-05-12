@@ -112,8 +112,8 @@ export const getters = {
     const partKey = resolvePartKey(part)
     return state[tab][partKey]
   },
-  getEquipByPart: (state, getters, rootState, rootGetters) => (part) => {
-    const r = getters.getRecipeByPart(rootState.ing.tab, part)
+  getEquipByPart: (state, getters, rootState, rootGetters) => (tab, part) => {
+    const r = getters.getRecipeByPart(tab, part)
     return rootGetters['catalog/getItemInfo'](part, r.key) || {}
   },
   gAllEquips(state, getters, rootState, rootGetters) {
