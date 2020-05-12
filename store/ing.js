@@ -1,5 +1,6 @@
 export const state = () => ({
   isMobile: true,
+  ping: '',
   tab: 'M1',
   part: 'ボディ',
   partCatalog: {},
@@ -24,6 +25,9 @@ export const getters = {}
 export const mutations = {
   setMobile(state, bool) {
     state.isMobile = bool
+  },
+  setPing(state) {
+    state.ping = new Date().getTime()
   },
   setTab(state, tab) {
     state.tab = tab
@@ -100,6 +104,7 @@ export const actions = {
     commit('setPartCraftPreset', partCraftPreset)
     commit('setItem', { key: partRecipe.key, ...item })
     commit('setCrafts', crafts)
+    commit('setPing')
   },
   refresh({ dispatch, state }) {
     const { tab, part } = state

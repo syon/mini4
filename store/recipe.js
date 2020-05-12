@@ -250,13 +250,15 @@ export const actions = {
     dispatch('ing/refresh', null, { root: true })
   },
   cleanupCrafts({ commit, rootState, state }, part) {
+    const tab = rootState.ing.tab
     const partKey = resolvePartKey(part)
-    const machine = state[rootState.ing.tab]
+    const machine = state[tab]
     const partCrafts = machine[partKey].crafts || []
     for (let i = 0; i < partCrafts.length; i++) {
       const c = partCrafts[i] || {}
       if (!c.action && (c.quality || c.level)) {
         const payload = {
+          tab,
           part,
           craftIndex: i,
           action: '',

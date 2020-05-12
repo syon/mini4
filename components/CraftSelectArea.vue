@@ -166,7 +166,7 @@ export default {
         craftQuality: x.quality || 'イイ感じ',
         craftLevel: x.level || 1,
       }
-      this.$store.dispatch('ing/refresh', part)
+      this.$store.dispatch('ing/refresh')
       this.$store.dispatch('ing/updateCraft', payload)
       this.$ga.event('Remodel', this.ingItem.key, action, this.craftIndex)
     },
