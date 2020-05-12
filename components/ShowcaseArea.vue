@@ -94,7 +94,7 @@ export default {
         if (!r.key) continue
         const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
         if (i.ペアカテゴリ === basePairCategory) {
-          this.$store.dispatch('recipe/detach', { part })
+          this.$store.dispatch('recipe/detach', { tab: this.tab, part })
         }
       }
     },
@@ -105,7 +105,7 @@ export default {
       if (!r.key) return
       const i = this.$store.getters['catalog/getItemInfo'](part, r.key)
       if (i.ペアカテゴリ !== category) {
-        this.$store.dispatch('recipe/detach', { part })
+        this.$store.dispatch('recipe/detach', { tab: this.tab, part })
       }
     },
     handleDetach() {
