@@ -14,13 +14,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Simulator from '@/components/Simulator'
 
 export default {
   components: {
     Simulator,
   },
+  computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+      part: (state) => state.part,
+    }),
+  },
   mounted() {
+    const { tab, part } = this
+    this.$store.dispatch('ing/transIngPart', { tab, part })
     this.$ga.screenview('Index')
   },
 }
