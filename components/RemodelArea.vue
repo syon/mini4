@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import RemodelSlot from '@/components/RemodelSlot'
 
 export default {
@@ -21,12 +21,18 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      ping: (state) => state.ping,
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
-      ingPartRecipe: (state) => state.partRecipe,
       ingCrafts: (state) => state.crafts,
     }),
+    ...mapGetters({
+      getRecipeByPart: 'recipe/getRecipeByPart',
+    }),
     remodelSlots() {
-      const remodels = Array.from(this.ingPartRecipe.crafts || [])
+      if (this.ping);
+      const r = this.getRecipeByPart(this.tab, this.ingPart)
+      const remodels = Array.from(r.crafts || [])
       ;[...Array(6)].map((_, i) => {
         if (!remodels[i]) {
           remodels[i] = {
@@ -54,9 +60,6 @@ export default {
     toggleCraftTune() {
       this.$store.dispatch('ing/toggleCraftTune')
     },
-    // dump() {
-    //   this.$store.dispatch('recipe/dump', this.ingPart)
-    // },
   },
 }
 </script>

@@ -13,7 +13,12 @@ export const getters = {
   getItemInfo: (state, getters) => (partJp, key) => {
     if (!key) return { 性能: {} }
     const c = getters.getCatalogByPart(partJp)
+    if (!c) return { 性能: {} }
     return c[key]
+  },
+  getBaseItems(state) {
+    const baseSet = state.dataset.ベース
+    return baseSet
   },
 }
 

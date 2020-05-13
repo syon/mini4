@@ -91,6 +91,7 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       isTune: (state) => state.isTune,
       ingPart: (state) => state.part,
       ingRecipe: (state) => state.partRecipe,
@@ -104,6 +105,7 @@ export default {
         const action = cp.改造[i]
         const isNone = action === ''
         const arg = {
+          tab: this.tab,
           part: this.ingPart,
           craftIndex: i,
           action,
@@ -138,6 +140,7 @@ export default {
       for (let i = 0; i < crafts.length; i++) {
         if (crafts[i] && crafts[i].action) {
           const payload = {
+            tab: this.tab,
             part: this.ingPart,
             craftIndex: i,
             level,
@@ -150,8 +153,9 @@ export default {
       this.$store.dispatch('ing/toggleCraftTune')
     },
     removeAllCrafts() {
-      this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)
-      this.$store.dispatch('ing/transIngPart', this.ingPart)
+      const payload = { tab: this.tab, part: this.ingPart }
+      this.$store.dispatch('recipe/removeAllCrafts', payload)
+      this.$store.dispatch('ing/transIngPart', payload)
     },
   },
 }

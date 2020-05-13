@@ -1,12 +1,13 @@
 <template>
   <div class="flex flex-col">
+    <machine-tab-area />
     <div class="w-full flex flex-col">
       <div class="row flex-auto">
         <total-area />
       </div>
     </div>
     <div class="GarageArea flex py-3">
-      <setting-area class="w-7/12" />
+      <setting-area class="w-7/12" :tab="tab" />
       <div class="w-5/12 migisita p-1">
         <parts-choise-area />
         <showcase-area />
@@ -27,6 +28,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import MachineTabArea from '@/components/MachineTabArea'
 import TotalArea from '@/components/TotalArea'
 import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
@@ -41,6 +44,7 @@ import FooterArea from '@/components/FooterArea'
 
 export default {
   components: {
+    MachineTabArea,
     TotalArea,
     SettingArea,
     PartsChoiseArea,
@@ -52,6 +56,11 @@ export default {
     BlackBarrier,
     TextDump,
     FooterArea,
+  },
+  computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+    }),
   },
 }
 </script>

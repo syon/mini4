@@ -8,6 +8,9 @@ export default ({ store }) => {
     dg('[#onNuxtReady] createPersistedState')
     createPersistedState({
       paths: ['ing', 'recipe'],
+      rehydrated: (store) => {
+        store.dispatch('ing/refresh')
+      },
     })(store)
   })
 }
