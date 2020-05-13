@@ -2,7 +2,7 @@
   <div class="ScoreCell flex justify-between">
     <div class="tracking-tighter">{{ label }}</div>
     <div :class="{ isZero }" class="ScoreCell-score zzAnton text-right">
-      {{ fixedNum(score, 3) }}
+      {{ theScore }}
     </div>
   </div>
 </template>
@@ -16,6 +16,9 @@ export default {
   computed: {
     isZero() {
       return this.fixedNum(this.score, 3) === '0.000'
+    },
+    theScore() {
+      return this.fixedNum(this.score, 3)
     },
   },
   methods: {
