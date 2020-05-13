@@ -194,7 +194,7 @@ export const mutations = {
   clearAllPartCrafts(state, { tab, part }) {
     const partKey = resolvePartKey(part)
     const machine = state[tab]
-    const partRecipe = state[partKey]
+    const partRecipe = machine[partKey]
     machine[partKey] = { ...partRecipe, crafts: [] }
   },
   setDrill(state, { tab, bool }) {
