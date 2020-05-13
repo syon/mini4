@@ -120,6 +120,7 @@ export default {
     },
     handleCopy() {
       Util.copyToClipboard(this.textDump)
+      window.alert('クリップボードにコピーしました。')
     },
   },
 }
