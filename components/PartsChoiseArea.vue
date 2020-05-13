@@ -41,6 +41,7 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
       ingItem: (state) => state.item,
       ingPartRecipe: (state) => state.partRecipe,
@@ -53,7 +54,8 @@ export default {
         return this.ingPartRecipe.肉抜き
       },
       set(bool) {
-        this.$store.dispatch('recipe/changeDrill', bool)
+        const payload = { tab: this.tab, bool }
+        this.$store.dispatch('recipe/changeDrill', payload)
       },
     },
     drillAvailable() {
@@ -63,7 +65,8 @@ export default {
   watch: {
     ingItem(v) {
       if (!this.drillAvailable && this.isDrill) {
-        this.$store.dispatch('recipe/changeDrill', false)
+        const payload = { tab: this.tab, bool: false }
+        this.$store.dispatch('recipe/changeDrill', payload)
       }
     },
   },
