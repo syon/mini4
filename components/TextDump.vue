@@ -3,7 +3,7 @@
     <div class="TextDump-inner rounded">
       <pre class="whitespace-pre-wrap">{{ textDump }}</pre>
       <button class="zzBtn1 m-auto" @click="handleCopy">
-        クリップボードにコピー
+        コピー
       </button>
     </div>
   </div>
