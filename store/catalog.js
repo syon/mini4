@@ -16,6 +16,10 @@ export const getters = {
     if (!c) return { 性能: {} }
     return c[key]
   },
+  getBaseItems(state) {
+    const baseSet = state.dataset.ベース
+    return baseSet
+  },
 }
 
 export const mutations = {}

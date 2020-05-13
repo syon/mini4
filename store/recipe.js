@@ -129,7 +129,12 @@ export const getters = {
     })
     const funcGetItem = rootGetters['catalog/getItemInfo']
     const normalEquips = Mini4.resolveNormalEquips(accessories, funcGetItem)
-    return allEquips.concat(normalEquips)
+    const baseEquips = Object.entries(rootGetters['catalog/getBaseItems']).map(
+      ([k, v]) => {
+        return { part: 'ベース', item: v, partRecipe: {} }
+      }
+    )
+    return allEquips.concat(normalEquips).concat(baseEquips)
   },
   gAllPartScores(state, getters) {
     return getters.gAllEquips.map((x) => Mini4.getPartScore(x))

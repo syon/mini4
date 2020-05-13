@@ -33,7 +33,6 @@ export default class Mini4 {
       'アクセサリー・２',
       'アクセサリー・３',
       'アクセサリー・４',
-      '電池',
     ]
   }
 
@@ -255,9 +254,6 @@ export default class Mini4 {
         const drilledWeight = defaultItem.肉抜き * 0.32
         resultSpecs.重さ = resultSpecs.重さ - drilledWeight
       }
-    }
-    if (part === '電池') {
-      resultSpecs.重さ = 36.8
     }
     return resultSpecs
   }
