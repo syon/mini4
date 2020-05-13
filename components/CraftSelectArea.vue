@@ -145,9 +145,9 @@ export default {
       this.$store.dispatch('recipe/changeCraftQuality', payload)
     },
     applyLevel(level) {
-      const { ingPart: part } = this
+      const { tab, ingPart: part } = this
       if (!this.isNumber(this.craftIndex)) return
-      const payload = { part, craftIndex: this.craftIndex, level }
+      const payload = { tab, part, craftIndex: this.craftIndex, level }
       this.$store.dispatch('recipe/changeCraftLevel', payload)
     },
     handleClickSlot(x) {

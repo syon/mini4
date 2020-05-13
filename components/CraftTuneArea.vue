@@ -140,6 +140,7 @@ export default {
       for (let i = 0; i < crafts.length; i++) {
         if (crafts[i] && crafts[i].action) {
           const payload = {
+            tab: this.tab,
             part: this.ingPart,
             craftIndex: i,
             level,
@@ -152,10 +153,9 @@ export default {
       this.$store.dispatch('ing/toggleCraftTune')
     },
     removeAllCrafts() {
-      const tab = this.tab
-      const part = this.ingPart
-      this.$store.dispatch('recipe/removeAllCrafts', this.ingPart)
-      this.$store.dispatch('ing/transIngPart', { tab, part })
+      const payload = { tab: this.tab, part: this.ingPart }
+      this.$store.dispatch('recipe/removeAllCrafts', payload)
+      this.$store.dispatch('ing/transIngPart', payload)
     },
   },
 }

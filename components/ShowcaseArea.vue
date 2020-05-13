@@ -109,7 +109,10 @@ export default {
       }
     },
     handleDetach() {
-      this.$store.dispatch('recipe/detach', { part: this.ingPart })
+      this.$store.dispatch('recipe/detach', {
+        tab: this.tab,
+        part: this.ingPart,
+      })
       this.$store.dispatch('ing/refresh')
       this.closeDialog()
     },

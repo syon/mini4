@@ -171,7 +171,7 @@ export const mutations = {
     const machine = state[tab]
     const partRecipe = machine[partKey]
     partRecipe.crafts[craftIndex] = { action, quality, level }
-    state[partKey] = { ...partRecipe, crafts: partRecipe.crafts }
+    machine[partKey] = { ...partRecipe, crafts: partRecipe.crafts }
   },
   setPartCraftQuality(state, { tab, part, craftIndex, quality }) {
     const partKey = resolvePartKey(part)
@@ -180,20 +180,22 @@ export const mutations = {
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, quality }
-    state[partKey] = { ...ingPart, crafts: ingPart.crafts }
+    machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
-  setPartCraftLevel(state, { part, craftIndex, level }) {
+  setPartCraftLevel(state, { tab, part, craftIndex, level }) {
     const partKey = resolvePartKey(part)
-    const ingPart = state[partKey]
+    const machine = state[tab]
+    const ingPart = machine[partKey]
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, level }
-    state[partKey] = { ...ingPart, crafts: ingPart.crafts }
+    machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
-  clearAllPartCrafts(state, { part }) {
+  clearAllPartCrafts(state, { tab, part }) {
     const partKey = resolvePartKey(part)
+    const machine = state[tab]
     const partRecipe = state[partKey]
-    state[partKey] = { ...partRecipe, crafts: [] }
+    machine[partKey] = { ...partRecipe, crafts: [] }
   },
   setDrill(state, { tab, bool }) {
     const machine = state[tab]
@@ -270,8 +272,8 @@ export const actions = {
       }
     }
   },
-  removeAllCrafts({ commit }, part) {
-    commit('clearAllPartCrafts', { part })
+  removeAllCrafts({ commit }, arg) {
+    commit('clearAllPartCrafts', arg)
   },
   dump({ state }, partJapanese) {
     const part = resolvePartKey(partJapanese)
