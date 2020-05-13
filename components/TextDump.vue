@@ -1,6 +1,6 @@
 <template>
   <div class="TextDump pt-2 px-4 pb-8">
-    <div>
+    <div ref="copyTarget">
       <div>
         B:
         {{ printLine([equips.body]) }}
@@ -71,15 +71,22 @@
         }}
       </div>
     </div>
+    <div>
+      <button @click="handleCopy">クリップボードにコピー</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Mini4 from '@/models/Mini4'
+import Util from '@/models/Util'
 
 export default {
   computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+    }),
     ...mapState('recipe', {
       allRecipe: (state) => state,
     }),
@@ -90,7 +97,8 @@ export default {
       getItemInfo: 'catalog/getItemInfo',
     }),
     equips() {
-      const entries = Object.entries(this.allRecipe).map(([k, v]) => {
+      const machineRecipe = this.allRecipe[this.tab]
+      const entries = Object.entries(machineRecipe).map(([k, v]) => {
         const partJp = Mini4.resolvePartJp(k)
         const item = this.getItemInfo(partJp, v.key) || {}
         const craftSummary = this.getCraftSummary(item.改造カテゴリ, v.crafts)
@@ -132,6 +140,11 @@ export default {
         .map((x) => this.print(x))
         .filter(Boolean)
         .join('、')
+    },
+    handleCopy() {
+      const txt = this.$refs.copyTarget.textContent
+      console.log(txt)
+      Util.copyToClipboard(txt)
     },
   },
 }
