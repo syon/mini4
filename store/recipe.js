@@ -197,7 +197,7 @@ export const mutations = {
   },
   setDrill(state, { tab, bool }) {
     const machine = state[tab]
-    machine.body = { ...state.body, 肉抜き: bool }
+    machine.body = { ...machine.body, 肉抜き: bool }
   },
 }
 
