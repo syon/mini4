@@ -53,6 +53,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import Util from '@/models/Util'
 
 export default {
   computed: {
@@ -65,23 +66,8 @@ export default {
       this.$store.commit('ing/setSupport', false)
     },
     handleCopy() {
-      this.execCopy('tarolnetg+amzg@gmail.com')
+      Util.copyToClipboard('tarolnetg+amzg@gmail.com')
       alert('コピーしました:\n' + 'tarolnetg+amzg@gmail.com')
-    },
-    execCopy(string) {
-      const tmp = document.createElement('div')
-      const pre = document.createElement('pre')
-      pre.style.webkitUserSelect = 'auto'
-      pre.style.userSelect = 'auto'
-      tmp.appendChild(pre).textContent = string
-      const s = tmp.style
-      s.position = 'fixed'
-      s.right = '200%'
-      document.body.appendChild(tmp)
-      document.getSelection().selectAllChildren(tmp)
-      const result = document.execCommand('copy')
-      document.body.removeChild(tmp)
-      return result
     },
   },
 }
