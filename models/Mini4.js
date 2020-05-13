@@ -236,7 +236,6 @@ export default class Mini4 {
     const defaultSpecs = defaultItem.性能 || {}
     const resultSpecs = Object.assign({}, defaultSpecs)
     for (const { affect, benefit, grow, fix } of args) {
-      const score = resultSpecs[affect] || 0
       let slotPlus = 0
       if (fix) {
         // 2020/04/22まで
@@ -244,9 +243,10 @@ export default class Mini4 {
         // 2020/04/22から
         slotPlus = benefit + grow
       } else {
-        const base = (defaultSpecs[affect] || 0) * benefit
-        slotPlus = base + (score + base) * grow
+        const base = defaultSpecs[affect] || 0
+        slotPlus = base * benefit + base * grow
       }
+      const score = resultSpecs[affect] || 0
       const raw = score + slotPlus
       resultSpecs[affect] = Math.round(raw * 1000000) / 1000000
     }
