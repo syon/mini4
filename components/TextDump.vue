@@ -1,78 +1,10 @@
 <template>
-  <div class="TextDump pt-2 px-4 pb-8">
-    <div ref="copyTarget">
-      <div>
-        B:
-        {{ printLine([equips.body]) }}
-      </div>
-      <div>
-        M:
-        {{ printLine([equips.motor, equips.gear, equips.chassis]) }}
-      </div>
-      <div>
-        FW:
-        {{ printLine([equips.frontWheel, equips.frontTire]) }}
-      </div>
-      <div>
-        RW:
-        {{ printLine([equips.rearWheel, equips.rearTire]) }}
-      </div>
-      <div>
-        F:
-        {{
-          printLine([
-            equips.frontStay,
-            equips.frontRollerHigh,
-            equips.frontRollerMiddle,
-            equips.frontStabilizer,
-          ])
-        }}
-      </div>
-      <div>
-        S:
-        {{
-          printLine([
-            equips.sideStay,
-            equips.sideRollerHigh,
-            equips.sideRollerMiddle,
-            equips.sideStabilizer,
-          ])
-        }}
-      </div>
-      <div>
-        R:
-        {{
-          printLine([
-            equips.rearStay,
-            equips.rearRollerHigh,
-            equips.rearRollerMiddle,
-            equips.rearRollerLow,
-            equips.rearStabilizer,
-          ])
-        }}
-      </div>
-      <div>
-        W:
-        {{ printLine([equips.bodyOption, equips.wingRoller]) }}
-      </div>
-      <div>
-        WT:
-        {{ printLine([equips.frontSettingWeight, equips.rearSettingWeight]) }}
-      </div>
-      <div>
-        A:
-        {{
-          printLine([
-            equips.accessory1,
-            equips.accessory2,
-            equips.accessory3,
-            equips.accessory4,
-          ])
-        }}
-      </div>
-    </div>
-    <div>
-      <button @click="handleCopy">クリップボードにコピー</button>
+  <div class="TextDump pt-2 px-2 pb-6">
+    <div class="TextDump-inner rounded">
+      <pre class="whitespace-pre-wrap">{{ textDump }}</pre>
+      <button class="zzBtn1 m-auto" @click="handleCopy">
+        クリップボードにコピー
+      </button>
     </div>
   </div>
 </template>
@@ -106,8 +38,51 @@ export default {
       })
       return Object.fromEntries(entries)
     },
-    showingRecipe() {
-      return Object.entries(this.equips).filter(([k, v]) => v.key)
+    textDump() {
+      const eq = this.equips
+      let txt = ''
+      txt += 'B:'
+      txt += this.printLine([eq.body])
+      txt += 'M:'
+      txt += this.printLine([eq.motor, eq.gear, eq.chassis])
+      txt += 'FW:'
+      txt += this.printLine([eq.frontWheel, eq.frontTire])
+      txt += 'RW:'
+      txt += this.printLine([eq.rearWheel, eq.rearTire])
+      txt += 'F:'
+      txt += this.printLine([
+        eq.frontStay,
+        eq.frontRollerHigh,
+        eq.frontRollerMiddle,
+        eq.frontStabilizer,
+      ])
+      txt += 'S:'
+      txt += this.printLine([
+        eq.sideStay,
+        eq.sideRollerHigh,
+        eq.sideRollerMiddle,
+        eq.sideStabilizer,
+      ])
+      txt += 'R:'
+      txt += this.printLine([
+        eq.rearStay,
+        eq.rearRollerHigh,
+        eq.rearRollerMiddle,
+        eq.rearRollerLow,
+        eq.rearStabilizer,
+      ])
+      txt += 'W:'
+      txt += this.printLine([eq.bodyOption, eq.wingRoller])
+      txt += 'WT:'
+      txt += this.printLine([eq.frontSettingWeight, eq.rearSettingWeight])
+      txt += 'A:'
+      txt += this.printLine([
+        eq.accessory1,
+        eq.accessory2,
+        eq.accessory3,
+        eq.accessory4,
+      ])
+      return txt
     },
   },
   methods: {
@@ -136,15 +111,15 @@ export default {
       return `${obj.略称}(${obj.craftSummary})`
     },
     printLine(partArray) {
-      return partArray
-        .map((x) => this.print(x))
-        .filter(Boolean)
-        .join('、')
+      return (
+        partArray
+          .map((x) => this.print(x))
+          .filter(Boolean)
+          .join('、') + '\n'
+      )
     },
     handleCopy() {
-      const txt = this.$refs.copyTarget.textContent
-      console.log(txt)
-      Util.copyToClipboard(txt)
+      Util.copyToClipboard(this.textDump)
     },
   },
 }
@@ -152,6 +127,15 @@ export default {
 
 <style lang="less" scoped>
 .TextDump {
+  position: relative;
   font-size: 0.75em;
+  .TextDump-inner {
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  button {
+    position: relative;
+    top: 15px;
+  }
 }
 </style>
