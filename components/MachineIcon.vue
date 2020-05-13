@@ -5,7 +5,8 @@
     class="MachineIcon"
     @click="handleClickTab($event, tab)"
   >
-    <style>
+    <!-- prettier-ignore -->
+    <component :is="'style'">
       #{{ tab }}.MachineIcon {
         --body-color: {{ bodyColor }};
         --chassis-color: {{ chassisColor }};
@@ -15,7 +16,7 @@
         --rear-tire-color: {{ reartireColor }};
         --rear-wheel-color: {{ rearwheelColor }};
       }
-    </style>
+    </component>
     <machine-svg />
   </a>
 </template>
