@@ -401,8 +401,8 @@ export default {
       margin: 0.25rem;
     }
     .garage--cell {
-      width: 50px;
-      height: 50px;
+      width: 49px;
+      height: 49px;
     }
   }
 }

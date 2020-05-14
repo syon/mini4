@@ -187,7 +187,7 @@ export default {
 .TotalArea {
   font-size: 0.75rem;
   font-weight: normal;
-  padding: 15px;
+  padding: 0.5rem;
   background: rgb(170, 177, 178);
   background: linear-gradient(
     180deg,

@@ -6,7 +6,7 @@
         <total-area />
       </div>
     </div>
-    <div class="GarageArea flex py-3">
+    <div class="GarageArea flex p-1">
       <setting-area class="w-7/12" :tab="tab" />
       <div class="w-5/12 migisita p-1">
         <parts-choise-area />
