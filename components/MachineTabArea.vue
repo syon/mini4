@@ -19,3 +19,15 @@ export default {
   },
 }
 </script>
+
+<style lang="less" scoped>
+.MachineTabArea {
+  padding: 0.3rem;
+  background: rgb(46, 52, 54);
+  background: linear-gradient(
+    180deg,
+    rgba(46, 52, 54, 1) 0%,
+    rgba(65, 69, 70, 1) 100%
+  );
+}
+</style>

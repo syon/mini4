@@ -18,11 +18,14 @@
       }
     </component>
     <machine-svg />
+    <div class="ActiveEffect" :class="{ active }">
+      <div class="ActiveEffect-inner"></div>
+    </div>
   </a>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import MachineSvg from '@/assets/machine-icon/machine.svg'
 
 export default {
@@ -33,9 +36,15 @@ export default {
     tab: { type: String, required: true },
   },
   computed: {
+    ...mapState('ing', {
+      ingTab: (state) => state.tab,
+    }),
     ...mapGetters({
       getEquipByPart: 'recipe/getEquipByPart',
     }),
+    active() {
+      return this.tab === this.ingTab
+    },
     bodyColor() {
       return this.getEquipByPart(this.tab, 'ボディ').色 || '#fff'
     },
@@ -77,11 +86,27 @@ export default {
 
 <style lang="less" scoped>
 .MachineIcon {
+  position: relative;
   flex: 1;
   display: flex;
   justify-content: center;
+  background: rgb(37, 37, 37);
+  background: linear-gradient(
+    0deg,
+    rgba(37, 37, 37, 1) 0%,
+    rgba(20, 23, 23, 1) 35%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(40, 41, 40, 1) 100%
+  );
+  border: 1px solid #0e1111;
+  border-radius: 0.3rem;
+  margin: 0 0.2rem;
+
   svg {
     height: 64px;
+    padding: 0.15rem;
+    position: relative;
+    z-index: 1;
   }
   .icon-machine {
     fill: white;
@@ -109,6 +134,35 @@ export default {
     }
     &.rear-wheel {
       fill: var(--rear-wheel-color);
+    }
+  }
+  .ActiveEffect {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    z-index: 0;
+
+    &.active {
+      opacity: 1;
+    }
+    .ActiveEffect-inner {
+      width: 100%;
+      background: rgb(94, 93, 54);
+      background: linear-gradient(
+        180deg,
+        rgba(94, 93, 54, 0.3) 0%,
+        rgba(73, 66, 22, 0.3) 35%,
+        rgba(152, 120, 6, 0.3) 70%,
+        rgba(209, 180, 37, 0.3) 100%
+      );
+      border-radius: 0.3rem;
+      border: 1px solid rgba(186, 174, 33, 0.9);
+      box-shadow: 0 1px 3px 2px rgba(255, 242, 127, 0.6),
+        0 1px 7px 2px rgba(255, 235, 59, 0.4);
     }
   }
 }
