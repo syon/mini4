@@ -21,6 +21,7 @@ export default {
     Simulator,
   },
   mounted() {
+    this.$store.dispatch('ing/refresh')
     this.$ga.screenview('Index')
   },
 }
