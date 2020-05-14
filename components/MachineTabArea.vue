@@ -11,11 +11,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MachineIcon from '@/components/MachineIcon'
 
 export default {
   components: {
     MachineIcon,
+  },
+  computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+    }),
+  },
+  watch: {
+    tab() {
+      this.$store.dispatch('ing/refresh')
+    },
   },
 }
 </script>

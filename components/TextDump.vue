@@ -87,12 +87,13 @@ export default {
   },
   methods: {
     getCraftSummary(craftCategory, crafts) {
-      if (!crafts) return ''
+      if (!crafts || !craftCategory) return ''
       const master = this.craftMaster[craftCategory]
       const hash = {}
       for (const c of crafts) {
         if (!c || !c.action) continue
         const m = master.find((x) => x.action === c.action)
+        if (!m) continue
         hash[m.別名] = (hash[m.別名] || 0) + 1
       }
       const list = Object.entries(hash).map(([k, v]) => {
