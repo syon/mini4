@@ -100,7 +100,7 @@ export default {
   );
   border: 1px solid #0e1111;
   border-radius: 0.25rem;
-  margin: 0 0.25rem;
+  margin: 0.25rem;
 
   svg {
     height: 63.4px;
