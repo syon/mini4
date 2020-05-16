@@ -63,7 +63,7 @@ export default {
 .xx-RemodelSlot {
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
   &.active {
     background-color: #fffca0;
     border: 1px solid #f1f658;
@@ -77,7 +77,7 @@ export default {
   letter-spacing: -0.05em;
   background-color: #20272a;
   line-height: 1.2;
-  border-radius: 0.15rem 0.15rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .xx-quality {

@@ -93,12 +93,12 @@ export default {
   font-size: 0.8rem;
   border: 1px solid #c8c8c8;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .AboutModal-Head {
   padding: 0.2rem 0.5rem;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .AboutModal-Body {
@@ -135,6 +135,6 @@ export default {
   padding: 0 0.5em;
   color: black;
   background-color: #5fcffa;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 </style>

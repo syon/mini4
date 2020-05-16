@@ -33,7 +33,7 @@ export default {
 
 <style lang="less" scoped>
 .MachineTabArea {
-  padding: 0.3rem;
+  padding: 0.25rem;
   background: rgb(46, 52, 54);
   background: linear-gradient(
     180deg,

@@ -152,7 +152,7 @@ export default {
   display: block;
   position: relative;
   z-index: 5;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   border: 1px solid #b5babd;
 }
 

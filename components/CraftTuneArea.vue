@@ -180,14 +180,14 @@ export default {
   position: relative;
   overflow: auto;
   border: 1px solid #c8c8c8;
-  border-radius: 0.4rem;
+  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .CraftControls {
   position: relative;
   border: 1px solid #c8c8c8;
-  border-radius: 0.4rem;
+  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -197,7 +197,7 @@ export default {
   font-size: 0.8rem;
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
 }
 
 .levelChoise {

@@ -95,12 +95,12 @@ export default {
   font-size: 0.8rem;
   border: 1px solid #c8c8c8;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .SupportModal-Head {
   padding: 0.2rem 0.5rem;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .SupportModal-Body {
@@ -137,7 +137,7 @@ export default {
   padding: 0 0.5em;
   color: black;
   background-color: #5fcffa;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .tapToCopy {
@@ -145,7 +145,7 @@ export default {
   font-size: 0.6rem;
   color: black;
   background-color: rgba(95, 207, 250, 0.5);
-  border-radius: 3px;
+  border-radius: 0.25rem;
   margin: 0 0.3em;
   padding: 0 0.5em;
 }

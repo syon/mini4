@@ -90,7 +90,7 @@ export default {
     height: 49px;
     background-clip: padding-box;
     border: solid 2px transparent;
-    border-radius: 2px;
+    border-radius: 0.25rem;
     position: relative;
     z-index: 0;
 

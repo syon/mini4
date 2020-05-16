@@ -99,12 +99,12 @@ export default {
     rgba(40, 41, 40, 1) 100%
   );
   border: 1px solid #0e1111;
-  border-radius: 0.3rem;
-  margin: 0 0.2rem;
+  border-radius: 0.25rem;
+  margin: 0 0.25rem;
 
   svg {
-    height: 64px;
-    padding: 0.15rem;
+    height: 63.4px;
+    padding: 0.25rem;
     position: relative;
     z-index: 1;
   }
@@ -159,7 +159,7 @@ export default {
         rgba(152, 120, 6, 0.3) 70%,
         rgba(209, 180, 37, 0.3) 100%
       );
-      border-radius: 0.3rem;
+      border-radius: 0.25rem;
       border: 1px solid rgba(186, 174, 33, 0.9);
       box-shadow: 0 1px 3px 2px rgba(255, 242, 127, 0.6),
         0 1px 7px 2px rgba(255, 235, 59, 0.4);

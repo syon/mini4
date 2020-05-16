@@ -2,7 +2,7 @@
   <div class="TotalArea">
     <div class="TotalWindow rounded-md">
       <div class="TotalWindowPanel">
-        <div class="xx-panelhead rounded-t-md"></div>
+        <div class="xx-panelhead"></div>
         <div class="xx-panelbody p-2 zzBg-gray2">
           <div class="flex items-stretch justify-center">
             <div class="xx-total flex flex-col items-center">
@@ -89,7 +89,7 @@
             <total-detail />
           </div>
         </div>
-        <div class="xx-panelfoot rounded-b-md">
+        <div class="xx-panelfoot">
           <button
             class="xx-toggle w-full text-gray-700 text-center"
             @click="toggleDetail"
@@ -217,6 +217,8 @@ export default {
     .TotalWindowPanel {
       .xx-panelhead {
         height: 1rem;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
         background: linear-gradient(
           0deg,
           rgba(178, 178, 171, 1) 0%,
@@ -251,6 +253,8 @@ export default {
       .xx-panelfoot {
         // height: 1rem;
         background: #b9bab6;
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
       }
     }
   }

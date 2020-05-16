@@ -88,7 +88,7 @@ export default {
     rgba(211, 212, 208, 1) 100%
   );
   border: 1px solid #b5babd;
-  border-radius: 0.2rem 0.2rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
   line-height: 1;
 }
 .PartsName {
@@ -97,7 +97,7 @@ export default {
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
   border-top: 0;
-  border-radius: 0 0 0.2rem 0.2rem;
+  border-radius: 0 0 0.25rem 0.25rem;
   line-height: 1.2;
   position: relative;
   cursor: pointer;

@@ -94,7 +94,7 @@ export default {
 .xx-CraftEditSlot {
   background-color: #f0f4f4;
   border: 1px solid rgb(180, 180, 180);
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
   min-height: 40px;
 
   &.active {
@@ -111,7 +111,7 @@ export default {
   font-size: 0.75rem;
   background-color: #20272a;
   line-height: 1.2;
-  border-radius: 0.15rem 0.15rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 .xx-craftinfo {
   display: flex;
@@ -122,7 +122,7 @@ export default {
 
   .xx-limittip {
     font-size: 0.6em;
-    border-radius: 0.15rem;
+    border-radius: 0.25rem;
     padding: 0.2em 0.2em;
     margin: 0.25em 0 0;
     .isNomore {
@@ -133,7 +133,7 @@ export default {
 
 .xx-limitmessage {
   font-size: 0.6em;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   padding: 0.2em 0.4em;
   color: #fff;
   background-color: rgb(220, 47, 33);
