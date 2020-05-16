@@ -1,6 +1,6 @@
 <template>
   <div class="TotalArea">
-    <div class="TotalWindow rounded-md">
+    <div class="TotalWindow rounded">
       <div class="TotalWindowPanel">
         <div class="xx-panelhead"></div>
         <div class="xx-panelbody p-2 zzBg-gray2">
