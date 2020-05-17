@@ -379,9 +379,6 @@ export default {
       },
     }),
   },
-  mounted() {
-    this.$store.dispatch('recipe/load')
-  },
   methods: {
     handleTrans(part) {
       const tab = this.tab

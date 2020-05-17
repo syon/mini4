@@ -1,5 +1,4 @@
 import debug from 'debug'
-import initialState from './recipe.json'
 import Mini4 from '@/models/Mini4'
 
 const dg = debug('@:recipe')
@@ -155,12 +154,6 @@ export const getters = {
 }
 
 export const mutations = {
-  setAll(state, payload) {
-    for (const [k, v] of Object.entries(payload)) {
-      const partKey = resolvePartKey(k)
-      state[partKey] = v
-    }
-  },
   setPartItem(state, { tab, part, name }) {
     const partKey = resolvePartKey(part)
     const machine = state[tab]
@@ -206,10 +199,6 @@ export const mutations = {
 }
 
 export const actions = {
-  load({ commit }) {
-    dg('[#load]', initialState)
-    commit('setAll', initialState)
-  },
   change({ commit, rootState, dispatch }, { part, name }) {
     const { tab } = rootState.ing
     commit('setPartItem', { tab, part, name })
