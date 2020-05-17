@@ -10,10 +10,7 @@
       <setting-area class="w-7/12" :tab="tab" />
       <div class="w-5/12 migisita p-1">
         <parts-choise-area />
-        <showcase-area />
         <parts-detail-area />
-        <craft-select-area />
-        <craft-tune-area />
         <remodel-area />
       </div>
     </div>
@@ -24,6 +21,11 @@
     <footer>
       <footer-area />
     </footer>
+
+    <!-- Floatings -->
+    <showcase-area />
+    <craft-select-area />
+    <craft-tune-area />
   </div>
 </template>
 

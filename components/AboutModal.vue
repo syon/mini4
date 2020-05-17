@@ -88,7 +88,7 @@ export default {
 .AboutModal-Panel {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 300px;
   height: 80%;
   font-size: 0.8rem;
   border: 1px solid #c8c8c8;

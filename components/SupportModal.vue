@@ -90,7 +90,7 @@ export default {
 .SupportModal-Panel {
   display: flex;
   flex-direction: column;
-  width: 84%;
+  width: 315px;
   height: 76%;
   font-size: 0.8rem;
   border: 1px solid #c8c8c8;

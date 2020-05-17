@@ -164,15 +164,14 @@ export default {
 <style lang="less" scoped>
 .floating {
   position: fixed;
-  top: 50px;
-  left: 0;
+  top: 50px; // do not set left property for inner fixed
   z-index: 9;
-  width: 58vw;
+  width: 218px;
   height: 100%;
 }
 
 .xx-CraftTuneArea {
-  width: 58vw;
+  // width: 58vw;
   height: calc(100% - 100px);
 }
 
