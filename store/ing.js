@@ -18,6 +18,7 @@ export const state = () => ({
   isTune: false,
   isAbout: false,
   isSupport: false,
+  isOriginal: false,
 })
 
 export const getters = {}
@@ -79,6 +80,9 @@ export const mutations = {
   },
   setTune(state, isTune) {
     state.isTune = isTune
+  },
+  setOriginal(state, isOriginal) {
+    state.isOriginal = isOriginal
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
@@ -155,12 +159,22 @@ export const actions = {
     commit('setCrafting', false)
     commit('setShowcase', false)
     commit('setTune', false)
+    commit('setOriginal', false)
     const { part } = state
     dispatch('recipe/cleanupCrafts', part, { root: true })
   },
   toggleCraftTune({ commit, state, dispatch }) {
     const nextBool = !state.isTune
     commit('setTune', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
+  toggleOriginal({ commit, state, dispatch }) {
+    const nextBool = !state.isTune
+    commit('setOriginal', nextBool)
     if (nextBool) {
       commit('setBarrier', true)
     } else {

@@ -40,13 +40,19 @@
           class="levelChoise zzAnton flex items-center justify-around text-black mt-1 mb-2"
         >
           <button
-            class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            @click="handleLevel('Min')"
+          >
+            1
+          </button>
+          <button
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
             @click="handleLevel('Minus10')"
           >
             -10
           </button>
           <button
-            class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
             @click="handleLevel('Minus1')"
           >
             ー
@@ -54,25 +60,26 @@
           <input
             v-model="level"
             type="number"
-            class="text-white bg-gray-800 w-8 h-8 text-center tracking-wider text-sm"
+            class="levelVal flex-1 text-white bg-gray-800 h-8 rounded text-center tracking-tighter text-sm"
+            style="width: 28px;"
           />
           <button
-            class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
             @click="handleLevel('Plus1')"
           >
             ＋
           </button>
           <button
-            class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-wider text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
             @click="handleLevel('Plus10')"
           >
             +10
           </button>
           <button
-            class="zzBtn2 border bg-gray-200 w-8 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
             @click="handleLevel('Max')"
           >
-            最大
+            50
           </button>
         </div>
         <hr class="xxHr my-1" />
@@ -244,6 +251,17 @@ export default {
 
 .levelChoise {
   font-size: 0.8rem;
+
+  > * {
+    margin: 0 0.125rem;
+  }
+}
+
+.levelVal {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 }
 
 .xxHr {

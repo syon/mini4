@@ -333,6 +333,8 @@ export default class Mini4 {
   static controlLevel(theCase, crrLevel) {
     const lv = Number(crrLevel)
     switch (theCase) {
+      case 'Min':
+        return 1
       case 'Minus10':
         if (lv - 10 <= 1) {
           return 1
