@@ -36,11 +36,11 @@ const obj = {
 }
 
 export const state = () => ({
-  M1: { ...obj },
-  M2: { ...obj },
-  M3: { ...obj },
-  M4: { ...obj },
-  M5: { ...obj },
+  M1: JSON.parse(JSON.stringify(obj)),
+  M2: JSON.parse(JSON.stringify(obj)),
+  M3: JSON.parse(JSON.stringify(obj)),
+  M4: JSON.parse(JSON.stringify(obj)),
+  M5: JSON.parse(JSON.stringify(obj)),
 })
 
 function resolvePartKey(partJapanese) {
@@ -169,24 +169,27 @@ export const mutations = {
     state[tab][partKey].crafts[craftIndex] = { action, quality, level }
   },
   setPartCraftQuality(state, { tab, part, craftIndex, quality }) {
+    dg('[#setPartCraftQuality]', { tab, part, craftIndex, quality })
     const partKey = resolvePartKey(part)
     const machine = state[tab]
     const ingPart = machine[partKey]
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, quality }
-    machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
+    // machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftLevel(state, { tab, part, craftIndex, level }) {
+    dg('[#setPartCraftLevel]', { tab, part, craftIndex, level })
     const partKey = resolvePartKey(part)
     const machine = state[tab]
     const ingPart = machine[partKey]
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, level }
-    machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
+    // machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   clearAllPartCrafts(state, { tab, part }) {
+    dg('[#clearAllPartCrafts]', { tab, part })
     const partKey = resolvePartKey(part)
     const machine = state[tab]
     const partRecipe = machine[partKey]
@@ -245,7 +248,6 @@ export const actions = {
     dispatch('ing/refresh', null, { root: true })
   },
   cleanupCrafts({ commit, rootState, state }, part) {
-    dg('<#cleanupCrafts>', part)
     const tab = rootState.ing.tab
     const partKey = resolvePartKey(part)
     const machine = state[tab]
@@ -253,6 +255,7 @@ export const actions = {
     for (let i = 0; i < partCrafts.length; i++) {
       const c = partCrafts[i] || {}
       if (!c.action && (c.quality || c.level)) {
+        dg('<#cleanupCrafts>', { tab, part, i })
         const payload = {
           tab,
           part,
