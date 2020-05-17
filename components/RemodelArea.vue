@@ -8,6 +8,11 @@
         まとめて改造
       </button>
     </div>
+    <div class="flex flex-col my-2">
+      <button class="TuneBtn zzBtn1" @click="toggleOriginal">
+        改造済みパーツ登録
+      </button>
+    </div>
   </div>
 </template>
 
@@ -59,6 +64,9 @@ export default {
     },
     toggleCraftTune() {
       this.$store.dispatch('ing/toggleCraftTune')
+    },
+    toggleOriginal() {
+      this.$store.dispatch('ing/toggleOriginal')
     },
   },
 }

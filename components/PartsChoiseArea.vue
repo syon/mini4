@@ -46,9 +46,6 @@ export default {
       ingItem: (state) => state.item,
       ingPartRecipe: (state) => state.partRecipe,
     }),
-    ...mapState('catalog', {
-      catalog: (state) => state.dataset,
-    }),
     isDrill: {
       get() {
         return this.ingPartRecipe.肉抜き

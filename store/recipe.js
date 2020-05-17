@@ -168,6 +168,10 @@ export const mutations = {
     const partKey = resolvePartKey(part)
     state[tab][partKey].crafts[craftIndex] = { action, quality, level }
   },
+  setPartCraftSet(state, { tab, part, crafts }) {
+    const partKey = resolvePartKey(part)
+    state[tab][partKey].crafts = crafts
+  },
   setPartCraftQuality(state, { tab, part, craftIndex, quality }) {
     dg('[#setPartCraftQuality]', { tab, part, craftIndex, quality })
     const partKey = resolvePartKey(part)
@@ -176,7 +180,6 @@ export const mutations = {
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, quality }
-    // machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   setPartCraftLevel(state, { tab, part, craftIndex, level }) {
     dg('[#setPartCraftLevel]', { tab, part, craftIndex, level })
@@ -186,7 +189,6 @@ export const mutations = {
     if (!ingPart.crafts) ingPart.crafts = []
     const c = ingPart.crafts[craftIndex] || {}
     ingPart.crafts[craftIndex] = { ...c, level }
-    // machine[partKey] = { ...ingPart, crafts: ingPart.crafts }
   },
   clearAllPartCrafts(state, { tab, part }) {
     dg('[#clearAllPartCrafts]', { tab, part })
@@ -228,6 +230,12 @@ export const actions = {
     dg('<#changeCraft>', arg)
     const { tab } = rootState.ing
     commit('setPartCraft', { ...arg, tab })
+    dispatch('ing/refresh', null, { root: true })
+  },
+  changeCraftSet({ commit, rootState, dispatch }, arg) {
+    dg('<#changeCraftSet>', arg)
+    const { tab } = rootState.ing
+    commit('setPartCraftSet', { ...arg, tab })
     dispatch('ing/refresh', null, { root: true })
   },
   clearCraft({ dispatch }, { part, craftIndex }) {

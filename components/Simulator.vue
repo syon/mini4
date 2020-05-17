@@ -26,6 +26,7 @@
     <showcase-area />
     <craft-select-area />
     <craft-tune-area />
+    <original-area />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import PartsDetailArea from '@/components/PartsDetailArea'
 import RemodelArea from '@/components/RemodelArea'
 import CraftSelectArea from '@/components/CraftSelectArea'
 import CraftTuneArea from '@/components/CraftTuneArea'
+import OriginalArea from '@/components/OriginalArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
 import BlackBarrier from '@/components/BlackBarrier'
 import TextDump from '@/components/TextDump'
@@ -54,6 +56,7 @@ export default {
     RemodelArea,
     CraftSelectArea,
     CraftTuneArea,
+    OriginalArea,
     ShowcaseArea,
     BlackBarrier,
     TextDump,
