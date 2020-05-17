@@ -79,7 +79,6 @@ export default {
         this.checkPair(basePart, item.ペアカテゴリ)
       }
       this.$store.dispatch('recipe/change', { part: basePart, name })
-      this.closeDialog()
       this.$ga.event('Catalog', 'Equip', basePart, name)
     },
     checkAccessory(basePart, basePairCategory) {
