@@ -2,16 +2,19 @@
   <div v-if="isTune" class="floating">
     <div class="xx-CraftTuneArea flex flex-col">
       <div class="CraftTuneList flex-1 zzBg-gray1">
-        <template v-for="(cp, i) of ingCraftPreset">
-          <a
-            :key="i"
-            href="#"
-            class="CraftPreset p-1 m-1 rounded"
-            @click="handleCraftPreset($event, cp)"
-          >
-            <span>{{ cp.タイトル }}</span>
-          </a>
-        </template>
+        <div class="m-1">
+          <div class="xx-category mt-4 px-2">改造プリセット</div>
+          <template v-for="(cp, i) of ingCraftPreset">
+            <a
+              :key="i"
+              href="#"
+              class="CraftPreset p-1 m-1 rounded"
+              @click="handleCraftPreset($event, cp)"
+            >
+              <span>{{ cp.タイトル }}</span>
+            </a>
+          </template>
+        </div>
       </div>
       <div class="CraftControls zzBg-gray1">
         <div class="zzQualityChoise mt-2 mb-1">
@@ -224,5 +227,10 @@ export default {
 .xx-close {
   font-size: 0.8rem;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.xx-category {
+  font-size: 0.6rem;
+  background-color: rgb(76, 79, 80);
 }
 </style>
