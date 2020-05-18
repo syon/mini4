@@ -90,7 +90,7 @@ export default {
 }
 .PartsName {
   color: black;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
   border-top: 0;
