@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "develop": "now -A now.dev.json dev",
+    "nuxt": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "now-deploy:dev": "now",
