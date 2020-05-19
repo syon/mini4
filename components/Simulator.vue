@@ -8,7 +8,7 @@
     </div>
     <div class="GarageArea flex p-1">
       <setting-area class="w-7/12" :tab="tab" />
-      <div class="w-5/12 migisita p-1">
+      <div class="w-5/12 migisita">
         <parts-choise-area />
         <parts-detail-area />
         <remodel-area />
