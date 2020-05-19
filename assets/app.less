@@ -9,38 +9,125 @@ html {
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.text-xxs {
+.txt-base {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.br-1 {
+  border-radius: 0.25rem;
+}
+
+.br-4 {
+  border-radius: 1rem;
+}
+
+.brt-1 {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.brb-1 {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.brbl-1 {
+  border-bottom-left-radius: 0.25rem;
+}
+
+.brl-1 {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.p-05 {
+  padding: 0.125rem;
+}
+
+.px-05 {
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+}
+
+.py-05 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.m-05 {
+  margin: 0.125rem;
+}
+
+.mx-05 {
+  margin-left: 0.125rem;
+  margin-right: 0.125rem;
+}
+
+.my-05 {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}
+
+.xxHr-gray {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.xx-category {
+  font-size: 0.6rem;
+  background-color: rgb(76, 79, 80);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.xx-titlebar {
+  padding: 0.125rem 0.25rem;
+  color: #fff;
+  letter-spacing: -0.05em;
+  background-color: #20272a;
+  line-height: 1.2;
+}
+
+.levelChoise {
+  > * {
+  }
+}
+
+.levelVal {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.hashtag {
+  color: black;
+  background-color: #5fcffa;
+}
+
+.copyright {
   font-size: 0.6rem;
 }
 
-.zzAnton {
-  font-family: 'Fjalla One', sans-serif;
-}
-
-.zzBg-black {
-  background-color: rgb(22, 30, 30);
-}
-
-.zzBg-gray1 {
-  color: #fff;
-  background-color: #85898a;
-}
-
-.zzBg-gray2 {
-  color: #fff;
-  background-color: #666464;
-}
-
-.zzBg-gray3 {
-  color: #fff;
-  background-color: rgb(128, 131, 131);
+.tapToCopy {
+  display: inline-block;
+  color: black;
+  background: linear-gradient(
+    0deg,
+    rgba(175, 174, 176, 1) 0%,
+    rgba(241, 241, 241, 1) 100%
+  );
+  border: 1px solid rgba(53, 53, 59, 0.7);
+  box-shadow: inset 1px 1px 2px -0.4px rgb(229, 228, 229);
+  border-radius: 0.25rem;
 }
 
 .zzBtn1 {
+  font-size: 0.6rem;
   display: block;
   color: black;
-  font-size: 0.6rem;
-  padding: 0.2em 1em;
   background: linear-gradient(
     0deg,
     rgba(175, 174, 176, 1) 0%,
@@ -49,6 +136,7 @@ html {
   border: 1px solid rgba(53, 53, 59, 0.7);
   box-shadow: inset 1px 1px 2px -0.4px rgb(229, 228, 229);
   border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
 }
 
 .zzBtn2 {
@@ -62,6 +150,9 @@ html {
     rgba(202, 207, 211, 1) 100%
   );
   border: 1px solid rgb(137, 141, 148);
+  border-radius: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .zzCheckerBg {
@@ -90,7 +181,13 @@ html {
 
 .zzCategoryHeader {
   font-size: 0.6rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #4c4f50;
+}
+
+.zzCategoryHeaderBig {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
   background-color: #4c4f50;
 }
 
@@ -98,8 +195,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.75rem;
-  font-weight: normal;
   > label {
     flex: 1;
     text-align: center;
@@ -107,8 +202,8 @@ html {
     background-color: #f0f4f4;
     border: 1px solid #b4b4b4;
     border-radius: 0.25rem;
-    padding: 5px 0;
-    margin: 2px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     &.active {
       background-color: #fffca0;
       border: 1px solid #f1f658;
@@ -118,6 +213,29 @@ html {
     display: none;
     appearance: none;
   }
+}
+
+.zzAnton {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.zzBg-black {
+  background-color: rgb(22, 30, 30);
+}
+
+.zzBg-gray1 {
+  color: #fff;
+  background-color: #85898a;
+}
+
+.zzBg-gray2 {
+  color: #fff;
+  background-color: #666464;
+}
+
+.zzBg-gray3 {
+  color: #fff;
+  background-color: rgb(128, 131, 131);
 }
 
 .BodyFeature {
@@ -138,16 +256,16 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.2rem;
   }
   .BodyFeature-Label {
     font-size: 0.6rem;
     text-align: center;
     background-color: #5fcffa;
     color: black;
-    padding: 2px 0.5em;
+    margin: 0.25rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
     border-radius: 0.25rem;
-    margin-right: 0.5em;
     white-space: nowrap;
     line-height: 1;
   }
@@ -157,8 +275,8 @@ html {
     border-bottom: 1px solid #59a6f2;
   }
   .BodyFeature-Text {
+    margin: 0.25rem;
     flex: 1;
-    font-size: 0.7rem;
     text-align: right;
   }
 }

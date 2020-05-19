@@ -1,13 +1,13 @@
 <template>
   <div class="TotalDetail">
-    <div class="flex items-center justify-between mb-3 mx-2">
-      <div class="flex-1 flex justify-between mr-2">
+    <div class="flex items-center justify-between">
+      <div class="flex-1 flex justify-between m-2">
         <div v-for="a in aptSet" :key="a" class="flex items-center">
           <apti-hex :type="a" />
           <span class="zzAnton pl-1">{{ totalAptitude[a] }}</span>
         </div>
       </div>
-      <div class="BodyFeature">
+      <div class="BodyFeature m-2">
         <div class="BodyFeature-Floor">
           <div class="BodyFeature-Content">
             <div class="BodyFeature-Label">ボディ<br />特性</div>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="flex">
-      <div class="flex-1 px-2">
+      <div class="flex-1 mx-2">
         <score-cell label="スピード" :score="scores.スピード" />
         <score-cell label="パワー" :score="scores.パワー" />
         <score-cell label="コーナー安定" :score="scores.コーナー安定" />
@@ -34,7 +34,7 @@
         <score-cell label="制振" :score="scores.制振" />
         <score-cell label="スラスト角" :score="scores.スラスト角" />
       </div>
-      <div class="flex-1 px-2">
+      <div class="flex-1 mx-2">
         <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
         <score-cell label="タイヤ旋回" :score="scores.タイヤ旋回" />
         <score-cell label="タイヤ反発" :score="scores.タイヤ反発" />

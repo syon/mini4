@@ -2,10 +2,10 @@
   <a
     href="#"
     :class="{ active: x.action === craftAction, isNomoreCraft: nomore }"
-    class="xx-CraftEditSlot w-full flex flex-col text-sm"
+    class="xx-CraftEditSlot w-full flex flex-col"
     @click="handleClick"
   >
-    <div class="xx-titlebar flex justify-between">
+    <div class="xx-titlebar flex justify-between brt-1">
       <div>{{ x.action || '(改造なし)' }}</div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
@@ -14,12 +14,14 @@
           <div class="xx-craftinfo flex-auto flex items-stretch">
             <span
               v-if="hit > 0 && x.action"
-              class="xx-limittip zzBg-gray1 text-center zzAnton"
+              class="xx-limittip zzBg-gray1 text-center zzAnton justify-center br-1"
             >
               済み: {{ hit }}
             </span>
             <template v-if="x.回数制限">
-              <span class="xx-limittip zzBg-gray1 text-center zzAnton">
+              <span
+                class="xx-limittip zzBg-gray1 text-center zzAnton justify-center br-1"
+              >
                 <span>残り:</span>
                 <span :class="{ isNomore: nomore }">{{
                   x.回数制限 - hit
@@ -39,11 +41,13 @@
               :class="{ isDemerit: e.メリデメ === 'デメリット' }"
               class="xx-merideme flex"
             >
-              <div class="xx-merideme-label flex items-center justify-center">
+              <div
+                class="xx-merideme-label flex items-center justify-center px-1"
+              >
                 {{ e.メリデメ }}
               </div>
               <div
-                class="xx-merideme-topic flex-1 flex items-center justify-between"
+                class="xx-merideme-topic flex-1 flex items-center justify-between px-1"
               >
                 <div>{{ e.影響 }}</div>
                 <div class="xx-merideme-marks">{{ e.表示 }}</div>
@@ -52,7 +56,7 @@
           </template>
         </div>
       </div>
-      <div v-if="nomore" class="xx-limitmessage mt-1">
+      <div v-if="nomore" class="xx-limitmessage mt-1 br-1">
         これ以上改造できません。
       </div>
     </div>
@@ -105,14 +109,7 @@ export default {
     background-color: rgb(105, 116, 117);
   }
 }
-.xx-titlebar {
-  padding: 2px 4px;
-  color: #fff;
-  font-size: 0.75rem;
-  background-color: #20272a;
-  line-height: 1.2;
-  border-radius: 0.25rem 0.25rem 0 0;
-}
+
 .xx-craftinfo {
   display: flex;
   flex-direction: column;
@@ -121,12 +118,14 @@ export default {
   letter-spacing: -0.05em;
 
   .xx-limittip {
+    margin-bottom: 0.125rem;
     font-size: 0.6em;
-    border-radius: 0.25rem;
-    padding: 0.2em 0.2em;
-    margin: 0.25em 0 0;
+    padding: 1px;
     .isNomore {
       color: rgb(220, 47, 33);
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -134,7 +133,7 @@ export default {
 .xx-limitmessage {
   font-size: 0.6em;
   border-radius: 0.25rem;
-  padding: 0.2em 0.4em;
+  padding: 0.125rem 0.25rem;
   color: #fff;
   background-color: rgb(220, 47, 33);
   text-align: center;
@@ -147,21 +146,21 @@ export default {
 }
 
 .xx-merideme {
-  margin: 2px 0 0;
+  margin-bottom: 0.125rem;
   &:last-child {
     margin-bottom: 0;
   }
   .xx-merideme-label {
     width: 48px;
-    margin: 0 2px;
     font-size: 0.6rem;
     text-align: center;
-    line-height: 1.1;
+    line-height: 1;
+    margin-left: 0.125rem;
   }
   .xx-merideme-topic {
-    padding: 0 5px;
     font-size: 0.6rem;
     line-height: 1;
+    margin-left: 0.125rem;
   }
   // Merit
   .xx-merideme-label {

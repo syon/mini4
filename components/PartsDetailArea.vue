@@ -1,21 +1,17 @@
 <template>
-  <div class="PartsDetailArea mb-2">
+  <div class="PartsDetailArea m-1">
     <template v-if="ingItem.ボディ特性">
       <div class="BodyFeature mb-1">
         <div class="BodyFeature-Floor">
           <div class="BodyFeature-Content">
-            <div>
-              <div class="BodyFeature-Label leading-tight">
-                ボディ<br />特性
-              </div>
-            </div>
+            <div class="BodyFeature-Label leading-tight">ボディ<br />特性</div>
             <div class="BodyFeature-Text">{{ ingItem.ボディ特性 }}</div>
           </div>
         </div>
       </div>
     </template>
 
-    <a href="#" class="PartsSpecList zzCheckerBg p-1" @click="toggleSpec">
+    <a href="#" class="PartsSpecList zzCheckerBg p-1 br-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
         :before-score="beforeSpec.スピード"
@@ -144,7 +140,8 @@ export default {
 .PartsDetailArea {
   hr {
     border-color: #c3c3c3;
-    margin: 0.25em 0;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
   }
 }
 
@@ -152,17 +149,14 @@ export default {
   display: block;
   position: relative;
   z-index: 5;
-  border-radius: 0.25rem;
   border: 1px solid #b5babd;
 }
 
 .speclist {
   width: 100%;
-  font-size: 0.7em;
   letter-spacing: -0.025em;
   th {
     text-align: left;
-    font-weight: normal;
   }
   td {
     text-align: right;

@@ -1,16 +1,16 @@
 <template>
-  <div class="xx-RemodelArea">
+  <div class="xx-RemodelArea m-1">
     <template v-for="(x, idx) in remodelSlots">
-      <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex my-1" />
+      <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex" />
     </template>
-    <div class="flex flex-col my-2">
+    <div class="flex flex-col mt-2 mb-1">
       <button class="TuneBtn zzBtn1" @click="toggleCraftTune">
         まとめて改造
       </button>
     </div>
-    <div class="flex flex-col my-2">
+    <div class="flex flex-col mt-2 mb-1">
       <button class="TuneBtn zzBtn1" @click="toggleOriginal">
-        改造済みパーツ登録
+        パーツ登録
       </button>
     </div>
   </div>

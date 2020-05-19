@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOriginal" class="floating">
     <div class="xx-OriginalArea flex flex-col">
-      <div class="OriginalList flex-1 zzBg-gray1">
+      <div class="OriginalList flex-1 zzBg-gray1 br-1">
         <h1>Original Area</h1>
         <div>{{ part }}</div>
         <div>{{ item.key }}</div>
@@ -11,9 +11,9 @@
 
         <hr class="m-4" />
 
-        <div class="text-xs">
+        <div>
           <div v-for="(o, i) of theList" :key="i">
-            <button class="zzBtn2 rounded p-1" @click="handlePick(o)">
+            <button class="zzBtn2 p-1" @click="handlePick(o)">
               <span>{{ i }}</span>
               <span>{{ o.key }}</span>
               <span>[{{ o.levelSum }}]</span>
@@ -87,43 +87,6 @@ export default {
   position: relative;
   overflow: auto;
   border: 1px solid #c8c8c8;
-  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.CraftControls {
-  position: relative;
-  border: 1px solid #c8c8c8;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.CraftPreset {
-  display: block;
-  color: black;
-  font-size: 0.8rem;
-  background-color: #f0f4f4;
-  border: 1px solid #b5babd;
-  border-radius: 0.25rem;
-}
-
-.levelChoise {
-  font-size: 0.8rem;
-
-  > * {
-    margin: 0 0.125rem;
-  }
-}
-
-.levelVal {
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-}
-
-.xx-close {
-  font-size: 0.8rem;
-  background-color: rgba(0, 0, 0, 0.2);
 }
 </style>

@@ -2,7 +2,7 @@
   <a
     :id="tab"
     href="#"
-    class="MachineIcon"
+    class="MachineIcon m-1 br-1"
     @click="handleClickTab($event, tab)"
   >
     <!-- prettier-ignore -->
@@ -19,7 +19,7 @@
     </component>
     <machine-svg />
     <div class="ActiveEffect" :class="{ active }">
-      <div class="ActiveEffect-inner"></div>
+      <div class="ActiveEffect-inner br-1"></div>
     </div>
   </a>
 </template>
@@ -99,8 +99,6 @@ export default {
     rgba(40, 41, 40, 1) 100%
   );
   border: 1px solid #0e1111;
-  border-radius: 0.25rem;
-  margin: 0.25rem;
 
   svg {
     height: 63.4px;
@@ -159,7 +157,6 @@ export default {
         rgba(152, 120, 6, 0.3) 70%,
         rgba(209, 180, 37, 0.3) 100%
       );
-      border-radius: 0.25rem;
       border: 1px solid rgba(186, 174, 33, 0.9);
       box-shadow: 0 1px 3px 2px rgba(255, 242, 127, 0.6),
         0 1px 7px 2px rgba(255, 235, 59, 0.4);

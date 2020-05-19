@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col txt-base">
     <machine-tab-area />
     <div class="w-full flex flex-col">
       <div class="row flex-auto">

@@ -1,46 +1,49 @@
 <template>
   <div v-if="isAbout" class="AboutModal" @click.self="handleModal">
-    <div class="AboutModal-Panel zzBg-gray3">
-      <div class="AboutModal-Head zzBg-black">
+    <div class="AboutModal-Panel zzBg-gray3 br-1">
+      <div class="AboutModal-Head zzBg-black brt-1 px-1">
         About
       </div>
-      <div class="AboutModal-Body">
-        <div class="zzCategoryHeader my-2">
+      <div class="AboutModal-Body p-1">
+        <div class="zzCategoryHeaderBig my-1">
           ミニ四駆 超速グランプリ 改造シミュレータ
         </div>
-        <div>
+        <div class="p-1">
           当サイトの提供コンテンツは個人による制作物であり、公式とは一切関係ありません。
           また、シミュレーション結果を保証するものではありませんのでご了承ください。
         </div>
         <div>
-          <div class="AboutModal-SubHeader">ソースコード</div>
-          <div>GitHubにて公開を予定しています（準備中）。</div>
+          <div class="AboutModal-SubHeader mt-4 px-2">ソースコード</div>
+          <ul class="list list-inside px-2 py-1">
+            <li>GitHubにて公開を予定しています（準備中）。</li>
+          </ul>
         </div>
         <div>
-          <div class="AboutModal-SubHeader">情報提供</div>
-          <div>
-            Twitter ハッシュタグ
-            <a
-              href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
-              target="_blank"
-              ><span class="hashtag">#超速シミュ</span></a
-            >
-          </div>
+          <div class="AboutModal-SubHeader mt-4 px-2">情報提供</div>
+          <ul class="list list-inside px-2 py-1">
+            <li>
+              Twitter ハッシュタグ<a
+                href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
+                target="_blank"
+                ><span class="hashtag br-1 mx-1 px-1">#超速シミュ</span></a
+              >
+            </li>
+          </ul>
         </div>
 
-        <div class="zzCategoryHeader mt-6 mb-2">公式</div>
-        <div>
+        <div class="zzCategoryHeaderBig mt-4 mb-1">公式</div>
+        <div class="p-1">
           <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
             <img src="/mini4wd-og.jpg" :alt="officialSite" />
             <div class="leading-tight py-1">{{ officialSite }}</div>
           </a>
-        </div>
-        <div class="copyright">
-          <div>©小学館 ©ShoPro ©TAMIYA</div>
-          <div>©BANDAI NAMCO Entertainment Inc.</div>
-          <div>※ミニ四駆は株式会社タミヤの登録商標です。</div>
-          <div>
-            青木たかお・おちよしひこ・こしたてつひろ・武井宏之・たなかてつお・徳田ザウルス・姫川明
+          <div class="copyright">
+            <div>©小学館 ©ShoPro ©TAMIYA</div>
+            <div>©BANDAI NAMCO Entertainment Inc.</div>
+            <div>※ミニ四駆は株式会社タミヤの登録商標です。</div>
+            <div>
+              青木たかお・おちよしひこ・こしたてつひろ・武井宏之・たなかてつお・徳田ザウルス・姫川明
+            </div>
           </div>
         </div>
       </div>
@@ -90,51 +93,27 @@ export default {
   flex-direction: column;
   width: 300px;
   height: 80%;
-  font-size: 0.8rem;
   border: 1px solid #c8c8c8;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
   border-radius: 0.25rem;
 }
 
 .AboutModal-Head {
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .AboutModal-Body {
   flex: 1;
   overflow: auto;
-  padding: 0.2rem 0.5rem 2rem;
 
   .AboutModal-SubHeader {
     display: inline-block;
-    margin: 0.75em 0 0.25em;
-    padding: 0.1rem 0.5rem;
     font-size: 0.6rem;
-    background-color: #747272;
+    // background-color: #747272;
+    background-color: #4c4f50;
   }
 }
 
 .AboutModal-Divider {
   border-color: #85898a;
-  margin: 1em 0;
-}
-
-.zzCategoryHeader {
-  font-size: 0.8rem;
-}
-
-.copyright {
-  margin-top: 0.5em;
-  font-size: 0.6rem;
-  line-height: 1.2;
-}
-
-.hashtag {
-  font-size: 0.9em;
-  padding: 0 0.5em;
-  color: black;
-  background-color: #5fcffa;
-  border-radius: 0.25rem;
 }
 </style>

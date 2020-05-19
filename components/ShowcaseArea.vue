@@ -1,39 +1,35 @@
 <template>
   <div v-if="isShowcase" class="floating">
-    <div class="xx-ShowcaseArea zzBg-gray1">
-      <div class="flex justify-center my-2">
-        <button class="zzBtn1 w-20" @click="handleDetach">外す</button>
+    <div class="xx-ShowcaseArea zzBg-gray1 br-1">
+      <div class="flex justify-center">
+        <button class="zzBtn1 w-20 m-2" @click="handleDetach">外す</button>
       </div>
-      <div class="xx-List">
-        <div class="CraftEditSlotList">
-          <template v-for="(categorySet, key) in sortedCatalog">
-            <div :key="key" class="mx-1 my-1">
-              <div class="xx-category mt-4 px-2">{{ key }}</div>
-              <template v-for="(item, name) in categorySet">
-                <a
-                  :key="name"
-                  href="#"
-                  :class="{ active: name === ingItem.key }"
-                  class="ShowcaseBox flex m-1 pr-2"
-                  @click="handleSelectItem($event, name, item)"
-                >
-                  <div class="flex mr-1">
-                    <div
-                      class="w-1 rounded-l-sm"
-                      :style="{ backgroundColor: item.色 }"
-                    ></div>
-                    <div
-                      class="w-1"
-                      :style="{ backgroundColor: item.色2 }"
-                    ></div>
-                  </div>
-                  <div class="py-1">{{ name }}</div>
-                  <div class="apti"><apti-hex :type="item.コース適性" /></div>
-                </a>
-              </template>
-            </div>
-          </template>
-        </div>
+      <hr class="xxHr-gray" />
+      <div class="CraftEditSlotList">
+        <template v-for="(categorySet, key) in sortedCatalog">
+          <div :key="key" class="m-1">
+            <div class="xx-category mt-4">{{ key }}</div>
+            <template v-for="(item, name) in categorySet">
+              <a
+                :key="name"
+                href="#"
+                :class="{ active: name === ingItem.key }"
+                class="ShowcaseBox flex m-1 br-1"
+                @click="handleSelectItem($event, name, item)"
+              >
+                <div class="flex">
+                  <div
+                    class="w-1 brl-1"
+                    :style="{ backgroundColor: item.色 }"
+                  ></div>
+                  <div class="w-1" :style="{ backgroundColor: item.色2 }"></div>
+                </div>
+                <div class="p-1">{{ name }}</div>
+                <div class="apti"><apti-hex :type="item.コース適性" /></div>
+              </a>
+            </template>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -139,35 +135,17 @@ export default {
   flex-direction: column;
   height: calc(100% - 100px);
   border: 1px solid #c8c8c8;
-  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.xx-close {
-  font-size: 0.8rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.xx-List {
-  overflow: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .CraftEditSlotList {
-  padding: 0 0 30px;
-}
-
-.xx-category {
-  font-size: 0.6rem;
-  background-color: rgb(76, 79, 80);
+  overflow: auto;
 }
 
 .ShowcaseBox {
   color: black;
-  font-size: 0.75rem;
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
-  border-radius: 0.25rem;
   position: relative;
   &.active {
     background-color: #fffca0;

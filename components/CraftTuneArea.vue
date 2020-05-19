@@ -1,23 +1,23 @@
 <template>
   <div v-if="isTune" class="floating">
     <div class="xx-CraftTuneArea flex flex-col">
-      <div class="CraftTuneList flex-1 zzBg-gray1">
+      <div class="CraftTuneList flex-1 zzBg-gray1 br-1">
         <div class="m-1">
-          <div class="xx-category mt-4 px-2">改造プリセット</div>
+          <div class="xx-category mt-4">改造プリセット</div>
           <template v-for="(cp, i) of ingCraftPreset">
             <a
               :key="i"
               href="#"
-              class="CraftPreset p-1 m-1 rounded"
+              class="CraftPreset m-1 br-1"
               @click="handleCraftPreset($event, cp)"
             >
-              <span>{{ cp.タイトル }}</span>
+              <div class="p-1">{{ cp.タイトル }}</div>
             </a>
           </template>
         </div>
       </div>
-      <div class="CraftControls zzBg-gray1">
-        <div class="zzQualityChoise mt-2 mb-1">
+      <div class="CraftControls zzBg-gray1 relative br-1 p-1">
+        <div class="zzQualityChoise my-1">
           <label class="zzBtn2" @click="handleQuality('イイ感じ')">
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
@@ -32,53 +32,53 @@
           </label>
         </div>
         <div
-          class="levelChoise zzAnton flex items-center justify-around text-black mt-1 mb-2"
+          class="levelChoise zzAnton flex items-center justify-around text-black my-1"
         >
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Min')"
           >
             1
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Minus10')"
           >
             -10
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Minus1')"
           >
-            ー
+            -
           </button>
           <input
             v-model="level"
             type="number"
-            class="levelVal flex-1 text-white bg-gray-800 h-8 rounded text-center tracking-tighter text-sm"
-            style="width: 28px;"
+            class="levelVal flex-1 text-white bg-gray-800 text-center tracking-tighter"
+            style="width: 42px;"
           />
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Plus1')"
           >
-            ＋
+            +
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Plus10')"
           >
             +10
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Max')"
           >
             50
           </button>
         </div>
-        <hr class="xxHr my-1" />
-        <div class="flex justify-center my-2">
+        <hr class="xxHr-gray my-2" />
+        <div class="flex justify-center my-1">
           <button class="zzBtn1" @click="removeAllCrafts">
             改造をすべて取り消す
           </button>
@@ -203,34 +203,8 @@ export default {
 .CraftPreset {
   display: block;
   color: black;
-  font-size: 0.8rem;
   background-color: #f0f4f4;
   border: 1px solid #b5babd;
   border-radius: 0.25rem;
-}
-
-.levelChoise {
-  font-size: 0.8rem;
-
-  > * {
-    margin: 0 0.125rem;
-  }
-}
-
-.levelVal {
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-}
-
-.xx-close {
-  font-size: 0.8rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.xx-category {
-  font-size: 0.6rem;
-  background-color: rgb(76, 79, 80);
 }
 </style>

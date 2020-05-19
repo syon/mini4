@@ -1,8 +1,8 @@
 <template>
   <div class="TextDump p-2">
-    <div class="TextDump-inner rounded">
-      <pre class="whitespace-pre-wrap">{{ textDump }}</pre>
-      <button class="zzBtn1 m-auto" @click="handleCopy">
+    <div class="TextDump-inner br-1 p-1">
+      <pre class="whitespace-pre-wrap mb-1">{{ textDump }}</pre>
+      <button class="tapToCopy br-1 m-1 px-2 m-auto" @click="handleCopy">
         コピー
       </button>
     </div>
@@ -130,14 +130,11 @@ export default {
 <style lang="less" scoped>
 .TextDump {
   position: relative;
-  font-size: 0.75em;
   .TextDump-inner {
-    padding: 0.5em;
     background-color: rgba(0, 0, 0, 0.2);
   }
   button {
     position: relative;
-    top: 15px;
   }
 }
 </style>

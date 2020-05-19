@@ -1,28 +1,20 @@
 <template>
   <div v-if="isCrafting" class="floating">
     <div class="xx-CraftSelectArea flex flex-col">
-      <div class="CraftEditSlotList flex-1 zzBg-gray1">
-        <div class="px-1 pb-6">
+      <div class="CraftEditSlotList flex-1 zzBg-gray1 br-1 p-1">
+        <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
+        <template v-for="(obj, idx) in showingCrafts">
           <craft-edit-slot
-            :hit="0"
+            :key="idx"
+            :arg="obj.arg"
+            :hit="obj.hit"
             class="flex my-1"
-            @go="handleClickSlot({})"
+            @go="handleClickSlot(obj.arg)"
           />
-          <template v-for="(obj, idx) in showingCrafts">
-            <craft-edit-slot
-              :key="idx"
-              :arg="obj.arg"
-              :hit="obj.hit"
-              class="flex my-1"
-              @go="handleClickSlot(obj.arg)"
-            />
-          </template>
-        </div>
+        </template>
       </div>
-      <!-- <div class="mt-1"></div> -->
-      <div class="CraftControls zzBg-gray1 relative">
-        <!-- <div class="zzScrollShadow"></div> -->
-        <div class="zzQualityChoise mt-2 mb-1">
+      <div class="CraftControls zzBg-gray1 relative br-1 p-1">
+        <div class="zzQualityChoise my-1">
           <label :class="{ active: quality === 'イイ感じ' }">
             <input v-model="quality" type="radio" value="イイ感じ" />
             <span>イイ感じ</span>
@@ -37,53 +29,53 @@
           </label>
         </div>
         <div
-          class="levelChoise zzAnton flex items-center justify-around text-black mt-1 mb-2"
+          class="levelChoise zzAnton flex items-center justify-around text-black my-1"
         >
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Min')"
           >
             1
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Minus10')"
           >
             -10
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Minus1')"
           >
-            ー
+            -
           </button>
           <input
             v-model="level"
             type="number"
-            class="levelVal flex-1 text-white bg-gray-800 h-8 rounded text-center tracking-tighter text-sm"
-            style="width: 28px;"
+            class="levelVal flex-1 text-white bg-gray-800 text-center tracking-tighter"
+            style="width: 42px;"
           />
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Plus1')"
           >
-            ＋
+            +
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Plus10')"
           >
             +10
           </button>
           <button
-            class="zzBtn2 flex-1 border bg-gray-200 h-8 rounded tracking-tighter text-sm"
+            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
             @click="handleLevel('Max')"
           >
             50
           </button>
         </div>
-        <hr class="xxHr my-1" />
-        <div class="flex justify-center my-2">
+        <hr class="xxHr-gray my-2" />
+        <div class="flex justify-center my-1">
           <button class="zzBtn1" @click="handleFlood">
             選択スロット以下をまとめて改造
           </button>
@@ -244,60 +236,15 @@ export default {
   height: calc(100% - 100px);
 }
 
-.xx-close {
-  font-size: 0.8rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.levelChoise {
-  font-size: 0.8rem;
-
-  > * {
-    margin: 0 0.125rem;
-  }
-}
-
-.levelVal {
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-}
-
-.xxHr {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .CraftEditSlotList {
   position: relative;
   overflow: auto;
   border: 1px solid #c8c8c8;
-  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .CraftControls {
   border: 1px solid #c8c8c8;
-  border-radius: 0.25rem;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.zzScrollShadow {
-  position: absolute;
-  top: -7px;
-  height: 6px;
-  width: 100%;
-  opacity: 0.25;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.595) 50%,
-    rgba(0, 0, 0, 0.7225) 65%,
-    rgba(0, 0, 0, 0.78625) 75.5%,
-    rgba(0, 0, 0, 0.81855) 82.85%,
-    rgba(0, 0, 0, 0.83385) 88%,
-    rgba(0, 0, 0, 0.85)
-  );
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
 }
 </style>

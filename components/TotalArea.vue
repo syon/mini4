@@ -1,14 +1,14 @@
 <template>
-  <div class="TotalArea">
-    <div class="TotalWindow rounded">
+  <div class="TotalArea p-2">
+    <div class="TotalWindow br-1">
       <div class="TotalWindowPanel">
-        <div class="xx-panelhead"></div>
+        <div class="xx-panelhead brt-1"></div>
         <div class="xx-panelbody p-2 zzBg-gray2">
           <div class="flex items-stretch justify-center">
             <div class="xx-total flex flex-col items-center">
               <div>総合評価</div>
               <div
-                class="xx-totalscore flex-1 flex items-center zzAnton text-2xl tracking-tight"
+                class="xx-totalscore flex-1 flex items-center zzAnton tracking-tight"
               >
                 {{ showInt(totalScore) }}
               </div>
@@ -85,11 +85,11 @@
               </table>
             </div>
           </div>
-          <div v-if="isDetailOpen" class="mt-2 p-1 text-xs">
+          <div v-if="isDetailOpen" class="">
             <total-detail />
           </div>
         </div>
-        <div class="xx-panelfoot">
+        <div class="xx-panelfoot brb-1">
           <button
             class="xx-toggle w-full text-gray-700 text-center"
             @click="toggleDetail"
@@ -185,9 +185,6 @@ export default {
 
 <style lang="less" scoped>
 .TotalArea {
-  font-size: 0.75rem;
-  font-weight: normal;
-  padding: 0.5rem;
   background: rgb(170, 177, 178);
   background: linear-gradient(
     180deg,
@@ -217,8 +214,6 @@ export default {
     .TotalWindowPanel {
       .xx-panelhead {
         height: 1rem;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
         background: linear-gradient(
           0deg,
           rgba(178, 178, 171, 1) 0%,
@@ -251,10 +246,8 @@ export default {
         }
       }
       .xx-panelfoot {
-        // height: 1rem;
+        height: 1rem;
         background: #b9bab6;
-        border-bottom-right-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem;
       }
     }
   }
@@ -266,7 +259,6 @@ export default {
 
   .xx-totalscore {
     font-size: 1.75rem;
-    font-weight: normal;
   }
 
   .xx-affects {
@@ -274,7 +266,6 @@ export default {
     line-height: 1;
 
     .xx-scores {
-      font-size: 0.75rem;
     }
 
     table {
