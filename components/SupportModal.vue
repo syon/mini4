@@ -11,12 +11,12 @@
         <div class="p-1">
           ご支援いただき、ありがとうございます。本サービスの開発のため、大切に使用させていただきます。
         </div>
-        <div class="SupportModal-SubHeader mt-4 px-2">支援の方法</div>
+        <div class="zzCategoryHeaderSmall mt-4">支援の方法</div>
         <ol class="list-decimal list-inside px-2 py-1">
           <li class="relative">
-            受取人<code class="text-xxs tracking-tighter mx-1"
+            受取人<code class="zz-text06 tracking-tighter mx-1"
               >tarolnetg+amzg@gmail.com</code
-            >を<button class="tapToCopy br-1 mx-1 px-1" @click="handleCopy">
+            >を<button class="zz-tapToCopy br-1 mx-1 px-1" @click="handleCopy">
               コピー</button
             >します
           </li>
@@ -24,7 +24,7 @@
             <a
               href="https://www.amazon.co.jp/dp/B06X982RQ9/"
               target="_blank"
-              class="hashtag br-1 px-1"
+              class="zz-hashtag"
               >Amazonギフト券(Eメールタイプ)</a
             >
             を開きます
@@ -37,7 +37,7 @@
             レジに進みます
           </li>
         </ol>
-        <div class="SupportModal-SubHeader mt-4 px-2">ご注意ください</div>
+        <div class="zzCategoryHeaderSmall mt-4">ご注意ください</div>
         <ul class="list list-inside px-2 py-1">
           <li>・ 返金はできませんので、金額の再確認をお願い致します。</li>
           <li>
@@ -97,22 +97,8 @@ export default {
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.SupportModal-Head {
-}
-
 .SupportModal-Body {
   flex: 1;
   overflow: auto;
-
-  .SupportModal-SubHeader {
-    display: inline-block;
-    font-size: 0.6rem;
-    // background-color: #747272;
-    background-color: #4c4f50;
-  }
-}
-
-.SupportModal-Divider {
-  border-color: #85898a;
 }
 </style>

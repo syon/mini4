@@ -1,11 +1,11 @@
 <template>
   <div class="PartsDetailArea m-1">
     <template v-if="ingItem.ボディ特性">
-      <div class="BodyFeature mb-1">
-        <div class="BodyFeature-Floor">
-          <div class="BodyFeature-Content">
-            <div class="BodyFeature-Label leading-tight">ボディ<br />特性</div>
-            <div class="BodyFeature-Text">{{ ingItem.ボディ特性 }}</div>
+      <div class="zzBodyFeature mb-1">
+        <div class="zzBodyFeature-Floor">
+          <div class="zzBodyFeature-Content">
+            <div class="zzBodyFeature-Label">ボディ<br />特性</div>
+            <div class="zzBodyFeature-Text">{{ ingItem.ボディ特性 }}</div>
           </div>
         </div>
       </div>

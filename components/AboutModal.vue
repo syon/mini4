@@ -13,19 +13,19 @@
           また、シミュレーション結果を保証するものではありませんのでご了承ください。
         </div>
         <div>
-          <div class="AboutModal-SubHeader mt-4 px-2">ソースコード</div>
+          <div class="zzCategoryHeaderSmall mt-4">ソースコード</div>
           <ul class="list list-inside px-2 py-1">
             <li>GitHubにて公開を予定しています（準備中）。</li>
           </ul>
         </div>
         <div>
-          <div class="AboutModal-SubHeader mt-4 px-2">情報提供</div>
+          <div class="zzCategoryHeaderSmall mt-4">情報提供</div>
           <ul class="list list-inside px-2 py-1">
             <li>
               Twitter ハッシュタグ<a
                 href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
                 target="_blank"
-                ><span class="hashtag br-1 mx-1 px-1">#超速シミュ</span></a
+                ><span class="zz-hashtag mx-1">#超速シミュ</span></a
               >
             </li>
           </ul>
@@ -35,9 +35,9 @@
         <div class="p-1">
           <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
             <img src="/mini4wd-og.jpg" :alt="officialSite" />
-            <div class="leading-tight py-1">{{ officialSite }}</div>
+            <div class="py-1">{{ officialSite }}</div>
           </a>
-          <div class="copyright">
+          <div class="zz-text06">
             <div>©小学館 ©ShoPro ©TAMIYA</div>
             <div>©BANDAI NAMCO Entertainment Inc.</div>
             <div>※ミニ四駆は株式会社タミヤの登録商標です。</div>
@@ -98,22 +98,8 @@ export default {
   border-radius: 0.25rem;
 }
 
-.AboutModal-Head {
-}
-
 .AboutModal-Body {
   flex: 1;
   overflow: auto;
-
-  .AboutModal-SubHeader {
-    display: inline-block;
-    font-size: 0.6rem;
-    // background-color: #747272;
-    background-color: #4c4f50;
-  }
-}
-
-.AboutModal-Divider {
-  border-color: #85898a;
 }
 </style>

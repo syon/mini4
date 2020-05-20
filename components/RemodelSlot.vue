@@ -5,7 +5,7 @@
     class="xx-RemodelSlot w-full flex flex-col my-1 br-1"
     @click="handleClick"
   >
-    <div class="xx-titlebar flex justify-between brt-1">
+    <div class="zz-titlebar flex justify-between brt-1">
       <div>{{ x.action || '&nbsp;' }}</div>
     </div>
     <div class="flex flex-1">

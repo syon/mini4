@@ -12,7 +12,7 @@
       <div class="my-4">
         <button class="zzBtn1 mr-4" @click="clearLocalStorage">リセット</button>
         <a
-          href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
+          href="https://twitter.com/intent/tweet?zz-hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
           class="zzBtn1 mt-4"
           >ツイートして報告</a
         >

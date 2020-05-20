@@ -3,7 +3,7 @@
     <div class="TotalWindow br-1">
       <div class="TotalWindowPanel">
         <div class="xx-panelhead brt-1"></div>
-        <div class="xx-panelbody p-2 zzBg-gray2">
+        <div class="xx-panelbody zzBg-gray2 p-2">
           <div class="flex items-stretch justify-center">
             <div class="xx-total flex flex-col items-center">
               <div>総合評価</div>
@@ -24,37 +24,37 @@
                     <th class="text-center p-0">重さ</th>
                   </tr>
                 </thead>
-                <tbody class="xx-ranks">
+                <tbody class="xx-ranks whitespace-no-wrap">
                   <tr>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       <score-rank
                         mode="TOTAL"
                         affect="スピード"
                         :score="scores.スピード"
                       />
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       <score-rank
                         mode="TOTAL"
                         affect="パワー"
                         :score="scores.パワー"
                       />
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       <score-rank
                         mode="TOTAL"
                         affect="コーナー安定"
                         :score="scores.コーナー安定"
                       />
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       <score-rank
                         mode="TOTAL"
                         affect="スタミナ耐久"
                         :score="scores.スタミナ耐久"
                       />
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       <score-rank
                         mode="TOTAL"
                         affect="重さ"
@@ -63,23 +63,21 @@
                     </td>
                   </tr>
                 </tbody>
-                <tfoot class="xx-scores zzAnton">
+                <tfoot class="xx-scores zzAnton whitespace-no-wrap">
                   <tr>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       {{ showInt(scores.スピード) }}
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       {{ showInt(scores.パワー) }}
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       {{ showInt(scores.コーナー安定) }}
                     </td>
-                    <td class="px-2 text-center">
+                    <td class="text-center">
                       {{ showInt(scores.スタミナ耐久) }}
                     </td>
-                    <td class="px-2 text-center">
-                      {{ showInt(scores.重さ) }}g
-                    </td>
+                    <td class="text-center">{{ showInt(scores.重さ) }}g</td>
                   </tr>
                 </tfoot>
               </table>

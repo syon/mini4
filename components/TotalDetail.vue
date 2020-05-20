@@ -1,22 +1,22 @@
 <template>
   <div class="TotalDetail">
-    <div class="flex items-center justify-between">
-      <div class="flex-1 flex justify-between m-2">
-        <div v-for="a in aptSet" :key="a" class="flex items-center">
+    <div class="flex items-center justify-between mt-4">
+      <div class="flex-1 flex justify-between mx-1">
+        <div v-for="a in aptSet" :key="a" class="flex items-center mx-1">
           <apti-hex :type="a" />
-          <span class="zzAnton pl-1">{{ totalAptitude[a] }}</span>
+          <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
         </div>
       </div>
-      <div class="BodyFeature m-2">
-        <div class="BodyFeature-Floor">
-          <div class="BodyFeature-Content">
-            <div class="BodyFeature-Label">ボディ<br />特性</div>
-            <div class="BodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
+      <div class="zzBodyFeature mx-2">
+        <div class="zzBodyFeature-Floor">
+          <div class="zzBodyFeature-Content">
+            <div class="zzBodyFeature-Label">ボディ<br />特性</div>
+            <div class="zzBodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex">
+    <div class="flex mt-4">
       <div class="flex-1 mx-2">
         <score-cell label="スピード" :score="scores.スピード" />
         <score-cell label="パワー" :score="scores.パワー" />

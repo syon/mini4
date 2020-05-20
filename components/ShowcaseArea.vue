@@ -4,11 +4,11 @@
       <div class="flex justify-center">
         <button class="zzBtn1 w-20 m-2" @click="handleDetach">外す</button>
       </div>
-      <hr class="xxHr-gray" />
+      <hr class="zz-hr-gray" />
       <div class="CraftEditSlotList">
         <template v-for="(categorySet, key) in sortedCatalog">
           <div :key="key" class="m-1">
-            <div class="xx-category mt-4">{{ key }}</div>
+            <div class="zz-category mt-4">{{ key }}</div>
             <template v-for="(item, name) in categorySet">
               <a
                 :key="name"

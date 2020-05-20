@@ -19,6 +19,16 @@ html {
   font-feature-settings: 'palt';
   touch-action: manipulation;
   user-select: none;
+  background-color: #666464;
+}
+
+.root {
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin: 0 auto;
+  max-width: 100vmax;
+  min-height: 100vh;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 *,

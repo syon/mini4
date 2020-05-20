@@ -74,7 +74,7 @@
             50
           </button>
         </div>
-        <hr class="xxHr-gray my-2" />
+        <hr class="zz-hr-gray my-2" />
         <div class="flex justify-center my-1">
           <button class="zzBtn1" @click="handleFlood">
             選択スロット以下をまとめて改造
