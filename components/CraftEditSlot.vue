@@ -10,23 +10,21 @@
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
       <div class="flex">
-        <div class="flex">
-          <div class="xx-craftinfo flex-auto flex items-stretch">
-            <span
+        <div class="flex flex-col">
+          <div class="xx-craftinfo flex">
+            <div
               v-if="hit > 0 && x.action"
-              class="xx-limittip zzBg-gray1 text-center zzAnton justify-center"
+              class="xx-limittip flex zzBg-gray1 text-center zzAnton justify-center"
             >
               済み: {{ hit }}
-            </span>
+            </div>
             <template v-if="x.回数制限">
-              <span
-                class="xx-limittip zzBg-gray1 text-center zzAnton justify-center"
+              <div
+                class="xx-limittip flex zzBg-gray1 text-center zzAnton justify-center"
               >
-                <span>残り:</span>
-                <span :class="{ isNomore: nomore }">{{
-                  x.回数制限 - hit
-                }}</span>
-              </span>
+                <div>残り:</div>
+                <div :class="{ isNomore: nomore }">{{ x.回数制限 - hit }}</div>
+              </div>
             </template>
           </div>
         </div>
@@ -111,19 +109,22 @@ export default {
 .xx-craftinfo {
   display: flex;
   flex-direction: column;
-  line-height: 1;
   width: 36px;
   letter-spacing: -0.05em;
 
   .xx-limittip {
+    &:last-child {
+      margin-bottom: 0;
+    }
+    color: #fff;
+    background-color: #85898a;
+    border: 1px solid #85898a;
+    line-height: 1;
     margin-bottom: 0.125rem;
     border-radius: 0.25rem;
     font-size: 0.6rem;
     .isNomore {
       color: rgb(220, 47, 33);
-    }
-    &:last-child {
-      margin-bottom: 0;
     }
   }
 }
@@ -152,10 +153,10 @@ export default {
   }
   .xx-merideme-topic {
     background-color: #ceeed0;
+    border: 1px solid #ceeed0;
   }
   .xx-merideme-marks {
     color: #0d7827;
-    font-weight: bold;
   }
   // Demerit
   &.isDemerit {
@@ -166,10 +167,10 @@ export default {
     }
     .xx-merideme-topic {
       background-color: rgb(231, 218, 218);
+      border: 1px solid rgb(231, 218, 218);
     }
     .xx-merideme-marks {
       color: rgb(122, 39, 4);
-      font-weight: bold;
     }
   }
 }

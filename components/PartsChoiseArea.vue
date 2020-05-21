@@ -6,7 +6,7 @@
         <div class="w-1 brbl-1" :style="{ backgroundColor: ingItem.色 }"></div>
         <div class="w-1" :style="{ backgroundColor: ingItem.色2 }"></div>
       </div>
-      <div class="p-1">
+      <div class="px-1 py-2">
         {{ ingItem.key || '&nbsp;' }}
       </div>
       <apti-hex :type="ingItem.コース適性" class="PartsApti" />
