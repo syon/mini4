@@ -118,7 +118,7 @@ export default {
   .xx-limittip {
     margin-bottom: 0.125rem;
     border-radius: 0.25rem;
-    font-size: 0.6em;
+    font-size: 0.6rem;
     .isNomore {
       color: rgb(220, 47, 33);
     }
