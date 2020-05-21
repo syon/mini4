@@ -2,7 +2,7 @@
   <div class="TextDump p-2">
     <div class="TextDump-inner br-1 p-1">
       <pre class="whitespace-pre-wrap m-1">{{ textDump }}</pre>
-      <button class="zz-tapToCopy br-1 m-1 px-2" @click="handleCopy">
+      <button class="zzBtnCopy br-1 m-1 px-2" @click="handleCopy">
         コピー
       </button>
     </div>

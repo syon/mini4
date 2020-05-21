@@ -31,46 +31,28 @@
         <div
           class="levelChoise zzAnton flex items-center justify-around text-black my-1"
         >
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Min')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Min')">
             1
           </button>
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Minus10')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Minus10')">
             -10
           </button>
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Minus1')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Minus1')">
             -
           </button>
           <input
             v-model="level"
             type="number"
-            class="levelVal flex-1 text-white bg-gray-800 text-center tracking-tighter"
+            class="levelVal flex-1 text-white bg-gray-800 text-center"
             style="width: 42px;"
           />
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Plus1')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Plus1')">
             +
           </button>
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Plus10')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Plus10')">
             +10
           </button>
-          <button
-            class="zzBtn2 flex-1 border bg-gray-200 tracking-tighter"
-            @click="handleLevel('Max')"
-          >
+          <button class="zzBtn2 flex-1" @click="handleLevel('Max')">
             50
           </button>
         </div>

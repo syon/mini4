@@ -14,13 +14,13 @@
           <div class="xx-craftinfo flex-auto flex items-stretch">
             <span
               v-if="hit > 0 && x.action"
-              class="xx-limittip zzBg-gray1 text-center zzAnton justify-center br-1"
+              class="xx-limittip zzBg-gray1 text-center zzAnton justify-center"
             >
               済み: {{ hit }}
             </span>
             <template v-if="x.回数制限">
               <span
-                class="xx-limittip zzBg-gray1 text-center zzAnton justify-center br-1"
+                class="xx-limittip zzBg-gray1 text-center zzAnton justify-center"
               >
                 <span>残り:</span>
                 <span :class="{ isNomore: nomore }">{{
@@ -54,7 +54,7 @@
           </template>
         </div>
       </div>
-      <div v-if="nomore" class="xx-limitmessage mt-1 br-1">
+      <div v-if="nomore" class="xx-limitmessage mt-1">
         これ以上改造できません。
       </div>
     </div>
@@ -117,29 +117,14 @@ export default {
 
   .xx-limittip {
     margin-bottom: 0.125rem;
+    border-radius: 0.25rem;
     font-size: 0.6em;
-    padding: 1px;
     .isNomore {
       color: rgb(220, 47, 33);
     }
     &:last-child {
       margin-bottom: 0;
     }
-  }
-}
-
-.xx-limitmessage {
-  font-size: 0.6em;
-  border-radius: 0.25rem;
-  padding: 0.125rem 0.25rem;
-  color: #fff;
-  background-color: rgb(220, 47, 33);
-  text-align: center;
-}
-
-.xx-merideme-list {
-  &.isNomore {
-    opacity: 0.3;
   }
 }
 
@@ -187,5 +172,19 @@ export default {
       font-weight: bold;
     }
   }
+}
+
+.xx-merideme-list {
+  &.isNomore {
+    opacity: 0.3;
+  }
+}
+
+.xx-limitmessage {
+  font-size: 0.6em;
+  padding: 0 0.25rem;
+  color: #fff;
+  background-color: rgb(220, 47, 33);
+  text-align: center;
 }
 </style>
