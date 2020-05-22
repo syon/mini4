@@ -5,7 +5,7 @@
     class="xx-CraftEditSlot w-full flex flex-col"
     @click="handleClick"
   >
-    <div class="zz-titlebar flex justify-between brt-1">
+    <div class="zz-headblack flex justify-between">
       <div>{{ x.action || '(改造なし)' }}</div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">

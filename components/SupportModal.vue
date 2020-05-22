@@ -5,13 +5,13 @@
         Support
       </div>
       <div class="SupportModal-Body p-1">
-        <div class="zzCategoryHeaderBig my-1">
+        <div class="zzCategoryHeaderBig">
           開発継続のため、支援をお願い致します
         </div>
         <div class="p-1">
           ご支援いただき、ありがとうございます。本サービスの開発のため、大切に使用させていただきます。
         </div>
-        <div class="zzCategoryHeaderSmall mt-4">支援の方法</div>
+        <div class="zzCategoryHeaderShort">支援の方法</div>
         <ol class="list-decimal list-inside px-2 py-1">
           <li class="relative">
             受取人<code class="zz-text06 tracking-tighter mx-1"
@@ -37,7 +37,7 @@
             レジに進みます
           </li>
         </ol>
-        <div class="zzCategoryHeaderSmall mt-4">ご注意ください</div>
+        <div class="zzCategoryHeaderShort">ご注意ください</div>
         <ul class="list list-inside px-2 py-1">
           <li>・ 返金はできませんので、金額の再確認をお願い致します。</li>
           <li>

@@ -73,7 +73,7 @@ export default {
       ])
       txt += 'W: '
       txt += this.printLine([eq.bodyOption, eq.wingRoller])
-      txt += 'WT :'
+      txt += 'WT: '
       txt += this.printLine([eq.frontSettingWeight, eq.rearSettingWeight])
       txt += 'A: '
       txt += this.printLine([

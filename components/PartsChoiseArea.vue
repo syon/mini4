@@ -1,6 +1,6 @@
 <template>
   <div class="PartsChoiseArea m-1">
-    <div class="PartsHeader px-2 py-1 brt-1">{{ ingPart }}</div>
+    <div class="zz_headgray">{{ ingPart }}</div>
     <div class="PartsName flex brb-1" @click="handleShowcase">
       <div class="flex">
         <div class="w-1 brbl-1" :style="{ backgroundColor: ingItem.色 }"></div>
@@ -73,17 +73,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.PartsHeader {
-  color: black;
-  font-size: 0.6rem;
-  background: linear-gradient(
-    0deg,
-    rgba(178, 178, 171, 1) 0%,
-    rgba(211, 212, 208, 1) 100%
-  );
-  border: 1px solid #b5babd;
-  line-height: 1;
-}
 .PartsName {
   color: black;
   font-size: 0.9rem;

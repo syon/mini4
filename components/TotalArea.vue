@@ -2,8 +2,8 @@
   <div class="TotalArea p-2">
     <div class="TotalWindow br-1">
       <div class="TotalWindowPanel">
-        <div class="xx-panelhead brt-1"></div>
-        <div class="xx-panelbody zzBg-gray2 p-2">
+        <div class="zz_headgray"></div>
+        <div class="zzBg-checker p-2">
           <div class="flex items-stretch justify-center">
             <div class="xx-total flex flex-col items-center">
               <div>総合評価</div>
@@ -87,7 +87,7 @@
             <total-detail />
           </div>
         </div>
-        <div class="xx-panelfoot brb-1">
+        <div class="zz-footgray">
           <button
             class="xx-toggle w-full text-gray-700 text-center"
             @click="toggleDetail"
@@ -209,45 +209,6 @@ export default {
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 5;
-    .TotalWindowPanel {
-      .xx-panelhead {
-        height: 1rem;
-        background: linear-gradient(
-          0deg,
-          rgba(178, 178, 171, 1) 0%,
-          rgba(211, 212, 208, 1) 100%
-        );
-      }
-      .xx-panelbody {
-        background: linear-gradient(
-          180deg,
-          hsla(144, 3%, 27%, 1) 0%,
-          hsla(168, 5%, 18%, 1) 30%,
-          hsla(168, 5%, 18%, 1) 70%,
-          hsla(144, 3%, 27%, 1) 100%
-        );
-        border-left: 1px solid #d3d4d0;
-        border-right: 1px solid #d3d4d0;
-        position: relative;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: url('/bg_check_w.svg');
-          background-size: 42px;
-          z-index: 2;
-        }
-      }
-      .xx-panelfoot {
-        height: 1rem;
-        background: #b9bab6;
-      }
-    }
   }
 
   .xx-total {
