@@ -9,11 +9,11 @@
         改造プリセット / 一括変更
       </button>
     </div>
-    <!-- <div class="flex flex-col mt-2 mb-1">
+    <div class="flex flex-col mt-2 mb-1">
       <button class="TuneBtn zzBtn1" @click="toggleOriginal">
         パーツ登録 / 呼出
-      </button> -->
-    <!-- </div> -->
+      </button>
+    </div>
   </div>
 </template>
 
