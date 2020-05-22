@@ -18,6 +18,7 @@ export default {
   computed: {
     ...mapState('ing', {
       tab: (state) => state.tab,
+      ping: (state) => state.ping,
     }),
     ...mapState('recipe', {
       allRecipe: (state) => state,
@@ -29,6 +30,7 @@ export default {
       getItemInfo: 'catalog/getItemInfo',
     }),
     equips() {
+      if (this.ping);
       const machineRecipe = this.allRecipe[this.tab]
       const entries = Object.entries(machineRecipe).map(([k, v]) => {
         const partJp = Mini4.resolvePartJp(k)
