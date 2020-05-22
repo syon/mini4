@@ -1,8 +1,8 @@
 <template>
   <div class="TextDump p-2">
     <div class="TextDump-inner br-1 p-1">
-      <pre class="whitespace-pre-wrap m-1">{{ textDump }}</pre>
-      <button class="zzBtnCopy br-1 m-1 px-2" @click="handleCopy">
+      <pre class="tracking-tighter whitespace-pre-wrap m-1">{{ textDump }}</pre>
+      <button class="zzBtnCopy px-2" @click="handleCopy">
         コピー
       </button>
     </div>
@@ -41,29 +41,29 @@ export default {
     textDump() {
       const eq = this.equips
       let txt = ''
-      txt += 'B:'
+      txt += 'B: '
       txt += this.printLine([eq.body])
-      txt += 'M:'
+      txt += 'M: '
       txt += this.printLine([eq.motor, eq.gear, eq.chassis])
-      txt += 'FW:'
+      txt += 'FW: '
       txt += this.printLine([eq.frontWheel, eq.frontTire])
-      txt += 'RW:'
+      txt += 'RW: '
       txt += this.printLine([eq.rearWheel, eq.rearTire])
-      txt += 'F:'
+      txt += 'F: '
       txt += this.printLine([
         eq.frontStay,
         eq.frontRollerHigh,
         eq.frontRollerMiddle,
         eq.frontStabilizer,
       ])
-      txt += 'S:'
+      txt += 'S: '
       txt += this.printLine([
         eq.sideStay,
         eq.sideRollerHigh,
         eq.sideRollerMiddle,
         eq.sideStabilizer,
       ])
-      txt += 'R:'
+      txt += 'R: '
       txt += this.printLine([
         eq.rearStay,
         eq.rearRollerHigh,
@@ -71,11 +71,11 @@ export default {
         eq.rearRollerLow,
         eq.rearStabilizer,
       ])
-      txt += 'W:'
+      txt += 'W: '
       txt += this.printLine([eq.bodyOption, eq.wingRoller])
-      txt += 'WT:'
+      txt += 'WT :'
       txt += this.printLine([eq.frontSettingWeight, eq.rearSettingWeight])
-      txt += 'A:'
+      txt += 'A: '
       txt += this.printLine([
         eq.accessory1,
         eq.accessory2,
