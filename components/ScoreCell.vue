@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import Util from '@/models/Util'
+
 export default {
   props: {
     label: { type: String, required: true },
@@ -15,16 +17,10 @@ export default {
   },
   computed: {
     isZero() {
-      return this.fixedNum(this.score, 3) === '0.000'
+      return Util.fixedNum(this.score, 3) === '0.000'
     },
     theScore() {
-      return this.fixedNum(this.score, 3)
-    },
-  },
-  methods: {
-    fixedNum(x, n) {
-      if (isNaN(x)) return ''
-      return x.toFixed(n)
+      return Util.fixedNum(this.score, 3)
     },
   },
 }

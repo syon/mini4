@@ -14,4 +14,9 @@ export default class Util {
     document.body.removeChild(tmp)
     return result
   }
+
+  static fixedNum(x, n) {
+    if (isNaN(x)) return ''
+    return x.toFixed(n)
+  }
 }

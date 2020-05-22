@@ -49,11 +49,15 @@
         <score-cell label="スタビ減速" :score="scores.スタビ減速" />
       </div>
     </div>
+    <div class="flex justify-center my-2 relative z-10">
+      <button class="xx-copy zzBtn1" @click="handleCopy">コピー</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import Util from '@/models/Util'
 import ScoreCell from '@/components/ScoreCell'
 import AptiHex from '@/components/AptiHex'
 
@@ -88,6 +92,44 @@ export default {
       return result
     },
   },
+  methods: {
+    handleCopy() {
+      const s = this.scores
+      const data = []
+      data.push({ label: 'スピード', score: s.スピード })
+      data.push({ label: 'パワー', score: s.パワー })
+      data.push({ label: 'コーナー安定', score: s.コーナー安定 })
+      data.push({ label: 'スタミナ耐久', score: s.スタミナ耐久 })
+      data.push({ label: '重さ', score: s.重さ })
+      data.push({ label: 'ギヤ負荷', score: s.ギヤ負荷 })
+      data.push({ label: 'パワーロス', score: s.パワーロス })
+      data.push({ label: 'スピードロス', score: s.スピードロス })
+      data.push({
+        label: 'エアロダウンフォース',
+        score: s.エアロダウンフォース,
+      })
+      data.push({ label: '節電', score: s.節電 })
+      data.push({ label: '制振', score: s.制振 })
+      data.push({ label: 'スラスト角', score: s.スラスト角 })
+      data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
+      data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
+      data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
+      data.push({ label: 'タイヤ径', score: s.タイヤ径 })
+      data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
+      data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
+      data.push({ label: 'ウェーブ', score: s.ウェーブ })
+      data.push({ label: 'オフロード', score: s.オフロード })
+      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
+      data.push({ label: '消費電流', score: s.消費電流 })
+      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
+      data.push({ label: 'スタビ減速', score: s.スタビ減速 })
+      const lines = data.map((o) => {
+        return `${o.label}\t${Util.fixedNum(o.score, 3)}`
+      })
+      Util.copyToClipboard(lines.join('\n'))
+      window.alert('コピーしました。')
+    },
+  },
 }
 </script>
 
@@ -95,6 +137,11 @@ export default {
 .TotalDetail {
   .isZero {
     color: #888;
+  }
+
+  .xx-copy {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 </style>
