@@ -23,6 +23,7 @@ html {
 }
 
 .root {
+  color: #eee;
   font-size: 0.75rem;
   font-weight: normal;
   margin: 0 auto;

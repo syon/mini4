@@ -23,16 +23,17 @@
         <score-cell label="コーナー安定" :score="scores.コーナー安定" />
         <score-cell label="スタミナ耐久" :score="scores.スタミナ耐久" />
         <score-cell label="重さ" :score="scores.重さ" />
+        <score-cell label="ギヤ比" :score="scores.ギヤ比" />
         <score-cell label="ギヤ負荷" :score="scores.ギヤ負荷" />
         <score-cell label="パワーロス" :score="scores.パワーロス" />
         <score-cell label="スピードロス" :score="scores.スピードロス" />
+        <score-cell label="消費電流" :score="scores.消費電流" />
+        <score-cell label="節電" :score="scores.節電" />
+        <score-cell label="制振" :score="scores.制振" />
         <score-cell
           label="エアロダウンフォース"
           :score="scores.エアロダウンフォース"
         />
-        <score-cell label="節電" :score="scores.節電" />
-        <score-cell label="制振" :score="scores.制振" />
-        <score-cell label="スラスト角" :score="scores.スラスト角" />
       </div>
       <div class="flex-1 mx-2">
         <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
@@ -42,17 +43,16 @@
         <score-cell label="タイヤ径・リヤ" :score="rearTireSize" />
         <score-cell label="ローラー摩擦" :score="scores.ローラー摩擦" />
         <score-cell label="ローラー抵抗" :score="scores.ローラー抵抗" />
+        <score-cell label="スラスト角" :score="scores.スラスト角" />
+        <score-cell label="スタビ減速" :score="scores.スタビ減速" />
+        <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
         <score-cell label="ウェーブ" :score="scores.ウェーブ" />
         <score-cell label="オフロード" :score="scores.オフロード" />
         <score-cell label="デジタル" :score="scores.デジタル" />
-        <score-cell label="ギヤ比" :score="scores.ギヤ比" />
-        <score-cell label="消費電流" :score="scores.消費電流" />
-        <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
-        <score-cell label="スタビ減速" :score="scores.スタビ減速" />
       </div>
     </div>
-    <div class="flex justify-center my-2 relative z-10">
-      <button class="xx-copy zzBtn1" @click="handleCopy">コピー</button>
+    <div class="flex justify-center mt-1 relative">
+      <button class="zzBtnCopy" @click="handleCopy">コピー</button>
     </div>
   </div>
 </template>
@@ -111,16 +111,17 @@ export default {
       data.push({ label: 'コーナー安定', score: s.コーナー安定 })
       data.push({ label: 'スタミナ耐久', score: s.スタミナ耐久 })
       data.push({ label: '重さ', score: s.重さ })
+      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
       data.push({ label: 'ギヤ負荷', score: s.ギヤ負荷 })
       data.push({ label: 'パワーロス', score: s.パワーロス })
       data.push({ label: 'スピードロス', score: s.スピードロス })
+      data.push({ label: '消費電流', score: s.消費電流 })
+      data.push({ label: '節電', score: s.節電 })
+      data.push({ label: '制振', score: s.制振 })
       data.push({
         label: 'エアロダウンフォース',
         score: s.エアロダウンフォース,
       })
-      data.push({ label: '節電', score: s.節電 })
-      data.push({ label: '制振', score: s.制振 })
-      data.push({ label: 'スラスト角', score: s.スラスト角 })
       data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
       data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
       data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
@@ -128,13 +129,12 @@ export default {
       data.push({ label: 'タイヤ径・リヤ', score: this.rearTireSize })
       data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
       data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
-      data.push({ label: 'ウェーブ', score: s.ウェーブ })
-      data.push({ label: 'オフロード', score: s.オフロード })
-      data.push({ label: 'デジタル', score: s.デジタル })
-      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
-      data.push({ label: '消費電流', score: s.消費電流 })
-      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
+      data.push({ label: 'スラスト角', score: s.スラスト角 })
       data.push({ label: 'スタビ減速', score: s.スタビ減速 })
+      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
+      data.push({ label: 'ウェーブ', score: s.ウェーブ })
+      data.push({ label: 'デジタル', score: s.デジタル })
+      data.push({ label: 'オフロード', score: s.オフロード })
       const lines = data.map((o) => {
         return `${o.label}\t${Util.fixedNum(o.score, 3)}`
       })
@@ -149,11 +149,6 @@ export default {
 .TotalDetail {
   .isZero {
     color: #888;
-  }
-
-  .xx-copy {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 }
 </style>

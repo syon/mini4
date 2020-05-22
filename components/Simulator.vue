@@ -6,7 +6,7 @@
         <total-area />
       </div>
     </div>
-    <div class="GarageArea flex p-1">
+    <div class="GarageArea zzBg-grid flex p-1">
       <setting-area class="w-7/12" :tab="tab" />
       <div class="w-5/12 migisita">
         <parts-choise-area />
@@ -72,10 +72,6 @@ export default {
 
 <style>
 .GarageArea {
-  color: #eee;
-  background-color: #505657;
-  background-image: url('/bg_grid_w.svg');
-  background-size: 32px;
 }
 
 .migisita {
