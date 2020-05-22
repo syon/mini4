@@ -44,6 +44,7 @@
         <score-cell label="ローラー抵抗" :score="scores.ローラー抵抗" />
         <score-cell label="ウェーブ" :score="scores.ウェーブ" />
         <score-cell label="オフロード" :score="scores.オフロード" />
+        <score-cell label="デジタル" :score="scores.デジタル" />
         <score-cell label="ギヤ比" :score="scores.ギヤ比" />
         <score-cell label="消費電流" :score="scores.消費電流" />
         <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
@@ -129,6 +130,7 @@ export default {
       data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
       data.push({ label: 'ウェーブ', score: s.ウェーブ })
       data.push({ label: 'オフロード', score: s.オフロード })
+      data.push({ label: 'デジタル', score: s.デジタル })
       data.push({ label: 'ギヤ比', score: s.ギヤ比 })
       data.push({ label: '消費電流', score: s.消費電流 })
       data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
