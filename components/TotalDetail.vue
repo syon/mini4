@@ -38,7 +38,8 @@
         <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
         <score-cell label="タイヤ旋回" :score="scores.タイヤ旋回" />
         <score-cell label="タイヤ反発" :score="scores.タイヤ反発" />
-        <score-cell label="タイヤ径" :score="scores.タイヤ径" />
+        <score-cell label="タイヤ径・フロント" :score="frontTireSize" />
+        <score-cell label="タイヤ径・リヤ" :score="rearTireSize" />
         <score-cell label="ローラー摩擦" :score="scores.ローラー摩擦" />
         <score-cell label="ローラー抵抗" :score="scores.ローラー抵抗" />
         <score-cell label="ウェーブ" :score="scores.ウェーブ" />
@@ -78,6 +79,14 @@ export default {
     bodyInfo() {
       return this.getEquipByPart(this.tab, 'ボディ')
     },
+    frontTireSize() {
+      const info = this.getEquipByPart(this.tab, 'フロント・タイヤ')
+      return info.性能.タイヤ径
+    },
+    rearTireSize() {
+      const info = this.getEquipByPart(this.tab, 'リヤ・タイヤ')
+      return info.性能.タイヤ径
+    },
     aptSet() {
       return ['St', 'U', 'Co', 'Kp', 'J']
     },
@@ -114,7 +123,8 @@ export default {
       data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
       data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
       data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
-      data.push({ label: 'タイヤ径', score: s.タイヤ径 })
+      data.push({ label: 'タイヤ径・フロント', score: this.frontTireSize })
+      data.push({ label: 'タイヤ径・リヤ', score: this.rearTireSize })
       data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
       data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
       data.push({ label: 'ウェーブ', score: s.ウェーブ })
