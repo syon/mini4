@@ -7,7 +7,7 @@
         </button>
       </div>
       <hr class="zz-hr-gray" />
-      <div class="OwnsList flex-1 zzBg-gray1 br-1">
+      <div class="OwnsList flex-1">
         <div class="m-1">
           <div class="zzCategoryHeaderLong">登録パーツ</div>
           <div v-for="(r, i) of theList" :key="i" class="OwnsItem m-1 br-1">
