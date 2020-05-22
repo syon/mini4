@@ -1,3 +1,7 @@
+import debug from 'debug'
+
+const dg = debug('@:ing')
+
 export const state = () => ({
   isMobile: true,
   ping: '',
@@ -28,6 +32,7 @@ export const mutations = {
     state.isMobile = bool
   },
   setPing(state) {
+    dg('PING')
     state.ping = new Date().getTime()
   },
   setTab(state, tab) {
