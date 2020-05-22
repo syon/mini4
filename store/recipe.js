@@ -116,6 +116,7 @@ export const getters = {
     return rootGetters['catalog/getItemInfo'](part, r.key) || {}
   },
   gAllEquips(state, getters, rootState, rootGetters) {
+    if (rootState.ing.ping);
     const parts = Mini4.getAllPartNames()
     const allEquips = parts.map((part) => {
       const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
