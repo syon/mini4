@@ -2,19 +2,21 @@
   <div>
     <about-modal />
     <support-modal />
-    <!-- <button class="zzBtn1 m-auto" @click="hendleError">Error</button> -->
-    <div class="flex items-center justify-between p-4 my-2">
-      <div class="flex-1">
-        <button class="zzBtn1" @click="handleReset">リセット</button>
+    <!-- <button class="zzBtnRounded1 m-auto" @click="hendleError">Error</button> -->
+    <div class="flex items-center justify-between p-2">
+      <div class="flex">
+        <button class="zzBtnRounded1" @click="handleReset">リセット</button>
       </div>
-      <div class="flex-1 flex justify-center">
-        <button class="zzBtn1" @click="handleAbout">このサイトについて</button>
+      <div class="flex">
+        <button class="zzBtnRounded1" @click="handleAbout">
+          このサイトについて
+        </button>
       </div>
-      <div class="flex-1 flex justify-center">
-        <button class="zzBtn1" @click="handleSupport">支援する</button>
+      <div class="flex">
+        <button class="zzBtnRounded1" @click="handleSupport">支援する</button>
       </div>
-      <div class="flex-1">
-        <access-counter class="flex-1 ml-auto" />
+      <div class="flex">
+        <access-counter class="flex-1 m-2" />
       </div>
     </div>
   </div>

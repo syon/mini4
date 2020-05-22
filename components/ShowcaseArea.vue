@@ -2,7 +2,7 @@
   <div v-if="isShowcase" class="floating">
     <div class="xx-ShowcaseArea zzBg-gray1 br-1">
       <div class="flex justify-center">
-        <button class="zzBtn1 w-20 m-2" @click="handleDetach">外す</button>
+        <button class="zzBtnRounded1" @click="handleDetach">外す</button>
       </div>
       <hr class="zz-hr-gray" />
       <div class="CraftEditSlotList">

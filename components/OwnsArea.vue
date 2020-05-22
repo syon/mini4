@@ -2,7 +2,7 @@
   <div v-if="isOriginal" class="floating">
     <div class="xx-OwnsArea zzBg-gray1 br-1">
       <div class="flex justify-center">
-        <button class="zzBtn1 w-32 m-2" @click="handleRegister">
+        <button class="zzBtnRounded1" @click="handleRegister">
           今のパーツを登録する
         </button>
       </div>
@@ -30,7 +30,9 @@
                 </div>
               </div>
               <div class="OwnsItemDelete flex items-center ml-1">
-                <button class="zzBtn1" @click="handleDelete(i)">削除</button>
+                <button class="zzBtnRect1" @click="handleDelete(i)">
+                  削除
+                </button>
               </div>
             </div>
           </div>
@@ -121,7 +123,7 @@ export default {
 }
 
 .OwnsItemBoxTitle {
-  line-height: 1.2;
+  margin-bottom: 0.25rem;
 }
 
 .OwnsItemBoxDesc {

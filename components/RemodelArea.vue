@@ -3,14 +3,14 @@
     <template v-for="(x, idx) in remodelSlots">
       <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex" />
     </template>
-    <div class="flex flex-col mt-2 mb-1">
-      <button class="TuneBtn zzBtn1" @click="toggleCraftTune">
+    <div class="flex flex-col">
+      <button class="TuneBtn zzBtnRounded2" @click="toggleCraftTune">
         <!-- まとめて改造 / プリセット -->
         改造プリセット / 一括変更
       </button>
     </div>
-    <div class="flex flex-col mt-2 mb-1">
-      <button class="TuneBtn zzBtn1" @click="toggleOriginal">
+    <div class="flex flex-col">
+      <button class="TuneBtn zzBtnRounded2" @click="toggleOriginal">
         パーツ登録 / 呼出
       </button>
     </div>

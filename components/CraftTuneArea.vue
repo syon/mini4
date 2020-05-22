@@ -37,13 +37,13 @@
         <div
           class="levelChoise zzAnton flex items-center justify-around text-black my-1"
         >
-          <button class="zzBtn2 flex-1" @click="handleLevel('Min')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Min')">
             1
           </button>
-          <button class="zzBtn2 flex-1" @click="handleLevel('Minus10')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Minus10')">
             -10
           </button>
-          <button class="zzBtn2 flex-1" @click="handleLevel('Minus1')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Minus1')">
             -
           </button>
           <input
@@ -52,19 +52,19 @@
             class="levelVal flex-1 text-white bg-gray-800 text-center"
             style="width: 42px;"
           />
-          <button class="zzBtn2 flex-1" @click="handleLevel('Plus1')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Plus1')">
             +
           </button>
-          <button class="zzBtn2 flex-1" @click="handleLevel('Plus10')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Plus10')">
             +10
           </button>
-          <button class="zzBtn2 flex-1" @click="handleLevel('Max')">
+          <button class="zzBtnRect2 flex-1" @click="handleLevel('Max')">
             50
           </button>
         </div>
         <hr class="zz-hr-gray my-2" />
         <div class="flex justify-center my-1">
-          <button class="zzBtn1" @click="removeAllCrafts">
+          <button class="zzBtnRounded1" @click="removeAllCrafts">
             改造をすべて取り消す
           </button>
         </div>

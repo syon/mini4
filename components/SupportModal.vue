@@ -16,7 +16,7 @@
           <li class="relative">
             受取人<code class="zz-text06 tracking-tighter mx-1"
               >tarolnetg+amzg@gmail.com</code
-            >を<button class="zzBtnCopy br-1 mx-1 px-1" @click="handleCopy">
+            >を<button class="zzBtnRect1 br-1 mx-1 px-1" @click="handleCopy">
               コピー</button
             >します
           </li>
