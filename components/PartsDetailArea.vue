@@ -11,7 +11,7 @@
       </div>
     </template>
 
-    <a href="#" class="PartsSpecList zzCheckerBg p-1 br-1" @click="toggleSpec">
+    <a href="#" class="PartsSpecList zzBg-checker p-1 br-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
         :before-score="beforeSpec.スピード"

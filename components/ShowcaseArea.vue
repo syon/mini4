@@ -8,7 +8,7 @@
       <div class="CraftEditSlotList">
         <template v-for="(categorySet, key) in sortedCatalog">
           <div :key="key" class="m-1">
-            <div class="zz-category mt-4">{{ key }}</div>
+            <div class="zzCategoryHeaderLong">{{ key }}</div>
             <template v-for="(item, name) in categorySet">
               <a
                 :key="name"

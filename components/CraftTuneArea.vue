@@ -3,7 +3,7 @@
     <div class="xx-CraftTuneArea flex flex-col">
       <div class="CraftTuneList flex-1 zzBg-gray1 br-1">
         <div class="m-1">
-          <div class="zz-category mt-4">改造プリセット</div>
+          <div class="zzCategoryHeaderLong">改造プリセット</div>
           <template v-for="(cp, i) of ingCraftPreset">
             <a
               :key="i"
