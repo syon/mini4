@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="flex justify-center mt-1 relative">
-      <button class="zzBtnCopy" @click="handleCopy">コピー</button>
+      <button class="zzBtnCopy z-10" @click="handleCopy">コピー</button>
     </div>
   </div>
 </template>
