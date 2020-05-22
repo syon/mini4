@@ -1,5 +1,6 @@
 import CraftMaster from '../store/craft.json'
 import RankMaster from './rank.json'
+// import Util from '@/models/Util'
 
 export default class Mini4 {
   static getAllPartNames() {
@@ -389,5 +390,90 @@ export default class Mini4 {
       スタビ減速: true,
     }
     return params[type]
+  }
+
+  static getDiagnosis(allEquips, totalScores) {
+    const PI = 3.14159265359
+    // const GG = 9.80665
+    const {
+      スピード,
+      パワー,
+      重さ,
+      ギヤ比,
+      ギヤ負荷,
+      パワーロス,
+      スピードロス,
+      消費電流,
+      節電,
+      エアロダウンフォース,
+      スラスト角,
+      ブレーキ減速,
+    } = totalScores
+    const bodyInfo = allEquips.find((x) => x.part === 'ボディ') || {}
+    const fTireInfo = allEquips.find((x) => x.part === 'フロント・タイヤ') || {}
+    const rTireInfo = allEquips.find((x) => x.part === 'リヤ・タイヤ') || {}
+    const ボディ特性 = bodyInfo.item.ボディ特性
+    let ボディブレーキ = 0
+    if (ブレーキ減速 > 0 && ボディ特性 === 'ブレーキ効果UP') {
+      ボディブレーキ = 0.05
+    }
+    // FIXME: これはデフォルトスペックなので間違い
+    const フロントタイヤ摩擦 = (fTireInfo.item.性能 || {}).タイヤ摩擦
+    const フロントタイヤ径 = (fTireInfo.item.性能 || {}).タイヤ径
+    const リヤタイヤ径 = (rTireInfo.item.性能 || {}).タイヤ径
+    const ブレーキ性能 = ブレーキ減速 / 2000 + ボディブレーキ
+    const タイヤグリップ = フロントタイヤ摩擦 / 100.0
+    let ボディ節電 = 節電
+    if (節電 > 0 && ボディ特性 === '節電UP') {
+      ボディ節電 = 節電 * 1.6
+    }
+    const バッテリー消費量 = 消費電流 * (1 - ボディ節電 / 10000)
+    let パワー特性 = 1
+    if (ボディ特性 === 'パワーUP+') {
+      パワー特性 = 1.03
+    } else if (ボディ特性 === 'パワーUP+') {
+      パワー特性 = 1.02
+    }
+    let スピード特性 = 1
+    if (ボディ特性 === 'かっとびマシン') {
+      スピード特性 = 1.03
+    } else if (ボディ特性 === 'スピード+') {
+      スピード特性 = 1.02
+    } else if (ボディ特性 === 'スピード') {
+      スピード特性 = 1.01
+    }
+    const モータートルク = パワー特性 * パワー * 10
+    const Pパワロス = パワーロス / 10000
+    const Pスピロス =
+      Math.max(
+        スピードロス - 5000.0 * Math.abs(フロントタイヤ径 - リヤタイヤ径),
+        0
+      ) / 10000
+    const 加速度 =
+      (モータートルク * ギヤ比 * (1 - Pパワロス) - ギヤ負荷) /
+        (リヤタイヤ径 * 2 * 重さ) -
+      Pスピロス / 4
+    const リヤタイヤ周 = (リヤタイヤ径 / 1000) * PI
+    const モーター回転数 = (スピード特性 * スピード * 10) / 60
+    const 無負荷速度 = (リヤタイヤ周 * モーター回転数) / ギヤ比
+    const 負荷 =
+      1 -
+      ((重さ * リヤタイヤ径) / 2) * Pスピロス +
+      (ギヤ負荷 / モータートルク) * ギヤ比 -
+      Pパワロス
+    const 空気抵抗 = エアロダウンフォース / 1000
+    const 最高速度ms = 無負荷速度 * 負荷 - 空気抵抗
+    const 最高速度kmh = (最高速度ms * 3600) / 1000
+    return {
+      最高速度_時速: 最高速度kmh,
+      最高速度_秒速: 最高速度ms,
+      バッテリー消費量,
+      加速度,
+      最高速到達時間: null,
+      タイヤグリップ,
+      ローラースラスト角: スラスト角,
+      重さ,
+      ブレーキ性能,
+    }
   }
 }

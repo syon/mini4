@@ -85,6 +85,7 @@
           </div>
           <div v-if="isDetailOpen" class="">
             <total-detail />
+            <diagnosis-area />
           </div>
         </div>
         <div class="zz-footgray">
@@ -105,11 +106,13 @@
 import { mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
 import TotalDetail from '@/components/TotalDetail'
+import DiagnosisArea from '@/components/DiagnosisArea'
 
 export default {
   components: {
     ScoreRank,
     TotalDetail,
+    DiagnosisArea,
   },
   data() {
     return {
