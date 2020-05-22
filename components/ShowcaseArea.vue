@@ -5,7 +5,7 @@
         <button class="zzBtnRounded1" @click="handleDetach">外す</button>
       </div>
       <hr class="zz-hr-gray" />
-      <div class="CraftEditSlotList">
+      <div class="CraftEditSlotList flex-1">
         <template v-for="(categorySet, key) in sortedCatalog">
           <div :key="key" class="m-1">
             <div class="zzCategoryHeaderLong">{{ key }}</div>
