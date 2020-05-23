@@ -417,10 +417,9 @@ export default class Mini4 {
     if (ブレーキ減速 > 0 && ボディ特性 === 'ブレーキ効果UP') {
       ボディブレーキ = 0.05
     }
-    // FIXME: これはデフォルトスペックなので間違い
-    const フロントタイヤ摩擦 = (fTireInfo.item.性能 || {}).タイヤ摩擦
-    const フロントタイヤ径 = (fTireInfo.item.性能 || {}).タイヤ径
-    const リヤタイヤ径 = (rTireInfo.item.性能 || {}).タイヤ径
+    const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
+    const フロントタイヤ径 = (fTireInfo.score || {}).タイヤ径
+    const リヤタイヤ径 = (rTireInfo.score || {}).タイヤ径
     const ブレーキ性能 = ブレーキ減速 / 2000 + ボディブレーキ
     const タイヤグリップ = フロントタイヤ摩擦 / 100.0
     let ボディ節電 = 節電
@@ -471,6 +470,10 @@ export default class Mini4 {
       加速度,
       最高速到達時間: null,
       タイヤグリップ,
+      コーナー減速率: null,
+      ジャンプ飛距離: null,
+      バウンド時間: null,
+      前後の重心: null,
       ローラースラスト角: スラスト角,
       重さ,
       ブレーキ性能,

@@ -122,7 +122,8 @@ export const getters = {
       const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
       const partRecipe = getters.getRecipeByPart(rootState.ing.tab, part) || {}
       const item = partCatalog[partRecipe.key] || {}
-      return { part, item, partRecipe }
+      const score = Mini4.getPartScore({ part, item, partRecipe })
+      return { part, item, partRecipe, score }
     })
     const accessories = allEquips.filter((e) => {
       return Mini4.isAccessory(e.part)
