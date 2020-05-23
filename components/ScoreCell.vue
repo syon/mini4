@@ -13,7 +13,7 @@ import Util from '@/models/Util'
 export default {
   props: {
     label: { type: String, required: true },
-    score: { type: Number, required: true },
+    score: { type: Number, default: 0 },
   },
   computed: {
     isZero() {
