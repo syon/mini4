@@ -148,7 +148,7 @@ export default {
 .PartsSpecList {
   display: block;
   position: relative;
-  z-index: 5;
+  z-index: 9;
   border: 1px solid #b5babd;
 }
 

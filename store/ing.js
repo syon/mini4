@@ -23,6 +23,7 @@ export const state = () => ({
   isAbout: false,
   isSupport: false,
   isOriginal: false,
+  isDiagnosis: false,
 })
 
 export const getters = {}
@@ -94,6 +95,9 @@ export const mutations = {
   },
   setSupport(state, isSupport) {
     state.isSupport = isSupport
+  },
+  setDiagnosis(state, isDiagnosis) {
+    state.isDiagnosis = isDiagnosis
   },
 }
 

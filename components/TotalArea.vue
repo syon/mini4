@@ -85,17 +85,16 @@
           </div>
           <div v-if="isDetailOpen" class="">
             <total-detail />
+            <diagnosis-area />
           </div>
         </div>
-        <div class="zz-footgray">
-          <button
-            class="xx-toggle w-full text-gray-700 text-center"
-            @click="toggleDetail"
-          >
-            <span v-if="isDetailOpen">▲</span>
-            <span v-else>▼</span>
-          </button>
-        </div>
+        <button
+          class="zz-footgray w-full text-gray-700 text-center"
+          @click="toggleDetail"
+        >
+          <span v-if="isDetailOpen">▲</span>
+          <span v-else>▼</span>
+        </button>
       </div>
     </div>
   </div>
@@ -105,11 +104,13 @@
 import { mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
 import TotalDetail from '@/components/TotalDetail'
+import DiagnosisArea from '@/components/DiagnosisArea'
 
 export default {
   components: {
     ScoreRank,
     TotalDetail,
+    DiagnosisArea,
   },
   data() {
     return {
@@ -231,15 +232,5 @@ export default {
       table-layout: fixed;
     }
   }
-
-  .xx-toggle {
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
-thead th {
-  font-weight: normal;
 }
 </style>
