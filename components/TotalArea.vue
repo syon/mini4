@@ -88,15 +88,13 @@
             <diagnosis-area />
           </div>
         </div>
-        <div class="zz-footgray">
-          <button
-            class="xx-toggle w-full text-gray-700 text-center"
-            @click="toggleDetail"
-          >
-            <span v-if="isDetailOpen">▲</span>
-            <span v-else>▼</span>
-          </button>
-        </div>
+        <button
+          class="zz-footgray w-full text-gray-700 text-center"
+          @click="toggleDetail"
+        >
+          <span v-if="isDetailOpen">▲</span>
+          <span v-else>▼</span>
+        </button>
       </div>
     </div>
   </div>
@@ -234,15 +232,5 @@ export default {
       table-layout: fixed;
     }
   }
-
-  .xx-toggle {
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
-thead th {
-  font-weight: normal;
 }
 </style>

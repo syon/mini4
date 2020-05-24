@@ -50,7 +50,7 @@
             v-model="level"
             type="number"
             class="levelVal flex-1 text-white bg-gray-800 text-center"
-            style="width: 42px;"
+            style="width: 2.5rem; height: 1.5rem;"
           />
           <button class="zzBtnRect2 flex-1" @click="handleLevel('Plus1')">
             +
