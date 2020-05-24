@@ -2,100 +2,18 @@
   <div class="DiagnosisArea zzBg-grit p-2">
     <div class="DiagMain relative z-10">
       <div class="flex mt-2">
-        <div class="DiagLeft flex-1 mx-2">
-          <div class="DiagLine">
-            <div class="DiagLine-Label">最高速度(時速)</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.最高速度_時速, 3) }}
-            </div>
-            <div class="DiagLineUnit zzAnton">km/h</div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">最高速度(秒速)</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.最高速度_秒速, 3) }}
-            </div>
-            <div class="DiagLineUnit zzAnton">m/s</div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">バッテリー消費量</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.バッテリー消費量, 3) }}
-            </div>
-            <div class="DiagLineUnit zzAnton">mA/h</div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">加速度(毎秒)</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.加速度, 3) }}
-            </div>
-            <div class="DiagLineUnit zzAnton">m/s&sup2;</div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">最高速到達時間(秒)</div>
-            <div class="DiagLine-Value zzAnton">
-              -
-              <!-- {{ fixedNum(diag.最高速到達時間, 3) }} -->
-            </div>
-            <div class="DiagLineUnit zzAnton">秒</div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">タイヤグリップ</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.タイヤグリップ, 3) }}
-            </div>
-            <div class="DiagLineUnit zzAnton"></div>
+        <div class="DiagLeft flex-1 mx-1">
+          <div v-for="o of leftContents" :key="o.label" class="DiagLine">
+            <div class="DiagLine-Label">{{ o.label }}</div>
+            <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
+            <div class="DiagLineUnit zzAnton">{{ o.unit }}</div>
           </div>
         </div>
-        <div class="DiagRight mx-2">
-          <div class="DiagLine">
-            <div class="DiagLine-Label">コーナー減速率</div>
-            <div class="DiagLine-Value zzAnton">
-              -
-              <!-- {{ fixedNum(diag.コーナー減速率, 3) }} -->
-            </div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">ジャンプ飛距離</div>
-            <div class="DiagLine-Value zzAnton">
-              -
-              <!-- {{ fixedNum(diag.ジャンプ飛距離, 3) }} -->
-              m
-            </div>
-          </div>
-          <div class="DiagLine">
-            <div class="DiagLine-Label">バウンド時間</div>
-            <div class="DiagLine-Value zzAnton">
-              -
-              <!-- {{ fixedNum(diag.バウンド時間, 3) }} -->
-              秒
-            </div>
-          </div>
-          <div class="DiagLine flex justify-between">
-            <div class="DiagLine-Label">前後の重心</div>
-            <div class="DiagLine-Value zzAnton">
-              -
-              <!-- {{ fixedNum(diag.前後の重心, 3) }} -->
-              mm
-            </div>
-          </div>
-          <div class="DiagLine flex justify-between">
-            <div class="DiagLine-Label">ローラースラスト角</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.ローラースラスト角, 3) }}
-            </div>
-          </div>
-          <div class="DiagLine flex justify-between">
-            <div class="DiagLine-Label">重さ</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.重さ, 3) }}
-            </div>
-          </div>
-          <div class="DiagLine flex justify-between">
-            <div class="DiagLine-Label">ブレーキ性能</div>
-            <div class="DiagLine-Value zzAnton">
-              {{ fixedNum(diag.ブレーキ性能, 3) }}
-            </div>
+        <div class="DiagRight ml-1 mr-1">
+          <div v-for="o of rightContents" :key="o.label" class="DiagLine">
+            <div class="DiagLine-Label">{{ o.label }}</div>
+            <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
+            <div class="DiagLineUnit zzAnton">{{ o.unit }}</div>
           </div>
         </div>
       </div>
@@ -124,6 +42,79 @@ export default {
     diag() {
       return Mini4.getDiagnosis(this.gAllEquips, this.scores)
     },
+    leftContents() {
+      return [
+        {
+          label: '最高速度(時速)',
+          value: this.fixedNum(this.diag.最高速度_時速, 3),
+          unit: 'km/h',
+        },
+        {
+          label: '最高速度(秒速)',
+          value: this.fixedNum(this.diag.最高速度_秒速, 3),
+          unit: 'm/s',
+        },
+        {
+          label: 'バッテリー消費量',
+          value: this.fixedNum(this.diag.バッテリー消費量, 3),
+          unit: 'mA/h',
+        },
+        {
+          label: '加速度(毎秒)',
+          value: this.fixedNum(this.diag.加速度, 3),
+          unit: 'm/s²',
+        },
+        {
+          label: '最高速到達時間(秒)',
+          value: '-', // this.fixedNum(this.diag.最高速到達時間, 3),
+          unit: '秒',
+        },
+        {
+          label: 'タイヤグリップ',
+          value: this.fixedNum(this.diag.タイヤグリップ, 3),
+          unit: '',
+        },
+      ]
+    },
+    rightContents() {
+      return [
+        {
+          label: 'コーナー減速率',
+          value: '-', // this.fixedNum(this.diag.コーナー減速率, 3),
+          unit: '',
+        },
+        {
+          label: 'ジャンプ飛距離',
+          value: '-', // this.fixedNum(this.diag.ジャンプ飛距離, 3),
+          unit: 'm',
+        },
+        {
+          label: 'バウンド時間',
+          value: '-', // this.fixedNum(this.diag.バウンド時間, 3),
+          unit: '秒',
+        },
+        {
+          label: '前後の重心',
+          value: '-', // this.fixedNum(this.diag.前後の重心, 3),
+          unit: 'mm',
+        },
+        {
+          label: 'ローラースラスト角',
+          value: this.fixedNum(this.diag.ローラースラスト角, 3),
+          unit: '',
+        },
+        {
+          label: '重さ',
+          value: this.fixedNum(this.diag.重さ, 3),
+          unit: '',
+        },
+        {
+          label: 'ブレーキ性能',
+          value: this.fixedNum(this.diag.ブレーキ性能, 3),
+          unit: '',
+        },
+      ]
+    },
   },
   methods: {
     fixedNum(x, n) {
@@ -140,7 +131,10 @@ export default {
 .DiagnosisArea {
   .DiagMain {
     .DiagRight {
-      flex: 0.8;
+      flex: 0.9;
+      .DiagLineUnit {
+        width: 1rem;
+      }
     }
   }
 
@@ -148,6 +142,11 @@ export default {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    padding: 0.25rem 0 0.25rem 0.25rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
 
     .DiagLine-Value {
       flex: auto;
