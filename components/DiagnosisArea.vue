@@ -3,58 +3,59 @@
     <div class="DiagMain relative z-10">
       <div class="flex mt-2">
         <div class="DiagLeft flex-1 mx-2">
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">最高速度(時速)</div>
             <div class="DiagLine-Value zzAnton">
               {{ fixedNum(diag.最高速度_時速, 3) }}
-              km/h
             </div>
+            <div class="DiagLineUnit zzAnton">km/h</div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">最高速度(秒速)</div>
             <div class="DiagLine-Value zzAnton">
               {{ fixedNum(diag.最高速度_秒速, 3) }}
-              m/s
             </div>
+            <div class="DiagLineUnit zzAnton">m/s</div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">バッテリー消費量</div>
             <div class="DiagLine-Value zzAnton">
               {{ fixedNum(diag.バッテリー消費量, 3) }}
-              mA/h
             </div>
+            <div class="DiagLineUnit zzAnton">mA/h</div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">加速度(毎秒)</div>
             <div class="DiagLine-Value zzAnton">
               {{ fixedNum(diag.加速度, 3) }}
-              m/s&sup2;
             </div>
+            <div class="DiagLineUnit zzAnton">m/s&sup2;</div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">最高速到達時間(秒)</div>
             <div class="DiagLine-Value zzAnton">
               -
               <!-- {{ fixedNum(diag.最高速到達時間, 3) }} -->
-              秒
             </div>
+            <div class="DiagLineUnit zzAnton">秒</div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">タイヤグリップ</div>
             <div class="DiagLine-Value zzAnton">
               {{ fixedNum(diag.タイヤグリップ, 3) }}
             </div>
+            <div class="DiagLineUnit zzAnton"></div>
           </div>
         </div>
         <div class="DiagRight mx-2">
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">コーナー減速率</div>
             <div class="DiagLine-Value zzAnton">
               -
               <!-- {{ fixedNum(diag.コーナー減速率, 3) }} -->
             </div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">ジャンプ飛距離</div>
             <div class="DiagLine-Value zzAnton">
               -
@@ -62,7 +63,7 @@
               m
             </div>
           </div>
-          <div class="DiagLine flex justify-between">
+          <div class="DiagLine">
             <div class="DiagLine-Label">バウンド時間</div>
             <div class="DiagLine-Value zzAnton">
               -
@@ -140,6 +141,22 @@ export default {
   .DiagMain {
     .DiagRight {
       flex: 0.8;
+    }
+  }
+
+  .DiagLine {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    .DiagLine-Value {
+      flex: auto;
+      text-align: right;
+    }
+    .DiagLineUnit {
+      margin-left: 0.3em;
+      width: 1.5rem;
+      font-size: 0.6rem;
     }
   }
 }
