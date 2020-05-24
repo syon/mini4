@@ -12,6 +12,9 @@
       <div class="xx-aptihex">
         <apti-hex :type="x.コース適性" />
       </div>
+      <div class="xx-levelsum">
+        <span>{{ levelSum }}</span>
+      </div>
     </div>
     <div v-if="active" class="xx-check">
       <the-check class="the-check" />
@@ -38,6 +41,7 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
     }),
     ...mapState('catalog', {
@@ -45,9 +49,12 @@ export default {
     }),
     ...mapGetters({
       getItemInfo: 'catalog/getItemInfo',
+      getRecipeByPart: 'recipe/getRecipeByPart',
     }),
     x() {
-      return this.getItemInfo(this.part, this.item.key) || {}
+      const item = this.getItemInfo(this.part, this.item.key) || {}
+      const recipe = this.getRecipeByPart(this.tab, this.part)
+      return { ...item, ...recipe }
     },
     active() {
       return this.part === this.ingPart
@@ -62,6 +69,11 @@ export default {
       const category = Mini4.resolveCategoryByPart(this.part)
       const code = Mini4.resolveCodeByCategory(category)
       return code
+    },
+    levelSum() {
+      return this.x.crafts
+        .map((x) => x.level)
+        .reduce((acc, crr) => acc + crr, 0)
     },
   },
   methods: {
@@ -127,6 +139,9 @@ export default {
     .xx-parts-name {
       display: none;
     }
+    .xx-levelsum {
+      display: none;
+    }
   }
   .ItemIcon {
     position: absolute;
@@ -148,6 +163,16 @@ export default {
     position: absolute;
     bottom: -3px;
     left: -3px;
+  }
+  .xx-levelsum {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    font-size: 0.55em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1px;
+    padding: 1.5px;
+    line-height: 1;
   }
 }
 
