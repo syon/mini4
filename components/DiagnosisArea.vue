@@ -1,5 +1,5 @@
 <template>
-  <div class="DiagnosisArea">
+  <div v-if="isDiagnosis" class="DiagnosisArea">
     <div class="flex mt-4">
       <div class="flex-1 mx-2">
         <div class="DiagLine flex justify-between">
@@ -84,12 +84,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Mini4 from '@/models/Mini4'
 import Util from '@/models/Util'
 
 export default {
   computed: {
+    ...mapState('ing', {
+      isDiagnosis: (state) => state.isDiagnosis,
+    }),
     ...mapGetters({
       gAllEquips: 'recipe/gAllEquips',
       scores: 'recipe/gAllPartScoresSum',

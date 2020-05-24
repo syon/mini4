@@ -25,6 +25,7 @@
               href="https://www.amazon.co.jp/dp/B06X982RQ9/"
               target="_blank"
               class="zz-hashtag"
+              @click="handleGift($event)"
               >Amazonギフト券(Eメールタイプ)</a
             >
             を開きます
@@ -69,6 +70,10 @@ export default {
     handleCopy() {
       Util.copyToClipboard('tarolnetg+amzg@gmail.com')
       alert('コピーしました:\n' + 'tarolnetg+amzg@gmail.com')
+    },
+    handleGift($event) {
+      this.$store.commit('ing/setDiagnosis', true)
+      this.$ga.event('Support', 'Gift')
     },
   },
 }
