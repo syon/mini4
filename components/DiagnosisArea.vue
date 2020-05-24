@@ -1,35 +1,42 @@
 <template>
-  <div v-if="isDiagnosis" class="DiagnosisArea">
-    <div class="flex mt-4">
+  <!-- <div v-if="isDiagnosis" class="DiagnosisArea zzBg-checker p-2"> -->
+  <div class="DiagnosisArea zzBg-grit p-2">
+    <div class="flex mt-2">
       <div class="flex-1 mx-2">
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">最高速度(時速)</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.最高速度_時速, 2) }} km/h
+            {{ fixedNum(diag.最高速度_時速, 3) }}
+            km/h
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">最高速度(秒速)</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.最高速度_秒速, 2) }} m/s
+            {{ fixedNum(diag.最高速度_秒速, 3) }}
+            m/s
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">バッテリー消費量</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.バッテリー消費量, 2) }} mA/h
+            {{ fixedNum(diag.バッテリー消費量, 3) }}
+            mA/h
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">加速度(毎秒)</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.加速度, 0) }} m/s&sup2;
+            {{ fixedNum(diag.加速度, 3) }}
+            m/s&sup2;
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">最高速到達時間(秒)</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.最高速到達時間, 3) }} 秒
+            -
+            <!-- {{ fixedNum(diag.最高速到達時間, 3) }} -->
+            秒
           </div>
         </div>
         <div class="DiagLine flex justify-between">
@@ -43,24 +50,33 @@
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">コーナー減速率</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.コーナー減速率, 3) }}
+            -
+            <!-- {{ fixedNum(diag.コーナー減速率, 3) }} -->
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">ジャンプ飛距離</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.ジャンプ飛距離, 3) }} m
+            -
+            <!-- {{ fixedNum(diag.ジャンプ飛距離, 3) }} -->
+            m
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">バウンド時間</div>
           <div class="DiagLine-Value zzAnton">
-            {{ fixedNum(diag.バウンド時間, 3) }} 秒
+            -
+            <!-- {{ fixedNum(diag.バウンド時間, 3) }} -->
+            秒
           </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">前後の重心</div>
-          <div class="DiagLine-Value zzAnton">{{ diag.前後の重心 }} mm</div>
+          <div class="DiagLine-Value zzAnton">
+            -
+            <!-- {{ fixedNum(diag.前後の重心, 3) }} -->
+            mm
+          </div>
         </div>
         <div class="DiagLine flex justify-between">
           <div class="DiagLine-Label">ローラースラスト角</div>
@@ -80,8 +96,10 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center mt-1 relative">
-      <button class="zzBtnRect1 z-10" @click="handleCopy">コピー</button>
+    <div class="flex mt-2 relative">
+      <div class="flex-1 mx-2">
+        <button class="zzBtnRect1 z-10" @click="handleCopy">コピー</button>
+      </div>
     </div>
   </div>
 </template>
