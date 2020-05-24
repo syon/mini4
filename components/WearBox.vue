@@ -138,7 +138,7 @@ export default {
     line-height: 1;
     font-size: 0.55em;
     letter-spacing: -0.1em;
-    color: #fff;
+    color: white;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;

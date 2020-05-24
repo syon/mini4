@@ -116,7 +116,7 @@ export default {
     &:last-child {
       margin-bottom: 0;
     }
-    color: #fff;
+    color: white;
     background-color: #85898a;
     border: 1px solid #85898a;
     line-height: 1;
@@ -184,7 +184,7 @@ export default {
 .xx-limitmessage {
   font-size: 0.6em;
   padding: 0 0.25rem;
-  color: #fff;
+  color: white;
   background-color: rgb(220, 47, 33);
   text-align: center;
 }

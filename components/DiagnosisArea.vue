@@ -80,6 +80,9 @@
         </div>
       </div>
     </div>
+    <div class="flex justify-center mt-1 relative">
+      <button class="zzBtnRect1 z-10" @click="handleCopy">コピー</button>
+    </div>
   </div>
 </template>
 

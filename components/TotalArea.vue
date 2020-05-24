@@ -85,15 +85,21 @@
           </div>
           <div v-if="isDetailOpen" class="">
             <total-detail />
-            <diagnosis-area />
           </div>
         </div>
         <button
-          class="zz-footgray w-full text-gray-700 text-center"
+          class="br-0 zz-footgray w-full text-center"
           @click="toggleDetail"
         >
-          <span v-if="isDetailOpen">▲</span>
-          <span v-else>▼</span>
+          <span v-if="isDetailOpen">詳細 ▲</span>
+          <span v-else>詳細 ▼</span>
+        </button>
+        <div v-if="isDiagnosisOpen" class="">
+          <diagnosis-area />
+        </div>
+        <button class="zz-footgray w-full text-center" @click="toggleDiagnosis">
+          <span v-if="isDiagnosisOpen">診断 ▲</span>
+          <span v-else>診断 ▼</span>
         </button>
       </div>
     </div>
@@ -115,6 +121,7 @@ export default {
   data() {
     return {
       isDetailOpen: false,
+      isDiagnosisOpen: false,
     }
   },
   computed: {
@@ -176,6 +183,12 @@ export default {
       this.isDetailOpen = !this.isDetailOpen
       if (this.isDetailOpen) {
         this.$ga.screenview('TotalDetail')
+      }
+    },
+    toggleDiagnosis() {
+      this.isDiagnosisOpen = !this.isDiagnosisOpen
+      if (this.isDiagnosisOpen) {
+        this.$ga.screenview('DiagnosisArea')
       }
     },
   },
