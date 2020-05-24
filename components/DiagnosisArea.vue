@@ -96,7 +96,7 @@ export default {
         {
           label: '前後の重心',
           value: '-', // this.fixedNum(this.diag.前後の重心, 3),
-          unit: 'mm',
+          unit: '㎜',
         },
         {
           label: 'ローラースラスト角',
