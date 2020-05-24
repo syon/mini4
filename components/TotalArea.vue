@@ -94,20 +94,25 @@
           <span v-if="isDetailOpen">詳細 ▲</span>
           <span v-else>詳細 ▼</span>
         </button>
-        <div v-if="isDiagnosisOpen" class="">
-          <diagnosis-area />
+        <div v-if="isDiagnosis">
+          <div v-if="isDiagnosisOpen && isDiagnosis">
+            <diagnosis-area />
+          </div>
+          <button
+            class="zz-footgray w-full text-center"
+            @click="toggleDiagnosis"
+          >
+            <span v-if="isDiagnosisOpen">診断 ▲</span>
+            <span v-else>診断 ▼</span>
+          </button>
         </div>
-        <button class="zz-footgray w-full text-center" @click="toggleDiagnosis">
-          <span v-if="isDiagnosisOpen">診断 ▲</span>
-          <span v-else>診断 ▼</span>
-        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
 import TotalDetail from '@/components/TotalDetail'
 import DiagnosisArea from '@/components/DiagnosisArea'
@@ -125,6 +130,9 @@ export default {
     }
   },
   computed: {
+    ...mapState('ing', {
+      isDiagnosis: (state) => state.isDiagnosis,
+    }),
     ...mapGetters({
       scores: 'recipe/gAllPartScoresSum',
     }),
