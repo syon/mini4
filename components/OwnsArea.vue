@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOriginal" class="floating">
     <div class="xx-OwnsArea zzBg-gray1 br-1">
-      <div class="flex justify-center">
+      <div class="flex justify-center my-2">
         <button class="zzBtnRounded1" @click="handleRegister">
           今のパーツを登録する
         </button>

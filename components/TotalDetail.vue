@@ -23,13 +23,33 @@
         <score-cell label="コーナー安定" :score="scores.コーナー安定" />
         <score-cell label="スタミナ耐久" :score="scores.スタミナ耐久" />
         <score-cell label="重さ" :score="scores.重さ" />
-        <score-cell label="ギヤ比" :score="scores.ギヤ比" />
-        <score-cell label="ギヤ負荷" :score="scores.ギヤ負荷" />
-        <score-cell label="パワーロス" :score="scores.パワーロス" />
-        <score-cell label="スピードロス" :score="scores.スピードロス" />
-        <score-cell label="消費電流" :score="scores.消費電流" />
-        <score-cell label="節電" :score="scores.節電" />
-        <score-cell label="制振" :score="scores.制振" />
+        <score-cell
+          class="zz-textpurple"
+          label="ギヤ比"
+          :score="scores.ギヤ比"
+        />
+        <score-cell
+          class="zz-textpurple"
+          label="ギヤ負荷"
+          :score="scores.ギヤ負荷"
+        />
+        <score-cell
+          class="zz-textpurple"
+          label="パワーロス"
+          :score="scores.パワーロス"
+        />
+        <score-cell
+          class="zz-textpurple"
+          label="スピードロス"
+          :score="scores.スピードロス"
+        />
+        <score-cell
+          class="zz-textpurple"
+          label="消費電流"
+          :score="scores.消費電流"
+        />
+        <score-cell class="zz-textpurple" label="節電" :score="scores.節電" />
+        <score-cell class="zz-textpurple" label="制振" :score="scores.制振" />
         <div class="flex mt-4 relative">
           <button class="zzBtnRect1 z-10" @click="handleCopy">
             コピー
@@ -37,23 +57,76 @@
         </div>
       </div>
       <div class="flex-1 mx-2">
-        <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
-        <score-cell label="タイヤ旋回" :score="scores.タイヤ旋回" />
-        <score-cell label="タイヤ反発" :score="scores.タイヤ反発" />
-        <score-cell label="タイヤ径・フロント" :score="frontTireSize" />
-        <score-cell label="タイヤ径・リヤ" :score="rearTireSize" />
-        <score-cell label="ローラー摩擦" :score="scores.ローラー摩擦" />
-        <score-cell label="ローラー抵抗" :score="scores.ローラー抵抗" />
-        <score-cell label="スラスト角" :score="scores.スラスト角" />
-        <score-cell label="スタビ減速" :score="scores.スタビ減速" />
-        <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
         <score-cell
+          class="zz-textblue"
+          label="タイヤ摩擦"
+          :score="scores.タイヤ摩擦"
+        />
+        <score-cell
+          class="zz-textblue"
+          label="タイヤ旋回"
+          :score="scores.タイヤ旋回"
+        />
+        <score-cell
+          class="zz-textblue"
+          label="タイヤ反発"
+          :score="scores.タイヤ反発"
+        />
+        <score-cell
+          class="zz-textblue"
+          label="タイヤ径・フロント"
+          :score="frontTireSize"
+        />
+        <score-cell
+          class="zz-textblue"
+          label="タイヤ径・リヤ"
+          :score="rearTireSize"
+        />
+        <score-cell
+          class="zz-textgreen"
+          label="ローラー摩擦"
+          :score="scores.ローラー摩擦"
+        />
+        <score-cell
+          class="zz-textgreen"
+          label="ローラー抵抗"
+          :score="scores.ローラー抵抗"
+        />
+        <score-cell
+          class="zz-textgreen"
+          label="スラスト角"
+          :score="scores.スラスト角"
+        />
+        <score-cell
+          class="zz-textgreen"
+          label="スタビ減速"
+          :score="scores.スタビ減速"
+        />
+        <score-cell
+          class="zz-textgreen"
+          label="ブレーキ減速"
+          :score="scores.ブレーキ減速"
+        />
+        <score-cell
+          class="zz-textgreen"
           label="エアロダウンフォース"
           :score="scores.エアロダウンフォース"
         />
-        <score-cell label="ウェーブ" :score="scores.ウェーブ" />
-        <score-cell label="オフロード" :score="scores.オフロード" />
-        <score-cell label="デジタル" :score="scores.デジタル" />
+        <score-cell
+          class="zz-textyellow"
+          label="ウェーブ"
+          :score="scores.ウェーブ"
+        />
+        <score-cell
+          class="zz-textyellow"
+          label="オフロード"
+          :score="scores.オフロード"
+        />
+        <score-cell
+          class="zz-textyellow"
+          label="デジタル"
+          :score="scores.デジタル"
+        />
       </div>
     </div>
   </div>
@@ -120,10 +193,6 @@ export default {
       data.push({ label: '消費電流', score: s.消費電流 })
       data.push({ label: '節電', score: s.節電 })
       data.push({ label: '制振', score: s.制振 })
-      data.push({
-        label: 'エアロダウンフォース',
-        score: s.エアロダウンフォース,
-      })
       data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
       data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
       data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
@@ -134,6 +203,10 @@ export default {
       data.push({ label: 'スラスト角', score: s.スラスト角 })
       data.push({ label: 'スタビ減速', score: s.スタビ減速 })
       data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
+      data.push({
+        label: 'エアロダウンフォース',
+        score: s.エアロダウンフォース,
+      })
       data.push({ label: 'ウェーブ', score: s.ウェーブ })
       data.push({ label: 'デジタル', score: s.デジタル })
       data.push({ label: 'オフロード', score: s.オフロード })

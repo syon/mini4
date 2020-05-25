@@ -1,7 +1,7 @@
 <template>
   <div v-if="isShowcase" class="floating">
     <div class="xx-ShowcaseArea zzBg-gray1 br-1">
-      <div class="flex justify-center">
+      <div class="flex justify-center my-2">
         <button class="zzBtnRounded1" @click="handleDetach">外す</button>
       </div>
       <hr class="zz-hr-gray" />
