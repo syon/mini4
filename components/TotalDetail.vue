@@ -152,6 +152,7 @@ export default {
       const lines = list.map((o) => {
         return `${o.label}\t${Util.fixedNum(o.score, 3)}`
       })
+      lines.unshift(`ボディ特性\t${this.bodyInfo.ボディ特性}`)
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
@@ -160,6 +161,7 @@ export default {
       const lines = list.map((o) => {
         return `${Util.fixedNum(o.score, 3)}`
       })
+      lines.unshift(this.bodyInfo.ボディ特性)
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
