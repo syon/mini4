@@ -54,6 +54,9 @@
           <button class="zzBtnRect1 z-10" @click="handleCopy">
             コピー
           </button>
+          <button class="zzBtnRect1 z-10 ml-1" @click="handleCopyNolabel">
+            値のみコピー
+          </button>
         </div>
       </div>
       <div class="flex-1 mx-2">
@@ -216,6 +219,7 @@ export default {
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
+    handleCopyNolabel() {},
   },
 }
 </script>
