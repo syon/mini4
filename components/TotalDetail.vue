@@ -18,38 +18,14 @@
     </div>
     <div class="flex mt-4 mb-1">
       <div class="flex-1 mx-2">
-        <score-cell label="スピード" :score="scores.スピード" />
-        <score-cell label="パワー" :score="scores.パワー" />
-        <score-cell label="コーナー安定" :score="scores.コーナー安定" />
-        <score-cell label="スタミナ耐久" :score="scores.スタミナ耐久" />
-        <score-cell label="重さ" :score="scores.重さ" />
-        <score-cell
-          class="zz-textpurple"
-          label="ギヤ比"
-          :score="scores.ギヤ比"
-        />
-        <score-cell
-          class="zz-textpurple"
-          label="ギヤ負荷"
-          :score="scores.ギヤ負荷"
-        />
-        <score-cell
-          class="zz-textpurple"
-          label="パワーロス"
-          :score="scores.パワーロス"
-        />
-        <score-cell
-          class="zz-textpurple"
-          label="スピードロス"
-          :score="scores.スピードロス"
-        />
-        <score-cell
-          class="zz-textpurple"
-          label="消費電流"
-          :score="scores.消費電流"
-        />
-        <score-cell class="zz-textpurple" label="節電" :score="scores.節電" />
-        <score-cell class="zz-textpurple" label="制振" :score="scores.制振" />
+        <template v-for="o of leftItems">
+          <score-cell
+            :key="o.label"
+            :label="o.label"
+            :score="o.score"
+            :class="o.class"
+          />
+        </template>
         <div class="flex mt-4 relative">
           <button class="zzBtnRect1 z-10" @click="handleCopy">
             コピー
@@ -60,76 +36,14 @@
         </div>
       </div>
       <div class="flex-1 mx-2">
-        <score-cell
-          class="zz-textblue"
-          label="タイヤ摩擦"
-          :score="scores.タイヤ摩擦"
-        />
-        <score-cell
-          class="zz-textblue"
-          label="タイヤ旋回"
-          :score="scores.タイヤ旋回"
-        />
-        <score-cell
-          class="zz-textblue"
-          label="タイヤ反発"
-          :score="scores.タイヤ反発"
-        />
-        <score-cell
-          class="zz-textblue"
-          label="タイヤ径・フロント"
-          :score="frontTireSize"
-        />
-        <score-cell
-          class="zz-textblue"
-          label="タイヤ径・リヤ"
-          :score="rearTireSize"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="ローラー摩擦"
-          :score="scores.ローラー摩擦"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="ローラー抵抗"
-          :score="scores.ローラー抵抗"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="スラスト角"
-          :score="scores.スラスト角"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="スタビ減速"
-          :score="scores.スタビ減速"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="ブレーキ減速"
-          :score="scores.ブレーキ減速"
-        />
-        <score-cell
-          class="zz-textgreen"
-          label="エアロダウンフォース"
-          :score="scores.エアロダウンフォース"
-        />
-        <score-cell
-          class="zz-textyellow"
-          label="ウェーブ"
-          :score="scores.ウェーブ"
-        />
-        <score-cell
-          class="zz-textyellow"
-          label="オフロード"
-          :score="scores.オフロード"
-        />
-        <score-cell
-          class="zz-textyellow"
-          label="デジタル"
-          :score="scores.デジタル"
-        />
+        <template v-for="o of rightItems">
+          <score-cell
+            :key="o.label"
+            :label="o.label"
+            :score="o.score"
+            :class="o.class"
+          />
+        </template>
       </div>
     </div>
   </div>
@@ -155,6 +69,58 @@ export default {
       getEquipByPart: 'recipe/getEquipByPart',
       scores: 'recipe/gAllPartScoresSum',
     }),
+    leftItems() {
+      const s = this.scores
+      return [
+        { label: 'スピード', score: s.スピード },
+        { label: 'パワー', score: s.パワー },
+        { label: 'コーナー安定', score: s.コーナー安定 },
+        { label: 'スタミナ耐久', score: s.スタミナ耐久 },
+        { label: '重さ', score: s.重さ },
+        { label: 'ギヤ比', score: s.ギヤ比, class: 'zz-textpurple' },
+        { label: 'ギヤ負荷', score: s.ギヤ負荷, class: 'zz-textpurple' },
+        { label: 'パワーロス', score: s.パワーロス, class: 'zz-textpurple' },
+        {
+          label: 'スピードロス',
+          score: s.スピードロス,
+          class: 'zz-textpurple',
+        },
+        { label: '消費電流', score: s.消費電流, class: 'zz-textpurple' },
+        { label: '節電', score: s.節電, class: 'zz-textpurple' },
+        { label: '制振', score: s.制振, class: 'zz-textpurple' },
+      ]
+    },
+    rightItems() {
+      const s = this.scores
+      return [
+        { label: 'タイヤ摩擦', score: s.タイヤ摩擦, class: 'zz-textblue' },
+        { label: 'タイヤ旋回', score: s.タイヤ旋回, class: 'zz-textblue' },
+        { label: 'タイヤ反発', score: s.タイヤ反発, class: 'zz-textblue' },
+        {
+          label: 'タイヤ径・フロント',
+          score: this.frontTireSize,
+          class: 'zz-textblue',
+        },
+        {
+          label: 'タイヤ径・リヤ',
+          score: this.rearTireSize,
+          class: 'zz-textblue',
+        },
+        { label: 'ローラー摩擦', score: s.ローラー摩擦, class: 'zz-textgreen' },
+        { label: 'ローラー抵抗', score: s.ローラー抵抗, class: 'zz-textgreen' },
+        { label: 'スラスト角', score: s.スラスト角, class: 'zz-textgreen' },
+        { label: 'スタビ減速', score: s.スタビ減速, class: 'zz-textgreen' },
+        { label: 'ブレーキ減速', score: s.ブレーキ減速, class: 'zz-textgreen' },
+        {
+          label: 'エアロダウンフォース',
+          score: s.エアロダウンフォース,
+          class: 'zz-textgreen',
+        },
+        { label: 'ウェーブ', score: s.ウェーブ, class: 'zz-textyellow' },
+        { label: 'オフロード', score: s.オフロード, class: 'zz-textyellow' },
+        { label: 'デジタル', score: s.デジタル, class: 'zz-textyellow' },
+      ]
+    },
     bodyInfo() {
       return this.getEquipByPart(this.tab, 'ボディ')
     },
@@ -182,76 +148,16 @@ export default {
   },
   methods: {
     handleCopy() {
-      const s = this.scores
-      const data = []
-      data.push({ label: 'スピード', score: s.スピード })
-      data.push({ label: 'パワー', score: s.パワー })
-      data.push({ label: 'コーナー安定', score: s.コーナー安定 })
-      data.push({ label: 'スタミナ耐久', score: s.スタミナ耐久 })
-      data.push({ label: '重さ', score: s.重さ })
-      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
-      data.push({ label: 'ギヤ負荷', score: s.ギヤ負荷 })
-      data.push({ label: 'パワーロス', score: s.パワーロス })
-      data.push({ label: 'スピードロス', score: s.スピードロス })
-      data.push({ label: '消費電流', score: s.消費電流 })
-      data.push({ label: '節電', score: s.節電 })
-      data.push({ label: '制振', score: s.制振 })
-      data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
-      data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
-      data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
-      data.push({ label: 'タイヤ径・フロント', score: this.frontTireSize })
-      data.push({ label: 'タイヤ径・リヤ', score: this.rearTireSize })
-      data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
-      data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
-      data.push({ label: 'スラスト角', score: s.スラスト角 })
-      data.push({ label: 'スタビ減速', score: s.スタビ減速 })
-      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
-      data.push({
-        label: 'エアロダウンフォース',
-        score: s.エアロダウンフォース,
-      })
-      data.push({ label: 'ウェーブ', score: s.ウェーブ })
-      data.push({ label: 'デジタル', score: s.デジタル })
-      data.push({ label: 'オフロード', score: s.オフロード })
-      const lines = data.map((o) => {
+      const list = this.leftItems.concat(this.rightItems)
+      const lines = list.map((o) => {
         return `${o.label}\t${Util.fixedNum(o.score, 3)}`
       })
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
     handleCopyNolabel() {
-      const s = this.scores
-      const data = []
-      data.push({ label: 'スピード', score: s.スピード })
-      data.push({ label: 'パワー', score: s.パワー })
-      data.push({ label: 'コーナー安定', score: s.コーナー安定 })
-      data.push({ label: 'スタミナ耐久', score: s.スタミナ耐久 })
-      data.push({ label: '重さ', score: s.重さ })
-      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
-      data.push({ label: 'ギヤ負荷', score: s.ギヤ負荷 })
-      data.push({ label: 'パワーロス', score: s.パワーロス })
-      data.push({ label: 'スピードロス', score: s.スピードロス })
-      data.push({ label: '消費電流', score: s.消費電流 })
-      data.push({ label: '節電', score: s.節電 })
-      data.push({ label: '制振', score: s.制振 })
-      data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
-      data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
-      data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
-      data.push({ label: 'タイヤ径・フロント', score: this.frontTireSize })
-      data.push({ label: 'タイヤ径・リヤ', score: this.rearTireSize })
-      data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
-      data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
-      data.push({ label: 'スラスト角', score: s.スラスト角 })
-      data.push({ label: 'スタビ減速', score: s.スタビ減速 })
-      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
-      data.push({
-        label: 'エアロダウンフォース',
-        score: s.エアロダウンフォース,
-      })
-      data.push({ label: 'ウェーブ', score: s.ウェーブ })
-      data.push({ label: 'デジタル', score: s.デジタル })
-      data.push({ label: 'オフロード', score: s.オフロード })
-      const lines = data.map((o) => {
+      const list = this.leftItems.concat(this.rightItems)
+      const lines = list.map((o) => {
         return `${Util.fixedNum(o.score, 3)}`
       })
       Util.copyToClipboard(lines.join('\n'))
