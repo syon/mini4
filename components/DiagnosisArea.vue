@@ -7,8 +7,8 @@
           <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
-        <div class="flex mt-2 mx-0 relative">
-          <button class="zzBtnRect1" @click="handleCopyDiag">
+        <div class="flex relative mt-2 mb-05 mx-0">
+          <button class="zzBtnRect1 z-10" @click="handleCopyDiag">
             コピー
           </button>
           <button class="zzBtnRect1 z-10 ml-1" @click="handleCopyDiagNolabel">

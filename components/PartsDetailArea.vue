@@ -43,7 +43,7 @@
         :is-hold="isHold"
       />
 
-      <hr />
+      <hr class="zz-hr-white my-1" />
       <template v-for="(sVal, sKey) in score.skill">
         <parts-spec
           :key="sKey"
@@ -138,11 +138,6 @@ export default {
 
 <style lang="less" scoped>
 .PartsDetailArea {
-  hr {
-    border-color: #c3c3c3;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-  }
 }
 
 .PartsSpecList {

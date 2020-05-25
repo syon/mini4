@@ -3,7 +3,7 @@
     <div class="TotalWindow br-1">
       <div class="TotalWindowPanel">
         <div class="zz_headgray"></div>
-        <div class="zzBg-checker p-2">
+        <div class="zzBg-checker px-2 py-3">
           <div class="flex items-stretch justify-center">
             <div class="xx-total flex flex-col items-center">
               <div>総合評価</div>
