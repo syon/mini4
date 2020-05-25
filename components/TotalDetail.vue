@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="flex mt-4">
+    <div class="flex mt-4 mb-1">
       <div class="flex-1 mx-2">
         <score-cell label="スピード" :score="scores.スピード" />
         <score-cell label="パワー" :score="scores.パワー" />
@@ -30,10 +30,11 @@
         <score-cell label="消費電流" :score="scores.消費電流" />
         <score-cell label="節電" :score="scores.節電" />
         <score-cell label="制振" :score="scores.制振" />
-        <score-cell
-          label="エアロダウンフォース"
-          :score="scores.エアロダウンフォース"
-        />
+        <div class="flex mt-4 relative">
+          <button class="zzBtnRect1 z-10" @click="handleCopy">
+            コピー
+          </button>
+        </div>
       </div>
       <div class="flex-1 mx-2">
         <score-cell label="タイヤ摩擦" :score="scores.タイヤ摩擦" />
@@ -46,16 +47,13 @@
         <score-cell label="スラスト角" :score="scores.スラスト角" />
         <score-cell label="スタビ減速" :score="scores.スタビ減速" />
         <score-cell label="ブレーキ減速" :score="scores.ブレーキ減速" />
+        <score-cell
+          label="エアロダウンフォース"
+          :score="scores.エアロダウンフォース"
+        />
         <score-cell label="ウェーブ" :score="scores.ウェーブ" />
         <score-cell label="オフロード" :score="scores.オフロード" />
         <score-cell label="デジタル" :score="scores.デジタル" />
-      </div>
-    </div>
-    <div class="flex mt-2 relative">
-      <div class="flex mx-2">
-        <button class="zzBtnRect1 z-10" @click="handleCopy">
-          コピー
-        </button>
       </div>
     </div>
   </div>

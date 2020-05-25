@@ -1,7 +1,7 @@
 .zz-text06 {
   font-size: 0.6rem;
 }
-.zz-textgrayout{
+.zz-textgrayout {
   color: #888;
 }
 
@@ -297,12 +297,17 @@
 .zzBg-grit {
   color: white;
   position: relative;
+  // background: radial-gradient(
+  //   ellipse farthest-corner,
+  //   hsla(211, 39%, 46%, 1) 80%,
+  //   hsla(196, 41%, 49%, 1) 90%
+  // );
   background: linear-gradient(
-    0deg,
-    hsla(206, 65%, 27%, 1) 0%,
-    hsla(206, 65%, 18%, 1) 30%,
-    hsla(206, 65%, 18%, 1) 70%,
-    hsla(206, 65%, 27%, 1) 100%
+    90deg,
+    hsla(196, 41%, 49%, 1) 0%,
+    hsla(211, 39%, 46%, 1) 12%,
+    hsla(211, 39%, 46%, 1) 88%,
+    hsla(196, 41%, 49%, 1) 100%
   );
   &:before {
     content: '';
@@ -317,10 +322,13 @@
     z-index: 2;
   }
 }
+
 .zz_headgray {
   color: black;
   height: 1.2rem;
+  line-height: 1.2rem;
   font-size: 0.6rem;
+  width: 100%;
   background: linear-gradient(
     0deg,
     rgba(178, 178, 171, 1) 0%,
@@ -336,10 +344,11 @@
 .zz-footgray {
   color: black;
   height: 1.2rem;
-  line-height: 1.2;
+  line-height: 1.2rem;
   font-size: 0.6rem;
+  width: 100%;
   background: #b9bab6;
-  border: 1px solid #b5babd;
+  border: none;
   border-radius: 0 0 0.25rem 0.25rem;
   &:focus {
     outline: none;
@@ -348,7 +357,8 @@
 .zz-headblack {
   color: white;
   height: 1.2rem;
-  line-height: 1.2;
+  line-height: 1.2rem;
+  width: 100%;
   letter-spacing: -0.05em;
   background-color: #20272a;
   border: none;
@@ -361,7 +371,8 @@
 .zz-footwhite {
   color: black;
   height: 1.2rem;
-  line-height: 1.2;
+  line-height: 1.2rem;
+  width: 100%;
   letter-spacing: -0.05em;
   background-color: #f0f4f4;
   border: none;

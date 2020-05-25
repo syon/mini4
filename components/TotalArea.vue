@@ -87,25 +87,19 @@
             <total-detail />
           </div>
         </div>
-        <button
-          class="br-0 zz-footgray w-full text-center"
-          @click="toggleDetail"
-        >
+        <button class="zz-footgray text-center" @click="toggleDetail">
           <span v-if="isDetailOpen">詳細 ▲</span>
           <span v-else>詳細 ▼</span>
         </button>
-        <div v-if="isDiagnosis">
+        <div>
           <div v-if="isDiagnosisOpen && isDiagnosis">
             <diagnosis-area />
           </div>
-          <button
-            class="zz-footgray w-full text-center"
-            @click="toggleDiagnosis"
-          >
-            <span v-if="isDiagnosisOpen">診断 ▲</span>
-            <span v-else>診断 ▼</span>
-          </button>
         </div>
+        <button class="zz-footgray text-center" @click="toggleDiagnosis">
+          <span v-if="isDiagnosisOpen">診断 ▲</span>
+          <span v-else>診断 ▼</span>
+        </button>
       </div>
     </div>
   </div>

@@ -1,27 +1,23 @@
 <template>
   <div class="DiagnosisArea zzBg-grit p-2">
-    <div class="DiagMain relative z-10">
-      <div class="flex mt-2">
-        <div class="DiagLeft flex-1 mx-1">
-          <div v-for="o of leftContents" :key="o.label" class="DiagLine">
-            <div class="DiagLine-Label">{{ o.label }}</div>
-            <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
-            <div class="DiagLineUnit zzAnton">{{ o.unit }}</div>
-          </div>
+    <div class="DiagMain flex relative z-10">
+      <div class="DiagLeft flex-1 mx-1 my-05">
+        <div v-for="o of leftContents" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label">{{ o.label }}</div>
+          <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
+          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
-        <div class="DiagRight ml-1 mr-1">
-          <div v-for="o of rightContents" :key="o.label" class="DiagLine">
-            <div class="DiagLine-Label">{{ o.label }}</div>
-            <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
-            <div class="DiagLineUnit zzAnton">{{ o.unit }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="flex mt-2 relative">
-        <div class="flex-1 mx-2">
+        <div class="flex mt-2 mx-1 relative">
           <button class="zzBtnRect1" @click="handleCopyDiag">
             コピー
           </button>
+        </div>
+      </div>
+      <div class="DiagRight flex-1 mx-1 my-05">
+        <div v-for="o of rightContents" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label">{{ o.label }}</div>
+          <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
+          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
       </div>
     </div>
@@ -96,7 +92,7 @@ export default {
         {
           label: '前後の重心',
           value: '-', // this.fixedNum(this.diag.前後の重心, 3),
-          unit: '㎜',
+          unit: 'mm',
         },
         {
           label: 'ローラースラスト角',
@@ -130,11 +126,9 @@ export default {
 <style lang="less" scoped>
 .DiagnosisArea {
   .DiagMain {
+    .DiagLeft {
+    }
     .DiagRight {
-      flex: 0.9;
-      .DiagLineUnit {
-        width: 1rem;
-      }
     }
   }
 
@@ -142,20 +136,26 @@ export default {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.3);
-    line-height: 1;
-    padding: 0.25rem 0 0.25rem 0.25rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+    padding: 0.25rem;
+    margin: 0.125rem 0;
     border-radius: 0.25rem;
-    margin-bottom: 0.25rem;
 
+    .DiagLine-Label {
+      text-align: left;
+      margin-right: 0.25rem;
+    }
     .DiagLine-Value {
       flex: auto;
       text-align: right;
+      margin-left: 0.25rem;
     }
-    .DiagLineUnit {
-      margin-left: 0.3em;
-      width: 1.5rem;
+    .DiagLine-Unit {
+      text-align: left;
+      margin-left: 0.25rem;
       font-size: 0.6rem;
+      width: 0.9rem;
     }
   }
 }
