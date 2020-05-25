@@ -219,7 +219,44 @@ export default {
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
-    handleCopyNolabel() {},
+    handleCopyNolabel() {
+      const s = this.scores
+      const data = []
+      data.push({ label: 'スピード', score: s.スピード })
+      data.push({ label: 'パワー', score: s.パワー })
+      data.push({ label: 'コーナー安定', score: s.コーナー安定 })
+      data.push({ label: 'スタミナ耐久', score: s.スタミナ耐久 })
+      data.push({ label: '重さ', score: s.重さ })
+      data.push({ label: 'ギヤ比', score: s.ギヤ比 })
+      data.push({ label: 'ギヤ負荷', score: s.ギヤ負荷 })
+      data.push({ label: 'パワーロス', score: s.パワーロス })
+      data.push({ label: 'スピードロス', score: s.スピードロス })
+      data.push({ label: '消費電流', score: s.消費電流 })
+      data.push({ label: '節電', score: s.節電 })
+      data.push({ label: '制振', score: s.制振 })
+      data.push({ label: 'タイヤ摩擦', score: s.タイヤ摩擦 })
+      data.push({ label: 'タイヤ旋回', score: s.タイヤ旋回 })
+      data.push({ label: 'タイヤ反発', score: s.タイヤ反発 })
+      data.push({ label: 'タイヤ径・フロント', score: this.frontTireSize })
+      data.push({ label: 'タイヤ径・リヤ', score: this.rearTireSize })
+      data.push({ label: 'ローラー摩擦', score: s.ローラー摩擦 })
+      data.push({ label: 'ローラー抵抗', score: s.ローラー抵抗 })
+      data.push({ label: 'スラスト角', score: s.スラスト角 })
+      data.push({ label: 'スタビ減速', score: s.スタビ減速 })
+      data.push({ label: 'ブレーキ減速', score: s.ブレーキ減速 })
+      data.push({
+        label: 'エアロダウンフォース',
+        score: s.エアロダウンフォース,
+      })
+      data.push({ label: 'ウェーブ', score: s.ウェーブ })
+      data.push({ label: 'デジタル', score: s.デジタル })
+      data.push({ label: 'オフロード', score: s.オフロード })
+      const lines = data.map((o) => {
+        return `${Util.fixedNum(o.score, 3)}`
+      })
+      Util.copyToClipboard(lines.join('\n'))
+      window.alert('コピーしました。')
+    },
   },
 }
 </script>
