@@ -91,11 +91,9 @@
           <span v-if="isDetailOpen">詳細 ▲</span>
           <span v-else>詳細 ▼</span>
         </button>
-        <div>
-          <div v-if="isDiagnosis">
-            <div v-if="isDiagnosisOpen && isDiagnosis">
-              <diagnosis-area />
-            </div>
+        <div v-if="isDiagnosis">
+          <div v-if="isDiagnosisOpen && isDiagnosis">
+            <diagnosis-area />
           </div>
           <button class="zz-footblue text-center" @click="toggleDiagnosis">
             <span v-if="isDiagnosisOpen">診断 ▲</span>
