@@ -96,7 +96,7 @@
             <diagnosis-area />
           </div>
         </div>
-        <button class="zz-footgray text-center" @click="toggleDiagnosis">
+        <button class="zz-footblue text-center" @click="toggleDiagnosis">
           <span v-if="isDiagnosisOpen">診断 ▲</span>
           <span v-else>診断 ▼</span>
         </button>
