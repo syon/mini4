@@ -92,14 +92,16 @@
           <span v-else>詳細 ▼</span>
         </button>
         <div>
-          <div v-if="isDiagnosisOpen && isDiagnosis">
-            <diagnosis-area />
+          <div v-if="isDiagnosis">
+            <div v-if="isDiagnosisOpen && isDiagnosis">
+              <diagnosis-area />
+            </div>
           </div>
+          <button class="zz-footblue text-center" @click="toggleDiagnosis">
+            <span v-if="isDiagnosisOpen">診断 ▲</span>
+            <span v-else>診断 ▼</span>
+          </button>
         </div>
-        <button class="zz-footblue text-center" @click="toggleDiagnosis">
-          <span v-if="isDiagnosisOpen">診断 ▲</span>
-          <span v-else>診断 ▼</span>
-        </button>
       </div>
     </div>
   </div>
