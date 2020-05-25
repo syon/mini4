@@ -85,6 +85,7 @@ export default {
   computed: {
     ...mapState('ing', {
       tab: (state) => state.tab,
+      ping: (state) => state.ping,
       ingPart: (state) => state.part,
       ingPartRecipe: (state) => state.partRecipe,
       ingItem: (state) => state.item,
@@ -96,6 +97,7 @@ export default {
       craftLevel: (state) => state.craftLevel,
     }),
     showingCrafts() {
+      if (this.ping);
       const crafts = this.ingPartRecipe.crafts || []
       return this.ingCrafts.map((c) => {
         const hit = crafts.filter(Boolean).filter((x) => x.action === c.action)
