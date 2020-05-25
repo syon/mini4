@@ -6,7 +6,7 @@
     @click="handleClick"
   >
     <div class="zz-headblack flex justify-between">
-      <div>{{ x.action || '(改造なし)' }}</div>
+      <div class="zz-headblack-name">{{ x.action || '(改造なし)' }}</div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
       <div class="flex">
