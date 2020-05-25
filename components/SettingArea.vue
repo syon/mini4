@@ -2,7 +2,11 @@
   <div class="xx-SettingArea">
     <div class="garage">
       <div class="garage--row">
-        <div class="garage--cell"></div>
+        <div class="garage--cell">
+          <!-- <button class="zzBtnRect1 zz-text06 z-10 leading-tight">
+            表示<br />切り替え
+          </button> -->
+        </div>
         <div class="garage--cell">
           <wear-box
             :item="sBody"
