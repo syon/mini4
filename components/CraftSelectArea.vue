@@ -1,7 +1,7 @@
 <template>
   <div v-if="isCrafting" class="floating">
     <div class="xx-CraftSelectArea flex flex-col">
-      <div class="CraftEditSlotList flex-1 zzBg-gray1 br-1 p-1">
+      <div class="CraftEditSlotList flex-1 zzBg-gray1 br-1 pt-1 px-1 pb-8">
         <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
         <template v-for="(obj, idx) in showingCrafts">
           <craft-edit-slot

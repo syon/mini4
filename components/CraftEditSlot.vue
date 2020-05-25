@@ -16,13 +16,14 @@
               v-if="hit > 0 && x.action"
               class="xx-limittip flex zzBg-gray1 text-center zzAnton justify-center"
             >
-              済み: {{ hit }}
+              <div>済み:&nbsp;</div>
+              <div>{{ hit }}</div>
             </div>
             <template v-if="x.回数制限">
               <div
                 class="xx-limittip flex zzBg-gray1 text-center zzAnton justify-center"
               >
-                <div>残り:</div>
+                <div>残り:&nbsp;</div>
                 <div :class="{ isNomore: nomore }">{{ x.回数制限 - hit }}</div>
               </div>
             </template>
@@ -69,7 +70,6 @@ export default {
   },
   computed: {
     ...mapState('ing', {
-      ingPart: (state) => state.part,
       craftAction: (state) => state.craftAction,
     }),
     x() {
