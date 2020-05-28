@@ -120,10 +120,20 @@ export default {
       return Util.fixedNum(x, n)
     },
     handleCopyDiag() {
-      //
+      const list = this.leftContents.concat(this.rightContents)
+      const lines = list.map((o) => {
+        return `${o.label}\t${o.value}`
+      })
+      Util.copyToClipboard(lines.join('\n'))
+      window.alert('コピーしました。')
     },
     handleCopyDiagNolabel() {
-      //
+      const list = this.leftContents.concat(this.rightContents)
+      const lines = list.map((o) => {
+        return o.value
+      })
+      Util.copyToClipboard(lines.join('\n'))
+      window.alert('コピーしました。')
     },
   },
 }
@@ -131,13 +141,6 @@ export default {
 
 <style lang="less" scoped>
 .DiagnosisArea {
-  .DiagMain {
-    .DiagLeft {
-    }
-    .DiagRight {
-    }
-  }
-
   .DiagLine {
     display: flex;
     align-items: baseline;
