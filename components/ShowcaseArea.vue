@@ -1,20 +1,20 @@
 <template>
-  <div v-if="isShowcase" class="floating">
-    <div class="xx-ShowcaseArea zzBg-gray1 br-1">
-      <div class="flex justify-center my-2">
-        <button class="zzBtnRounded1" @click="handleDetach">外す</button>
-      </div>
-      <hr class="zz-hr-gray" />
-      <div class="CraftEditSlotList flex-1">
+  <div v-if="isShowcase" class="zz-floatingLeft">
+    <div class="zz-floatingArea flex">
+      <div class="zz-floatingSubArea flex-1">
+        <div class="m-1 flex justify-center">
+          <button class="zzBtnRounded1" @click="handleDetach">外す</button>
+        </div>
+        <hr class="zz-hr-gray my-2" />
         <template v-for="(categorySet, key) in sortedCatalog">
-          <div :key="key" class="m-1">
+          <div :key="key" class="">
             <div class="zzCategoryHeaderLong">{{ key }}</div>
             <template v-for="(item, name) in categorySet">
               <a
                 :key="name"
                 href="#"
                 :class="{ active: name === ingItem.key }"
-                class="ShowcaseBox flex m-1 br-1"
+                class="zz-selectBox flex m-1"
                 @click="handleSelectItem($event, name, item)"
               >
                 <div class="flex">
@@ -25,7 +25,7 @@
                   <div class="w-1" :style="{ backgroundColor: item.色2 }"></div>
                 </div>
                 <div class="p-1">{{ name }}</div>
-                <div class="apti"><apti-hex :type="item.コース適性" /></div>
+                <apti-hex :type="item.コース適性" class="PartsApti" />
               </a>
             </template>
           </div>
@@ -121,41 +121,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.floating {
-  position: fixed;
-  top: 50px; // do not set left property for inner fixed
-  z-index: 9;
-  width: 218px;
-  height: 100%;
-}
-
-.xx-ShowcaseArea {
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 100px);
-  border: 1px solid #c8c8c8;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.CraftEditSlotList {
-  overflow: auto;
-}
-
-.ShowcaseBox {
-  color: black;
-  background-color: #f0f4f4;
-  border: 1px solid #b5babd;
-  position: relative;
-  &.active {
-    background-color: #fffca0;
-    border: 1px solid #f1f658;
-  }
-  .apti {
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    z-index: 1;
-  }
-}
-</style>
+<style lang="less" scoped></style>

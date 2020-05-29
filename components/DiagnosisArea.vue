@@ -1,6 +1,6 @@
 <template>
   <div class="DiagnosisArea zzBg-grit p-2">
-    <div class="DiagMain flex relative z-1">
+    <div class="DiagMain flex relative">
       <div class="DiagLeft flex-1 mx-1 my-05">
         <div v-for="o of leftContents" :key="o.label" class="DiagLine">
           <div class="DiagLine-Label">{{ o.label }}</div>
@@ -8,10 +8,10 @@
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
         <div class="flex relative mt-2 mb-05 mx-0">
-          <button class="zzBtnRect1 z-1" @click="handleCopyDiag">
+          <button class="zzBtnRect1 z-10" @click="handleCopyDiag">
             コピー
           </button>
-          <button class="zzBtnRect1 z-1 ml-1" @click="handleCopyDiagNolabel">
+          <button class="zzBtnRect1 z-10 ml-1" @click="handleCopyDiagNolabel">
             値のみコピー
           </button>
         </div>

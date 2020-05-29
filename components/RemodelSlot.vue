@@ -11,7 +11,7 @@
     <div class="zz-footwhite flex flex-1">
       <div
         v-if="x.action && (x.quality || x.level)"
-        class="flex-auto flex items-center justify-between"
+        class="zz-footwhite-name flex-auto flex items-center justify-between"
       >
         <div>{{ x.quality }}</div>
         <div class="zzAnton">Lv.{{ x.level }}</div>

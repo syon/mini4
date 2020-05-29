@@ -1,14 +1,14 @@
 <template>
-  <div v-if="isOriginal" class="floating">
-    <div class="xx-OwnsArea zzBg-gray1 br-1">
-      <div class="flex justify-center my-2">
-        <button class="zzBtnRounded1" @click="handleRegister">
-          今のパーツを登録する
-        </button>
-      </div>
-      <hr class="zz-hr-gray" />
-      <div class="OwnsList flex-1">
-        <div class="m-1">
+  <div v-if="isOriginal" class="zz-floatingLeft">
+    <div class="zz-floatingArea flex">
+      <div class="zz-floatingSubArea flex-1">
+        <div class="m-1 flex justify-center">
+          <button class="zzBtnRounded1" @click="handleRegister">
+            今のパーツを登録する
+          </button>
+        </div>
+        <hr class="zz-hr-gray my-2" />
+        <div class="">
           <div class="zzCategoryHeaderLong">登録パーツ</div>
           <div v-for="(r, i) of theList" :key="i" class="OwnsItem m-1 br-1">
             <div class="flex">
@@ -95,14 +95,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.floating {
-  position: fixed;
-  top: 50px; // do not set left property for inner fixed
-  z-index: 9;
-  width: 218px;
-  height: 100%;
-}
-
 .xx-OwnsArea {
   display: flex;
   flex-direction: column;

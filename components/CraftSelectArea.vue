@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isCrafting" class="floating">
-    <div class="xx-CraftSelectArea flex flex-col">
-      <div class="CraftEditSlotList flex-1 zzBg-gray1 br-1 pt-1 px-1 pb-8">
+  <div v-if="isCrafting" class="zz-floatingLeft">
+    <div class="zz-floatingArea flex">
+      <div class="zz-floatingSubArea flex-1">
         <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
         <template v-for="(obj, idx) in showingCrafts">
           <craft-edit-slot
@@ -13,7 +13,7 @@
           />
         </template>
       </div>
-      <div class="CraftControls zzBg-gray1 relative br-1 p-1">
+      <div class="zz-floatingSubArea">
         <div class="zzQualityChoise my-1">
           <label :class="{ active: quality === 'イイ感じ' }">
             <input v-model="quality" type="radio" value="イイ感じ" />
@@ -28,9 +28,7 @@
             <span style="letter-spacing: -0.05em;">至高の逸品</span>
           </label>
         </div>
-        <div
-          class="levelChoise zzAnton flex items-center justify-around text-black my-1"
-        >
+        <div class="zzAnton flex items-center justify-around text-black my-1">
           <button class="zzBtnRect2 flex-1" @click="handleLevel('Min')">
             1
           </button>
@@ -43,7 +41,7 @@
           <input
             v-model="level"
             type="number"
-            class="levelVal flex-1 text-white bg-gray-800 text-center"
+            class="levelVal flex-1"
             style="width: 2.5rem; height: 1.5rem;"
           />
           <button class="zzBtnRect2 flex-1" @click="handleLevel('Plus1')">
@@ -207,28 +205,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.floating {
-  position: fixed;
-  top: 50px; // do not set left property for inner fixed
-  z-index: 9;
-  width: 218px;
-  height: 100%;
-}
-
-.xx-CraftSelectArea {
-  height: calc(100% - 100px);
-}
-
-.CraftEditSlotList {
-  position: relative;
-  overflow: auto;
-  border: 1px solid #c8c8c8;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.CraftControls {
-  border: 1px solid #c8c8c8;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-</style>
+<style lang="less" scoped></style>

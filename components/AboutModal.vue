@@ -1,10 +1,10 @@
 <template>
-  <div v-if="isAbout" class="AboutModal" @click.self="handleModal">
-    <div class="AboutModal-Panel zzBg-gray3 br-1">
-      <div class="zz-headblack">
+  <div v-if="isAbout" class="zz-modal" @click.self="handleModal">
+    <div class="zz-modalPanel zzBg-gray3">
+      <div class="zz-headblack px-1">
         About
       </div>
-      <div class="AboutModal-Body p-1">
+      <div class="zz-modalBody p-1">
         <div class="pb-4">
           <div class="zzCategoryHeaderBig">
             ミニ四駆 超速グランプリ 改造シミュレータ
@@ -77,32 +77,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.AboutModal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  background-color: rgba(0, 0, 0, 0.67);
-}
-
-.AboutModal-Panel {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 80%;
-  border: 1px solid #c8c8c8;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 0.25rem;
-}
-
-.AboutModal-Body {
-  flex: 1;
-  overflow: auto;
-}
-</style>
+<style lang="less" scoped></style>
