@@ -10,9 +10,9 @@
         <hr class="zz-hr-gray my-2" />
         <div class="">
           <div class="zzCategoryHeaderLong">登録パーツ</div>
-          <div v-for="(r, i) of theList" :key="i" class="OwnsItem m-1 br-1">
+          <div v-for="(r, i) of theList" :key="i" class="m-1">
             <div class="flex">
-              <div class="OwnsItemBox br-1 flex-1" @click="handlePick(r)">
+              <div class="zz-selectBox flex-1" @click="handlePick(r)">
                 <div class="flex">
                   <div class="flex">
                     <div
@@ -21,15 +21,15 @@
                     ></div>
                     <div class="w-1" :style="{ backgroundColor: r.色2 }"></div>
                   </div>
-                  <div class="p-1">
-                    <div class="OwnsItemBoxTitle">{{ r.key }}</div>
-                    <div class="OwnsItemBoxDesc">
+                  <div class="p-1 flex-col">
+                    <div class="">{{ r.key }}</div>
+                    <div class="zz-text06">
                       {{ r.craftSummary }}／Lv.{{ r.levelSum }}
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="OwnsItemDelete flex items-center ml-1">
+              <div class="flex items-center ml-1">
                 <button class="zzBtnRect1" @click="handleDelete(i)">
                   削除
                 </button>
@@ -94,31 +94,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.xx-OwnsArea {
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 100px);
-  border: 1px solid #c8c8c8;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.OwnsList {
-  position: relative;
-  overflow: auto;
-}
-
-.OwnsItemBox {
-  color: black;
-  background-color: #f0f4f4;
-  border: 1px solid #b5babd;
-}
-
-.OwnsItemBoxTitle {
-  margin-bottom: 0.25rem;
-}
-
-.OwnsItemBoxDesc {
-  font-size: 0.6rem;
-}
-</style>
+<style lang="less" scoped></style>
