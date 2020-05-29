@@ -151,7 +151,7 @@ export default {
     align-items: center;
     padding: 2px;
     line-height: 1;
-    font-size: 0.55em;
+    font-size: 0.6em;
     letter-spacing: -0.1em;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
