@@ -3,9 +3,9 @@
     <div class="garage">
       <div class="garage--row">
         <div class="garage--cell items-center flex">
-          <!-- <button class="zzBtnRect1 zz-text06 z-10 leading-tight">
+          <button class="zzBtnRect1 zz-text06 leading-tight">
             表示<br />切り替え
-          </button> -->
+          </button>
         </div>
         <div class="garage--cell">
           <wear-box

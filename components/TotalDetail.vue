@@ -29,10 +29,10 @@
           />
         </template>
         <div class="flex mt-4 relative">
-          <button class="zzBtnRect1 z-10" @click="handleCopy">
+          <button class="zzBtnRect1 z-1" @click="handleCopy">
             コピー
           </button>
-          <button class="zzBtnRect1 z-10 ml-1" @click="handleCopyNolabel">
+          <button class="zzBtnRect1 z-1 ml-1" @click="handleCopyNolabel">
             値のみコピー
           </button>
         </div>
