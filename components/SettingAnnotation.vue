@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOriginal" class="zz-floatingRight">
+  <div v-if="isOwns" class="zz-floatingRight">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
         <div class="zzCategoryHeaderLong">表示切り替え</div>

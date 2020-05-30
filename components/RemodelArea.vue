@@ -10,7 +10,7 @@
       </button>
     </div>
     <div class="flex flex-col">
-      <button class="TuneBtn zzBtnRounded2" @click="toggleOriginal">
+      <button class="TuneBtn zzBtnRounded2" @click="toggleOwns">
         パーツ登録 / 呼出
       </button>
     </div>
@@ -65,9 +65,11 @@ export default {
     },
     toggleCraftTune() {
       this.$store.dispatch('ing/toggleCraftTune')
+      this.$ga.screenview('CraftTune')
     },
-    toggleOriginal() {
-      this.$store.dispatch('ing/toggleOriginal')
+    toggleOwns() {
+      this.$store.dispatch('ing/toggleOwns')
+      this.$ga.screenview('Owns')
     },
   },
 }

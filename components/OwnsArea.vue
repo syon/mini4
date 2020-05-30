@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOriginal" class="zz-floatingLeft">
+  <div v-if="isOwns" class="zz-floatingLeft">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
         <div class="m-1 flex justify-center">
@@ -48,7 +48,7 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapState('ing', {
-      isOriginal: (state) => state.isOriginal,
+      isOwns: (state) => state.isOwns,
       tab: (state) => state.tab,
       part: (state) => state.part,
       item: (state) => state.item,

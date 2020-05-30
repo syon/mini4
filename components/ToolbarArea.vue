@@ -13,6 +13,8 @@ export default {
       // const tabFrom = 'M3'
       // const tabTo = 'M4'
       // this.$store.dispatch('recipe/copyMachineTab', { tabFrom, tabTo })
+      this.$store.dispatch('ing/toggleTabCopy', true)
+      this.$ga.screenview('TabCopy')
     },
   },
 }

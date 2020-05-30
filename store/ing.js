@@ -22,8 +22,9 @@ export const state = () => ({
   isTune: false,
   isAbout: false,
   isSupport: false,
-  isOriginal: false,
+  isOwns: false,
   isDiagnosis: false,
+  isTabCopy: false,
 })
 
 export const getters = {}
@@ -87,8 +88,8 @@ export const mutations = {
   setTune(state, isTune) {
     state.isTune = isTune
   },
-  setOriginal(state, isOriginal) {
-    state.isOriginal = isOriginal
+  setOwns(state, isOwns) {
+    state.isOwns = isOwns
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
@@ -98,6 +99,9 @@ export const mutations = {
   },
   setDiagnosis(state, isDiagnosis) {
     state.isDiagnosis = isDiagnosis
+  },
+  setTabCopy(state, isTabCopy) {
+    state.isTabCopy = isTabCopy
   },
 }
 
@@ -168,7 +172,8 @@ export const actions = {
     commit('setCrafting', false)
     commit('setShowcase', false)
     commit('setTune', false)
-    commit('setOriginal', false)
+    commit('setOwns', false)
+    commit('setTabCopy', false)
     const { part } = state
     dispatch('recipe/cleanupCrafts', part, { root: true })
   },
@@ -181,9 +186,18 @@ export const actions = {
       dispatch('hideBarrier')
     }
   },
-  toggleOriginal({ commit, state, dispatch }) {
-    const nextBool = !state.isTune
-    commit('setOriginal', nextBool)
+  toggleOwns({ commit, state, dispatch }) {
+    const nextBool = !state.isOwns
+    commit('setOwns', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
+  toggleTabCopy({ commit, state, dispatch }) {
+    const nextBool = !state.isTabCopy
+    commit('setTabCopy', nextBool)
     if (nextBool) {
       commit('setBarrier', true)
     } else {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isTune" class="zz-floatingLeft">
+  <div v-if="isTune" class="CraftTuneArea zz-floatingLeft">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
         <div class="zzCategoryHeaderLong">改造プリセット</div>
