@@ -4,87 +4,89 @@
       <div class="TotalWindowPanel">
         <div class="zz_headgray"></div>
         <div class="zzBg-checker px-2 py-3">
-          <div class="flex items-stretch justify-center">
-            <div class="xx-total flex flex-col items-center">
-              <div>総合評価</div>
-              <div
-                class="xx-totalscore flex-1 flex items-center zzAnton tracking-tight"
-              >
-                {{ showInt(totalScore) }}
+          <div class="relative z-10">
+            <div class="flex items-stretch justify-center">
+              <div class="xx-total flex flex-col items-center">
+                <div>総合評価</div>
+                <div
+                  class="xx-totalscore flex-1 flex items-center zzAnton tracking-tight"
+                >
+                  {{ showInt(totalScore) }}
+                </div>
+              </div>
+              <div class="xx-affects flex items-center">
+                <table class="w-full">
+                  <thead class="tracking-tighter whitespace-no-wrap">
+                    <tr>
+                      <th class="text-center p-0">スピード</th>
+                      <th class="text-center p-0">パワー</th>
+                      <th class="text-center p-0">ｺｰﾅｰ安定</th>
+                      <th class="text-center p-0">ｽﾀﾐﾅ耐久</th>
+                      <th class="text-center p-0">重さ</th>
+                    </tr>
+                  </thead>
+                  <tbody class="xx-ranks whitespace-no-wrap">
+                    <tr>
+                      <td class="text-center">
+                        <score-rank
+                          mode="TOTAL"
+                          affect="スピード"
+                          :score="scores.スピード"
+                        />
+                      </td>
+                      <td class="text-center">
+                        <score-rank
+                          mode="TOTAL"
+                          affect="パワー"
+                          :score="scores.パワー"
+                        />
+                      </td>
+                      <td class="text-center">
+                        <score-rank
+                          mode="TOTAL"
+                          affect="コーナー安定"
+                          :score="scores.コーナー安定"
+                        />
+                      </td>
+                      <td class="text-center">
+                        <score-rank
+                          mode="TOTAL"
+                          affect="スタミナ耐久"
+                          :score="scores.スタミナ耐久"
+                        />
+                      </td>
+                      <td class="text-center">
+                        <score-rank
+                          mode="TOTAL"
+                          affect="重さ"
+                          :score="scores.重さ"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot class="xx-scores zzAnton whitespace-no-wrap">
+                    <tr>
+                      <td class="text-center">
+                        {{ showInt(scores.スピード) }}
+                      </td>
+                      <td class="text-center">
+                        {{ showInt(scores.パワー) }}
+                      </td>
+                      <td class="text-center">
+                        {{ showInt(scores.コーナー安定) }}
+                      </td>
+                      <td class="text-center">
+                        {{ showInt(scores.スタミナ耐久) }}
+                      </td>
+                      <td class="text-center">{{ showInt(scores.重さ) }}g</td>
+                    </tr>
+                  </tfoot>
+                </table>
               </div>
             </div>
-            <div class="xx-affects flex items-center">
-              <table class="w-full">
-                <thead class="tracking-tighter whitespace-no-wrap">
-                  <tr>
-                    <th class="text-center p-0">スピード</th>
-                    <th class="text-center p-0">パワー</th>
-                    <th class="text-center p-0">ｺｰﾅｰ安定</th>
-                    <th class="text-center p-0">ｽﾀﾐﾅ耐久</th>
-                    <th class="text-center p-0">重さ</th>
-                  </tr>
-                </thead>
-                <tbody class="xx-ranks whitespace-no-wrap">
-                  <tr>
-                    <td class="text-center">
-                      <score-rank
-                        mode="TOTAL"
-                        affect="スピード"
-                        :score="scores.スピード"
-                      />
-                    </td>
-                    <td class="text-center">
-                      <score-rank
-                        mode="TOTAL"
-                        affect="パワー"
-                        :score="scores.パワー"
-                      />
-                    </td>
-                    <td class="text-center">
-                      <score-rank
-                        mode="TOTAL"
-                        affect="コーナー安定"
-                        :score="scores.コーナー安定"
-                      />
-                    </td>
-                    <td class="text-center">
-                      <score-rank
-                        mode="TOTAL"
-                        affect="スタミナ耐久"
-                        :score="scores.スタミナ耐久"
-                      />
-                    </td>
-                    <td class="text-center">
-                      <score-rank
-                        mode="TOTAL"
-                        affect="重さ"
-                        :score="scores.重さ"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-                <tfoot class="xx-scores zzAnton whitespace-no-wrap">
-                  <tr>
-                    <td class="text-center">
-                      {{ showInt(scores.スピード) }}
-                    </td>
-                    <td class="text-center">
-                      {{ showInt(scores.パワー) }}
-                    </td>
-                    <td class="text-center">
-                      {{ showInt(scores.コーナー安定) }}
-                    </td>
-                    <td class="text-center">
-                      {{ showInt(scores.スタミナ耐久) }}
-                    </td>
-                    <td class="text-center">{{ showInt(scores.重さ) }}g</td>
-                  </tr>
-                </tfoot>
-              </table>
+            <div v-if="isDetailOpen" class="">
+              <total-detail />
             </div>
-          </div>
-          <div v-if="isDetailOpen" class="">
-            <total-detail />
           </div>
         </div>
         <button class="zz-footgray text-center" @click="toggleDetail">
