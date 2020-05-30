@@ -3,7 +3,7 @@ import Mini4 from '@/models/Mini4'
 
 const dg = debug('@:recipe')
 
-const obj = {
+const initialMachineState = {
   body: { key: '', crafts: [] },
   motor: { key: '', crafts: [] },
   gear: { key: '', crafts: [] },
@@ -36,11 +36,11 @@ const obj = {
 }
 
 export const state = () => ({
-  M1: JSON.parse(JSON.stringify(obj)),
-  M2: JSON.parse(JSON.stringify(obj)),
-  M3: JSON.parse(JSON.stringify(obj)),
-  M4: JSON.parse(JSON.stringify(obj)),
-  M5: JSON.parse(JSON.stringify(obj)),
+  M1: JSON.parse(JSON.stringify(initialMachineState)),
+  M2: JSON.parse(JSON.stringify(initialMachineState)),
+  M3: JSON.parse(JSON.stringify(initialMachineState)),
+  M4: JSON.parse(JSON.stringify(initialMachineState)),
+  M5: JSON.parse(JSON.stringify(initialMachineState)),
 })
 
 function resolvePartKey(partJapanese) {
@@ -107,8 +107,8 @@ function resolvePartKey(partJapanese) {
 }
 
 export const getters = {
-  getRecipeByPart: (state) => (tab, part) => {
-    const partKey = resolvePartKey(part)
+  getRecipeByPart: (state) => (tab, partJp) => {
+    const partKey = resolvePartKey(partJp)
     return state[tab][partKey]
   },
   getEquipByPart: (state, getters, rootState, rootGetters) => (tab, part) => {
@@ -152,6 +152,62 @@ export const getters = {
       result[label] = sums[label] || 0
     }
     return result
+  },
+  getRollerFriction: (state, getters, rootState, rootGetters) => (tab) => {
+    const rollers = [
+      'ウイングローラー',
+      'リヤ・ローラー下',
+      'リヤ・ローラー中',
+      'リヤ・ローラー上',
+      'サイド・ローラー中',
+      'サイド・ローラー上',
+    ]
+    let key = null
+    const partJp = rollers.find((x) => {
+      const r = getters.getRecipeByPart(tab, x)
+      key = r.key
+      return r && r.key
+    })
+    if (partJp) {
+      const r = getters.getRecipeByPart(tab, partJp)
+      const equip = getters.getEquipByPart(tab, partJp)
+      const item = rootGetters['catalog/getItemInfo'](partJp, key)
+      const s = Mini4.getPartScore({
+        part: partJp,
+        item,
+        partRecipe: r,
+      })
+      return { partJp, key, score: s['ローラー摩擦'], ...equip }
+    }
+    return {}
+  },
+  getRollerRegist: (state, getters, rootState, rootGetters) => (tab) => {
+    const rollers = [
+      'フロント・ローラー上',
+      'フロント・ローラー中',
+      'リヤ・ローラー上',
+      'リヤ・ローラー中',
+      'リヤ・ローラー下',
+      'ウイングローラー',
+    ]
+    const tgt = rollers.reduce((acc, crrPart) => {
+      const r = getters.getRecipeByPart(tab, crrPart)
+      if (!r.key) return acc
+      const item = rootGetters['catalog/getItemInfo'](crrPart, r.key)
+      const s = Mini4.getPartScore({
+        part: crrPart,
+        item,
+        partRecipe: r,
+      })
+      const crr = { key: r.key, part: crrPart, score: s['ローラー抵抗'] }
+      const obj = acc.score > crr.score ? acc : crr
+      return obj
+    }, {})
+    if (tgt.part) {
+      const equip = getters.getEquipByPart(tab, tgt.part)
+      return { partJp: tgt.part, key: tgt.key, score: tgt.score, ...equip }
+    }
+    return {}
   },
 }
 

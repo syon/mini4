@@ -48,6 +48,45 @@
         </template>
       </div>
     </div>
+    <hr class="zz-hr-white my-3" />
+    <div>
+      <div class="flex justify-between">
+        <div class="flex-1 mx-2">
+          <score-cell
+            label="採用ローラー摩擦"
+            :score="frictionRoller.score"
+            class="zz-textgreen"
+          />
+          <div class="flex justify-between">
+            <div>{{ frictionRoller.partJp }}</div>
+            <div>
+              <wear-box
+                :item="frictionRoller"
+                :part="frictionRoller.partJp"
+                @click="handleTrans(frictionRoller.partJp)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 mx-2">
+          <score-cell
+            label="採用ローラー抵抗"
+            :score="registRoller.score"
+            class="zz-textgreen"
+          />
+          <div class="flex justify-between">
+            <div>{{ registRoller.partJp }}</div>
+            <div>
+              <wear-box
+                :item="registRoller"
+                :part="registRoller.partJp"
+                @click="handleTrans(registRoller.partJp)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -56,11 +95,13 @@ import { mapState, mapGetters } from 'vuex'
 import Util from '@/models/Util'
 import ScoreCell from '@/components/ScoreCell'
 import AptiHex from '@/components/AptiHex'
+import WearBox from '@/components/WearBox'
 
 export default {
   components: {
     ScoreCell,
     AptiHex,
+    WearBox,
   },
   computed: {
     ...mapState('ing', {
@@ -70,6 +111,8 @@ export default {
       gAllEquips: 'recipe/gAllEquips',
       getEquipByPart: 'recipe/getEquipByPart',
       scores: 'recipe/gAllPartScoresSum',
+      getRollerFriction: 'recipe/getRollerFriction',
+      getRollerRegist: 'recipe/getRollerRegist',
     }),
     leftItems() {
       const s = this.scores
@@ -147,6 +190,12 @@ export default {
       }
       return result
     },
+    frictionRoller() {
+      return this.getRollerFriction(this.tab)
+    },
+    registRoller() {
+      return this.getRollerRegist(this.tab)
+    },
   },
   methods: {
     handleCopy() {
@@ -166,6 +215,11 @@ export default {
       lines.unshift(this.bodyInfo.ボディ特性)
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
+    },
+    handleTrans(part) {
+      const tab = this.tab
+      this.$store.dispatch('ing/transIngPart', { tab, part })
+      this.$ga.event('Trans', 'Part', part)
     },
   },
 }

@@ -37,7 +37,7 @@ export default {
   },
   props: {
     item: { type: Object, default: () => {} },
-    part: { type: String, required: true },
+    part: { type: String, default: null },
   },
   computed: {
     ...mapState('ing', {
@@ -52,6 +52,7 @@ export default {
       getRecipeByPart: 'recipe/getRecipeByPart',
     }),
     x() {
+      if (!this.part) return { crafts: [] }
       const item = this.getItemInfo(this.part, this.item.key) || {}
       const recipe = this.getRecipeByPart(this.tab, this.part)
       return { ...item, ...recipe }
