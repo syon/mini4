@@ -1,7 +1,9 @@
 <template>
-  <div class="ToolbarArea">
+  <div class="ToolbarArea pb-2">
     <div class="ToolbarArea-inner">
-      <button class="zzBtnRectGreen" @click="handleTabCopy">タブコピー</button>
+      <button class="zzBtnRectGreen" @click="handleTabCopy">
+        マシンコピー
+      </button>
     </div>
   </div>
 </template>
@@ -19,21 +21,21 @@ export default {
 
 <style lang="less" scoped>
 .ToolbarArea {
-  position: relative;
-  height: 1rem;
+  // position: relative;
+  // height: 1rem;
+  background: rgb(46, 52, 54);
+  background: linear-gradient(
+    0deg,
+    rgba(46, 52, 54, 1) 0%,
+    rgba(65, 69, 70, 1) 100%
+  );
 
   .ToolbarArea-inner {
     width: 100%;
-    position: absolute;
-    top: -10px;
+    // position: absolute;
     z-index: 2;
     display: flex;
     justify-content: center;
-  }
-
-  .zzBtnRectGreen {
-    padding-left: 1em;
-    padding-right: 1em;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div v-if="isTabCopy" class="zz-floatingRight">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
-        <div class="zzCategoryHeaderLong">タブコピー</div>
+        <div class="zzCategoryHeaderLong">マシンコピー</div>
         <div>
           <a
             href="#"
@@ -10,8 +10,8 @@
             :class="{ current: tab === 'M1' }"
             @click="handleMachine($event, 'M1')"
           >
-            <div class="zzAnton mx-2">M1</div>
-            <machine-icon tab="M1" />
+            <div class="zzAnton mx-1">M1</div>
+            <machine-icon tab="M1" class="mx-1" />
           </a>
           <a
             href="#"
@@ -19,8 +19,8 @@
             :class="{ current: tab === 'M2' }"
             @click="handleMachine($event, 'M2')"
           >
-            <div class="zzAnton mx-2">M2</div>
-            <machine-icon tab="M2" />
+            <div class="zzAnton mx-1">M2</div>
+            <machine-icon tab="M2" class="mx-1" />
           </a>
           <a
             href="#"
@@ -28,8 +28,8 @@
             :class="{ current: tab === 'M3' }"
             @click="handleMachine($event, 'M3')"
           >
-            <div class="zzAnton mx-2">M3</div>
-            <machine-icon tab="M3" />
+            <div class="zzAnton mx-1">M3</div>
+            <machine-icon tab="M3" class="mx-1" />
           </a>
           <a
             href="#"
@@ -37,8 +37,8 @@
             :class="{ current: tab === 'M4' }"
             @click="handleMachine($event, 'M4')"
           >
-            <div class="zzAnton mx-2">M4</div>
-            <machine-icon tab="M4" />
+            <div class="zzAnton mx-1">M4</div>
+            <machine-icon tab="M4" class="mx-1" />
           </a>
           <a
             href="#"
@@ -46,13 +46,14 @@
             :class="{ current: tab === 'M5' }"
             @click="handleMachine($event, 'M5')"
           >
-            <div class="zzAnton mx-2">M5</div>
-            <machine-icon tab="M5" />
+            <div class="zzAnton mx-1">M5</div>
+            <machine-icon tab="M5" class="mx-1" />
           </a>
         </div>
-        <div class="xx-tips m-1">
-          ※ 選択したマシンの内容で上書きします。
-          現在表示中のセッティングは失われますのでご注意ください。
+        <div class="zz-textalert mx-1 my-2 p-1">
+          ※ 注意 ※<br />
+          現在表示中のセッティングを破棄し、選択したマシンの内容で上書きします。<br />
+          (確認も出ないよ！)
         </div>
       </div>
     </div>
@@ -105,10 +106,5 @@ export default {
     background-image: url(/bg_grid_w.svg);
     border: 1px solid #b5babd;
   }
-}
-
-.xx-tips {
-  font-size: 0.6rem;
-  line-height: 1.2;
 }
 </style>
