@@ -1,5 +1,5 @@
 <template>
-  <div class="TotalArea p-2">
+  <div class="TotalArea p-2 pb-6">
     <div class="TotalWindow br-1">
       <div class="TotalWindowPanel">
         <div class="zz_headgray"></div>

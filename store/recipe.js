@@ -259,6 +259,9 @@ export const mutations = {
     const machine = state[tab]
     machine.body = { ...machine.body, 肉抜き: bool }
   },
+  copyMachineTab(state, { tabFrom, tabTo }) {
+    state[tabTo] = JSON.parse(JSON.stringify(state[tabFrom]))
+  },
 }
 
 export const actions = {
@@ -341,5 +344,8 @@ export const actions = {
     const part = resolvePartKey(partJapanese)
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(state[part]))
+  },
+  copyMachineTab({ commit }, { tabFrom, tabTo }) {
+    commit('copyMachineTab', { tabFrom, tabTo })
   },
 }

@@ -6,12 +6,15 @@
         <total-area />
       </div>
     </div>
-    <div class="GarageArea zzBg-grid flex p-1">
-      <setting-area class="w-7/12" :tab="tab" />
-      <div class="w-5/12 migisita">
-        <parts-choise-area />
-        <parts-detail-area />
-        <remodel-area />
+    <div class="GarageArea zzBg-grid">
+      <toolbar-area />
+      <div class="flex p-1">
+        <setting-area class="w-7/12" :tab="tab" />
+        <div class="w-5/12 migisita">
+          <parts-choise-area />
+          <parts-detail-area />
+          <remodel-area />
+        </div>
       </div>
     </div>
     <div class="zzBg-gray2">
@@ -34,6 +37,7 @@
 import { mapState } from 'vuex'
 import MachineTabArea from '@/components/MachineTabArea'
 import TotalArea from '@/components/TotalArea'
+import ToolbarArea from '@/components/ToolbarArea'
 import SettingArea from '@/components/SettingArea'
 import PartsChoiseArea from '@/components/PartsChoiseArea'
 import PartsDetailArea from '@/components/PartsDetailArea'
@@ -50,6 +54,7 @@ export default {
   components: {
     MachineTabArea,
     TotalArea,
+    ToolbarArea,
     SettingArea,
     PartsChoiseArea,
     PartsDetailArea,
@@ -71,9 +76,6 @@ export default {
 </script>
 
 <style>
-.GarageArea {
-}
-
 .migisita {
   overflow: hidden;
 }

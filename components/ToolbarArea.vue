@@ -1,0 +1,40 @@
+<template>
+  <div class="ToolbarArea">
+    <div class="ToolbarArea-inner">
+      <button class="zzBtnRectGreen" @click="handleTabCopy">タブコピー</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    handleTabCopy() {
+      // const tabFrom = 'M3'
+      // const tabTo = 'M4'
+      // this.$store.dispatch('recipe/copyMachineTab', { tabFrom, tabTo })
+    },
+  },
+}
+</script>
+
+<style lang="less" scoped>
+.ToolbarArea {
+  position: relative;
+  height: 1rem;
+
+  .ToolbarArea-inner {
+    width: 100%;
+    position: absolute;
+    top: -10px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .zzBtnRectGreen {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+</style>
