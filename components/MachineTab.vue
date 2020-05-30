@@ -2,12 +2,12 @@
   <a
     :id="tab"
     href="#"
-    class="MachineIcon m-1 br-1"
+    class="MachineTab m-1 br-1"
     @click="handleClickTab($event, tab)"
   >
     <!-- prettier-ignore -->
     <component :is="'style'">
-      #{{ tab }}.MachineIcon {
+      #{{ tab }}.MachineTab {
         --body-color: {{ bodyColor }};
         --chassis-color: {{ chassisColor }};
         --bodyoption-color: {{ bodyoptionColor }};
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.MachineIcon {
+.MachineTab {
   position: relative;
   flex: 1;
   display: flex;

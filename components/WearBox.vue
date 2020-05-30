@@ -73,6 +73,7 @@ export default {
     },
     levelSum() {
       return this.x.crafts
+        .filter(Boolean)
         .map((x) => x.level)
         .reduce((acc, crr) => acc + crr, 0)
     },

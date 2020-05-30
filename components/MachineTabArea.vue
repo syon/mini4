@@ -1,22 +1,22 @@
 <template>
   <div class="MachineTabArea p-1">
     <div class="flex">
-      <machine-icon tab="M1" />
-      <machine-icon tab="M2" />
-      <machine-icon tab="M3" />
-      <machine-icon tab="M4" />
-      <machine-icon tab="M5" />
+      <machine-tab tab="M1" />
+      <machine-tab tab="M2" />
+      <machine-tab tab="M3" />
+      <machine-tab tab="M4" />
+      <machine-tab tab="M5" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import MachineIcon from '@/components/MachineIcon'
+import MachineTab from '@/components/MachineTab'
 
 export default {
   components: {
-    MachineIcon,
+    MachineTab,
   },
   computed: {
     ...mapState('ing', {
