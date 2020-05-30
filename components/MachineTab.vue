@@ -5,19 +5,7 @@
     class="MachineTab m-1 br-1"
     @click="handleClickTab($event, tab)"
   >
-    <!-- prettier-ignore -->
-    <component :is="'style'">
-      #{{ tab }}.MachineTab {
-        --body-color: {{ bodyColor }};
-        --chassis-color: {{ chassisColor }};
-        --bodyoption-color: {{ bodyoptionColor }};
-        --front-tire-color: {{ fronttireColor }};
-        --front-wheel-color: {{ frontwheelColor }};
-        --rear-tire-color: {{ reartireColor }};
-        --rear-wheel-color: {{ rearwheelColor }};
-      }
-    </component>
-    <machine-svg />
+    <machine-icon :tab="tab" />
     <div class="ActiveEffect" :class="{ active }">
       <div class="ActiveEffect-inner br-1"></div>
     </div>
@@ -26,11 +14,11 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import MachineSvg from '@/assets/machine-icon/machine.svg'
+import MachineIcon from '@/components/MachineIcon'
 
 export default {
   components: {
-    MachineSvg,
+    MachineIcon,
   },
   props: {
     tab: { type: String, required: true },
@@ -100,40 +88,6 @@ export default {
   );
   border: 1px solid #0e1111;
 
-  svg {
-    height: 63.4px;
-    padding: 0.25rem;
-    position: relative;
-    z-index: 1;
-  }
-  .icon-machine {
-    fill: white;
-
-    &.body {
-      fill: var(--body-color);
-    }
-    &.chassis {
-      fill: var(--chassis-color);
-    }
-    &.bodyoption {
-      fill: var(--bodyoption-color);
-    }
-    &.bodyoption {
-      fill: var(--bodyoption-color);
-    }
-    &.front-tire {
-      fill: var(--front-tire-color);
-    }
-    &.front-wheel {
-      fill: var(--front-wheel-color);
-    }
-    &.rear-tire {
-      fill: var(--rear-tire-color);
-    }
-    &.rear-wheel {
-      fill: var(--rear-wheel-color);
-    }
-  }
   .ActiveEffect {
     opacity: 0;
     position: absolute;
