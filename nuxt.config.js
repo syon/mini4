@@ -41,6 +41,10 @@ export default {
         href:
           'https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css',
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
@@ -62,7 +66,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@assets/app.less', 'firebaseui-ja/dist/firebaseui.css'],
+  css: ['@assets/app.less'],
   /*
    ** Plugins to load before mounting the App
    */
