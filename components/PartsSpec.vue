@@ -72,7 +72,7 @@ export default {
     color: #67f621;
     text-shadow: rgb(22, 81, 34) 1px 0px 1px,
       rgb(22, 81, 34) 0.540302px 0.841471px 1px,
-      rgb(22, 81, 34) -0.416147px 0.909297px 1px,
+      rgb(22, 81, 34) -0.416148px 0.909297px 1px,
       rgb(22, 81, 34) -0.989992px 0.14112px 1px,
       rgb(22, 81, 34) -0.653644px -0.756802px 1px,
       rgb(22, 81, 34) 0.283662px -0.958924px 1px,
@@ -83,7 +83,7 @@ export default {
     color: #f06542;
     text-shadow: rgb(97, 34, 14) 1px 0px 1px,
       rgb(97, 34, 14) 0.540302px 0.841471px 1px,
-      rgb(97, 34, 14) -0.416147px 0.909297px 1px,
+      rgb(97, 34, 14) -0.416148px 0.909297px 1px,
       rgb(97, 34, 14) -0.989992px 0.14112px 1px,
       rgb(97, 34, 14) -0.653644px -0.756802px 1px,
       rgb(97, 34, 14) 0.283662px -0.958924px 1px,

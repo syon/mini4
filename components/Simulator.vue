@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col txt-base">
     <machine-tab-area />
-    <toolbar-area />
     <div class="w-full flex flex-col">
       <div class="row flex-auto">
         <total-area />
@@ -9,7 +8,10 @@
     </div>
     <div class="GarageArea zzBg-grid">
       <div class="flex p-1">
-        <setting-area class="w-7/12" :tab="tab" />
+        <div class="w-7/12">
+          <toolbar-area />
+          <setting-area :tab="tab" />
+        </div>
         <div class="w-5/12 migisita">
           <parts-choise-area />
           <parts-detail-area />

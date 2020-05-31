@@ -109,7 +109,7 @@ export default {
 .xx-craftinfo {
   display: flex;
   flex-direction: column;
-  width: 36px;
+  width: 40px;
   letter-spacing: -0.05em;
 
   .xx-limittip {
@@ -135,7 +135,7 @@ export default {
     margin-bottom: 0;
   }
   .xx-merideme-label {
-    width: 48px;
+    width: 50px;
     font-size: 0.6rem;
     text-align: center;
     line-height: 1;

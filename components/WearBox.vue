@@ -125,8 +125,8 @@ export default {
   .WearBox-inner {
     display: flex;
     align-items: flex-start;
-    width: 49px;
-    height: 49px;
+    width: 48px;
+    height: 48px;
     background-clip: padding-box;
     border: solid 2px transparent;
     border-radius: 0.25rem;
@@ -142,7 +142,7 @@ export default {
       left: 0;
       z-index: -1;
       margin: -2px;
-      border-radius: inherit;
+      border-radius: 0.125rem;
       background: linear-gradient(to bottom right, #fcfba6, #f7de79, #894f1a);
     }
   }

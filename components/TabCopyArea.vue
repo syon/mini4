@@ -2,7 +2,7 @@
   <div v-if="isTabCopy" class="zz-floatingRight">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
-        <div class="zzCategoryHeaderLong">マシンコピー</div>
+        <div class="zzCategoryHeaderLong">他のマシンからコピー</div>
         <div>
           <a
             href="#"
