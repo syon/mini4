@@ -2,10 +2,10 @@
   <div class="ToolbarArea p-1">
     <div class="ToolbarArea-inner">
       <button class="zzBtnRectGreen" @click="handleTabCopy">
-        他のマシンからコピー
+        他マシンからコピー
       </button>
       <button class="zzBtnRect1 ml-1" @click="handleDetachAll">
-        パーツをすべて外す
+        パーツを全て外す
       </button>
     </div>
   </div>
@@ -59,11 +59,11 @@ export default {
   }
 
   .zzBtnRect1 {
-    // padding: 0 0.75rem;
+    padding: 0;
   }
 
   .zzBtnRectGreen {
-    // padding: 0 0.75rem;
+    padding: 0;
   }
 }
 </style>
