@@ -199,7 +199,7 @@ export default {
   position: absolute;
   top: -14px;
   right: -11px;
-  z-index: 9;
+  z-index: 5;
 
   .the-check {
     position: relative;
