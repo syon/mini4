@@ -1,12 +1,19 @@
 <template>
   <div class="UserArea m-2">
-    <pre>{{ user }}</pre>
     <div v-if="user.uid" class="zzBg-checker rounded p-2">
       <div class="UserArea-inner">
-        <div class="flex items-center">
-          <img class="h-8 w-8 rounded-full" :src="user.photoURL" alt="avatar" />
-          <span>{{ user.displayName }}</span>
-          <button class="border rounded" @click="handleLogout">logout</button>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              class="h-8 w-8 rounded-full mr-2"
+              :src="user.photoURL"
+              alt="avatar"
+            />
+            <span>{{ user.displayName }}</span>
+          </div>
+          <button class="border rounded px-2" @click="handleLogout">
+            logout
+          </button>
         </div>
       </div>
     </div>

@@ -35,10 +35,8 @@ export const actions = {
     dg('#prepare')
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        alert('#onAuthStateChanged - user OK')
         dispatch('login', user)
       } else {
-        alert('#onAuthStateChanged - user ELSE')
         dispatch('prepareFirebaseAuth')
       }
     })
@@ -76,13 +74,12 @@ export const actions = {
         new firebaseui.auth.AuthUI(firebase.auth())
       ui.start('#firebaseui-auth-container', {
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-        signInFlow: 'redirect',
+        signInFlow: 'popup',
         signInSuccessUrl: process.env.BASE_URL,
         callbacks: {
           signInSuccessWithAuthResult(authResult, redirectUrl) {
             dg('#signInSuccessWithAuthResult')
             dg('REDIRECT', redirectUrl)
-            alert('signInSuccessWithAuthResult')
             dispatch('login', authResult.user)
             return true // whether redirect
           },
