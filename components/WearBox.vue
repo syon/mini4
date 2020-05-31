@@ -91,7 +91,7 @@ export default {
         default: {
           const totalScore = this.totalScores[this.wearLabelMode]
           const score = Util.fixedNum(equip.score[this.wearLabelMode], 3)
-          const rate = Util.fixedNum((score / totalScore) * 100, 1)
+          const rate = Util.fixedNum((score / totalScore) * 100, 0)
           return { main: score, rate }
         }
       }
