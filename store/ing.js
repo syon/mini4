@@ -26,7 +26,7 @@ export const state = () => ({
   isDiagnosis: false,
   isTabCopy: false,
   isWearLabel: false,
-  wearLabelMode: '',
+  wearLabelMode: 'パーツ名',
 })
 
 export const getters = {}

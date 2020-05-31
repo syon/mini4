@@ -19,8 +19,11 @@ export default {
       this.$ga.screenview('TabCopy')
     },
     handleDetachAll() {
-      this.$store.dispatch('recipe/detachAll')
-      this.$ga.event('DetachAll')
+      const msg = 'パーツをすべて外します。よろしいですか？'
+      if (window.confirm(msg)) {
+        this.$store.dispatch('recipe/detachAll')
+        this.$ga.event('DetachAll')
+      }
     },
   },
 }
