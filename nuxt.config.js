@@ -46,6 +46,14 @@ export default {
   },
   env: {
     BASE_URL: process.env.BASE_URL,
+    FB_API_KEY: 'AIzaSyCb3v2C82H7_TxMMUIFJsRKMNCd5YiNOhY',
+    FB_AUTH_DOMAIN: 'mini4-42a9c.firebaseapp.com',
+    FB_DATABASE_URL: 'https://mini4-42a9c.firebaseio.com',
+    FB_PROJECT_ID: 'mini4-42a9c',
+    FB_STORAGE_BUCKET: 'mini4-42a9c.appspot.com',
+    FB_MESSAGING_SENDER_ID: '563724539640',
+    FB_APP_ID: '1:563724539640:web:8dedcce4d9c8fa19b8cd0d',
+    FB_MEASUREMENT_ID: 'G-QMZX91XY02',
   },
   /*
    ** Customize the progress-bar color
@@ -59,6 +67,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    { src: '@/plugins/firebase-client', mode: 'client' },
     { src: '@/plugins/localStorage', mode: 'client' },
     { src: '@/plugins/viewportunits', mode: 'client' },
   ],

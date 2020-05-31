@@ -10,6 +10,7 @@ export default ({ store }) => {
       paths: ['ing', 'recipe', 'owns'],
       rehydrated: (store) => {
         store.dispatch('ing/refresh')
+        store.dispatch('user/prepare')
       },
     })(store)
   })

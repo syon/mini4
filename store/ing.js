@@ -114,6 +114,10 @@ export const mutations = {
 }
 
 export const actions = {
+  refresh({ dispatch, state }) {
+    const { tab, part } = state
+    dispatch('transIngPart', { tab, part })
+  },
   transIngPart({ commit, state, rootState, rootGetters }, { tab, part }) {
     const partCatalog = rootGetters['catalog/getCatalogByPart'](part) || {}
     const partRecipe =
@@ -130,10 +134,6 @@ export const actions = {
     commit('setItem', { key: partRecipe.key, ...item })
     commit('setCrafts', crafts)
     commit('setPing')
-  },
-  refresh({ dispatch, state }) {
-    const { tab, part } = state
-    dispatch('transIngPart', { tab, part })
   },
   changeCraftIndex({ state, commit }, payload) {
     const { craftIndex, craftAction, craftQuality, craftLevel } = payload

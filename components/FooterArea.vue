@@ -2,6 +2,7 @@
   <div>
     <about-modal />
     <support-modal />
+    <user-area />
     <!-- <button class="zzBtnRounded1 m-auto" @click="hendleError">Error</button> -->
     <div class="flex items-center justify-between p-2">
       <div class="flex">
@@ -25,6 +26,7 @@
 <script>
 import AboutModal from '@/components/AboutModal'
 import SupportModal from '@/components/SupportModal'
+import UserArea from '@/components/UserArea'
 import AccessCounter from '@/components/AccessCounter'
 
 export default {
@@ -32,6 +34,7 @@ export default {
     AboutModal,
     SupportModal,
     AccessCounter,
+    UserArea,
   },
   methods: {
     hendleError() {
