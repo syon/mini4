@@ -15,16 +15,16 @@
               {{ label.name }}
             </span>
           </template>
-          <template v-if="label.level > 0">
+          <template v-if="label.level >= 0">
             <span class="level zzAnton zz-text075 zz-textpurple">
               {{ label.level }}
             </span>
           </template>
           <template v-if="label.score > 0">
             <span class="score zzAnton zz-text075">
-              {{ label.score }}
+              {{ label.score }}{{ label.suffix }}
             </span>
-            <span class="rate zzAnton zz-textgreen2">
+            <span v-if="label.rate > 0" class="rate zzAnton zz-textgreen2">
               <br />{{ label.rate }}<span class="ampersand">%</span>
             </span>
           </template>
@@ -104,7 +104,18 @@ export default {
         }
         case '強化レベル合計': {
           const level = this.levelSum
-          return { show: level > 0, level }
+          return { show: level >= 0, level }
+        }
+        case '重さ': {
+          const totalScore = this.totalScores[this.wearLabelMode]
+          const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
+          const rawRate = (score / totalScore) * 100
+          const rate = Util.fixedNum(rawRate, 1)
+          return { show: rawRate > 0, score, rate, suffix: 'g' }
+        }
+        case 'ギヤ比': {
+          const score = equip.score[this.wearLabelMode]
+          return { show: score > 0, score }
         }
         default: {
           const totalScore = this.totalScores[this.wearLabelMode]
