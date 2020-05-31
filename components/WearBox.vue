@@ -108,9 +108,9 @@ export default {
         }
         case '重さ': {
           const totalScore = this.totalScores[this.wearLabelMode]
-          const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
+          const score = Util.fixedNum(equip.score[this.wearLabelMode], 1)
           const rawRate = (score / totalScore) * 100
-          const rate = Util.fixedNum(rawRate, 1)
+          const rate = Util.fixedNum(rawRate, 0)
           return { show: rawRate > 0, score, rate, suffix: 'g' }
         }
         case 'ギヤ比': {
