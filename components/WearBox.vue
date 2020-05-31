@@ -11,21 +11,22 @@
       <div v-if="label && label.show" class="xx-parts-label">
         <span>
           <template v-if="label.name">
-            <span class="name">
+            <span class="tracking-tighter">
               {{ label.name }}
             </span>
           </template>
           <template v-if="label.level >= 0">
-            <span class="level zzAnton zz-text075 zz-textpurple">
+            <span class="zzAnton zz-text075 leading-tight zz-textpurple">
               {{ label.level }}
             </span>
           </template>
           <template v-if="label.score > 0">
-            <span class="score zzAnton zz-text075">
-              {{ label.score }}{{ label.suffix }}
-            </span>
-            <span v-if="label.rate > 0" class="rate zzAnton zz-textgreen2">
-              <br />{{ label.rate }}<span class="ampersand">%</span>
+            <span class="zzAnton zz-text075 leading-tight">
+              {{ label.score }}</span
+            ><span class="zzAnton mx-025 zz-text06">{{ label.suffix }} </span>
+            <span v-if="label.rate > 0" class="zzAnton zz-textgreen2">
+              <br />{{ label.rate
+              }}<span class="zzDefaultFont mx-025 zz-text06">%</span>
             </span>
           </template>
         </span>
@@ -108,7 +109,8 @@ export default {
         }
         case '重さ': {
           const totalScore = this.totalScores[this.wearLabelMode]
-          const score = Util.fixedNum(equip.score[this.wearLabelMode], 1)
+          // const score = Util.fixedNum(equip.score[this.wearLabelMode], 1)
+          const score = equip.score[this.wearLabelMode]
           const rawRate = (score / totalScore) * 100
           const rate = Util.fixedNum(rawRate, 0)
           return { show: rawRate > 0, score, rate, suffix: 'g' }
@@ -119,7 +121,8 @@ export default {
         }
         default: {
           const totalScore = this.totalScores[this.wearLabelMode]
-          const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
+          // const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
+          const score = equip.score[this.wearLabelMode]
           const rawRate = (score / totalScore) * 100
           const rate = Util.fixedNum(rawRate, 0)
           return { show: rawRate > 0, score, rate }
@@ -207,17 +210,10 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
-    border-radius: 1px;
+    border-radius: 0.125rem;
     color: white;
     font-size: 0.6rem;
     line-height: 1;
-    .name {
-      letter-spacing: -0.1em;
-    }
-    .ampersand {
-      font-size: 0.5rem;
-      margin-left: 1px;
-    }
   }
   .xx-aptihex {
     position: absolute;

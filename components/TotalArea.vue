@@ -78,7 +78,10 @@
                       <td class="text-center">
                         {{ showInt(scores.スタミナ耐久) }}
                       </td>
-                      <td class="text-center">{{ showInt(scores.重さ) }}g</td>
+                      <td class="text-center">
+                        {{ showInt(scores.重さ)
+                        }}<span class="mx-025 zz-text06">g</span>
+                      </td>
                     </tr>
                   </tfoot>
                 </table>
