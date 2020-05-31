@@ -169,22 +169,12 @@ export const getters = {
       'サイド・ローラー中',
       'サイド・ローラー上',
     ]
-    let key = null
     const partJp = rollers.find((x) => {
       const r = getters.getRecipeByPart(tab, x)
-      key = r.key
       return r && r.key
     })
     if (partJp) {
-      const r = getters.getRecipeByPart(tab, partJp)
-      const equip = getters.getEquipByPart(tab, partJp)
-      const item = rootGetters['catalog/getItemInfo'](partJp, key)
-      const s = Mini4.getPartScore({
-        part: partJp,
-        item,
-        partRecipe: r,
-      })
-      return { partJp, key, score: s['ローラー摩擦'], ...equip }
+      return getters.getEquipByPart(tab, partJp)
     }
     return {}
   },
@@ -197,24 +187,19 @@ export const getters = {
       'リヤ・ローラー下',
       'ウイングローラー',
     ]
-    const tgt = rollers.reduce((acc, crrPart) => {
-      const r = getters.getRecipeByPart(tab, crrPart)
-      if (!r.key) return acc
-      const item = rootGetters['catalog/getItemInfo'](crrPart, r.key)
-      const s = Mini4.getPartScore({
-        part: crrPart,
-        item,
-        partRecipe: r,
-      })
-      const crr = { key: r.key, part: crrPart, score: s['ローラー抵抗'] }
-      const obj = acc.score > crr.score ? acc : crr
-      return obj
-    }, {})
-    if (tgt.part) {
-      const equip = getters.getEquipByPart(tab, tgt.part)
-      return { partJp: tgt.part, key: tgt.key, score: tgt.score, ...equip }
-    }
-    return {}
+    const equips = rollers.map((partJp) => {
+      return getters.getEquipByPart(tab, partJp)
+    })
+    const tgt = equips.reduce(
+      (acc, crr) => {
+        if (!crr.key) return acc
+        const obj =
+          acc.score['ローラー抵抗'] > crr.score['ローラー抵抗'] ? acc : crr
+        return obj
+      },
+      { score: {} }
+    )
+    return tgt
   },
 }
 

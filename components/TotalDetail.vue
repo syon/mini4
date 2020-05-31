@@ -54,7 +54,7 @@
         <div class="flex-1 mx-2">
           <score-cell
             label="有効ローラー摩擦"
-            :score="frictionRoller.score"
+            :score="frictionRoller.score['ローラー摩擦']"
             class="zz-textgreen"
           />
           <div class="flex justify-between">
@@ -71,7 +71,7 @@
         <div class="flex-1 mx-2">
           <score-cell
             label="有効ローラー抵抗"
-            :score="registRoller.score"
+            :score="registRoller.score['ローラー抵抗']"
             class="zz-textgreen"
           />
           <div class="flex justify-between">
