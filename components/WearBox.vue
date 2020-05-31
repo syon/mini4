@@ -10,9 +10,23 @@
       </div>
       <div v-if="label.main" class="xx-parts-label">
         <span>
-          {{ label.main }}
-          <template v-if="label.rate > 0"
-            ><br />{{ label.rate }}<span class="ampersand">%</span></template
+          <template v-if="label.name">
+            <span class="name">{{ label.name }}</span></template
+          >
+          <template v-if="label.level > 0">
+            <span class="level zzAnton zz-textpurple"
+              ><br />{{ label.level }}</span
+            ></template
+          >
+          <template v-if="label.score > 0">
+            <span class="score zzAnton zz-text075">{{
+              label.score
+            }}</span></template
+          >
+          <template v-if="label.score > 0">
+            <span class="rate zzAnton zz-textgreen2"
+              ><br />{{ label.rate }}</span
+            ><span class="ampersand zz-textgreen2">%</span></template
           >
         </span>
       </div>
@@ -84,15 +98,19 @@ export default {
       switch (this.wearLabelMode) {
         case 'オフ':
           return {}
-        case 'パーツ名':
-          return { main: this.item.key }
-        case '強化レベル合計':
-          return { main: this.levelSum }
+        case 'パーツ名': {
+          const name = this.item.key
+          return { main: 1, name }
+        }
+        case '強化レベル合計': {
+          const level = this.levelSum
+          return { main: 1, level }
+        }
         default: {
           const totalScore = this.totalScores[this.wearLabelMode]
-          const score = Util.fixedNum(equip.score[this.wearLabelMode], 3)
+          const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
           const rate = Util.fixedNum((score / totalScore) * 100, 0)
-          return { main: score, rate }
+          return { main: 1, score, rate }
         }
       }
     },
@@ -174,15 +192,22 @@ export default {
     display: flex;
     align-items: center;
     padding: 2px;
-    line-height: 1;
-    font-size: 0.6rem;
-    letter-spacing: -0.1em;
-    color: white;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
     border-radius: 1px;
-
+    color: white;
+    font-size: 0.6rem;
+    line-height: 1;
+    .name {
+      letter-spacing: -0.1em;
+    }
+    .level {
+    }
+    .score {
+    }
+    .rate {
+    }
     .ampersand {
       font-size: 0.5rem;
       margin-left: 1px;
