@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import MachineIcon from '@/components/MachineIcon'
 
 export default {
@@ -27,40 +27,8 @@ export default {
     ...mapState('ing', {
       ingTab: (state) => state.tab,
     }),
-    ...mapGetters({
-      getEquipByPart: 'recipe/getEquipByPart',
-    }),
     active() {
       return this.tab === this.ingTab
-    },
-    bodyColor() {
-      return this.getEquipByPart(this.tab, 'ボディ').色 || '#fff'
-    },
-    chassisColor() {
-      return this.getEquipByPart(this.tab, 'シャーシ').色 || this.bodyColor
-    },
-    bodyoptionColor() {
-      return (
-        this.getEquipByPart(this.tab, 'ボディオプション').色 || this.bodyColor
-      )
-    },
-    fronttireColor() {
-      return (
-        this.getEquipByPart(this.tab, 'フロント・タイヤ').色 || this.bodyColor
-      )
-    },
-    frontwheelColor() {
-      return (
-        this.getEquipByPart(this.tab, 'フロント・ホイール').色 || this.bodyColor
-      )
-    },
-    reartireColor() {
-      return this.getEquipByPart(this.tab, 'リヤ・タイヤ').色 || this.bodyColor
-    },
-    rearwheelColor() {
-      return (
-        this.getEquipByPart(this.tab, 'リヤ・ホイール').色 || this.bodyColor
-      )
     },
   },
   methods: {
