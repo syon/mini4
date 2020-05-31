@@ -111,9 +111,16 @@ export const getters = {
     const partKey = resolvePartKey(partJp)
     return state[tab][partKey]
   },
-  getEquipByPart: (state, getters, rootState, rootGetters) => (tab, part) => {
-    const r = getters.getRecipeByPart(tab, part)
-    return rootGetters['catalog/getItemInfo'](part, r.key) || {}
+  getEquipByPart: (state, getters, rootState, rootGetters) => (tab, partJp) => {
+    const recipe = getters.getRecipeByPart(tab, partJp)
+    const key = recipe.key
+    const item = rootGetters['catalog/getItemInfo'](partJp, key) || {}
+    const score = Mini4.getPartScore({
+      part: partJp,
+      item,
+      partRecipe: recipe,
+    })
+    return { key, partJp, score, recipe, ...item }
   },
   gAllEquips(state, getters, rootState, rootGetters) {
     if (rootState.ing.ping);
