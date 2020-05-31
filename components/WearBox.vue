@@ -8,26 +8,26 @@
       <div class="zabuton">
         <item-icon v-if="icon" :name="icon" :color1="color1" :color2="color2" />
       </div>
-      <div v-if="label.main" class="xx-parts-label">
+      <div v-if="label && label.show" class="xx-parts-label">
         <span>
           <template v-if="label.name">
-            <span class="name">{{ label.name }}</span></template
-          >
+            <span class="name">
+              {{ label.name }}
+            </span>
+          </template>
           <template v-if="label.level > 0">
-            <span class="level zzAnton zz-textpurple"
-              ><br />{{ label.level }}</span
-            ></template
-          >
+            <span class="level zzAnton zz-text075 zz-textpurple">
+              {{ label.level }}
+            </span>
+          </template>
           <template v-if="label.score > 0">
-            <span class="score zzAnton zz-text075">{{
-              label.score
-            }}</span></template
-          >
-          <template v-if="label.score > 0">
-            <span class="rate zzAnton zz-textgreen2"
-              ><br />{{ label.rate }}</span
-            ><span class="ampersand zz-textgreen2">%</span></template
-          >
+            <span class="score zzAnton zz-text075">
+              {{ label.score }}
+            </span>
+            <span class="rate zzAnton zz-textgreen2">
+              <br />{{ label.rate }}<span class="ampersand">%</span>
+            </span>
+          </template>
         </span>
       </div>
       <div class="xx-aptihex">
@@ -97,20 +97,21 @@ export default {
       const equip = this.getEquipByPart(this.tab, this.part)
       switch (this.wearLabelMode) {
         case 'オフ':
-          return {}
+          return null
         case 'パーツ名': {
           const name = this.item.key
-          return { main: 1, name }
+          return { show: true, name }
         }
         case '強化レベル合計': {
           const level = this.levelSum
-          return { main: 1, level }
+          return { show: level > 0, level }
         }
         default: {
           const totalScore = this.totalScores[this.wearLabelMode]
           const score = Util.fixedNum(equip.score[this.wearLabelMode], 0)
-          const rate = Util.fixedNum((score / totalScore) * 100, 0)
-          return { main: 1, score, rate }
+          const rawRate = (score / totalScore) * 100
+          const rate = Util.fixedNum(rawRate, 0)
+          return { show: rawRate > 0, score, rate }
         }
       }
     },
@@ -201,12 +202,6 @@ export default {
     line-height: 1;
     .name {
       letter-spacing: -0.1em;
-    }
-    .level {
-    }
-    .score {
-    }
-    .rate {
     }
     .ampersand {
       font-size: 0.5rem;

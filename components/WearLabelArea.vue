@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isWearLabel" class="WearLabelArea zz-floatingRight">
+  <div v-if="isWearLabel" class="WearLabelArea zz-floatingRight pb-8">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingSubArea flex-1">
         <div class="zzCategoryHeaderLong">表示切り替え</div>
@@ -104,8 +104,7 @@ export default {
     display: block;
     width: 100%;
     text-align: left;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+    padding: 0.25rem;
     margin-bottom: 0.25rem;
   }
 }
