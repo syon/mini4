@@ -31,9 +31,9 @@ export const mutations = {
 }
 
 export const actions = {
-  prepare({ commit, dispatch, state }) {
+  async prepare({ commit, dispatch, state }) {
     dg('#prepare')
-    firebase.auth().onAuthStateChanged((user) => {
+    await firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         dispatch('login', user)
       } else {
@@ -67,7 +67,6 @@ export const actions = {
   prepareFirebaseAuth({ dispatch }) {
     return new Promise((resolve) => {
       dg('#prepareFirebaseAuth')
-      require('firebaseui-ja/dist/firebaseui.css')
       const firebaseui = require('firebaseui-ja')
       const ui =
         firebaseui.auth.AuthUI.getInstance() ||

@@ -62,7 +62,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@assets/app.less'],
+  css: ['@assets/app.less', 'firebaseui-ja/dist/firebaseui.css'],
   /*
    ** Plugins to load before mounting the App
    */
