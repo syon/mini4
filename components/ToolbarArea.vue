@@ -4,6 +4,9 @@
       <button class="zzBtnRectGreen" @click="handleTabCopy">
         マシンコピー
       </button>
+      <button class="zzBtnRect1" @click="handleDetachAll">
+        すべて外す
+      </button>
     </div>
   </div>
 </template>
@@ -14,6 +17,10 @@ export default {
     handleTabCopy() {
       this.$store.dispatch('ing/toggleTabCopy', true)
       this.$ga.screenview('TabCopy')
+    },
+    handleDetachAll() {
+      this.$store.dispatch('recipe/detachAll')
+      this.$ga.event('DetachAll')
     },
   },
 }
@@ -36,6 +43,14 @@ export default {
     z-index: 2;
     display: flex;
     justify-content: center;
+
+    > button {
+      margin: 0 0.25rem;
+    }
+  }
+
+  .zzBtnRect1 {
+    padding: 0 0.75rem;
   }
 }
 </style>
