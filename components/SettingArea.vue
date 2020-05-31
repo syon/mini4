@@ -3,9 +3,12 @@
     <div class="garage">
       <div class="garage--row">
         <div class="garage--cell items-center flex">
-          <!-- <button class="zzBtnRect1 zz-text06 leading-tight">
+          <button
+            class="zzBtnRect1 zz-text06 leading-tight"
+            @click="handleWearLabel"
+          >
             表示<br />切り替え
-          </button> -->
+          </button>
         </div>
         <div class="garage--cell">
           <wear-box
@@ -388,6 +391,9 @@ export default {
       const tab = this.tab
       this.$store.dispatch('ing/transIngPart', { tab, part })
       this.$ga.event('Trans', 'Part', part)
+    },
+    handleWearLabel() {
+      this.$store.dispatch('ing/toggleFloating', 'WearLabel')
     },
   },
 }

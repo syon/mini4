@@ -30,6 +30,7 @@
     <craft-select-area />
     <craft-tune-area />
     <owns-area />
+    <wear-label-area />
     <tab-copy-area />
   </div>
 </template>
@@ -46,6 +47,7 @@ import RemodelArea from '@/components/RemodelArea'
 import CraftSelectArea from '@/components/CraftSelectArea'
 import CraftTuneArea from '@/components/CraftTuneArea'
 import OwnsArea from '@/components/OwnsArea'
+import WearLabelArea from '@/components/WearLabelArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
 import TabCopyArea from '@/components/TabCopyArea'
 import BlackBarrier from '@/components/BlackBarrier'
@@ -64,6 +66,7 @@ export default {
     CraftSelectArea,
     CraftTuneArea,
     OwnsArea,
+    WearLabelArea,
     ShowcaseArea,
     TabCopyArea,
     BlackBarrier,

@@ -8,12 +8,16 @@
       <div class="zabuton">
         <item-icon v-if="icon" :name="icon" :color1="color1" :color2="color2" />
       </div>
-      <div class="xx-parts-name">{{ item.key }}</div>
+      <div v-if="label.main" class="xx-parts-label">
+        <span>
+          {{ label.main }}
+          <template v-if="label.rate > 0"
+            ><br />{{ label.rate }}<span class="ampersand">%</span></template
+          >
+        </span>
+      </div>
       <div class="xx-aptihex">
         <apti-hex :type="x.コース適性" />
-      </div>
-      <div class="xx-levelsum">
-        <span>{{ levelSum }}</span>
       </div>
     </div>
     <div v-if="active" class="xx-check">
@@ -26,6 +30,7 @@
 import { mapState, mapGetters } from 'vuex'
 import ItemIcon from './ItemIcon'
 import Mini4 from '@/models/Mini4'
+import Util from '@/models/Util'
 import AptiHex from '@/components/AptiHex'
 import TheCheck from '@/assets/check.svg'
 
@@ -43,6 +48,7 @@ export default {
     ...mapState('ing', {
       tab: (state) => state.tab,
       ingPart: (state) => state.part,
+      wearLabelMode: (state) => state.wearLabelMode,
     }),
     ...mapState('catalog', {
       catalog: (state) => state.dataset,
@@ -50,6 +56,8 @@ export default {
     ...mapGetters({
       getItemInfo: 'catalog/getItemInfo',
       getRecipeByPart: 'recipe/getRecipeByPart',
+      getEquipByPart: 'recipe/getEquipByPart',
+      totalScores: 'recipe/gAllPartScoresSum',
     }),
     x() {
       if (!this.part) return { crafts: [] }
@@ -70,6 +78,23 @@ export default {
       const category = Mini4.resolveCategoryByPart(this.part)
       const code = Mini4.resolveCodeByCategory(category)
       return code
+    },
+    label() {
+      const equip = this.getEquipByPart(this.tab, this.part)
+      switch (this.wearLabelMode) {
+        case 'オフ':
+          return {}
+        case 'パーツ名':
+          return { main: this.item.key }
+        case '強化レベル合計':
+          return { main: this.levelSum }
+        default: {
+          const totalScore = this.totalScores[this.wearLabelMode]
+          const score = Util.fixedNum(equip.score[this.wearLabelMode], 3)
+          const rate = Util.fixedNum((score / totalScore) * 100, 1)
+          return { main: score, rate }
+        }
+      }
     },
     levelSum() {
       return this.x.crafts
@@ -138,17 +163,14 @@ export default {
     .WearBox-inner:before {
       background: #c1c1c1;
     }
-    .xx-parts-name {
-      display: none;
-    }
-    .xx-levelsum {
+    .xx-parts-label {
       display: none;
     }
   }
   .ItemIcon {
     position: absolute;
   }
-  .xx-parts-name {
+  .xx-parts-label {
     display: flex;
     align-items: center;
     padding: 2px;
@@ -160,21 +182,16 @@ export default {
     position: relative;
     z-index: 1;
     border-radius: 1px;
+
+    .ampersand {
+      font-size: 0.5rem;
+      margin-left: 1px;
+    }
   }
   .xx-aptihex {
     position: absolute;
     bottom: -3px;
     left: -3px;
-  }
-  .xx-levelsum {
-    position: absolute;
-    bottom: -3px;
-    right: -3px;
-    font-size: 0.55em;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1px;
-    padding: 1.5px;
-    line-height: 1;
   }
 }
 

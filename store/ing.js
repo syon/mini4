@@ -25,6 +25,8 @@ export const state = () => ({
   isOwns: false,
   isDiagnosis: false,
   isTabCopy: false,
+  isWearLabel: false,
+  wearLabelMode: '',
 })
 
 export const getters = {}
@@ -103,6 +105,12 @@ export const mutations = {
   setTabCopy(state, isTabCopy) {
     state.isTabCopy = isTabCopy
   },
+  setWearLabel(state, isWearLabel) {
+    state.isWearLabel = isWearLabel
+  },
+  setWearLabelMode(state, wearLabelMode) {
+    state.wearLabelMode = wearLabelMode
+  },
 }
 
 export const actions = {
@@ -174,6 +182,7 @@ export const actions = {
     commit('setTune', false)
     commit('setOwns', false)
     commit('setTabCopy', false)
+    commit('setWearLabel', false)
     const { part } = state
     dispatch('recipe/cleanupCrafts', part, { root: true })
   },
@@ -198,6 +207,16 @@ export const actions = {
   toggleTabCopy({ commit, state, dispatch }) {
     const nextBool = !state.isTabCopy
     commit('setTabCopy', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
+  toggleFloating({ commit, state, dispatch }, propName) {
+    const stateProp = `is${propName}`
+    const nextBool = !state[stateProp]
+    commit(`set${propName}`, nextBool)
     if (nextBool) {
       commit('setBarrier', true)
     } else {
