@@ -4,7 +4,7 @@
       <div class="garage--row">
         <div class="garage--cell items-center flex">
           <button
-            class="zzBtnRectGreen zz-text06 leading-tight"
+            class="zzBtnRectYellow zz-text06 leading-tight"
             @click="handleWearLabel"
           >
             表示<br />切り替え
