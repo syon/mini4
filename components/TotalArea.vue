@@ -1,8 +1,8 @@
 <template>
   <div class="TotalArea p-2">
-    <div class="TotalWindow br-1">
+    <div class="TotalWindow">
       <div class="TotalWindowPanel">
-        <div class="zz_headgray"></div>
+        <div class="zz-headgray"></div>
         <div class="zzBg-checker px-2 py-3">
           <div class="relative z-10">
             <div class="flex items-stretch justify-center">
@@ -228,6 +228,8 @@ export default {
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 5;
+    border: 1px solid #b5babd;
+    border-radius: 0.25rem;
   }
 
   .xx-total {
