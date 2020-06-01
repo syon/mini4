@@ -96,8 +96,8 @@
           <span v-if="isDetailOpen">詳細 ▲</span>
           <span v-else>詳細 ▼</span>
         </button>
-        <div v-if="isDiagnosis">
-          <div v-if="isDiagnosisOpen && isDiagnosis">
+        <div v-if="isLogin">
+          <div v-if="isDiagnosisOpen && isLogin">
             <diagnosis-area />
           </div>
           <button class="zz-footblue text-center" @click="toggleDiagnosis">
@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import ScoreRank from '@/components/ScoreRank'
 import TotalDetail from '@/components/TotalDetail'
 import DiagnosisArea from '@/components/DiagnosisArea'
@@ -129,11 +129,9 @@ export default {
     }
   },
   computed: {
-    ...mapState('ing', {
-      isDiagnosis: (state) => state.isDiagnosis,
-    }),
     ...mapGetters({
       scores: 'recipe/gAllPartScoresSum',
+      isLogin: 'user/isLogin',
     }),
     totalScore() {
       let score = 0
@@ -244,9 +242,6 @@ export default {
   .xx-affects {
     flex: 5;
     line-height: 1;
-
-    .xx-scores {
-    }
 
     table {
       table-layout: fixed;
