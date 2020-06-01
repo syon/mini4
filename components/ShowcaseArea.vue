@@ -1,7 +1,7 @@
 <template>
   <div v-if="isShowcase" class="zz-floatingLeft">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <div class="m-1 flex justify-center">
           <button class="zzBtnRounded1" @click="handleDetach">外す</button>
         </div>
@@ -19,10 +19,13 @@
               >
                 <div class="flex">
                   <div
-                    class="w-1 brl-1"
+                    class="zz-itemColor1A"
                     :style="{ backgroundColor: item.色 }"
                   ></div>
-                  <div class="w-1" :style="{ backgroundColor: item.色2 }"></div>
+                  <div
+                    class="zz-itemColor2"
+                    :style="{ backgroundColor: item.色2 }"
+                  ></div>
                 </div>
                 <div class="p-1">{{ name }}</div>
                 <apti-hex :type="item.コース適性" class="PartsApti" />
@@ -30,6 +33,7 @@
             </template>
           </div>
         </template>
+        <div class="h-6 flex m-1"></div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOwns" class="zz-floatingLeft">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <div class="m-1 flex justify-center">
           <button class="zzBtnRounded1" @click="handleRegister">
             今のパーツを登録する
@@ -16,10 +16,13 @@
                 <div class="flex">
                   <div class="flex">
                     <div
-                      class="w-1 brl-1"
+                      class="zz-itemColor1A"
                       :style="{ backgroundColor: r.色 }"
                     ></div>
-                    <div class="w-1" :style="{ backgroundColor: r.色2 }"></div>
+                    <div
+                      class="zz-itemColor2"
+                      :style="{ backgroundColor: r.色2 }"
+                    ></div>
                   </div>
                   <div class="p-1 flex-col">
                     <div class="">{{ r.key }}</div>
@@ -36,6 +39,7 @@
               </div>
             </div>
           </div>
+          <div class="h-6 flex m-1"></div>
         </div>
       </div>
     </div>

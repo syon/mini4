@@ -1,15 +1,23 @@
 <template>
   <div class="PartsChoiseArea m-1">
-    <div class="zz_headgray">{{ ingPart }}</div>
-    <div class="zz-selectBoxBottom flex" @click="handleShowcase">
+    <div class="zz-selectBox my-1" @click="handleShowcase">
+      <div class="zz-headgray">{{ ingPart }}</div>
       <div class="flex">
-        <div class="w-1 brbl-1" :style="{ backgroundColor: ingItem.色 }"></div>
-        <div class="w-1" :style="{ backgroundColor: ingItem.色2 }"></div>
+        <div class="flex">
+          <div
+            class="zz-itemColor1B"
+            :style="{ backgroundColor: ingItem.色 }"
+          ></div>
+          <div
+            class="zz-itemColor2"
+            :style="{ backgroundColor: ingItem.色2 }"
+          ></div>
+        </div>
+        <div class="px-1 py-2">
+          {{ ingItem.key || '&nbsp;' }}
+        </div>
+        <apti-hex :type="ingItem.コース適性" class="PartsApti" />
       </div>
-      <div class="px-1 py-2">
-        {{ ingItem.key || '&nbsp;' }}
-      </div>
-      <apti-hex :type="ingItem.コース適性" class="PartsApti" />
     </div>
     <div v-if="ingPart === 'ボディ'" class="flex items-center mt-1 ml-4">
       <template v-if="drillAvailable">

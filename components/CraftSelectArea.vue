@@ -1,7 +1,7 @@
 <template>
   <div v-if="isCrafting" class="zz-floatingLeft">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
         <template v-for="(obj, idx) in showingCrafts">
           <craft-edit-slot
@@ -12,8 +12,9 @@
             @go="handleClickSlot(obj.arg)"
           />
         </template>
+        <div class="h-6 flex m-1"></div>
       </div>
-      <div class="zz-floatingSubArea">
+      <div class="zz-floatingArea-inner">
         <div class="zzQualityChoise my-1">
           <label :class="{ active: quality === 'イイ感じ' }">
             <input v-model="quality" type="radio" value="イイ感じ" />

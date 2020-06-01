@@ -23,7 +23,6 @@ export const state = () => ({
   isAbout: false,
   isSupport: false,
   isOwns: false,
-  isDiagnosis: false,
   isTabCopy: false,
   isWearLabel: false,
   wearLabelMode: 'パーツ名',
@@ -98,9 +97,6 @@ export const mutations = {
   },
   setSupport(state, isSupport) {
     state.isSupport = isSupport
-  },
-  setDiagnosis(state, isDiagnosis) {
-    state.isDiagnosis = isDiagnosis
   },
   setTabCopy(state, isTabCopy) {
     state.isTabCopy = isTabCopy

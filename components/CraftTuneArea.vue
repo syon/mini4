@@ -1,7 +1,7 @@
 <template>
   <div v-if="isTune" class="CraftTuneArea zz-floatingLeft">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <div class="zzCategoryHeaderLong">改造プリセット</div>
         <template v-for="(cp, i) of ingCraftPreset">
           <a
@@ -13,8 +13,9 @@
             <div class="p-1">{{ cp.タイトル }}</div>
           </a>
         </template>
+        <div class="h-6 flex m-1"></div>
       </div>
-      <div class="zz-floatingSubArea relative">
+      <div class="zz-floatingArea-inner relative">
         <div class="zzQualityChoise my-1">
           <label class="" @click="handleQuality('イイ感じ')">
             <input v-model="quality" type="radio" value="イイ感じ" />

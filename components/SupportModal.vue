@@ -72,7 +72,6 @@ export default {
       alert('コピーしました:\n' + 'tarolnetg+amzg@gmail.com')
     },
     handleGift($event) {
-      this.$store.commit('ing/setDiagnosis', true)
       this.$ga.event('Support', 'Gift')
     },
   },

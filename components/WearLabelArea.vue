@@ -1,46 +1,41 @@
 <template>
-  <div v-if="isWearLabel" class="WearLabelArea zz-floatingRight pb-8">
+  <div v-if="isWearLabel" class="WearLabelArea zz-floatingRight">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <div class="zzCategoryHeaderLong">表示切り替え</div>
-        <div class="xx-group">
-          <template v-for="item of basicGroup">
-            <button
-              :key="item"
-              class="zz-selectBox"
-              :class="{ active: wearLabelMode === item }"
-              @click="handleIt(item)"
-            >
-              {{ item }}
-            </button>
-          </template>
-        </div>
+        <template v-for="item of basicGroup">
+          <a
+            :key="item"
+            class="zz-selectBox flex m-1"
+            :class="{ active: wearLabelMode === item }"
+            @click="handleIt(item)"
+          >
+            <div class="p-1">{{ item }}</div>
+          </a>
+        </template>
         <div class="zzCategoryHeaderLong">ステータス</div>
-        <div class="xx-group">
-          <template v-for="item of statusGroup">
-            <button
-              :key="item"
-              class="zz-selectBox"
-              :class="{ active: wearLabelMode === item }"
-              @click="handleIt(item)"
-            >
-              {{ item }}
-            </button>
-          </template>
-        </div>
+        <template v-for="item of statusGroup">
+          <a
+            :key="item"
+            class="zz-selectBox flex m-1"
+            :class="{ active: wearLabelMode === item }"
+            @click="handleIt(item)"
+          >
+            <div class="p-1">{{ item }}</div>
+          </a>
+        </template>
         <div class="zzCategoryHeaderLong">スキル</div>
-        <div class="xx-group">
-          <template v-for="item of skillGroup">
-            <button
-              :key="item"
-              class="zz-selectBox"
-              :class="{ active: wearLabelMode === item }"
-              @click="handleIt(item)"
-            >
-              {{ item }}
-            </button>
-          </template>
-        </div>
+        <template v-for="item of skillGroup">
+          <a
+            :key="item"
+            class="zz-selectBox flex m-1"
+            :class="{ active: wearLabelMode === item }"
+            @click="handleIt(item)"
+          >
+            <div class="p-1">{{ item }}</div>
+          </a>
+        </template>
+        <div class="h-6 flex m-1"></div>
       </div>
     </div>
   </div>
@@ -95,17 +90,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.WearLabelArea {
-  .xx-group {
-    margin: 0.25rem;
-  }
-  .zz-selectBox {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 0.25rem;
-    margin-bottom: 0.25rem;
-  }
-}
-</style>
+<style lang="less" scoped></style>

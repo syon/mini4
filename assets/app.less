@@ -259,7 +259,7 @@ tr {
 .zzBtnRectGreen {
   display: inline-block;
   color: black;
-  background: rgb(182, 254, 51);
+  // background: rgb(182, 254, 51);
   background: linear-gradient(
     180deg,
     rgba(182, 254, 51, 1) 0%,
@@ -280,7 +280,6 @@ tr {
 .zzBtnRectYellow {
   display: inline-block;
   color: black;
-  background: rgb(182, 254, 51);
   background: linear-gradient(
     180deg,
     rgba(251, 236, 93, 1) 0%,
@@ -375,7 +374,7 @@ tr {
   height: calc(100% - 100px);
   flex-direction: column;
 }
-.zz-floatingSubArea {
+.zz-floatingArea-inner {
   overflow: auto;
   position: relative;
   background-color: #85898a;
@@ -409,7 +408,7 @@ tr {
 }
 
 // ================================ HEAD FOOT ================================
-.zz_headgray {
+.zz-headgray {
   color: black;
   height: 1.2rem;
   line-height: 1.2rem;
@@ -420,8 +419,8 @@ tr {
     rgba(178, 178, 171, 1) 0%,
     rgba(211, 212, 208, 1) 100%
   );
-  border: 1px solid #b5babd;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border: none;
+  border-radius: 0.1875rem 0.1875rem 0 0;
   padding: 0.125rem 0.25rem 0.125rem 0.25rem;
   &:focus {
     outline: none;
@@ -435,7 +434,7 @@ tr {
   width: 100%;
   background: #b9bab6;
   border: none;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
   &:focus {
     outline: none;
   }
@@ -448,7 +447,7 @@ tr {
   width: 100%;
   background: #a9bac6;
   border: none;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
   &:focus {
     outline: none;
   }
@@ -460,7 +459,7 @@ tr {
   width: 100%;
   background-color: #20272a;
   border: none;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0.1875rem 0.1875rem 0 0;
   &:focus {
     outline: none;
   }
@@ -478,7 +477,7 @@ tr {
   width: 100%;
   background-color: #f0f4f4;
   border: none;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
   &:focus {
     outline: none;
   }
@@ -492,6 +491,7 @@ tr {
 
 // ================================ SELECTBOX ================================
 .zz-selectBox {
+  text-align: left;
   position: relative;
   color: black;
   background-color: #f0f4f4;
@@ -506,15 +506,8 @@ tr {
     outline: none;
   }
 }
-.zz-selectBoxBottom {
-  font-size: 0.9rem;
-  line-height: 1.2rem;
-  position: relative;
-  color: black;
-  background-color: #f0f4f4;
-  border: 1px solid #b5babd;
-  border-radius: 0 0 0.25rem 0.25rem;
-  cursor: pointer;
+.zz-selectBoxGroup {
+  margin: 0.25rem;
 }
 .zz-craftList {
   position: relative;
@@ -561,6 +554,23 @@ tr {
     display: none;
     appearance: none;
   }
+}
+
+// ================================ ITEMCOLOR ================================
+.zz-itemColor1A {
+  width: 0.25rem;
+  border: none;
+  border-radius: 0.1875rem 0 0 0.1875rem;
+}
+.zz-itemColor1B {
+  width: 0.25rem;
+  border: none;
+  border-radius: 0 0 0 0.1875rem;
+}
+.zz-itemColor2 {
+  width: 0.25rem;
+  border: none;
+  border-radius: 0;
 }
 
 // ================================ BODYFEATURE ================================

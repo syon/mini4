@@ -2,7 +2,7 @@
   <a
     href="#"
     :class="{ active: isActive }"
-    class="xx-RemodelSlot w-full flex flex-col my-1 br-1"
+    class="zz-selectBox my-1 flex-col"
     @click="handleClick"
   >
     <div class="zz-headblack flex justify-between">

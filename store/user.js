@@ -12,7 +12,11 @@ export const state = () => ({
   photoURL: '',
 })
 
-export const getters = {}
+export const getters = {
+  isLogin(state) {
+    return !!state.uid
+  },
+}
 
 export const mutations = {
   SET_Ready(state, bool) {

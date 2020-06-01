@@ -46,24 +46,20 @@ export default {
     z-index: 2;
     display: flex;
     // justify-content: center;
-
-    > button {
-      // margin: 0 0.25rem;
-      display: flex;
-      width: 100%;
-      // height: 1.2rem;
-      // line-height: 1.2rem;
-      padding: 0;
-      justify-content: center;
-    }
   }
 
   .zzBtnRect1 {
+    display: flex;
+    width: 100%;
     padding: 0;
+    justify-content: center;
   }
 
   .zzBtnRectGreen {
+    display: flex;
+    width: 100%;
     padding: 0;
+    justify-content: center;
   }
 }
 </style>

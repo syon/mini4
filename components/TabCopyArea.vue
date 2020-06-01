@@ -1,7 +1,7 @@
 <template>
   <div v-if="isTabCopy" class="zz-floatingRight">
     <div class="zz-floatingArea flex">
-      <div class="zz-floatingSubArea flex-1">
+      <div class="zz-floatingArea-inner flex-1">
         <div class="zzCategoryHeaderLong">他マシンからコピー</div>
         <div>
           <a
@@ -55,6 +55,7 @@
           現在表示中のセッティングを破棄し、選択したマシンの内容で上書きします。<br />
           (確認も出ないよ！)
         </div>
+        <div class="h-6 flex m-1"></div>
       </div>
     </div>
   </div>
