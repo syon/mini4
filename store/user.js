@@ -1,7 +1,9 @@
 import debug from 'debug'
-import firebase from 'firebase/app'
+import FirebaseClient from '@/models/FirebaseClient'
 
 const dg = debug('@:user')
+const firebase = FirebaseClient.firebase
+const firebaseAuth = FirebaseClient.auth
 
 export const state = () => ({
   uid: '',
@@ -33,36 +35,13 @@ export const mutations = {
 export const actions = {
   async prepare({ commit, dispatch, state }) {
     dg('#prepare')
-    await firebase.auth().onAuthStateChanged((user) => {
+    await firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
         dispatch('login', user)
       } else {
         dispatch('prepareFirebaseAuth')
       }
     })
-
-    firebase
-      .auth()
-      .getRedirectResult()
-      .then(function (result) {
-        if (result) {
-          if (result.user) {
-            alert('#getRedirectResult' + result.user.displayName)
-          }
-        }
-      })
-      .catch(function (error) {
-        // // Handle Errors here.
-        // const errorCode = error.code
-        // const errorMessage = error.message
-        // // The email of the user's account used.
-        // const email = error.email
-        // // The firebase.auth.AuthCredential type that was used.
-        // const credential = error.credential
-        // // ...
-        console.log({ error })
-        alert('error:' + error.message)
-      })
   },
   prepareFirebaseAuth({ dispatch }) {
     return new Promise((resolve) => {
@@ -70,7 +49,7 @@ export const actions = {
       const firebaseui = require('firebaseui-ja')
       const ui =
         firebaseui.auth.AuthUI.getInstance() ||
-        new firebaseui.auth.AuthUI(firebase.auth())
+        new firebaseui.auth.AuthUI(firebaseAuth)
       ui.start('#firebaseui-auth-container', {
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         signInFlow: 'popup',
@@ -95,8 +74,7 @@ export const actions = {
   },
   logout({ commit, dispatch }) {
     dg('#logout')
-    firebase
-      .auth()
+    firebaseAuth
       .signOut()
       .then(() => {
         dg('ログアウトしました')

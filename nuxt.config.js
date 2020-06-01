@@ -71,7 +71,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '@/plugins/firebase-client', mode: 'client' },
     { src: '@/plugins/localStorage', mode: 'client' },
     { src: '@/plugins/viewportunits', mode: 'client' },
   ],

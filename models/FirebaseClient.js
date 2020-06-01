@@ -23,6 +23,7 @@ const auth = firebase.auth()
 // const storage = firebase.storage()
 
 export default {
+  firebase,
   app,
   auth,
   // firestore,
