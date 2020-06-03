@@ -245,7 +245,7 @@ export default class Mini4 {
         slotPlus = benefit + grow
       } else {
         const base = defaultSpecs[affect] || 0
-        slotPlus = base * benefit + base * grow
+        slotPlus = Math.abs(base) * benefit + Math.abs(base) * grow
       }
       const score = resultSpecs[affect] || 0
       const raw = score + slotPlus
