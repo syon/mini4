@@ -24,7 +24,7 @@
             <span class="zzAnton zz-text075 leading-tight">
               {{ label.score }}</span
             ><span class="zzAnton mx-025 zz-text06">{{ label.suffix }} </span>
-            <span v-if="label.rate > 0" class="zzAnton zz-textgreen2">
+            <span v-if="label.score > 0" class="zzAnton zz-textgreen2">
               <br />{{ label.rate
               }}<span class="zzDefaultFont mx-025 zz-text06">%</span>
             </span>
