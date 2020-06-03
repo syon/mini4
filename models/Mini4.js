@@ -464,6 +464,7 @@ export default class Mini4 {
     const 空気抵抗 = エアロダウンフォース / 1000
     const 最高速度ms = 無負荷速度 * 負荷 - 空気抵抗
     const 最高速度kmh = (最高速度ms * 3600) / 1000
+    const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
     return {
       最高速度_時速: 最高速度kmh,
       最高速度_秒速: 最高速度ms,
@@ -475,7 +476,7 @@ export default class Mini4 {
       ジャンプ飛距離: null,
       バウンド時間: null,
       前後の重心: null,
-      ローラースラスト角: スラスト角,
+      ローラースラスト角,
       重さ,
       ブレーキ性能,
     }
