@@ -9,10 +9,15 @@
       <div class="text-xs bg-gray-800 p-4 my-4 text-yellow-400 font-mono">
         <pre class="whitespace-normal break-all">{{ error.message }}</pre>
       </div>
-      <div class="my-4">
-        <button class="zzBtnRounded1 mr-4" @click="clearLocalStorage">
-          リセット
+      <div class="mt-4">
+        <button class="zzBtnRounded1 mr-4" @click="softReset">
+          リロード
         </button>
+        <button class="zzBtnRounded1 mr-4" @click="clearLocalStorage">
+          すべて初期化
+        </button>
+      </div>
+      <div class="mt-4">
         <a
           href="https://twitter.com/intent/tweet?zz-hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
           class="zzBtnRounded1 mt-4"
@@ -30,6 +35,10 @@ export default {
     this.$ga.screenview('Error')
   },
   methods: {
+    softReset() {
+      this.$store.commit('ing/reset')
+      window.location.reload()
+    },
     clearLocalStorage() {
       if (
         window.confirm('リセットして最初からやり直します。よろしいですか？')

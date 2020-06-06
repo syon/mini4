@@ -2,7 +2,7 @@ import debug from 'debug'
 
 const dg = debug('@:ing')
 
-export const state = () => ({
+const initialState = {
   isMobile: true,
   ping: '',
   tab: 'M1',
@@ -26,11 +26,16 @@ export const state = () => ({
   isTabCopy: false,
   isWearLabel: false,
   wearLabelMode: 'パーツ名',
-})
+}
+
+export const state = () => JSON.parse(JSON.stringify(initialState))
 
 export const getters = {}
 
 export const mutations = {
+  reset(state) {
+    state = JSON.parse(JSON.stringify(initialState))
+  },
   setMobile(state, bool) {
     state.isMobile = bool
   },
