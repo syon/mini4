@@ -5,12 +5,12 @@
   "author": "syon",
   "private": true,
   "scripts": {
-    "develop": "now -A now.dev.json dev",
+    "develop": "vc -A now.dev.json dev",
     "nuxt": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "now-deploy:dev": "now",
-    "now-deploy:prod": "now --prod"
+    "now-deploy:dev": "vc",
+    "now-deploy:prod": "vc --prod"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.10.1",
