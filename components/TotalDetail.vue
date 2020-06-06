@@ -130,9 +130,13 @@ export default {
           score: s.スピードロス,
           class: 'zz-textpurple',
         },
+        {
+          label: 'エアロダウンフォース',
+          score: s.エアロダウンフォース,
+          class: 'zz-textpurple',
+        },
         { label: '消費電流', score: s.消費電流, class: 'zz-textpurple' },
         { label: '節電', score: s.節電, class: 'zz-textpurple' },
-        { label: '制振', score: s.制振, class: 'zz-textpurple' },
       ]
     },
     rightItems() {
@@ -156,11 +160,7 @@ export default {
         { label: 'スラスト角', score: s.スラスト角, class: 'zz-textgreen' },
         { label: 'スタビ減速', score: s.スタビ減速, class: 'zz-textgreen' },
         { label: 'ブレーキ減速', score: s.ブレーキ減速, class: 'zz-textgreen' },
-        {
-          label: 'エアロダウンフォース',
-          score: s.エアロダウンフォース,
-          class: 'zz-textgreen',
-        },
+        { label: '制振', score: s.制振, class: 'zz-textgreen' },
         { label: 'ウェーブ', score: s.ウェーブ, class: 'zz-textyellow' },
         { label: 'オフロード', score: s.オフロード, class: 'zz-textyellow' },
         { label: 'デジタル', score: s.デジタル, class: 'zz-textyellow' },
@@ -204,6 +204,18 @@ export default {
         return `${o.label}\t${Util.fixedNum(o.score, 3)}`
       })
       lines.unshift(`ボディ特性\t${this.bodyInfo.ボディ特性}`)
+      lines.push(
+        `有効ローラー摩擦\t${Util.fixedNum(
+          this.frictionRoller.score.ローラー摩擦,
+          3
+        )}`
+      )
+      lines.push(
+        `有効ローラー抵抗\t${Util.fixedNum(
+          this.registRoller.score.ローラー抵抗,
+          3
+        )}`
+      )
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
@@ -213,6 +225,8 @@ export default {
         return `${Util.fixedNum(o.score, 3)}`
       })
       lines.unshift(this.bodyInfo.ボディ特性)
+      lines.push(Util.fixedNum(this.frictionRoller.score.ローラー摩擦, 3))
+      lines.push(Util.fixedNum(this.registRoller.score.ローラー抵抗, 3))
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
