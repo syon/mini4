@@ -96,8 +96,8 @@
           <span v-if="isDetailOpen">詳細 ▲</span>
           <span v-else>詳細 ▼</span>
         </button>
-        <div v-if="isLogin">
-          <div v-if="isDiagnosisOpen && isLogin">
+        <div v-if="isDiagnosis">
+          <div v-if="isDiagnosisOpen && isDiagnosis">
             <diagnosis-area />
           </div>
           <button class="zz-footblue text-center" @click="toggleDiagnosis">
@@ -131,7 +131,7 @@ export default {
   computed: {
     ...mapGetters({
       scores: 'recipe/gAllPartScoresSum',
-      isLogin: 'user/isLogin',
+      isDiagnosis: 'user/isDiagnosis',
     }),
     totalScore() {
       let score = 0
