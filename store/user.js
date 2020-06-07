@@ -1,6 +1,6 @@
 import debug from 'debug'
 import FirebaseClient from '@/models/FirebaseClient'
-// import DB from '@/models/DB'
+import DB from '@/models/DB'
 
 const dg = debug('@:user')
 const firebase = FirebaseClient.firebase
@@ -19,7 +19,7 @@ export const getters = {
     return !!state.uid
   },
   isDiagnosis(state) {
-    return !!state.uid // && state.diagnosis
+    return !!state.uid && state.diagnosis
   },
 }
 
@@ -80,13 +80,13 @@ export const actions = {
       })
     })
   },
-  login({ commit }, payload) {
+  async login({ commit }, payload) {
     dg('#login', payload)
-    // const { uid } = payload
-    // const doc = await DB.getDoc(`users/${uid}`)
-    // if (doc) {
-    //   payload.diagnosis = doc.diagnosis
-    // }
+    const { uid } = payload
+    const doc = await DB.getDoc(`users/${uid}`)
+    if (doc) {
+      payload.diagnosis = doc.diagnosis
+    }
     commit('SET_User', payload)
   },
   logout({ commit, dispatch }) {
