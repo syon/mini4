@@ -37,15 +37,17 @@ export const mutations = {
 }
 
 export const actions = {
-  async prepare({ commit, dispatch, state }) {
+  async prepare({ dispatch, getters }) {
     dg('#prepare')
     await firebaseAuth.onAuthStateChanged((user) => {
+      dg('#prepare/onAuthStateChanged', user)
       if (user) {
         dispatch('login', user)
-      } else {
-        dispatch('prepareFirebaseAuth')
       }
     })
+    if (!getters.isLogin) {
+      await dispatch('prepareFirebaseAuth')
+    }
   },
   prepareFirebaseAuth({ dispatch }) {
     return new Promise((resolve) => {
