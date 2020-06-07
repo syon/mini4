@@ -38,6 +38,8 @@ export default {
   methods: {
     handleLogout() {
       this.$store.dispatch('user/logout')
+      this.$store.commit('ing/reset')
+      window.location.reload()
     },
   },
 }
