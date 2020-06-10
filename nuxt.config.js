@@ -119,22 +119,23 @@ export default {
         ],
       })
     },
-    // /*
-    //  ** For Firebase core-js
-    //  ** https://forum.vuejs.org/t/81480
-    //  */
-    // babel: {
-    //   presets({ isServer }) {
-    //     return [
-    //       [
-    //         require.resolve('@nuxt/babel-preset-app'),
-    //         {
-    //           buildTarget: isServer ? 'server' : 'client',
-    //           corejs: { version: 3 },
-    //         },
-    //       ],
-    //     ]
-    //   },
-    // },
+    /*
+     ** For Firebase core-js
+     ** https://forum.vuejs.org/t/81480
+     ** https://nuxtjs.org/guide/release-notes#-code-core-js-3-code-
+     */
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            {
+              buildTarget: isServer ? 'server' : 'client',
+              corejs: { version: 3 },
+            },
+          ],
+        ]
+      },
+    },
   },
 }
