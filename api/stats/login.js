@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const WEBHOOK_URL = process.env.MINI4_LOGIN_WEBHOOK_URL
+const WEBHOOK_URL = process.env.LOGIN_WEBHOOK_URL
 
 module.exports = async (req, res) => {
-  console.log({ WEBHOOK_URL })
+  console.log('WEBHOOK_URL is:', WEBHOOK_URL)
   if (WEBHOOK_URL) {
     const user = req.body
     const data = {
