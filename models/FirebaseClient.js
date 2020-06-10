@@ -1,6 +1,6 @@
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/firestore'
+// import 'firebase/firestore'
 // import 'firebase/storage'
 
 const config = {
@@ -19,13 +19,13 @@ const app = !firebase.apps.length
   : firebase.app()
 
 const auth = firebase.auth()
-const firestore = firebase.firestore()
+// const firestore = firebase.firestore()
 // const storage = firebase.storage()
 
 export default {
   firebase,
   app,
   auth,
-  firestore,
+  // firestore,
   // storage,
 }
