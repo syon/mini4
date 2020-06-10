@@ -118,6 +118,16 @@ export default {
           { loader: 'vue-svg-loader', options: { svgo: false } },
         ],
       })
+      // Firebase on Vercel
+      // https://github.com/nuxt/now-builder/issues/41#issuecomment-494717072
+      if (ctx.isServer) {
+        config.externals = {
+          'firebase/app': 'commonjs firebase/app',
+          'firebase/auth': 'commonjs firebase/auth',
+          'firebase/storage': 'commonjs firebase/storage',
+          'firebase/firestore': 'commonjs firebase/firestore',
+        }
+      }
     },
     /*
      ** For Firebase core-js
