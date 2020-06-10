@@ -1,4 +1,5 @@
 import debug from 'debug'
+import axios from 'axios'
 import FirebaseClient from '@/models/FirebaseClient'
 import DB from '@/models/DB'
 
@@ -67,11 +68,13 @@ export const actions = {
         signInFlow: 'popup',
         signInSuccessUrl: process.env.BASE_URL,
         callbacks: {
-          signInSuccessWithAuthResult(authResult, redirectUrl) {
+          async signInSuccessWithAuthResult(authResult, redirectUrl) {
             dg('#signInSuccessWithAuthResult')
             dg('REDIRECT', redirectUrl)
-            dispatch('login', authResult.user)
-            return true // whether redirect
+            const user = extractUserSchema(authResult.user)
+            dispatch('login', user)
+            await axios.post('/api/stats/login', user)
+            return false // whether redirect
           },
           uiShown() {
             resolve()
@@ -102,4 +105,9 @@ export const actions = {
         dg(`ログアウト時にエラーが発生しました (${error})`)
       })
   },
+}
+
+function extractUserSchema(arg) {
+  const { uid, displayName, email, photoURL, diagnosis } = arg
+  return { uid, displayName, email, photoURL, diagnosis }
 }
