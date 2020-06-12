@@ -5,7 +5,7 @@
   "author": "syon",
   "private": true,
   "scripts": {
-    "develop": "vc -A now.dev.json dev",
+    "develop": "vc -A vercel.dev.json dev",
     "nuxt": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
