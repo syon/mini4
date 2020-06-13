@@ -8,6 +8,8 @@ const firebase = FirebaseClient.firebase
 const firebaseAuth = FirebaseClient.auth
 const LOGIN_WEBHOOK_URL = process.env.LOGIN_WEBHOOK_URL
 
+dg('LOGIN_WEBHOOK_URL', LOGIN_WEBHOOK_URL)
+
 export const state = () => ({
   uid: '',
   displayName: '',
