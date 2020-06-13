@@ -9,10 +9,8 @@
   ],
   "build": {
     "env": {
-      "BASE_URL": "https://mini4.now.sh"
+      "BASE_URL": "https://mini4.now.sh",
+      "MINI4_LOGIN_WEBHOOK_URL": "@mini4-login-webhook-url"
     }
-  },
-  "env": {
-    "MINI4_LOGIN_WEBHOOK_URL": "@mini-4-login-webhook-url-production-v6vx"
   }
 }

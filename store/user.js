@@ -73,7 +73,7 @@ export const actions = {
             dg('REDIRECT', redirectUrl)
             const user = extractUserSchema(authResult.user)
             dispatch('login', user)
-            await axios.post('/api/stats/login', user)
+            await emitLoginWebhook(user)
             return false // whether redirect
           },
           uiShown() {
@@ -110,4 +110,30 @@ export const actions = {
 function extractUserSchema(arg) {
   const { uid, displayName, email, photoURL, diagnosis } = arg
   return { uid, displayName, email, photoURL, diagnosis }
+}
+
+async function emitLoginWebhook(user) {
+  const url = process.env.LOGIN_WEBHOOK_URL
+  if (!url || !user) return
+  const data = {
+    embeds: [
+      {
+        title: user.displayName,
+        thumbnail: {
+          url: user.photoURL,
+        },
+        fields: [
+          {
+            name: 'Email',
+            value: user.email,
+          },
+          {
+            name: 'UID',
+            value: user.uid,
+          },
+        ],
+      },
+    ],
+  }
+  await axios.post(url, data)
 }
