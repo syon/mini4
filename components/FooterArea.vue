@@ -6,6 +6,9 @@
       <div class="p-4">
         <div class="flex justify-between">
           <div class="leftNavs">
+            <button class="zzBtnRounded1" @click="handleSoftReset">
+              リロード
+            </button>
             <button class="zzBtnRounded1" @click="handleReset">リセット</button>
             <button class="zzBtnRounded1" @click="handleAbout">
               このサイトについて
@@ -13,7 +16,9 @@
             <button class="zzBtnRounded1" @click="handleSupport">
               支援する
             </button>
-            <!-- <button class="zzBtnRounded1 m-auto" @click="hendleError">Error</button> -->
+            <!-- <button class="zzBtnRounded1" @click="hendleError">
+              Error
+            </button> -->
           </div>
           <div class="rightNavs">
             <access-counter class="flex-1 m-2" />
@@ -41,6 +46,10 @@ export default {
   methods: {
     hendleError() {
       throw new Error('Test Error.')
+    },
+    handleSoftReset() {
+      this.$store.commit('ing/reset')
+      window.location.reload()
     },
     handleReset() {
       if (
