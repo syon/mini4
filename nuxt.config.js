@@ -50,6 +50,7 @@ export default {
   },
   env: {
     BASE_URL: process.env.BASE_URL,
+    LOGIN_WEBHOOK_URL: process.env.LOGIN_WEBHOOK_URL,
     FB_API_KEY: 'AIzaSyCb3v2C82H7_TxMMUIFJsRKMNCd5YiNOhY',
     FB_AUTH_DOMAIN: 'mini4-42a9c.firebaseapp.com',
     FB_DATABASE_URL: 'https://mini4-42a9c.firebaseio.com',

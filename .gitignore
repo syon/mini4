@@ -91,3 +91,4 @@ sw.*
 
 # vercel
 .vercel
+.env.build

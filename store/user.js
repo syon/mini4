@@ -6,6 +6,7 @@ import DB from '@/models/DB'
 const dg = debug('@:user')
 const firebase = FirebaseClient.firebase
 const firebaseAuth = FirebaseClient.auth
+const LOGIN_WEBHOOK_URL = process.env.LOGIN_WEBHOOK_URL
 
 export const state = () => ({
   uid: '',
@@ -66,7 +67,7 @@ export const actions = {
       ui.start('#firebaseui-auth-container', {
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         signInFlow: 'popup',
-        signInSuccessUrl: process.env.BASE_URL,
+        // signInSuccessUrl: process.env.BASE_URL,
         callbacks: {
           async signInSuccessWithAuthResult(authResult, redirectUrl) {
             dg('#signInSuccessWithAuthResult')
@@ -113,8 +114,7 @@ function extractUserSchema(arg) {
 }
 
 async function emitLoginWebhook(user) {
-  const url = process.env.LOGIN_WEBHOOK_URL
-  if (!url || !user) return
+  if (!LOGIN_WEBHOOK_URL || !user) return
   const data = {
     embeds: [
       {
@@ -135,5 +135,5 @@ async function emitLoginWebhook(user) {
       },
     ],
   }
-  await axios.post(url, data)
+  await axios.post(LOGIN_WEBHOOK_URL, data)
 }
