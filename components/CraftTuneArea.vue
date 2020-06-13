@@ -1,5 +1,9 @@
 <template>
-  <div v-if="isTune" class="CraftTuneArea zz-floatingLeft">
+  <div
+    v-if="isTune"
+    class="CraftTuneArea zz-floatingLeft"
+    @click.self="closeDialog"
+  >
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
         <div class="zzCategoryHeaderLong">改造プリセット</div>

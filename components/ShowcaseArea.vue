@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isShowcase" class="zz-floatingLeft">
+  <div v-if="isShowcase" class="zz-floatingLeft" @click.self="closeDialog">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
         <div class="m-1 flex justify-center">

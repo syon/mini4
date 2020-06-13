@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isCrafting" class="zz-floatingLeft">
+  <div v-if="isCrafting" class="zz-floatingLeft" @click.self="closeDialog">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
         <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
