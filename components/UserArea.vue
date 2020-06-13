@@ -1,5 +1,5 @@
 <template>
-  <div class="UserArea m-2">
+  <div class="UserArea">
     <div v-if="user.uid" class="zzBg-checker rounded p-2">
       <div class="UserArea-inner">
         <div class="flex items-center justify-between">

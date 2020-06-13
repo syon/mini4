@@ -1,23 +1,25 @@
 <template>
-  <div>
-    <about-modal />
-    <support-modal />
-    <user-area />
-    <!-- <button class="zzBtnRounded1 m-auto" @click="hendleError">Error</button> -->
-    <div class="flex items-center justify-between p-2">
-      <div class="flex">
-        <button class="zzBtnRounded1" @click="handleReset">リセット</button>
-      </div>
-      <div class="flex">
-        <button class="zzBtnRounded1" @click="handleAbout">
-          このサイトについて
-        </button>
-      </div>
-      <div class="flex">
-        <button class="zzBtnRounded1" @click="handleSupport">支援する</button>
-      </div>
-      <div class="flex">
-        <access-counter class="flex-1 m-2" />
+  <div class="FooterArea zzBg-checker2">
+    <div class="relative z-10">
+      <about-modal />
+      <support-modal />
+      <div class="p-4">
+        <div class="flex justify-between">
+          <div class="leftNavs">
+            <button class="zzBtnRounded1" @click="handleReset">リセット</button>
+            <button class="zzBtnRounded1" @click="handleAbout">
+              このサイトについて
+            </button>
+            <button class="zzBtnRounded1" @click="handleSupport">
+              支援する
+            </button>
+            <!-- <button class="zzBtnRounded1 m-auto" @click="hendleError">Error</button> -->
+          </div>
+          <div class="rightNavs">
+            <access-counter class="flex-1 m-2" />
+          </div>
+        </div>
+        <user-area />
       </div>
     </div>
   </div>
@@ -59,3 +61,17 @@ export default {
   },
 }
 </script>
+
+<style lang="less" scoped>
+.FooterArea {
+  .leftNavs {
+    > button {
+      margin-bottom: 1rem;
+    }
+  }
+  .rightNavs {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+</style>
