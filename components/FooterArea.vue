@@ -1,8 +1,10 @@
 <template>
   <div class="FooterArea zzBg-checker2">
-    <div class="relative z-10">
+    <div class="relative z-50">
       <about-modal />
       <support-modal />
+    </div>
+    <div class="relative z-1">
       <div class="p-2">
         <div class="flex mb-2">
           <button class="zzBtnRounded1 w-full mr-05" @click="handleSoftReset">
