@@ -4,37 +4,33 @@
       <div class="zz-headblack px-1">
         About
       </div>
-      <div class="zz-modalBody p-1">
+      <div class="zz-modalBody p-2">
         <div class="pb-4">
           <div class="zzCategoryHeaderBig">
             ミニ四駆 超速グランプリ 改造シミュレータ
           </div>
-          <div class="p-1">
+          <div class="p-2">
             当サイトの提供コンテンツは個人による制作物であり、公式とは一切関係ありません。
             また、シミュレーション結果を保証するものではありませんのでご了承ください。
           </div>
-          <div>
-            <div class="zzCategoryHeaderShort">ソースコード</div>
-            <ul class="list list-inside px-2 py-1">
-              <li>GitHubにて公開を予定しています（準備中）。</li>
-            </ul>
-          </div>
-          <div>
-            <div class="zzCategoryHeaderShort">情報提供</div>
-            <ul class="list list-inside px-2 py-1">
-              <li>
-                Twitter ハッシュタグ<a
-                  href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
-                  target="_blank"
-                  ><span class="zz-hashtag mx-1">#超速シミュ</span></a
-                >
-              </li>
-            </ul>
-          </div>
+          <div class="zzCategoryHeaderShort">ソースコード</div>
+          <ul class="list list-inside p-2">
+            <li>GitHubにて公開を予定しています。(準備中)</li>
+          </ul>
+          <div class="zzCategoryHeaderShort">情報提供</div>
+          <ul class="list list-inside p-2">
+            <li>
+              Twitter ハッシュタグ<a
+                href="https://twitter.com/intent/tweet?hashtags=%E8%B6%85%E9%80%9F%E3%82%B7%E3%83%9F%E3%83%A5"
+                target="_blank"
+                ><span class="zz-hashtag mx-1">#超速シミュ</span></a
+              >
+            </li>
+          </ul>
         </div>
         <div class="pb-4">
           <div class="zzCategoryHeaderBig">公式</div>
-          <div class="p-1">
+          <div class="p-2">
             <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
               <img src="/mini4wd-og.jpg" :alt="officialSite" />
               <div class="py-1">{{ officialSite }}</div>
