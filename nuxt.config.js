@@ -73,6 +73,7 @@ export default {
    */
   plugins: [
     { src: '@/plugins/localStorage', mode: 'client' },
+    { src: '@/plugins/sentry', mode: 'client' },
     { src: '@/plugins/viewportunits', mode: 'client' },
   ],
   /*
