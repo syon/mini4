@@ -86,7 +86,7 @@ export default {
       const tab = this.tab
       const part = this.part
       const name = recipe.key
-      const crafts = recipe.crafts
+      const crafts = recipe.crafts.slice()
       this.$store.dispatch('recipe/change', { part, name })
       this.$store.dispatch('recipe/changeCraftSet', { tab, part, crafts })
     },
@@ -97,5 +97,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped></style>
