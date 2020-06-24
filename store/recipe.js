@@ -161,7 +161,11 @@ export const getters = {
     }
     return result
   },
-  getRollerFriction: (state, getters, rootState, rootGetters) => (tab) => {
+  getRollerFriction: (state, getters) => (tab) => {
+    const scores = getters.gAllPartScoresSum
+    if (scores && scores.スラスト角 <= 0) {
+      return { score: {} }
+    }
     const rollers = [
       'ウイングローラー',
       'リヤ・ローラー下',
