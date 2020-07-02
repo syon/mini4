@@ -14,6 +14,11 @@
         パーツ登録 / 呼出
       </button>
     </div>
+    <div class="flex flex-col">
+      <button class="TuneBtn zzBtnRounded2" @click="handleDetach">
+        外す
+      </button>
+    </div>
   </div>
 </template>
 
@@ -70,6 +75,13 @@ export default {
     toggleOwns() {
       this.$store.dispatch('ing/toggleOwns')
       this.$ga.screenview('Owns')
+    },
+    handleDetach() {
+      this.$store.dispatch('recipe/detach', {
+        tab: this.tab,
+        part: this.ingPart,
+      })
+      this.$store.dispatch('ing/refresh')
     },
   },
 }
