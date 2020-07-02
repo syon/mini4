@@ -201,7 +201,9 @@ export default class Mini4 {
     return [
       'ターミナル',
       'ピニオンギヤ',
+      'ギヤシャフト',
       'プロペラシャフト',
+      'クラウンギヤ',
       '軸受け',
       'シャフト',
     ]
@@ -252,8 +254,8 @@ export default class Mini4 {
       resultSpecs[affect] = Math.round(raw * 1000000) / 1000000
     }
     if (part === 'ボディ') {
-      if (partRecipe.肉抜き && defaultItem.肉抜き) {
-        const drilledWeight = defaultItem.肉抜き * 0.32
+      if (partRecipe.肉抜き && defaultItem.肉抜き箇所) {
+        const drilledWeight = defaultItem.肉抜き箇所 * defaultItem.肉抜きg
         resultSpecs.重さ = resultSpecs.重さ - drilledWeight
       }
     }

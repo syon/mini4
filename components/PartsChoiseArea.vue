@@ -23,7 +23,7 @@
       <template v-if="drillAvailable">
         <label class="flex items-center">
           <input v-model="isDrill" type="checkbox" />
-          <span class="ml-1">肉抜きする({{ ingItem.肉抜き }}箇所)</span>
+          <span class="ml-1">肉抜きする({{ ingItem.肉抜き箇所 }}箇所)</span>
         </label>
       </template>
       <template v-else>
@@ -50,7 +50,7 @@ export default {
     }),
     isDrill: {
       get() {
-        return this.ingPartRecipe.肉抜き
+        return this.ingPartRecipe.肉抜き箇所
       },
       set(bool) {
         const payload = { tab: this.tab, bool }
@@ -58,7 +58,7 @@ export default {
       },
     },
     drillAvailable() {
-      return this.ingItem.肉抜き > 0
+      return this.ingItem.肉抜き箇所 > 0
     },
   },
   watch: {
