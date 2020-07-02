@@ -50,7 +50,7 @@ export default {
     }),
     isDrill: {
       get() {
-        return this.ingPartRecipe.肉抜き箇所
+        return this.ingPartRecipe.肉抜き
       },
       set(bool) {
         const payload = { tab: this.tab, bool }
