@@ -89,6 +89,7 @@ export default {
       ingPart: (state) => state.part,
       ingRecipe: (state) => state.partRecipe,
       ingCraftPreset: (state) => state.partCraftPreset,
+      ownsIndex: (state) => state.ownsIndex,
     }),
   },
   methods: {
@@ -106,6 +107,10 @@ export default {
           level: isNone ? 0 : this.level || 1,
         }
         this.$store.dispatch('recipe/changeCraft', arg)
+        this.$store.dispatch('owns/changeCraft', {
+          index: this.ownsIndex,
+          ...arg,
+        })
       }
     },
     handleQuality(quality) {
@@ -125,6 +130,10 @@ export default {
             quality,
           }
           this.$store.dispatch('recipe/changeCraftQuality', payload)
+          this.$store.dispatch('owns/changeCraft', {
+            index: this.ownsIndex,
+            ...payload,
+          })
         }
       }
     },
@@ -139,6 +148,10 @@ export default {
             level,
           }
           this.$store.dispatch('recipe/changeCraftLevel', payload)
+          this.$store.dispatch('owns/changeCraft', {
+            index: this.ownsIndex,
+            ...payload,
+          })
         }
       }
     },
