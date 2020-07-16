@@ -94,6 +94,7 @@ export default {
       craftAction: (state) => state.craftAction,
       craftQuality: (state) => state.craftQuality,
       craftLevel: (state) => state.craftLevel,
+      ownsIndex: (state) => state.ownsIndex,
     }),
     showingCrafts() {
       if (this.ping);
@@ -125,12 +126,20 @@ export default {
       if (!this.isNumber(this.craftIndex)) return
       const payload = { part, craftIndex: this.craftIndex, quality }
       this.$store.dispatch('recipe/changeCraftQuality', payload)
+      this.$store.dispatch('owns/changeCraft', {
+        index: this.ownsIndex,
+        ...payload,
+      })
     },
     applyLevel(level) {
       const { tab, ingPart: part } = this
       if (!this.isNumber(this.craftIndex)) return
       const payload = { tab, part, craftIndex: this.craftIndex, level }
       this.$store.dispatch('recipe/changeCraftLevel', payload)
+      this.$store.dispatch('owns/changeCraft', {
+        index: this.ownsIndex,
+        ...payload,
+      })
     },
     handleClickSlot(x) {
       const { ingPart: part, quality, level } = this
@@ -195,6 +204,10 @@ export default {
         level: isNone ? 0 : level || 1,
       }
       this.$store.dispatch('recipe/changeCraft', arg)
+      this.$store.dispatch('owns/changeCraft', {
+        index: this.ownsIndex,
+        ...arg,
+      })
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleCrafting')
@@ -205,5 +218,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped></style>

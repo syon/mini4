@@ -86,7 +86,7 @@ export default {
           this.$store.dispatch('owns/add', payload)
           break
         case 'change':
-          this.$store.dispatch('owns/change', payload)
+          this.$store.dispatch('owns/changeItem', payload)
           break
         default:
           break
