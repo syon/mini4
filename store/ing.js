@@ -24,7 +24,6 @@ const initialState = {
   isTune: false,
   isAbout: false,
   isSupport: false,
-  isOwns: false,
   isTabCopy: false,
   isWearLabel: false,
   wearLabelMode: 'パーツ名',
@@ -101,9 +100,6 @@ export const mutations = {
   },
   setTune(state, isTune) {
     state.isTune = isTune
-  },
-  setOwns(state, isOwns) {
-    state.isOwns = isOwns
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
@@ -199,15 +195,6 @@ export const actions = {
   toggleCraftTune({ commit, state, dispatch }) {
     const nextBool = !state.isTune
     commit('setTune', nextBool)
-    if (nextBool) {
-      commit('setBarrier', true)
-    } else {
-      dispatch('hideBarrier')
-    }
-  },
-  toggleOwns({ commit, state, dispatch }) {
-    const nextBool = !state.isOwns
-    commit('setOwns', nextBool)
     if (nextBool) {
       commit('setBarrier', true)
     } else {

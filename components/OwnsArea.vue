@@ -48,7 +48,6 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapState('ing', {
-      isOwns: (state) => state.isOwns,
       tab: (state) => state.tab,
       part: (state) => state.part,
       item: (state) => state.item,

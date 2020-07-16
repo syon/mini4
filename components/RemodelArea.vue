@@ -67,10 +67,6 @@ export default {
       this.$store.dispatch('ing/toggleCraftTune')
       this.$ga.screenview('CraftTune')
     },
-    toggleOwns() {
-      this.$store.dispatch('ing/toggleOwns')
-      this.$ga.screenview('Owns')
-    },
     handleDelete() {
       const part = this.part
       const index = this.$store.state.ing.ownsIndex
