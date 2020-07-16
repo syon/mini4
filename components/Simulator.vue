@@ -95,7 +95,8 @@ export default {
   .Garage-Middle {
     width: 152px;
     height: 622px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   .Garage-Right {
     width: 152px;

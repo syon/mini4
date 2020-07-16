@@ -487,4 +487,11 @@ export default class Mini4 {
       ブレーキ性能,
     }
   }
+
+  static calcLevelSum(crafts) {
+    if (!crafts) return 0
+    const levels = crafts.map((c) => c.level)
+    const levelSum = levels.reduce((acc, crr) => acc + crr, 0)
+    return levelSum
+  }
 }

@@ -7,7 +7,12 @@
         </button>
       </div>
       <div class="zzCategoryHeaderLong">登録パーツ</div>
-      <div v-for="(r, i) of theList" :key="i" class="m-1">
+      <div
+        v-for="(r, i) of theList"
+        :key="i"
+        class="m-1 relative"
+        :class="{ active: r.isEquip }"
+      >
         <div class="flex">
           <div class="zz-selectBox flex-1" @click="handlePick(r, i)">
             <div class="flex">
@@ -30,6 +35,9 @@
             </div>
           </div>
         </div>
+        <div v-if="r.isEquip" class="xx-check">
+          <the-check class="the-check" />
+        </div>
       </div>
     </div>
     <hr class="zz-hr-gray my-2" />
@@ -44,8 +52,14 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import equal from 'fast-deep-equal'
+import Mini4 from '@/models/Mini4'
+import TheCheck from '@/assets/check.svg'
 
 export default {
+  components: {
+    TheCheck,
+  },
   computed: {
     ...mapState('ing', {
       tab: (state) => state.tab,
@@ -59,13 +73,15 @@ export default {
       getCraftSummary: 'craft/getCraftSummary',
     }),
     theList() {
-      return this.gPartOwns(this.part).map((r) => {
+      const part = this.part
+      return this.gPartOwns(part).map((r) => {
         if (!r) return {}
-        const item = this.getItemInfo(this.part, r.key) || {}
-        const craftSummary = this.getCraftSummary(item.改造カテゴリ, r.crafts)
-        const levels = r.crafts.map((c) => c.level)
-        const levelSum = levels.reduce((acc, crr) => acc + crr, 0)
-        return { ...r, ...item, craftSummary, levelSum }
+        const item = this.getItemInfo(part, r.key) || {}
+        const cc = item.改造カテゴリ
+        const craftSummary = this.getCraftSummary(cc, r.crafts)
+        const levelSum = Mini4.calcLevelSum(r.crafts)
+        const isEquip = equal(this.recipe, r)
+        return { ...r, ...item, craftSummary, levelSum, isEquip }
       })
     },
   },
@@ -99,3 +115,18 @@ export default {
   },
 }
 </script>
+
+<style lang="less" scoped>
+.xx-check {
+  position: absolute;
+  top: -18px;
+  right: -11px;
+  z-index: 5;
+
+  .the-check {
+    position: relative;
+    width: 38px;
+    height: 38px;
+  }
+}
+</style>
