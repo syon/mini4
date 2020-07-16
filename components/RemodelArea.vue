@@ -10,13 +10,8 @@
       </button>
     </div>
     <div class="flex flex-col">
-      <button class="TuneBtn zzBtnRounded2" @click="toggleOwns">
-        パーツ登録 / 呼出
-      </button>
-    </div>
-    <div class="flex flex-col">
-      <button class="TuneBtn zzBtnRounded2" @click="handleDetach">
-        外す
+      <button class="TuneBtn zzBtnRounded2" @click="handleDelete">
+        削除
       </button>
     </div>
   </div>
@@ -34,7 +29,7 @@ export default {
     ...mapState('ing', {
       ping: (state) => state.ping,
       tab: (state) => state.tab,
-      ingPart: (state) => state.part,
+      part: (state) => state.part,
       ingCrafts: (state) => state.crafts,
     }),
     ...mapGetters({
@@ -42,7 +37,7 @@ export default {
     }),
     remodelSlots() {
       if (this.ping);
-      const r = this.getRecipeByPart(this.tab, this.ingPart)
+      const r = this.getRecipeByPart(this.tab, this.part)
       const remodels = Array.from(r.crafts || [])
       ;[...Array(6)].map((_, i) => {
         if (!remodels[i]) {
@@ -76,10 +71,13 @@ export default {
       this.$store.dispatch('ing/toggleOwns')
       this.$ga.screenview('Owns')
     },
-    handleDetach() {
+    handleDelete() {
+      const part = this.part
+      const index = this.$store.state.ing.ownsIndex
+      this.$store.dispatch('owns/remove', { part, index })
       this.$store.dispatch('recipe/detach', {
         tab: this.tab,
-        part: this.ingPart,
+        part: this.part,
       })
       this.$store.dispatch('ing/refresh')
     },

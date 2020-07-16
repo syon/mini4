@@ -17,6 +17,7 @@ const initialState = {
   craftAction: '',
   craftQuality: null,
   craftLevel: null,
+  ownsIndex: null,
   isShowcase: false,
   isBarrier: false,
   isTune: false,
@@ -84,6 +85,9 @@ export const mutations = {
     state.craftAction = ''
     state.craftQuality = null
     state.craftLevel = null
+  },
+  SET_OwnsIndex(state, ownsIndex) {
+    state.ownsIndex = ownsIndex
   },
   setShowcase(state, isShowcase) {
     state.isShowcase = isShowcase
@@ -223,5 +227,8 @@ export const actions = {
     } else {
       dispatch('hideBarrier')
     }
+  },
+  changeOwnsIndex({ commit }, ownsIndex) {
+    commit('SET_OwnsIndex', ownsIndex)
   },
 }

@@ -6,15 +6,18 @@
         <total-area />
       </div>
     </div>
-    <div class="GarageArea zzBg-grid">
-      <div class="flex p-1">
-        <div class="w-7/12">
+    <div class="GarageArea overflow-x-auto">
+      <div class="Garage flex zzBg-grid p-1">
+        <div class="Garage-Left">
           <toolbar-area />
           <setting-area :tab="tab" />
         </div>
-        <div class="w-5/12 migisita">
-          <parts-choise-area />
+        <div class="Garage-Middle">
           <parts-detail-area />
+          <owns-area />
+        </div>
+        <div class="Garage-Right flex flex-col justify-end">
+          <parts-choise-area />
           <remodel-area />
         </div>
       </div>
@@ -31,7 +34,6 @@
     <showcase-area />
     <craft-select-area />
     <craft-tune-area />
-    <owns-area />
     <wear-label-area />
     <tab-copy-area />
   </div>
@@ -83,8 +85,20 @@ export default {
 }
 </script>
 
-<style>
-.migisita {
-  overflow: hidden;
+<style lang="less" scoped>
+.Garage {
+  width: 527px;
+
+  .Garage-Left {
+    width: 215px;
+  }
+  .Garage-Middle {
+    width: 152px;
+    height: 622px;
+    overflow: auto;
+  }
+  .Garage-Right {
+    width: 152px;
+  }
 }
 </style>
