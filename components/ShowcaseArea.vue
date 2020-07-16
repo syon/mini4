@@ -7,7 +7,7 @@
         </div>
         <hr class="zz-hr-gray my-2" />
         <template v-for="(categorySet, key) in sortedCatalog">
-          <div :key="key" class="">
+          <div :key="key">
             <div class="zzCategoryHeaderLong">{{ key }}</div>
             <template v-for="(item, name) in categorySet">
               <a
@@ -15,7 +15,7 @@
                 href="#"
                 :class="{ active: name === ingItem.key }"
                 class="zz-selectBox flex m-1"
-                @click="handleSelectItem($event, name, item)"
+                @click.prevent="handleSelectItemForOwns(name, item)"
               >
                 <div class="flex">
                   <div
@@ -53,6 +53,8 @@ export default {
       ingPartCatalog: (state) => state.partCatalog,
       ingItem: (state) => state.item,
       isShowcase: (state) => state.isShowcase,
+      shocaseMode: (state) => state.shocaseMode,
+      ownsIndex: (state) => state.ownsIndex,
     }),
     sortedCatalog() {
       const entries = Object.entries(this.ingPartCatalog)
@@ -70,6 +72,28 @@ export default {
     },
   },
   methods: {
+    handleSelectItemForOwns(name, item) {
+      const payload = {
+        index: this.ownsIndex,
+        part: this.ingPart,
+        recipe: {
+          key: name,
+          crafts: [],
+        },
+      }
+      switch (this.shocaseMode) {
+        case 'add':
+          this.$store.dispatch('owns/add', payload)
+          break
+        case 'change':
+          this.$store.dispatch('owns/change', payload)
+          break
+        default:
+          break
+      }
+      this.$store.dispatch('recipe/change', { part: this.ingPart, name })
+      this.closeDialog()
+    },
     handleSelectItem($event, name, item) {
       $event.preventDefault()
       const basePart = this.ingPart
@@ -116,7 +140,7 @@ export default {
       this.closeDialog()
     },
     closeDialog() {
-      this.$store.dispatch('ing/toggleShowcase')
+      this.$store.dispatch('ing/closeShowcase')
     },
     uniq(array) {
       return Array.from(new Set(array))
@@ -124,5 +148,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped></style>

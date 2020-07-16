@@ -19,6 +19,7 @@ const initialState = {
   craftLevel: null,
   ownsIndex: null,
   isShowcase: false,
+  shocaseMode: '',
   isBarrier: false,
   isTune: false,
   isAbout: false,
@@ -92,6 +93,9 @@ export const mutations = {
   setShowcase(state, isShowcase) {
     state.isShowcase = isShowcase
   },
+  setShowcaseMode(state, mode) {
+    state.shocaseMode = mode
+  },
   setBarrier(state, isBarrier) {
     state.isBarrier = isBarrier
   },
@@ -161,14 +165,15 @@ export const actions = {
     commit('setCraftQuality', craftQuality)
     commit('setCraftLevel', craftLevel)
   },
-  toggleShowcase({ commit, state, dispatch }) {
-    const nextBool = !state.isShowcase
-    commit('setShowcase', nextBool)
-    if (nextBool) {
-      commit('setBarrier', true)
-    } else {
-      dispatch('hideBarrier')
-    }
+  openShowcase({ commit }, mode) {
+    commit('setShowcase', true)
+    commit('setShowcaseMode', mode)
+    commit('setBarrier', true)
+  },
+  closeShowcase({ commit, dispatch }) {
+    commit('setShowcase', false)
+    commit('setShowcaseMode', '')
+    dispatch('hideBarrier')
   },
   toggleCrafting({ commit, state, dispatch }) {
     const nextBool = !state.isCrafting

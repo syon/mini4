@@ -34,7 +34,7 @@
     </div>
     <hr class="zz-hr-gray my-2" />
     <div class="m-1 flex justify-center">
-      <button class="zzBtnRounded1" @click="handleRegister">
+      <button class="zzBtnRounded1" @click="handleShowcase">
         新しいパーツを登録する
       </button>
     </div>
@@ -71,6 +71,9 @@ export default {
     },
   },
   methods: {
+    handleShowcase() {
+      this.$store.dispatch('ing/openShowcase', 'add')
+    },
     handleRegister() {
       const payload = {
         part: this.part,

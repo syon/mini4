@@ -71,10 +71,8 @@ export default {
   },
   methods: {
     handleShowcase() {
-      this.$store.dispatch('ing/toggleShowcase')
+      this.$store.dispatch('ing/openShowcase', 'change')
     },
   },
 }
 </script>
-
-<style lang="less" scoped></style>
