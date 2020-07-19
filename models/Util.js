@@ -4,6 +4,7 @@ export default class Util {
     const pre = document.createElement('pre')
     pre.style.webkitUserSelect = 'auto'
     pre.style.userSelect = 'auto'
+    pre.style.backgroundColor = 'initial'
     tmp.appendChild(pre).textContent = string
     const s = tmp.style
     s.position = 'fixed'
