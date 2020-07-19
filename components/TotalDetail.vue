@@ -193,8 +193,16 @@ export default {
     frictionRoller() {
       return this.getRollerFriction(this.tab)
     },
+    frictionRollerScore() {
+      const s = this.frictionRoller.score.ローラー摩擦 || 0
+      return Util.fixedNum(s, 3)
+    },
     registRoller() {
       return this.getRollerRegist(this.tab)
+    },
+    registRollerScore() {
+      const s = this.registRoller.score.ローラー抵抗 || 0
+      return Util.fixedNum(s, 3)
     },
   },
   methods: {
@@ -204,18 +212,8 @@ export default {
         return `${o.label}\t${Util.fixedNum(o.score, 3)}`
       })
       lines.unshift(`ボディ特性\t${this.bodyInfo.ボディ特性}`)
-      lines.push(
-        `有効ローラー摩擦\t${Util.fixedNum(
-          this.frictionRoller.score.ローラー摩擦,
-          3
-        )}`
-      )
-      lines.push(
-        `有効ローラー抵抗\t${Util.fixedNum(
-          this.registRoller.score.ローラー抵抗,
-          3
-        )}`
-      )
+      lines.push(`有効ローラー摩擦\t${this.frictionRollerScore}`)
+      lines.push(`有効ローラー抵抗\t${this.registRollerScore}`)
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
@@ -225,8 +223,8 @@ export default {
         return `${Util.fixedNum(o.score, 3)}`
       })
       lines.unshift(this.bodyInfo.ボディ特性)
-      lines.push(Util.fixedNum(this.frictionRoller.score.ローラー摩擦, 3))
-      lines.push(Util.fixedNum(this.registRoller.score.ローラー抵抗, 3))
+      lines.push(this.frictionRollerScore)
+      lines.push(this.registRollerScore)
       Util.copyToClipboard(lines.join('\n'))
       window.alert('コピーしました。')
     },
