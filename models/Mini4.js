@@ -396,7 +396,7 @@ export default class Mini4 {
 
   static getDiagnosis(allEquips, totalScores) {
     const PI = 3.14159265359
-    // const GG = 9.80665
+    const GG = 9.80665
     const {
       スピード,
       パワー,
@@ -410,6 +410,8 @@ export default class Mini4 {
       エアロダウンフォース,
       スラスト角,
       ブレーキ減速,
+      タイヤ反発,
+      制振,
     } = totalScores
     const bodyInfo = allEquips.find((x) => x.part === 'ボディ') || {}
     const fTireInfo = allEquips.find((x) => x.part === 'フロント・タイヤ') || {}
@@ -471,6 +473,10 @@ export default class Mini4 {
     const 最高速度ms = 無負荷速度 * 負荷 - 空気抵抗
     const 最高速度kmh = (最高速度ms * 3600) / 1000
     const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
+    const バウンド時間 =
+      ((最高速度ms * (1 - ブレーキ性能) * Math.sin((10 * PI) / 180)) / GG) *
+      2 *
+      (タイヤ反発 / 1000 - 制振 / 100000)
     return {
       最高速度_時速: 最高速度kmh,
       最高速度_秒速: 最高速度ms,
@@ -480,7 +486,7 @@ export default class Mini4 {
       タイヤグリップ,
       コーナー減速率: null,
       ジャンプ飛距離: null,
-      バウンド時間: null,
+      バウンド時間,
       前後の重心: null,
       ローラースラスト角,
       重さ,

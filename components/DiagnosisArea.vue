@@ -45,32 +45,32 @@ export default {
       return [
         {
           label: '最高速度(時速)',
-          value: this.fixedNum(this.diag.最高速度_時速, 3),
+          value: this.fixedNum(this.diag.最高速度_時速, 4),
           unit: 'km/h',
         },
         {
           label: '最高速度(秒速)',
-          value: this.fixedNum(this.diag.最高速度_秒速, 3),
+          value: this.fixedNum(this.diag.最高速度_秒速, 4),
           unit: 'm/s',
         },
         {
           label: 'バッテリー消費量',
-          value: this.fixedNum(this.diag.バッテリー消費量, 3),
+          value: this.fixedNum(this.diag.バッテリー消費量, 4),
           unit: 'mA/h',
         },
         {
           label: '加速度(毎秒)',
-          value: this.fixedNum(this.diag.加速度, 3),
+          value: this.fixedNum(this.diag.加速度, 4),
           unit: 'm/s²',
         },
         {
           label: '最高速到達時間(秒)',
-          value: '-', // this.fixedNum(this.diag.最高速到達時間, 3),
+          value: '-', // this.fixedNum(this.diag.最高速到達時間, 4),
           unit: '秒',
         },
         {
           label: 'タイヤグリップ',
-          value: this.fixedNum(this.diag.タイヤグリップ, 3),
+          value: this.fixedNum(this.diag.タイヤグリップ, 4),
           unit: '',
         },
       ]
@@ -79,37 +79,37 @@ export default {
       return [
         {
           label: 'コーナー減速率',
-          value: '-', // this.fixedNum(this.diag.コーナー減速率, 3),
+          value: '-', // this.fixedNum(this.diag.コーナー減速率, 4),
           unit: '',
         },
         {
           label: 'ジャンプ飛距離',
-          value: '-', // this.fixedNum(this.diag.ジャンプ飛距離, 3),
+          value: '-', // this.fixedNum(this.diag.ジャンプ飛距離, 4),
           unit: 'm',
         },
         {
-          label: 'バウンド時間',
-          value: '-', // this.fixedNum(this.diag.バウンド時間, 3),
+          label: 'バウンド時間 (仮)',
+          value: this.fixedNum(this.diag.バウンド時間, 4),
           unit: '秒',
         },
         {
           label: '前後の重心',
-          value: '-', // this.fixedNum(this.diag.前後の重心, 3),
+          value: '-', // this.fixedNum(this.diag.前後の重心, 4),
           unit: 'mm',
         },
         {
           label: 'ローラースラスト角',
-          value: this.fixedNum(this.diag.ローラースラスト角, 3),
+          value: this.fixedNum(this.diag.ローラースラスト角, 4),
           unit: '',
         },
         {
           label: '重さ',
-          value: this.fixedNum(this.diag.重さ, 3),
+          value: this.fixedNum(this.diag.重さ, 4),
           unit: '',
         },
         {
           label: 'ブレーキ性能',
-          value: this.fixedNum(this.diag.ブレーキ性能, 3),
+          value: this.fixedNum(this.diag.ブレーキ性能, 4),
           unit: '',
         },
       ]
