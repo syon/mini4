@@ -89,7 +89,7 @@ export default {
         },
         {
           label: 'バウンド時間 (仮)',
-          value: this.fixedNum(this.diag.バウンド時間, 4),
+          value: this.fixedNum(this.diag.バウンド時間, 4) + ' ?',
           unit: '秒',
         },
         {
