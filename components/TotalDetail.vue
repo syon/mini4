@@ -28,7 +28,7 @@
             :class="o.class"
           />
         </template>
-        <div class="flex mt-4 relative">
+        <div class="flex mt-8 relative">
           <button class="zzBtnRect1 z-1" @click="handleCopy">
             コピー
           </button>
@@ -164,6 +164,7 @@ export default {
         { label: 'ウェーブ', score: s.ウェーブ, class: 'zz-textyellow' },
         { label: 'オフロード', score: s.オフロード, class: 'zz-textyellow' },
         { label: 'デジタル', score: s.デジタル, class: 'zz-textyellow' },
+        { label: '耐風', score: s.耐風, class: 'zz-textyellow' },
       ]
     },
     bodyInfo() {
