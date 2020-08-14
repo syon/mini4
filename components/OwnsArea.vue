@@ -33,8 +33,11 @@
                 </div>
               </div>
               <div class="flex items-center ml-1">
-                <button class="zzBtnRect1" @click="handleDelete(i)">
-                  削除
+                <button
+                  class="zzBtnRect1-vertical zz-text06 leading-tight"
+                  @click="handleDelete(i)"
+                >
+                  削<br />除
                 </button>
               </div>
             </div>
