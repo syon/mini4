@@ -45,12 +45,12 @@ export default {
       return [
         {
           label: '最高速度(時速)',
-          value: this.fixedNum(this.diag.最高速度_時速, 4),
+          value: this.fixedNum(this.diag.最高速度kmh, 4),
           unit: 'km/h',
         },
         {
           label: '最高速度(秒速)',
-          value: this.fixedNum(this.diag.最高速度_秒速, 4),
+          value: this.fixedNum(this.diag.最高速度ms, 4),
           unit: 'm/s',
         },
         {
@@ -65,7 +65,7 @@ export default {
         },
         {
           label: '最高速到達時間(秒)',
-          value: '-', // this.fixedNum(this.diag.最高速到達時間, 4),
+          value: this.fixedNum(this.diag.最高速到達時間, 4),
           unit: '秒',
         },
         {
