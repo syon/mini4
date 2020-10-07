@@ -28,18 +28,40 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Mini4 from '@/models/Mini4'
 import Util from '@/models/Util'
 
 export default {
   computed: {
+    ...mapState('ing', {
+      tab: (state) => state.tab,
+    }),
     ...mapGetters({
       gAllEquips: 'recipe/gAllEquips',
       scores: 'recipe/gAllPartScoresSum',
+      getRollerFriction: 'recipe/getRollerFriction',
+      getRollerRegist: 'recipe/getRollerRegist',
     }),
+    frictionRoller() {
+      return this.getRollerFriction(this.tab)
+    },
+    frictionRollerScore() {
+      return this.frictionRoller.score.ローラー摩擦 || 0
+    },
+    registRoller() {
+      return this.getRollerRegist(this.tab)
+    },
+    registRollerScore() {
+      return this.registRoller.score.ローラー抵抗 || 0
+    },
     diag() {
-      return Mini4.getDiagnosis(this.gAllEquips, this.scores)
+      const totalScores = {
+        ...this.scores,
+        有効ローラー摩擦: this.frictionRollerScore,
+        有効ローラー抵抗: this.registRollerScore,
+      }
+      return Mini4.getDiagnosis(this.gAllEquips, totalScores)
     },
     leftContents() {
       return [

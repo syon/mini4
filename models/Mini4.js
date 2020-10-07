@@ -413,7 +413,11 @@ export default class Mini4 {
       ブレーキ減速,
       タイヤ反発,
       制振,
+      有効ローラー摩擦,
+      有効ローラー抵抗,
     } = totalScores
+    console.log({ 有効ローラー摩擦 })
+    console.log({ 有効ローラー抵抗 })
     const bodyInfo = allEquips.find((x) => x.part === 'ボディ') || {}
     const ボディ特性 = bodyInfo.item.ボディ特性
     const fTireInfo = allEquips.find((x) => x.part === 'フロント・タイヤ') || {}
