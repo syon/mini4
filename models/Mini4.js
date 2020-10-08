@@ -416,8 +416,6 @@ export default class Mini4 {
       有効ローラー摩擦,
       有効ローラー抵抗,
     } = totalScores
-    console.log({ 有効ローラー摩擦 })
-    console.log({ 有効ローラー抵抗 })
     const bodyInfo = allEquips.find((x) => x.part === 'ボディ') || {}
     const ボディ特性 = bodyInfo.item.ボディ特性
     const fTireInfo = allEquips.find((x) => x.part === 'フロント・タイヤ') || {}
@@ -497,7 +495,8 @@ export default class Mini4 {
       ((最高速度ms * (1 - ブレーキ性能) * Math.sin((10 * PI) / 180)) / GG) *
       2 *
       (タイヤ反発 / 1000 - 制振 / 100000)
-    const コーナー減速率 = スラスト角
+    const コーナー減速率 =
+      有効ローラー摩擦 * スラスト角 + 有効ローラー抵抗 / 20.8
     return {
       最高速度kmh,
       最高速度ms,
