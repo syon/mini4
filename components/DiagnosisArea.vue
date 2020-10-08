@@ -101,7 +101,7 @@ export default {
       return [
         {
           // label: 'コーナー減速率',
-          label: 'ローラー減速参考値(仮)',
+          label: 'ローラー減速参考値',
           value: this.fixedNum(this.diag.コーナー減速率, 4) + ' ?',
           unit: '',
         },
