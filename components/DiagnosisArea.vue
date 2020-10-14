@@ -1,13 +1,13 @@
 <template>
-  <div class="DiagnosisArea zzBg-grit p-2">
-    <div class="DiagMain flex relative">
-      <div class="DiagLeft flex-1 mx-1 my-05">
+  <div class="DiagnosisArea zzBg-grit px-2 py-2">
+    <div class="DiagMain flex relative py-05">
+      <div class="DiagLeft flex-1 mx-1">
         <div v-for="o of leftContents" :key="o.label" class="DiagLine">
           <div class="DiagLine-Label">{{ o.label }}</div>
           <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
-        <div class="flex relative mt-2 mb-05 mx-0">
+        <div class="flex relative mt-1 mx-0">
           <button class="zzBtnRect1 z-10" @click="handleCopyDiag">
             コピー
           </button>
@@ -16,10 +16,23 @@
           </button>
         </div>
       </div>
-      <div class="DiagRight flex-1 mx-1 my-05">
+      <div class="DiagRight flex-1 mx-1">
         <div v-for="o of rightContents" :key="o.label" class="DiagLine">
           <div class="DiagLine-Label">{{ o.label }}</div>
           <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
+          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
+        </div>
+      </div>
+    </div>
+    <hr class="zz-hr-white my-2" />
+    <div class="DiagMain flex relative">
+      <div class="DiagExtra flex-1 mx-1">
+        <div v-for="o of extraContents" :key="o.label" class="DiagLine">
+          <div class="">
+            <div class="DiagLine-Label zz-textyellow">{{ o.label }}</div>
+            <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div>
+          </div>
+          <div class="DiagLine-Value zz-textyellow zzAnton">{{ o.value }}</div>
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
       </div>
@@ -100,9 +113,8 @@ export default {
     rightContents() {
       return [
         {
-          // label: 'コーナー減速率',
-          label: 'ローラー減速参考値',
-          value: this.fixedNum(this.diag.コーナー減速率, 4) + ' ?',
+          label: 'コーナー減速率',
+          value: '-', // this.fixedNum(this.diag.コーナー減速率, 4),
           unit: '',
         },
         {
@@ -133,6 +145,16 @@ export default {
         {
           label: 'ブレーキ性能',
           value: this.fixedNum(this.diag.ブレーキ性能, 4),
+          unit: '',
+        },
+      ]
+    },
+    extraContents() {
+      return [
+        {
+          label: 'ローラー減速参考値',
+          label2: 'ローラー摩擦×スラスト角+ローラー抵抗÷20.8',
+          value: this.fixedNum(this.diag.ローラー減速参考値, 4),
           unit: '',
         },
       ]
