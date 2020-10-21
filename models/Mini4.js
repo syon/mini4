@@ -490,7 +490,8 @@ export default class Mini4 {
         (リヤタイヤ径 * 2000 * 重さ) -
         Pスピロス / 4000)
     const 最高速到達時間 = Math.log(最高速度ms * 100) / (加速度 * 4)
-    const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
+    // const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
+    const ローラースラスト角 = Math.max(スラスト角, 0)
     const バウンド時間 =
       ((最高速度ms * (1 - ブレーキ性能) * Math.sin((10 * PI) / 180)) / GG) *
       2 *
