@@ -210,7 +210,7 @@ export default class Mini4 {
     ]
       .map((cat) => {
         const equip = accessories.find((a) => {
-          return a.item.改造カテゴリ === cat
+          return a.item.表示カテゴリ === cat
         })
         if (!equip) {
           const part = 'アクセサリー'
