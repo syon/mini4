@@ -79,12 +79,12 @@ export default {
     leftContents() {
       return [
         {
-          label: '最高速度(時速)',
+          label: '最高速度(時速) (旧)',
           value: this.fixedNum(this.diag.最高速度kmh, 4),
           unit: 'km/h',
         },
         {
-          label: '最高速度(秒速)',
+          label: '最高速度(秒速) (旧)',
           value: this.fixedNum(this.diag.最高速度ms, 4),
           unit: 'm/s',
         },
@@ -94,12 +94,12 @@ export default {
           unit: 'mA/h',
         },
         {
-          label: '加速度(毎秒)',
+          label: '加速度(毎秒) (旧)',
           value: this.fixedNum(this.diag.加速度, 4),
           unit: 'm/s²',
         },
         {
-          label: '最高速到達時間(秒)',
+          label: '最高速到達時間(秒) (旧)',
           value: this.fixedNum(this.diag.最高速到達時間, 4),
           unit: '秒',
         },
