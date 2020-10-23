@@ -114,12 +114,12 @@ export default {
       return [
         {
           label: 'コーナー減速率',
-          value: '-', // this.fixedNum(this.diag.コーナー減速率, 4),
+          value: '?', // this.fixedNum(this.diag.コーナー減速率, 4),
           unit: '',
         },
         {
           label: 'ジャンプ飛距離',
-          value: '-', // this.fixedNum(this.diag.ジャンプ飛距離, 4),
+          value: '?', // this.fixedNum(this.diag.ジャンプ飛距離, 4),
           unit: 'm',
         },
         {
