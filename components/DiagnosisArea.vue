@@ -129,7 +129,7 @@ export default {
         },
         {
           label: '前後の重心',
-          value: '-', // this.fixedNum(this.diag.前後の重心, 4),
+          value: this.fixedNum(this.diag.前後の重心, 4),
           unit: 'mm',
         },
         {

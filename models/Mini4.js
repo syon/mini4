@@ -417,10 +417,89 @@ export default class Mini4 {
       有効ローラー抵抗,
     } = totalScores
     const bodyInfo = allEquips.find((x) => x.part === 'ボディ') || {}
-    const ボディ特性 = bodyInfo.item.ボディ特性
+    const motorInfo = allEquips.find((x) => x.part === 'モーター') || {}
+    const gearInfo = allEquips.find((x) => x.part === 'ギヤ') || {}
+    const chassisInfo = allEquips.find((x) => x.part === 'シャーシ') || {}
+    const fWheelInfo =
+      allEquips.find((x) => x.part === 'フロント・ホイール') || {}
     const fTireInfo = allEquips.find((x) => x.part === 'フロント・タイヤ') || {}
+    const rWheelInfo = allEquips.find((x) => x.part === 'リヤ・ホイール') || {}
     const rTireInfo = allEquips.find((x) => x.part === 'リヤ・タイヤ') || {}
+    const fStayInfo = allEquips.find((x) => x.part === 'フロントステー') || {}
+    const sStayInfo = allEquips.find((x) => x.part === 'サイドステー') || {}
+    const rStayInfo = allEquips.find((x) => x.part === 'リヤステー') || {}
+    const fRollerTopInfo =
+      allEquips.find((x) => x.part === 'フロント・ローラー上') || {}
+    const sRollerTopInfo =
+      allEquips.find((x) => x.part === 'サイド・ローラー上') || {}
+    const rRollerTopInfo =
+      allEquips.find((x) => x.part === 'リヤ・ローラー上') || {}
+    const fRollerMidInfo =
+      allEquips.find((x) => x.part === 'フロント・ローラー中') || {}
+    const sRollerMidInfo =
+      allEquips.find((x) => x.part === 'サイド・ローラー中') || {}
+    const rRollerMidInfo =
+      allEquips.find((x) => x.part === 'リヤ・ローラー中') || {}
+    const rRollerBottomInfo =
+      allEquips.find((x) => x.part === 'リヤ・ローラー下') || {}
+    const bodyoptionInfo =
+      allEquips.find((x) => x.part === 'ボディオプション') || {}
+    const wRollerInfo =
+      allEquips.find((x) => x.part === 'ウイングローラー') || {}
+    const fStabilizerInfo =
+      allEquips.find((x) => x.part === 'フロント・スタビライザー') || {}
+    const sStabilizerInfo =
+      allEquips.find((x) => x.part === 'サイド・スタビライザー') || {}
+    const rStabilizerInfo =
+      allEquips.find((x) => x.part === 'リヤ・スタビライザー') || {}
+    const fSettingweightInfo =
+      allEquips.find((x) => x.part === 'フロント・セッティングウェイト') || {}
+    const rSettingweightInfo =
+      allEquips.find((x) => x.part === 'リヤ・セッティングウェイト') || {}
+    const accessory1Info =
+      allEquips.find((x) => x.part === 'アクセサリー・１') || {}
+    const accessory2Info =
+      allEquips.find((x) => x.part === 'アクセサリー・２') || {}
+    const accessory3Info =
+      allEquips.find((x) => x.part === 'アクセサリー・３') || {}
+    const accessory4Info =
+      allEquips.find((x) => x.part === 'アクセサリー・４') || {}
+    const ホイールベース = (chassisInfo.item || {}).ホイールベース
+    const シャーシ比重 = (chassisInfo.item || {}).シャーシ比重
+    const 重心の総重量 =
+      +0.0 * ホイールベース * (bodyInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (motorInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (gearInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (chassisInfo.score.重さ || 0) * シャーシ比重 +
+      +0.5 * ホイールベース * (fWheelInfo.score.重さ || 0) +
+      +0.5 * ホイールベース * (fTireInfo.score.重さ || 0) +
+      -0.5 * ホイールベース * (rWheelInfo.score.重さ || 0) +
+      -0.5 * ホイールベース * (rTireInfo.score.重さ || 0) +
+      +1.0 * ホイールベース * (fStayInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (sStayInfo.score.重さ || 0) +
+      -0.5 * ホイールベース * (rStayInfo.score.重さ || 0) +
+      +1.0 * ホイールベース * (fRollerTopInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (sRollerTopInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (rRollerTopInfo.score.重さ || 0) +
+      +1.0 * ホイールベース * (fRollerMidInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (sRollerMidInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (rRollerMidInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (rRollerBottomInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (bodyoptionInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (wRollerInfo.score.重さ || 0) +
+      +1.0 * ホイールベース * (fStabilizerInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (sStabilizerInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (rStabilizerInfo.score.重さ || 0) +
+      +0.5 * ホイールベース * (fSettingweightInfo.score.重さ || 0) +
+      -1.0 * ホイールベース * (rSettingweightInfo.score.重さ || 0) +
+      +0.0 * ホイールベース * (accessory1Info.score.重さ || 0) +
+      +0.0 * ホイールベース * (accessory2Info.score.重さ || 0) +
+      +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
+      +0.0 * ホイールベース * (accessory4Info.score.重さ || 0)
+    const 前後の重心 = 重心の総重量 / 重さ
+    const ボディ特性 = (bodyInfo.item || {}).ボディ特性
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
+    const リヤタイヤ摩擦 = (rTireInfo.score || {}).タイヤ摩擦
     const フロントタイヤ径 = (fTireInfo.score || {}).タイヤ径
     const リヤタイヤ径 = (rTireInfo.score || {}).タイヤ径
     let ブレーキ特性 = 0
@@ -438,7 +517,12 @@ export default class Mini4 {
     } else if (ボディ特性 === 'ワイルドラン') {
       グリップ特性 = 1.015
     }
-    const タイヤグリップ = (フロントタイヤ摩擦 / 100.0) * グリップ特性
+    // const タイヤグリップ = (フロントタイヤ摩擦 / 100.0) * グリップ特性
+    const タイヤグリップ =
+      ((フロントタイヤ摩擦 * (ホイールベース / 2 + 前後の重心) +
+        リヤタイヤ摩擦 * (ホイールベース / 2 - 前後の重心)) /
+        ホイールベース) *
+      グリップ特性
     let 節電特性 = 1.0
     if (節電 > 0) {
       if (ボディ特性 === '節電UP') {
@@ -512,7 +596,7 @@ export default class Mini4 {
       コーナー減速率: null,
       ジャンプ飛距離: null,
       バウンド時間,
-      前後の重心: null,
+      前後の重心,
       ローラースラスト角,
       重さ,
       ブレーキ性能,
