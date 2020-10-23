@@ -210,7 +210,7 @@ export default class Mini4 {
     ]
       .map((cat) => {
         const equip = accessories.find((a) => {
-          return a.item.改造カテゴリ === cat
+          return a.item.表示カテゴリ === cat
         })
         if (!equip) {
           const part = 'アクセサリー'
@@ -456,14 +456,14 @@ export default class Mini4 {
       allEquips.find((x) => x.part === 'フロント・セッティングウェイト') || {}
     const rSettingweightInfo =
       allEquips.find((x) => x.part === 'リヤ・セッティングウェイト') || {}
-    const accessory1Info =
-      allEquips.find((x) => x.part === 'アクセサリー・１') || {}
-    const accessory2Info =
-      allEquips.find((x) => x.part === 'アクセサリー・２') || {}
-    const accessory3Info =
-      allEquips.find((x) => x.part === 'アクセサリー・３') || {}
-    const accessory4Info =
-      allEquips.find((x) => x.part === 'アクセサリー・４') || {}
+    // const accessory1Info =
+    //   allEquips.find((x) => x.part === 'アクセサリー・１') || {}
+    // const accessory2Info =
+    //   allEquips.find((x) => x.part === 'アクセサリー・２') || {}
+    // const accessory3Info =
+    //   allEquips.find((x) => x.part === 'アクセサリー・３') || {}
+    // const accessory4Info =
+    //   allEquips.find((x) => x.part === 'アクセサリー・４') || {}
     const ボディ特性 = (bodyInfo.item || {}).ボディ特性
     const フロントタイヤスピロス = (fTireInfo.score || {}).スピードロス
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
@@ -500,11 +500,11 @@ export default class Mini4 {
       +0.0 * ホイールベース * (sStabilizerInfo.score.重さ || 0) +
       -1.0 * ホイールベース * (rStabilizerInfo.score.重さ || 0) +
       +0.5 * ホイールベース * (fSettingweightInfo.score.重さ || 0) +
-      -1.0 * ホイールベース * (rSettingweightInfo.score.重さ || 0) +
-      +0.0 * ホイールベース * (accessory1Info.score.重さ || 0) +
-      +0.0 * ホイールベース * (accessory2Info.score.重さ || 0) +
-      +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
-      +0.0 * ホイールベース * (accessory4Info.score.重さ || 0)
+      -1.0 * ホイールベース * (rSettingweightInfo.score.重さ || 0)
+    // +0.0 * ホイールベース * (accessory1Info.score.重さ || 0) +
+    // +0.0 * ホイールベース * (accessory2Info.score.重さ || 0) +
+    // +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
+    // +0.0 * ホイールベース * (accessory4Info.score.重さ || 0)
     const 前後の重心 = 重心の総重量 / 重さ
     let スピード特性 = 1.0
     if (ボディ特性 === 'スピードUP') {
