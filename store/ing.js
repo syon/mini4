@@ -21,6 +21,7 @@ const initialState = {
   isBarrier: false,
   isTune: false,
   isAbout: false,
+  isUpdate: false,
   isSupport: false,
   isOwns: false,
   isTabCopy: false,
@@ -99,6 +100,9 @@ export const mutations = {
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
+  },
+  setUpdate(state, isUpdate) {
+    state.isUpdate = isUpdate
   },
   setSupport(state, isSupport) {
     state.isSupport = isSupport

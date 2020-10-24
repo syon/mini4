@@ -1,5 +1,8 @@
 <template>
   <div class="DiagnosisArea zzBg-grit px-2 py-2">
+    <div class="px-2 zz-text06 zz-textblue text-center">
+      -------- 2020.10.21大型アップデート対応済み --------
+    </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div v-for="o of leftContents" :key="o.label" class="DiagLine">
@@ -24,8 +27,8 @@
         </div>
       </div>
     </div>
-    <hr class="zz-hr-white my-2" />
-    <div class="DiagMain flex relative">
+    <hr class="zz-hr-white my-1" />
+    <div class="DiagMain flex relative py-05">
       <div class="DiagExtra flex-1 mx-1">
         <div v-for="o of extraContents" :key="o.label" class="DiagLine">
           <div class="">

@@ -1,6 +1,6 @@
 <template>
   <div class="TotalDetail">
-    <hr class="zz-hr-white my-3" />
+    <hr class="zz-hr-white my-2" />
     <div class="flex items-center justify-between">
       <div class="flex-1 flex justify-between mx-1">
         <div v-for="a in aptSet" :key="a" class="flex items-center mx-1">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <hr class="zz-hr-white my-3" />
+    <hr class="zz-hr-white my-2" />
     <div class="flex">
       <div class="flex-1 mx-2">
         <template v-for="o of leftItems">
@@ -48,7 +48,7 @@
         </template>
       </div>
     </div>
-    <hr class="zz-hr-white my-3" />
+    <hr class="zz-hr-white my-2" />
     <div>
       <div class="flex justify-between">
         <div class="flex-1 mx-2">
