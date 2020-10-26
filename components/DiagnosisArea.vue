@@ -162,7 +162,7 @@ export default {
         },
         {
           label: '最高速グリップ比',
-          label2: '3.0000を下回ると空転するかも？',
+          label2: '2.7000を下回ると空転するかも？',
           value: this.fixedNum(this.diag.最高速グリップ比, 4),
           unit: '',
         },
