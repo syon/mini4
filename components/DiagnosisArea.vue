@@ -160,6 +160,12 @@ export default {
           value: this.fixedNum(this.diag.ローラー減速参考値, 4),
           unit: '',
         },
+        {
+          label: '最高速グリップ比',
+          label2: '3.0000を下回ると空転するかも？',
+          value: this.fixedNum(this.diag.最高速グリップ比, 4),
+          unit: '',
+        },
       ]
     },
   },

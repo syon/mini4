@@ -632,6 +632,7 @@ export default class Mini4 {
     const ローラースラスト角 = Math.max(スラスト角, 0)
     const ローラー減速参考値 =
       有効ローラー摩擦 * スラスト角 + 有効ローラー抵抗 / 20.8
+    const 最高速グリップ比 = (タイヤグリップ * 100) / 最高速度kmh
     return {
       最高速度kmh,
       最高速度ms,
@@ -647,6 +648,7 @@ export default class Mini4 {
       重さ,
       ブレーキ性能,
       ローラー減速参考値,
+      最高速グリップ比,
     }
   }
 }
