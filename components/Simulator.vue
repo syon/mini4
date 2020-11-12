@@ -29,6 +29,7 @@
 
     <!-- Floatings -->
     <showcase-area />
+    <body-feature-area />
     <craft-select-area />
     <craft-tune-area />
     <owns-area />
@@ -51,6 +52,7 @@ import CraftTuneArea from '@/components/CraftTuneArea'
 import OwnsArea from '@/components/OwnsArea'
 import WearLabelArea from '@/components/WearLabelArea'
 import ShowcaseArea from '@/components/ShowcaseArea'
+import BodyFeatureArea from '@/components/BodyFeatureArea'
 import TabCopyArea from '@/components/TabCopyArea'
 import BlackBarrier from '@/components/BlackBarrier'
 import TextDump from '@/components/TextDump'
@@ -70,6 +72,7 @@ export default {
     OwnsArea,
     WearLabelArea,
     ShowcaseArea,
+    BodyFeatureArea,
     TabCopyArea,
     BlackBarrier,
     TextDump,

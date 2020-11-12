@@ -7,6 +7,7 @@ const initialState = {
   ping: '',
   tab: 'M1',
   part: 'ボディ',
+  feature: '',
   partCatalog: {},
   partRecipe: {},
   partCraftPreset: [],
@@ -18,6 +19,7 @@ const initialState = {
   craftQuality: null,
   craftLevel: null,
   isShowcase: false,
+  isBodyFeature: false,
   isBarrier: false,
   isTune: false,
   isAbout: false,
@@ -49,6 +51,9 @@ export const mutations = {
   },
   setPart(state, part) {
     state.part = part
+  },
+  setFeature(state, feature) {
+    state.feature = feature
   },
   setPartCatalog(state, partCatalog) {
     state.partCatalog = partCatalog
@@ -88,6 +93,9 @@ export const mutations = {
   },
   setShowcase(state, isShowcase) {
     state.isShowcase = isShowcase
+  },
+  setBodyFeature(state, isBodyFeature) {
+    state.isBodyFeature = isBodyFeature
   },
   setBarrier(state, isBarrier) {
     state.isBarrier = isBarrier
@@ -170,6 +178,15 @@ export const actions = {
       dispatch('hideBarrier')
     }
   },
+  toggleBodyFeature({ commit, state, dispatch }) {
+    const nextBool = !state.isBodyFeature
+    commit('setBodyFeature', nextBool)
+    if (nextBool) {
+      commit('setBarrier', true)
+    } else {
+      dispatch('hideBarrier')
+    }
+  },
   toggleCrafting({ commit, state, dispatch }) {
     const nextBool = !state.isCrafting
     commit('setCrafting', nextBool)
@@ -184,6 +201,7 @@ export const actions = {
     commit('resetCraft', false)
     commit('setCrafting', false)
     commit('setShowcase', false)
+    commit('setBodyFeature', false)
     commit('setTune', false)
     commit('setOwns', false)
     commit('setTabCopy', false)

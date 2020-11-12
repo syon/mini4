@@ -58,7 +58,7 @@ export default {
       },
     },
     drillAvailable() {
-      return this.ingItem.肉抜き箇所 > 0
+      return this.ingItem.肉抜き箇所 >= 0
     },
   },
   watch: {

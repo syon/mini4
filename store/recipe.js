@@ -4,6 +4,9 @@ import Mini4 from '@/models/Mini4'
 const dg = debug('@:recipe')
 
 const initialMachineState = {
+  bodyFeature: { key: '' },
+  bodyAssist1: { key: '' },
+  bodyAssist2: { key: '' },
   body: { key: '', crafts: [] },
   motor: { key: '', crafts: [] },
   gear: { key: '', crafts: [] },
@@ -45,6 +48,12 @@ export const state = () => ({
 
 function resolvePartKey(partJapanese) {
   switch (partJapanese) {
+    case 'ボディ特性':
+      return 'bodyFeature'
+    case 'ボディアシスト・１':
+      return 'bodyAssist1'
+    case 'ボディアシスト・２':
+      return 'bodyAssist2'
     case 'ボディ':
       return 'body'
     case 'モーター':
@@ -214,10 +223,18 @@ export const mutations = {
     const machine = state[tab]
     machine[partKey] = { ...machine[partKey], key: name }
   },
+  setFeature(state, { tab, feature, name }) {
+    const machine = state[tab]
+    machine[feature] = { key: name }
+  },
   clearPartItem(state, { tab, part }) {
     const partKey = resolvePartKey(part)
     const machine = state[tab]
     machine[partKey] = { key: '', crafts: [] }
+  },
+  clearFeature(state, { tab, feature }) {
+    const machine = state[tab]
+    machine[feature] = { key: '' }
   },
   clearMachine(state, { tab }) {
     state[tab] = JSON.parse(JSON.stringify(initialMachineState))
@@ -271,6 +288,11 @@ export const actions = {
     dispatch('reviewCrafts', part)
     dispatch('ing/refresh', null, { root: true })
   },
+  changeFeature({ commit, rootState, dispatch }, { feature, name }) {
+    const { tab } = rootState.ing
+    commit('setFeature', { tab, feature, name })
+    dispatch('ing/refresh', null, { root: true })
+  },
   reviewCrafts({ dispatch, getters, rootState, rootGetters }, part) {
     const { key, crafts } = getters.getRecipeByPart(rootState.ing.tab, part)
     const item = rootGetters['catalog/getItemInfo'](part, key)
@@ -286,6 +308,10 @@ export const actions = {
   },
   detach({ commit }, arg) {
     commit('clearPartItem', arg)
+  },
+  detachFeature({ commit, rootState }, feature) {
+    const { tab } = rootState.ing
+    commit('clearFeature', { tab, feature })
   },
   detachAll({ commit, rootState }) {
     const { tab } = rootState.ing

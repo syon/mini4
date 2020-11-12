@@ -9,8 +9,7 @@
           <div class="zzCategoryHeaderBig">
             更新履歴
           </div>
-          <!-- <ul class="list list-inside p-2 zz-text05"> -->
-          <table class="p-2 zz-text05">
+          <table class="p-2 zz-text06">
             <tbody>
               <tr>
                 <td class="w-8">11/05</td>
