@@ -313,9 +313,10 @@ export const actions = {
     const { tab } = rootState.ing
     commit('clearFeature', { tab, feature })
   },
-  detachAll({ commit, rootState }) {
+  detachAll({ commit, rootState, dispatch }) {
     const { tab } = rootState.ing
     commit('clearMachine', { tab })
+    dispatch('ing/refresh', null, { root: true })
   },
   changeCraft({ commit, rootState, dispatch }, arg) {
     dg('<#changeCraft>', arg)
@@ -375,7 +376,8 @@ export const actions = {
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(state[part]))
   },
-  copyMachineTab({ commit }, { tabFrom, tabTo }) {
+  copyMachineTab({ commit, dispatch }, { tabFrom, tabTo }) {
     commit('copyMachineTab', { tabFrom, tabTo })
+    dispatch('ing/refresh', null, { root: true })
   },
 }

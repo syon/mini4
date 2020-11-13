@@ -113,7 +113,7 @@ export default {
         part: this.ingPart,
       })
       this.$store.dispatch('ing/refresh')
-      this.closeDialog()
+      // this.closeDialog()
     },
     closeDialog() {
       this.$store.dispatch('ing/toggleShowcase')

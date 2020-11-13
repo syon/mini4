@@ -11,7 +11,11 @@
           <a
             :key="key"
             class="zz-selectBox flex m-1"
-            :class="{ active: key === ingItem.key, disabled: isDisabled(item) }"
+            :class="{
+              used: isUsed(key, item),
+              active: isActive(key, item),
+              disabled: isDisabled(item),
+            }"
             @click.prevent="handleSelectBodyFeature(key, item)"
           >
             <div class="p-1">{{ key }}</div>
@@ -22,7 +26,11 @@
           <a
             :key="key"
             class="zz-selectBox flex m-1"
-            :class="{ active: key === ingItem.key, disabled: isDisabled(item) }"
+            :class="{
+              used: isUsed(key, item),
+              active: isActive(key, item),
+              disabled: isDisabled(item),
+            }"
             @click.prevent="handleSelectBodyFeature(key, item)"
           >
             <div class="p-1">{{ key }}</div>
@@ -50,6 +58,9 @@ export default {
       dataset: (state) => state.dataset,
     }),
     ...mapState('recipe', {
+      recipe(state) {
+        return state[this.tab]
+      },
       sBodyFeature(state) {
         return state[this.tab].bodyFeature
       },
@@ -94,15 +105,12 @@ export default {
       this.$ga.event('Catalog', 'Equip', feature, name)
     },
     handleDetach() {
-      this.$store.dispatch('recipe/detach', {
-        tab: this.tab,
-        part: this.ingFeature,
-      })
+      this.$store.dispatch('recipe/detachFeature', this.ingFeature)
       this.$store.dispatch('ing/refresh')
-      this.closeDialog()
+      // this.closeDialog()
     },
     closeDialog() {
-      this.$store.dispatch('ing/toggleShowcase')
+      this.$store.dispatch('ing/toggleBodyFeature')
     },
     uniq(array) {
       return Array.from(new Set(array))
@@ -110,6 +118,21 @@ export default {
     isDisabled(item) {
       if (this.ingFeature === 'bodyFeature') return false
       return item['スペシャル']
+    },
+    isActive(name, item) {
+      if (this.recipe[this.ingFeature].key === name) return true
+    },
+    isUsed(name, item) {
+      const feature = this.ingFeature
+      if (feature !== 'bodyFeature' && this.sBodyFeature.key === name) {
+        return true
+      }
+      if (feature !== 'bodyAssist1' && this.sBodyAssist1.key === name) {
+        return true
+      }
+      if (feature !== 'bodyAssist2' && this.sBodyAssist2.key === name) {
+        return true
+      }
     },
   },
 }
