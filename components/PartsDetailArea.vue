@@ -1,44 +1,8 @@
 <template>
   <div class="PartsDetailArea m-1">
     <template v-if="ingItem.ボディ特性">
-      <a
-        href="#"
-        class="zzBodyFeature mb-1"
-        @click.prevent="handleClickFeature('bodyFeature')"
-      >
-        <div class="zzBodyFeature-Floor">
-          <div class="zzBodyFeature-Content">
-            <div class="zzBodyFeature-Label">ボディ<br />特性</div>
-            <div class="zzBodyFeature-Text">{{ sBodyFeature.key }}</div>
-          </div>
-        </div>
-      </a>
-      <a
-        href="#"
-        class="zzBodyAssist mb-1"
-        @click.prevent="handleClickFeature('bodyAssist1')"
-      >
-        <div class="zzBodyAssist-Floor">
-          <div class="zzBodyAssist-Content">
-            <div class="zzBodyAssist-Label">アシスト<br />効果</div>
-            <div class="zzBodyAssist-Text">{{ sBodyAssist1.key }}</div>
-          </div>
-        </div>
-      </a>
-      <a
-        href="#"
-        class="zzBodyAssist mb-1"
-        @click.prevent="handleClickFeature('bodyAssist2')"
-      >
-        <div class="zzBodyAssist-Floor">
-          <div class="zzBodyAssist-Content">
-            <div class="zzBodyAssist-Label">アシスト<br />効果</div>
-            <div class="zzBodyAssist-Text">{{ sBodyAssist2.key }}</div>
-          </div>
-        </div>
-      </a>
+      <body-feature123 />
     </template>
-
     <a href="#" class="PartsSpecList zzBg-checker p-1 br-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
@@ -89,10 +53,12 @@
 import { mapState, mapGetters } from 'vuex'
 import PartsSpec from '@/components/PartsSpec'
 import Mini4 from '@/models/Mini4'
+import BodyFeature123 from '@/components/BodyFeature123'
 
 export default {
   components: {
     PartsSpec,
+    BodyFeature123,
   },
   data() {
     return {
@@ -107,17 +73,6 @@ export default {
       ingPartRecipe: (state) => state.partRecipe,
       ingItem: (state) => state.item,
       ingCrafts: (state) => state.crafts,
-    }),
-    ...mapState('recipe', {
-      sBodyFeature(state) {
-        return state[this.tab].bodyFeature
-      },
-      sBodyAssist1(state) {
-        return state[this.tab].bodyAssist1
-      },
-      sBodyAssist2(state) {
-        return state[this.tab].bodyAssist2
-      },
     }),
     ...mapGetters({
       getItemInfo: 'catalog/getItemInfo',
@@ -171,10 +126,6 @@ export default {
     toggleSpec(e) {
       e.preventDefault()
       this.isHold = !this.isHold
-    },
-    handleClickFeature(b) {
-      this.$store.commit('ing/setFeature', b) // ボディ特性選択状態
-      this.$store.dispatch('ing/toggleBodyFeature') // ウィンドウ
     },
   },
 }

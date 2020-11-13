@@ -3,18 +3,21 @@
     <hr class="zz-hr-white my-2" />
     <div class="flex items-center justify-between">
       <div class="flex-1 flex justify-between mx-1">
-        <div v-for="a in aptSet" :key="a" class="flex items-center mx-1">
+        <div v-for="a in aptSet" :key="a" class="flex items-center">
           <apti-hex :type="a" />
           <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
         </div>
       </div>
-      <div class="zzBodyFeature mx-2">
+      <!-- <div class="zzBodyFeature mx-2">
         <div class="zzBodyFeature-Floor">
           <div class="zzBodyFeature-Content">
             <div class="zzBodyFeature-Label">ボディ<br />特性</div>
             <div class="zzBodyFeature-Text">{{ bodyInfo.ボディ特性 }}</div>
           </div>
         </div>
+      </div> -->
+      <div>
+        <body-feature123 style="width: 145px;" />
       </div>
     </div>
     <hr class="zz-hr-white my-2" />
@@ -96,12 +99,14 @@ import Util from '@/models/Util'
 import ScoreCell from '@/components/ScoreCell'
 import AptiHex from '@/components/AptiHex'
 import WearBox from '@/components/WearBox'
+import BodyFeature123 from '@/components/BodyFeature123'
 
 export default {
   components: {
     ScoreCell,
     AptiHex,
     WearBox,
+    BodyFeature123,
   },
   computed: {
     ...mapState('ing', {
