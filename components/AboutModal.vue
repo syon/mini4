@@ -33,7 +33,7 @@
           <div class="p-2">
             <a href="https://mini4wd-app.bn-ent.net/" target="_blank">
               <img src="/mini4wd-og.jpg" :alt="officialSite" />
-              <div class="py-1">{{ officialSite }}</div>
+              <div class="zz-text06 py-1">{{ officialSite }}</div>
             </a>
             <div class="zz-text06">
               <div>©小学館 ©ShoPro ©TAMIYA</div>
