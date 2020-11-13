@@ -5,8 +5,17 @@
     </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
-        <div v-for="o of leftContents" :key="o.label" class="DiagLine">
-          <div class="DiagLine-Label">{{ o.label }}</div>
+        <div
+          v-for="o of leftContents"
+          :key="o.label"
+          class="DiagLine"
+          :class="{
+            hatena: o.hatena,
+          }"
+        >
+          <div class="DiagLine-Label">
+            {{ o.label }}
+          </div>
           <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
@@ -20,7 +29,14 @@
         </div>
       </div>
       <div class="DiagRight flex-1 mx-1">
-        <div v-for="o of rightContents" :key="o.label" class="DiagLine">
+        <div
+          v-for="o of rightContents"
+          :key="o.label"
+          class="DiagLine"
+          :class="{
+            hatena: o.hatena,
+          }"
+        >
           <div class="DiagLine-Label">{{ o.label }}</div>
           <div class="DiagLine-Value zzAnton">{{ o.value }}</div>
           <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
@@ -116,19 +132,22 @@ export default {
     rightContents() {
       return [
         {
-          label: 'コーナー減速率',
-          value: '?', // this.fixedNum(this.diag.コーナー減速率, 4),
+          label: 'コーナー減速率 (仮)',
+          value: this.fixedNum(this.diag.コーナー減速率, 4),
           unit: '',
+          hatena: true,
         },
         {
           label: 'ジャンプ飛距離 (仮)',
-          value: this.fixedNum(this.diag.ジャンプ飛距離, 4) + ' ?',
+          value: this.fixedNum(this.diag.ジャンプ飛距離, 4),
           unit: 'm',
+          hatena: true,
         },
         {
           label: 'バウンド時間 (仮)',
-          value: this.fixedNum(this.diag.バウンド時間, 4) + ' ?',
+          value: this.fixedNum(this.diag.バウンド時間, 4),
           unit: '秒',
+          hatena: true,
         },
         {
           label: '前後の重心',
@@ -204,7 +223,6 @@ export default {
     padding: 0.25rem;
     margin: 0.125rem 0;
     border-radius: 0.25rem;
-
     .DiagLine-Label {
       text-align: left;
       margin-right: 0.25rem;
@@ -219,6 +237,9 @@ export default {
       margin-left: 0.25rem;
       font-size: 0.6rem;
       width: 0.9rem;
+    }
+    &.hatena {
+      color: #888;
     }
   }
 }

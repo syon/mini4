@@ -106,6 +106,12 @@ export default class Mini4 {
 
   static resolvePartJp(partEn) {
     switch (partEn) {
+      case 'ボディ特性':
+        return 'bodyFeature'
+      case 'ボディアシスト・１':
+        return 'bodyAssist1'
+      case 'ボディアシスト・２':
+        return 'bodyAssist2'
       case 'body':
         return 'ボディ'
       case 'motor':
@@ -464,7 +470,12 @@ export default class Mini4 {
       allEquips.find((x) => x.part === 'アクセサリー・３') || {}
     const accessory4Info =
       allEquips.find((x) => x.part === 'アクセサリー・４') || {}
-    const ボディ特性 = (bodyInfo.item || {}).ボディ特性
+    const bodyFeatureInfo = allEquips.find((x) => x.part === 'ボディ特性') || {}
+    const bodyAssist1Info =
+      allEquips.find((x) => x.part === 'ボディアシスト・１') || {}
+    const bodyAssist2Info =
+      allEquips.find((x) => x.part === 'ボディアシスト・２') || {}
+    // const ボディ特性 = (bodyInfo.item || {}).ボディ特性
     const フロントタイヤスピロス = (fTireInfo.score || {}).スピードロス
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
     const フロントタイヤ旋回 = (fTireInfo.score || {}).タイヤ旋回
@@ -506,67 +517,100 @@ export default class Mini4 {
       +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory4Info.score.重さ || 0)
     const 前後の重心 = 重心の総重量 / 重さ
-    let スピード特性 = 1.0
-    if (ボディ特性 === 'スピードUP') {
-      スピード特性 = 1.02
-    } else if (ボディ特性 === 'スピードUP+') {
-      スピード特性 = 1.03
-    } else if (ボディ特性 === '(S)かっとびマシン') {
-      スピード特性 = 1.04
-    } else if (ボディ特性 === '(S)ワイルドラン') {
-      スピード特性 = 1.03
-    } else if (ボディ特性 === '(S)紅い閃光') {
-      スピード特性 = 1.03
-    } else if (ボディ特性 === '(S)流星') {
-      スピード特性 = 1.03
-    }
-    let パワー特性 = 1.0
-    if (ボディ特性 === 'パワーUP') {
-      パワー特性 = 1.02
-    } else if (ボディ特性 === 'パワーUP+') {
-      パワー特性 = 1.03
-    } else if (ボディ特性 === '(S)パワーブースト') {
-      パワー特性 = 1.05
-    }
-    let パワーロス特性 = 1.0
-    if (ボディ特性 === '(S)パワーブースト') {
-      パワーロス特性 = 0.9
-    }
-    let グリップ特性 = 1.0
-    if (ボディ特性 === '(S)パワードリフト') {
-      グリップ特性 = 1.15
-    } else if (ボディ特性 === '(S)パワーブースト') {
-      グリップ特性 = 1.015
-    } else if (ボディ特性 === '(S)ワイルドラン') {
-      グリップ特性 = 1.015
-    } else if (ボディ特性 === '(S)紅い閃光') {
-      グリップ特性 = 1.015
-    } else if (ボディ特性 === '(S)流星') {
-      グリップ特性 = 1.015
-    }
-    let 節電特性 = 1.0
-    if (節電 > 0) {
-      if (ボディ特性 === '節電UP') {
-        節電特性 = 1.4
-      } else if (ボディ特性 === '節電UP+') {
-        節電特性 = 1.5
-      }
-    }
-    let ブレーキ特性 = 0
-    if (ブレーキ減速 > 0) {
-      if (ボディ特性 === 'ブレーキ効果UP') {
-        ブレーキ特性 = 0.05
-      } else if (ボディ特性 === '(S)紅い閃光') {
-        ブレーキ特性 = 0.05
-      }
-    }
+    const スピード特性 =
+      1.0 +
+      (bodyFeatureInfo.item.スピード特性 || 0) +
+      0.3 * (bodyAssist1Info.item.スピード特性 || 0) +
+      0.3 * (bodyAssist2Info.item.スピード特性 || 0)
+    const パワー特性 =
+      1.0 +
+      (bodyFeatureInfo.item.パワー特性 || 0) +
+      0.3 * (bodyAssist1Info.item.パワー特性 || 0) +
+      0.3 * (bodyAssist2Info.item.パワー特性 || 0)
+    const パワーロス特性 =
+      1.0 +
+      (bodyFeatureInfo.item.パワーロス特性 || 0) +
+      0.3 * (bodyAssist1Info.item.パワーロス特性 || 0) +
+      0.3 * (bodyAssist2Info.item.パワーロス特性 || 0)
+    const グリップ特性 =
+      1.0 +
+      (bodyFeatureInfo.item.グリップ特性 || 0) +
+      0.3 * (bodyAssist1Info.item.グリップ特性 || 0) +
+      0.3 * (bodyAssist2Info.item.グリップ特性 || 0)
+    const 節電特性 =
+      1.0 +
+      (bodyFeatureInfo.item.節電特性 || 0) +
+      0.3 * (bodyAssist1Info.item.節電特性 || 0) +
+      0.3 * (bodyAssist2Info.item.節電特性 || 0)
+    const ブレーキ特性 =
+      0.0 +
+      (bodyFeatureInfo.item.ブレーキ特性 || 0) +
+      0.3 * (bodyAssist1Info.item.ブレーキ特性 || 0) +
+      0.3 * (bodyAssist2Info.item.ブレーキ特性 || 0)
+    // let スピード特性 = 1.0
+    // if (ボディ特性 === 'スピードUP') {
+    //   スピード特性 = 1.02
+    // } else if (ボディ特性 === 'スピードUP+') {
+    //   スピード特性 = 1.03
+    // } else if (ボディ特性 === '(S)かっとびマシン') {
+    //   スピード特性 = 1.04
+    // } else if (ボディ特性 === '(S)ワイルドラン') {
+    //   スピード特性 = 1.03
+    // } else if (ボディ特性 === '(S)紅い閃光') {
+    //   スピード特性 = 1.03
+    // } else if (ボディ特性 === '(S)流星') {
+    //   スピード特性 = 1.03
+    // }
+    // let パワー特性 = 1.0
+    // if (ボディ特性 === 'パワーUP') {
+    //   パワー特性 = 1.02
+    // } else if (ボディ特性 === 'パワーUP+') {
+    //   パワー特性 = 1.03
+    // } else if (ボディ特性 === '(S)パワーブースト') {
+    //   パワー特性 = 1.05
+    // }
+    // let パワーロス特性 = 1.0
+    // if (ボディ特性 === '(S)パワーブースト') {
+    //   パワーロス特性 = 0.9
+    // }
+    // let グリップ特性 = 1.0
+    // if (ボディ特性 === '(S)パワードリフト') {
+    //   グリップ特性 = 1.15
+    // } else if (ボディ特性 === '(S)パワーブースト') {
+    //   グリップ特性 = 1.015
+    // } else if (ボディ特性 === '(S)ワイルドラン') {
+    //   グリップ特性 = 1.015
+    // } else if (ボディ特性 === '(S)紅い閃光') {
+    //   グリップ特性 = 1.015
+    // } else if (ボディ特性 === '(S)流星') {
+    //   グリップ特性 = 1.015
+    // }
+    // let 節電特性 = 1.0
+    // if (節電 > 0) {
+    //   if (ボディ特性 === '節電UP') {
+    //     節電特性 = 1.4
+    //   } else if (ボディ特性 === '節電UP+') {
+    //     節電特性 = 1.5
+    //   }
+    // }
+    // let ブレーキ特性 = 0
+    // if (ブレーキ減速 > 0) {
+    //   if (ボディ特性 === 'ブレーキ効果UP') {
+    //     ブレーキ特性 = 0.05
+    //   } else if (ボディ特性 === '(S)紅い閃光') {
+    //     ブレーキ特性 = 0.05
+    //   }
+    // }
     const フロントリヤタイヤ摩擦 =
       (フロントタイヤ摩擦 * (ホイールベース / 2 + 前後の重心) +
         リヤタイヤ摩擦 * (ホイールベース / 2 - 前後の重心)) /
       ホイールベース
     const タイヤグリップ = (フロントリヤタイヤ摩擦 / 100.0) * グリップ特性
     const バッテリー消費量 = 消費電流 * (1 - (節電 * 節電特性) / 10000)
-    const ブレーキ性能 = ブレーキ減速 / 2000 + ブレーキ特性
+    let ブレーキ性能 = 0
+    if (ブレーキ減速 > 0) {
+      ブレーキ性能 = ブレーキ減速 / 2000 + ブレーキ特性
+    }
     // const Pパワロス = (パワーロス特性 * パワーロス) / 10000
     // const Pスピロス =
     //   Math.max(

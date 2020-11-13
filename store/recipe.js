@@ -142,6 +142,15 @@ export const getters = {
       const score = Mini4.getPartScore({ part, item, partRecipe })
       return { part, item, partRecipe, score }
     })
+    const featureEquips = [
+      'ボディ特性',
+      'ボディアシスト・１',
+      'ボディアシスト・２',
+    ].map((partJp) => {
+      const partRecipe = getters.getRecipeByPart(rootState.ing.tab, partJp)
+      const item = rootState.features.dataset[partRecipe.key] || {}
+      return { part: partJp, item, partRecipe, score: {} }
+    })
     const accessories = allEquips.filter((e) => {
       return Mini4.isAccessory(e.part)
     })
@@ -152,7 +161,10 @@ export const getters = {
         return { part: 'ベース', item: v, partRecipe: {} }
       }
     )
-    return allEquips.concat(normalEquips).concat(baseEquips)
+    return allEquips
+      .concat(normalEquips)
+      .concat(baseEquips)
+      .concat(featureEquips)
   },
   gAllPartScores(state, getters) {
     return getters.gAllEquips.map((x) => Mini4.getPartScore(x))

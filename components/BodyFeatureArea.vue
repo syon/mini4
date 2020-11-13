@@ -58,8 +58,8 @@ export default {
       dataset: (state) => state.dataset,
     }),
     ...mapState('recipe', {
-      recipe(state) {
-        return state[this.tab]
+      recipeFeature(state) {
+        return state[this.tab][this.ingFeature]
       },
       sBodyFeature(state) {
         return state[this.tab].bodyFeature
@@ -120,7 +120,7 @@ export default {
       return item['スペシャル']
     },
     isActive(name, item) {
-      if (this.recipe[this.ingFeature].key === name) return true
+      if (this.recipeFeature.key === name) return true
     },
     isUsed(name, item) {
       const feature = this.ingFeature
