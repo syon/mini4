@@ -29,6 +29,14 @@
                     <div class="zz-text06">
                       {{ r.craftSummary }}／Lv.{{ r.levelSum }}
                     </div>
+                    <div
+                      v-if="part === 'ボディ'"
+                      class="zz-text06 tracking-tighter"
+                    >
+                      {{ (r.bodyFeature || {}).key }}／{{
+                        (r.bodyAssist1 || {}).key
+                      }}／{{ (r.bodyAssist2 || {}).key }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -61,6 +69,17 @@ export default {
       item: (state) => state.item,
       recipe: (state) => state.partRecipe,
     }),
+    ...mapState('recipe', {
+      sBodyFeature(state) {
+        return state[this.tab].bodyFeature
+      },
+      sBodyAssist1(state) {
+        return state[this.tab].bodyAssist1
+      },
+      sBodyAssist2(state) {
+        return state[this.tab].bodyAssist2
+      },
+    }),
     ...mapGetters({
       gPartOwns: 'owns/gPartOwns',
       getItemInfo: 'catalog/getItemInfo',
@@ -81,7 +100,12 @@ export default {
     handleRegister() {
       const payload = {
         part: this.part,
-        recipe: this.recipe,
+        recipe: { ...this.recipe },
+      }
+      if (this.part === 'ボディ') {
+        payload.recipe.bodyFeature = this.sBodyFeature
+        payload.recipe.bodyAssist1 = this.sBodyAssist1
+        payload.recipe.bodyAssist2 = this.sBodyAssist2
       }
       this.$store.dispatch('owns/add', payload)
     },
@@ -91,9 +115,24 @@ export default {
       const name = recipe.key
       const crafts = recipe.crafts.slice()
       const 肉抜き = recipe.肉抜き
+      const bf = (recipe.bodyFeature || {}).key
+      const ba1 = (recipe.bodyAssist1 || {}).key
+      const ba2 = (recipe.bodyAssist2 || {}).key
       this.$store.dispatch('recipe/change', { part, name })
       this.$store.dispatch('recipe/changeCraftSet', { tab, part, crafts })
       this.$store.dispatch('recipe/changeDrill', { tab, bool: 肉抜き })
+      this.$store.dispatch('recipe/changeFeature', {
+        feature: 'bodyFeature',
+        name: bf,
+      })
+      this.$store.dispatch('recipe/changeFeature', {
+        feature: 'bodyAssist1',
+        name: ba1,
+      })
+      this.$store.dispatch('recipe/changeFeature', {
+        feature: 'bodyAssist2',
+        name: ba2,
+      })
     },
     handleDelete(index) {
       const part = this.part

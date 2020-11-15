@@ -34,6 +34,9 @@ export const mutations = {
     const newElement = { key, crafts }
     if (part === 'ボディ') {
       newElement.肉抜き = JSON.parse(JSON.stringify(recipe.肉抜き))
+      newElement.bodyFeature = JSON.parse(JSON.stringify(recipe.bodyFeature))
+      newElement.bodyAssist1 = JSON.parse(JSON.stringify(recipe.bodyAssist1))
+      newElement.bodyAssist2 = JSON.parse(JSON.stringify(recipe.bodyAssist2))
     }
     const cat = Mini4.resolveCategoryByPart(part)
     state[cat].push(newElement)
