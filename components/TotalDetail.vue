@@ -6,7 +6,7 @@
     <div class="flex items-stretch justify-center">
       <div class="" style="flex: 2;"></div>
       <div class="" style="flex: 5;">
-        <table class="w-full table-fixed">
+        <table class="w-full table-fixed" style="height: 22px;">
           <tbody class="whitespace-no-wrap">
             <tr>
               <td v-for="a in aptSet" :key="a" class="">

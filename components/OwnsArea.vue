@@ -90,8 +90,10 @@ export default {
       const part = this.part
       const name = recipe.key
       const crafts = recipe.crafts.slice()
+      const 肉抜き = recipe.肉抜き
       this.$store.dispatch('recipe/change', { part, name })
       this.$store.dispatch('recipe/changeCraftSet', { tab, part, crafts })
+      this.$store.dispatch('recipe/changeDrill', { tab, bool: 肉抜き })
     },
     handleDelete(index) {
       const part = this.part
