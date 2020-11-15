@@ -37,6 +37,9 @@ tr {
 .zz-text09 {
   font-size: 0.9rem;
 }
+.zz-text175 {
+  font-size: 1.75rem;
+}
 .zz-textgrayout {
   color: rgb(201, 199, 199);
 }
@@ -637,29 +640,27 @@ tr {
 }
 
 // ================================ BODYFEATURE ================================
+
 .zzBodyFeature {
-  display: block;
-  background-color: rgb(2, 4, 5);
-  border: 1px solid #38f9fe;
+  display: flex;
+  align-items: center;
   border-radius: 0.25rem;
-  min-width: 130px;
+  // min-width: 130px;
+
   .zzBodyFeature-Floor {
-    background: radial-gradient(
-      ellipse farthest-corner,
-      rgba(56, 249, 254, 0) 0%,
-      rgba(56, 249, 254, 0.4) 100%
-    );
     border-radius: 0.1875rem;
+    flex: 1;
+    height: 22px;
   }
   .zzBodyFeature-Content {
     display: flex;
     align-items: center;
     // justify-content: space-between;
+    height: 100%;
   }
   .zzBodyFeature-Label {
     font-size: 0.6rem;
     text-align: center;
-    background-color: #38f9fe;
     color: black;
     // margin: 0.25rem;
     padding-right: 0.25rem;
@@ -669,6 +670,7 @@ tr {
     border: none;
     border-radius: 0.1875rem 0 0 0.1875rem;
     width: 40px;
+    height: 100%;
   }
   .zzBodyFeature-Text {
     // margin: 0.25rem;
@@ -678,47 +680,33 @@ tr {
     margin: 0 0 0 0.5rem;
     overflow: hidden;
   }
-}
-.zzBodyAssist {
-  display: block;
-  background-color: rgb(2, 4, 5);
-  border: 1px solid #9fd66e;
-  border-radius: 0.25rem;
-  min-width: 130px;
-  .zzBodyAssist-Floor {
-    background: radial-gradient(
-      ellipse farthest-corner,
-      rgba(159, 214, 110, 0) 0%,
-      rgba(159, 214, 110, 0.4) 100%
-    );
-    border-radius: 0.1875rem;
+  &.color1 {
+    background-color: rgb(2, 4, 5);
+    border: 1px solid #38f9fe;
+    .zzBodyFeature-Floor {
+      background: radial-gradient(
+        ellipse farthest-corner,
+        rgba(56, 249, 254, 0) 0%,
+        rgba(56, 249, 254, 0.4) 100%
+      );
+    }
+    .zzBodyFeature-Label {
+      background-color: #38f9fe;
+    }
   }
-  .zzBodyAssist-Content {
-    display: flex;
-    align-items: center;
-    // justify-content: space-between;
-  }
-  .zzBodyAssist-Label {
-    font-size: 0.6rem;
-    text-align: center;
-    background-color: #9fd66e;
-    color: black;
-    // margin: 0.25rem;
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
-    // border-radius: 0.25rem;
-    line-height: 1;
-    border: none;
-    border-radius: 0.1875rem 0 0 0.1875rem;
-    width: 40px;
-  }
-  .zzBodyAssist-Text {
-    // margin: 0.25rem;
-    // flex: 1;
-    // text-align: right;
-    // letter-spacing: -0.05em;
-    margin: 0 0 0 0.5rem;
-    overflow: hidden;
+  &.color2 {
+    background-color: rgb(2, 4, 5);
+    border: 1px solid #9fd66e;
+    .zzBodyFeature-Floor {
+      background: radial-gradient(
+        ellipse farthest-corner,
+        rgba(159, 214, 110, 0) 0%,
+        rgba(159, 214, 110, 0.4) 100%
+      );
+    }
+    .zzBodyFeature-Label {
+      background-color: #9fd66e;
+    }
   }
 }
 

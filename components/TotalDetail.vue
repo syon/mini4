@@ -1,14 +1,27 @@
 <template>
   <div class="TotalDetail">
     <hr class="zz-hr-white my-2" />
-    <div class="flex items-center justify-between">
-      <div class="flex-1 flex justify-between mx-1">
-        <div v-for="a in aptSet" :key="a" class="flex items-center">
-          <apti-hex :type="a" />
-          <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
-        </div>
+    <!-- <div class="flex items-center justify-between"> -->
+    <!-- <div class="flex-1 flex justify-between mx-1"> -->
+    <div class="flex items-stretch justify-center">
+      <div class="" style="flex: 2;"></div>
+      <div class="" style="flex: 5;">
+        <table class="w-full table-fixed">
+          <tbody class="whitespace-no-wrap">
+            <tr>
+              <td v-for="a in aptSet" :key="a" class="">
+                <div class="flex justify-center">
+                  <apti-hex :type="a" />
+                  <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <!-- <div class="zzBodyFeature mx-2">
+    </div>
+    <!-- </div> -->
+    <!-- <div class="zzBodyFeature mx-2">
         <div class="zzBodyFeature-Floor">
           <div class="zzBodyFeature-Content">
             <div class="zzBodyFeature-Label">ボディ<br />特性</div>
@@ -16,9 +29,8 @@
           </div>
         </div>
       </div> -->
-      <div>
-        <body-feature123 style="width: 145px;" />
-      </div>
+    <div>
+      <body-feature123 horizontal />
     </div>
     <hr class="zz-hr-white my-2" />
     <div class="flex">
