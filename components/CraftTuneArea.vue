@@ -31,7 +31,7 @@
           </label>
           <label class="" @click="handleQuality('至高の逸品')">
             <input v-model="quality" type="radio" value="至高の逸品" />
-            <span style="letter-spacing: -0.05em;">至高の逸品</span>
+            <span>至高の逸品</span>
           </label>
         </div>
         <div class="zzAnton flex items-center justify-around text-black my-1">
@@ -60,12 +60,12 @@
             50
           </button>
         </div>
-        <hr class="zz-hr-gray my-2" />
+        <!-- <hr class="zz-hr-gray my-2" />
         <div class="flex justify-center my-1">
           <button class="zzBtnRounded1" @click="removeAllCrafts">
             改造をすべて取り消す
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

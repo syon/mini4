@@ -138,15 +138,4 @@ export default {
   z-index: 30;
   border: 1px solid #b5babd;
 }
-
-.speclist {
-  width: 100%;
-  letter-spacing: -0.025em;
-  th {
-    text-align: left;
-  }
-  td {
-    text-align: right;
-  }
-}
 </style>

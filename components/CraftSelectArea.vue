@@ -2,16 +2,33 @@
   <div v-if="isCrafting" class="zz-floatingLeft" @click.self="closeDialog">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
-        <craft-edit-slot :hit="0" class="flex my-1" @go="handleClickSlot({})" />
-        <template v-for="(obj, idx) in showingCrafts">
-          <craft-edit-slot
-            :key="idx"
-            :arg="obj.arg"
-            :hit="obj.hit"
-            class="flex my-1"
-            @go="handleClickSlot(obj.arg)"
-          />
-        </template>
+        <craft-edit-slot :hit="0" class="" @go="handleClickSlot({})" />
+        <div>
+          <div class="zzCategoryHeaderLong2">改造項目</div>
+          <template v-for="(obj, idx) in showingCrafts6">
+            <craft-edit-slot
+              :key="idx"
+              :arg="obj.arg"
+              :hit="obj.hit"
+              :disabled="disabled(obj)"
+              :slot7="false"
+              @go="handleClickSlot(obj.arg)"
+            />
+          </template>
+        </div>
+        <div>
+          <div class="zzCategoryHeaderLong2">☆7改造項目</div>
+          <template v-for="(obj, idx) in showingCrafts7">
+            <craft-edit-slot
+              :key="idx"
+              :arg="obj.arg"
+              :hit="obj.hit"
+              :disabled="disabled(obj)"
+              :slot7="true"
+              @go="handleClickSlot(obj.arg)"
+            />
+          </template>
+        </div>
         <div class="h-6 flex m-1"></div>
       </div>
       <div class="zz-floatingArea-inner">
@@ -26,7 +43,7 @@
           </label>
           <label :class="{ active: quality === '至高の逸品' }">
             <input v-model="quality" type="radio" value="至高の逸品" />
-            <span style="letter-spacing: -0.05em;">至高の逸品</span>
+            <span>至高の逸品</span>
           </label>
         </div>
         <div class="zzAnton flex items-center justify-around text-black my-1">
@@ -55,12 +72,12 @@
             50
           </button>
         </div>
-        <hr class="zz-hr-gray my-2" />
+        <!-- <hr class="zz-hr-gray my-2" />
         <div class="flex justify-center my-1">
           <button class="zzBtnRounded1" @click="handleFlood">
             選択スロット以下をまとめて改造
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -95,12 +112,22 @@ export default {
       craftQuality: (state) => state.craftQuality,
       craftLevel: (state) => state.craftLevel,
     }),
-    showingCrafts() {
+    availableCrafts() {
       if (this.ping);
       const crafts = this.ingPartRecipe.crafts || []
       return this.ingCrafts.map((c) => {
         const hit = crafts.filter(Boolean).filter((x) => x.action === c.action)
         return { arg: c, hit: hit.length }
+      })
+    },
+    showingCrafts6() {
+      return this.availableCrafts.filter((c) => {
+        return !c.arg['☆7']
+      })
+    },
+    showingCrafts7() {
+      return this.availableCrafts.filter((c) => {
+        return c.arg['☆7']
       })
     },
   },
@@ -201,6 +228,12 @@ export default {
     },
     isNumber(value) {
       return typeof value === 'number' && isFinite(value)
+    },
+    disabled(obj) {
+      if (!obj.arg.action) return false
+      if (this.craftIndex === 6 && !obj.arg['☆7']) return true
+      if (this.craftIndex < 6 && obj.arg['☆7']) return true
+      return false
     },
   },
 }
