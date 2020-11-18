@@ -53,7 +53,6 @@
         <div class="zz-textalert mx-1 my-2 p-1">
           ※ 注意 ※<br />
           現在表示中のセッティングを破棄し、選択したマシンの内容で上書きします。<br />
-          (確認も出ないよ！)
         </div>
         <div class="h-6 flex m-1"></div>
       </div>
@@ -77,9 +76,19 @@ export default {
   },
   methods: {
     handleMachine($event, tabFrom) {
-      $event.preventDefault()
       const tabTo = this.tab
-      this.$store.dispatch('recipe/copyMachineTab', { tabFrom, tabTo })
+      if (tabFrom === tabTo) return
+      const msg =
+        '現在表示中のセッティングを破棄し、選択したマシンの内容で上書きします。' +
+        '\nよろしいですか？' +
+        '\n\nコピー元：' +
+        tabFrom +
+        '\nコピー先：' +
+        tabTo
+      if (window.confirm(msg)) {
+        $event.preventDefault()
+        this.$store.dispatch('recipe/copyMachineTab', { tabFrom, tabTo })
+      }
     },
   },
 }

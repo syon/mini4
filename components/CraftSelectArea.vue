@@ -10,30 +10,35 @@
         <hr class="zz-hr-gray my-2" />
         <!-- <craft-edit-slot :hit="0" class="" @go="handleClickSlot({})" /> -->
         <div>
-          <div class="zzCategoryHeaderLong2">改造</div>
+          <div class="zzCategoryHeaderLong2">改造一覧</div>
           <template v-for="(obj, idx) in showingCrafts6">
             <craft-edit-slot
               :key="idx"
               :arg="obj.arg"
               :hit="obj.hit"
               :disabled="disabled(obj)"
+              :tentative="tentative(obj)"
               :slot7="false"
               @go="handleClickSlot(obj.arg)"
             />
           </template>
         </div>
         <div>
-          <div class="zzCategoryHeaderLong2">☆7改造</div>
+          <div class="zzCategoryHeaderLong2">☆7改造一覧</div>
           <template v-for="(obj, idx) in showingCrafts7">
             <craft-edit-slot
               :key="idx"
               :arg="obj.arg"
               :hit="obj.hit"
               :disabled="disabled(obj)"
+              :tentative="tentative(obj)"
               :slot7="true"
               @go="handleClickSlot(obj.arg)"
             />
           </template>
+        </div>
+        <div class="zz-textalert mx-1 my-4 p-1">
+          ※数値が正しくわかっていないものは、混乱を避けるため、選択不可となっています。
         </div>
         <div class="h-6 flex m-1"></div>
       </div>
@@ -236,9 +241,13 @@ export default {
       return typeof value === 'number' && isFinite(value)
     },
     disabled(obj) {
-      if (!obj.arg.action) return false
+      // if (!obj.arg.action) return false
       if (this.craftIndex === 6 && !obj.arg['☆7']) return true
       if (this.craftIndex < 6 && obj.arg['☆7']) return true
+      return false
+    },
+    tentative(obj) {
+      if (obj.arg['仮']) return true
       return false
     },
   },

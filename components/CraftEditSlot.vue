@@ -5,13 +5,16 @@
       active: x.action === craftAction,
       isNomoreCraft: nomore,
       isDisabled: disabled,
+      isTentative: tentative,
       isSlot7: slot7,
     }"
     class="xx-CraftEditSlot flex flex-col m-1"
     @click.prevent="handleClick"
   >
     <div class="zz-headblack flex justify-between color7">
-      <div class="zz-headblack-name">{{ x.action || '(改造なし)' }}</div>
+      <div class="zz-headblack-name">
+        {{ x.action || '(改造なし)' }}
+      </div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
       <div class="flex">
@@ -35,7 +38,7 @@
           </div>
         </div>
         <div
-          :class="{ isNomore: nomore }"
+          :class="{ isNomore: nomore, isTentative: tentative }"
           class="xx-merideme-list flex-1 flex flex-col"
         >
           <template v-for="(e, idx) in x.effects">
@@ -60,6 +63,9 @@
       <div v-if="nomore" class="xx-limitmessage mt-1">
         これ以上改造できません。
       </div>
+      <div v-if="tentative" class="xx-limitmessage mt-1">
+        数値がわからないため選択不可。
+      </div>
     </div>
   </a>
 </template>
@@ -72,6 +78,7 @@ export default {
     arg: { type: Object, default: () => {} },
     hit: { type: Number, required: true },
     disabled: { type: Boolean, default: false },
+    tentative: { type: Boolean, default: false },
     slot7: { type: Boolean, default: false },
   },
   computed: {
@@ -89,6 +96,7 @@ export default {
     handleClick(e) {
       if (this.nomore) return
       if (this.disabled) return
+      if (this.tentative) return
       this.$emit('go')
     },
   },
@@ -112,6 +120,11 @@ export default {
   }
   &.isDisabled {
     opacity: 0.3;
+    cursor: default;
+  }
+  &.isTentative {
+    background-color: rgb(105, 116, 117);
+    cursor: default;
   }
 }
 
@@ -185,6 +198,9 @@ export default {
 
 .xx-merideme-list {
   &.isNomore {
+    opacity: 0.3;
+  }
+  &.isTentative {
     opacity: 0.3;
   }
 }
