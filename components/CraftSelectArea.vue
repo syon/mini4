@@ -2,9 +2,15 @@
   <div v-if="isCrafting" class="zz-floatingLeft" @click.self="closeDialog">
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
-        <craft-edit-slot :hit="0" class="" @go="handleClickSlot({})" />
+        <div class="m-1 flex justify-center">
+          <button class="zzBtnRounded1" @click="handleClickSlot({})">
+            改造なし
+          </button>
+        </div>
+        <hr class="zz-hr-gray my-2" />
+        <!-- <craft-edit-slot :hit="0" class="" @go="handleClickSlot({})" /> -->
         <div>
-          <div class="zzCategoryHeaderLong2">改造項目</div>
+          <div class="zzCategoryHeaderLong2">改造</div>
           <template v-for="(obj, idx) in showingCrafts6">
             <craft-edit-slot
               :key="idx"
@@ -17,7 +23,7 @@
           </template>
         </div>
         <div>
-          <div class="zzCategoryHeaderLong2">☆7改造項目</div>
+          <div class="zzCategoryHeaderLong2">☆7改造</div>
           <template v-for="(obj, idx) in showingCrafts7">
             <craft-edit-slot
               :key="idx"
