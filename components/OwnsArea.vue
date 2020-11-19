@@ -114,12 +114,13 @@ export default {
       const part = this.part
       const name = recipe.key
       const crafts = recipe.crafts.slice()
+      this.$store.dispatch('recipe/change', { part, name })
+      this.$store.dispatch('recipe/changeCraftSet', { tab, part, crafts })
+      if (this.part !== 'ボディ') return
       const 肉抜き = recipe.肉抜き
       const bf = (recipe.bodyFeature || {}).key
       const ba1 = (recipe.bodyAssist1 || {}).key
       const ba2 = (recipe.bodyAssist2 || {}).key
-      this.$store.dispatch('recipe/change', { part, name })
-      this.$store.dispatch('recipe/changeCraftSet', { tab, part, crafts })
       this.$store.dispatch('recipe/changeDrill', { tab, bool: 肉抜き })
       this.$store.dispatch('recipe/changeFeature', {
         feature: 'bodyFeature',
