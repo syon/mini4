@@ -30,6 +30,7 @@ html {
   max-width: 100vmax;
   min-height: 100vh;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
 
 *,

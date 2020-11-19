@@ -17,7 +17,7 @@ export default class Util {
   }
 
   static fixedNum(x, n) {
-    if (isNaN(x) || x === null) return ''
+    if (isNaN(x) || x === null) return '---'
     return x.toFixed(n)
   }
 }

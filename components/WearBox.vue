@@ -214,6 +214,7 @@ export default {
     color: white;
     font-size: 0.6rem;
     line-height: 1;
+    white-space: normal;
   }
   .xx-aptihex {
     position: absolute;

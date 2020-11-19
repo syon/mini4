@@ -1,12 +1,20 @@
 <template>
   <a
     href="#"
-    :class="{ active: x.action === craftAction, isNomoreCraft: nomore }"
-    class="xx-CraftEditSlot w-full flex flex-col"
-    @click="handleClick"
+    :class="{
+      active: x.action === craftAction,
+      isNomoreCraft: nomore,
+      isDisabled: disabled,
+      isTentative: tentative,
+      isSlot7: slot7,
+    }"
+    class="xx-CraftEditSlot flex flex-col m-1"
+    @click.prevent="handleClick"
   >
-    <div class="zz-headblack flex justify-between">
-      <div class="zz-headblack-name">{{ x.action || '(改造なし)' }}</div>
+    <div class="zz-headblack flex justify-between color7">
+      <div class="zz-headblack-name">
+        {{ x.action || '(改造なし)' }}
+      </div>
     </div>
     <div class="flex-1 flex flex-col text-black p-1">
       <div class="flex">
@@ -29,9 +37,8 @@
             </template>
           </div>
         </div>
-
         <div
-          :class="{ isNomore: nomore }"
+          :class="{ isNomore: nomore, isTentative: tentative }"
           class="xx-merideme-list flex-1 flex flex-col"
         >
           <template v-for="(e, idx) in x.effects">
@@ -56,6 +63,9 @@
       <div v-if="nomore" class="xx-limitmessage mt-1">
         これ以上改造できません。
       </div>
+      <div v-if="tentative" class="xx-limitmessage mt-1">
+        数値がわからないため選択不可。
+      </div>
     </div>
   </a>
 </template>
@@ -67,6 +77,9 @@ export default {
   props: {
     arg: { type: Object, default: () => {} },
     hit: { type: Number, required: true },
+    disabled: { type: Boolean, default: false },
+    tentative: { type: Boolean, default: false },
+    slot7: { type: Boolean, default: false },
   },
   computed: {
     ...mapState('ing', {
@@ -81,10 +94,10 @@ export default {
   },
   methods: {
     handleClick(e) {
-      e.preventDefault()
-      if (!this.nomore) {
-        this.$emit('go')
-      }
+      if (this.nomore) return
+      if (this.disabled) return
+      if (this.tentative) return
+      this.$emit('go')
     },
   },
 }
@@ -92,6 +105,7 @@ export default {
 
 <style lang="less" scoped>
 .xx-CraftEditSlot {
+  letter-spacing: -0.05em;
   background-color: #f0f4f4;
   border: 1px solid rgb(180, 180, 180);
   border-radius: 0.25rem;
@@ -104,13 +118,20 @@ export default {
   &.isNomoreCraft {
     background-color: rgb(105, 116, 117);
   }
+  &.isDisabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  &.isTentative {
+    background-color: rgb(105, 116, 117);
+    cursor: default;
+  }
 }
 
 .xx-craftinfo {
   display: flex;
   flex-direction: column;
   width: 40px;
-  letter-spacing: -0.05em;
 
   .xx-limittip {
     &:last-child {
@@ -135,7 +156,7 @@ export default {
     margin-bottom: 0;
   }
   .xx-merideme-label {
-    width: 50px;
+    width: 40px;
     font-size: 0.6rem;
     text-align: center;
     line-height: 1;
@@ -179,6 +200,9 @@ export default {
   &.isNomore {
     opacity: 0.3;
   }
+  &.isTentative {
+    opacity: 0.3;
+  }
 }
 
 .xx-limitmessage {
@@ -187,5 +211,11 @@ export default {
   color: white;
   background-color: rgb(220, 47, 33);
   text-align: center;
+}
+
+.isSlot7 {
+  .color7 {
+    background: linear-gradient(-45deg, rgb(0, 192, 128), rgb(218, 0, 163));
+  }
 }
 </style>

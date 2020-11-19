@@ -1,16 +1,8 @@
 <template>
   <div class="PartsDetailArea m-1">
     <template v-if="ingItem.ボディ特性">
-      <div class="zzBodyFeature mb-1">
-        <div class="zzBodyFeature-Floor">
-          <div class="zzBodyFeature-Content">
-            <div class="zzBodyFeature-Label">ボディ<br />特性</div>
-            <div class="zzBodyFeature-Text">{{ ingItem.ボディ特性 }}</div>
-          </div>
-        </div>
-      </div>
+      <body-feature123 />
     </template>
-
     <a href="#" class="PartsSpecList zzBg-checker p-1 br-1" @click="toggleSpec">
       <parts-spec
         spec-type="スピード"
@@ -61,10 +53,12 @@
 import { mapState, mapGetters } from 'vuex'
 import PartsSpec from '@/components/PartsSpec'
 import Mini4 from '@/models/Mini4'
+import BodyFeature123 from '@/components/BodyFeature123'
 
 export default {
   components: {
     PartsSpec,
+    BodyFeature123,
   },
   data() {
     return {
@@ -73,6 +67,7 @@ export default {
   },
   computed: {
     ...mapState('ing', {
+      tab: (state) => state.tab,
       ingPart: (state) => state.part,
       ingPartCatalog: (state) => state.partCatalog,
       ingPartRecipe: (state) => state.partRecipe,
@@ -137,24 +132,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.PartsDetailArea {
-}
-
 .PartsSpecList {
   display: block;
   position: relative;
   z-index: 30;
   border: 1px solid #b5babd;
-}
-
-.speclist {
-  width: 100%;
-  letter-spacing: -0.025em;
-  th {
-    text-align: left;
-  }
-  td {
-    text-align: right;
-  }
 }
 </style>

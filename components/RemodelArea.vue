@@ -1,7 +1,12 @@
 <template>
   <div class="xx-RemodelArea m-1">
     <template v-for="(x, idx) in remodelSlots">
-      <remodel-slot :key="idx" :arg="x" :craft-index="idx" class="flex" />
+      <remodel-slot
+        :key="idx"
+        :arg="x"
+        :craft-index="idx"
+        :slot7="slot7(idx)"
+      />
     </template>
     <div class="flex flex-col">
       <button class="TuneBtn zzBtnRounded2" @click="toggleCraftTune">
@@ -44,7 +49,7 @@ export default {
       if (this.ping);
       const r = this.getRecipeByPart(this.tab, this.ingPart)
       const remodels = Array.from(r.crafts || [])
-      ;[...Array(6)].map((_, i) => {
+      ;[...Array(7)].map((_, i) => {
         if (!remodels[i]) {
           remodels[i] = {
             action: '',
@@ -82,6 +87,10 @@ export default {
         part: this.ingPart,
       })
       this.$store.dispatch('ing/refresh')
+    },
+    slot7(idx) {
+      if (idx === 6) return true
+      return false
     },
   },
 }

@@ -4,6 +4,9 @@ import Mini4 from '@/models/Mini4'
 const dg = debug('@:recipe')
 
 const initialMachineState = {
+  bodyFeature: { key: '' },
+  bodyAssist1: { key: '' },
+  bodyAssist2: { key: '' },
   body: { key: '', crafts: [] },
   motor: { key: '', crafts: [] },
   gear: { key: '', crafts: [] },
@@ -45,6 +48,12 @@ export const state = () => ({
 
 function resolvePartKey(partJapanese) {
   switch (partJapanese) {
+    case 'ボディ特性':
+      return 'bodyFeature'
+    case 'ボディアシスト・１':
+      return 'bodyAssist1'
+    case 'ボディアシスト・２':
+      return 'bodyAssist2'
     case 'ボディ':
       return 'body'
     case 'モーター':
@@ -133,6 +142,15 @@ export const getters = {
       const score = Mini4.getPartScore({ part, item, partRecipe })
       return { part, item, partRecipe, score }
     })
+    const featureEquips = [
+      'ボディ特性',
+      'ボディアシスト・１',
+      'ボディアシスト・２',
+    ].map((partJp) => {
+      const partRecipe = getters.getRecipeByPart(rootState.ing.tab, partJp)
+      const item = rootState.features.dataset[partRecipe.key] || {}
+      return { part: partJp, item, partRecipe, score: {} }
+    })
     const accessories = allEquips.filter((e) => {
       return Mini4.isAccessory(e.part)
     })
@@ -143,7 +161,10 @@ export const getters = {
         return { part: 'ベース', item: v, partRecipe: {} }
       }
     )
-    return allEquips.concat(normalEquips).concat(baseEquips)
+    return allEquips
+      .concat(normalEquips)
+      .concat(baseEquips)
+      .concat(featureEquips)
   },
   gAllPartScores(state, getters) {
     return getters.gAllEquips.map((x) => Mini4.getPartScore(x))
@@ -214,10 +235,18 @@ export const mutations = {
     const machine = state[tab]
     machine[partKey] = { ...machine[partKey], key: name }
   },
+  setFeature(state, { tab, feature, name }) {
+    const machine = state[tab]
+    machine[feature] = { key: name }
+  },
   clearPartItem(state, { tab, part }) {
     const partKey = resolvePartKey(part)
     const machine = state[tab]
     machine[partKey] = { key: '', crafts: [] }
+  },
+  clearFeature(state, { tab, feature }) {
+    const machine = state[tab]
+    machine[feature] = { key: '' }
   },
   clearMachine(state, { tab }) {
     state[tab] = JSON.parse(JSON.stringify(initialMachineState))
@@ -271,6 +300,11 @@ export const actions = {
     dispatch('reviewCrafts', part)
     dispatch('ing/refresh', null, { root: true })
   },
+  changeFeature({ commit, rootState, dispatch }, { feature, name }) {
+    const { tab } = rootState.ing
+    commit('setFeature', { tab, feature, name })
+    dispatch('ing/refresh', null, { root: true })
+  },
   reviewCrafts({ dispatch, getters, rootState, rootGetters }, part) {
     const { key, crafts } = getters.getRecipeByPart(rootState.ing.tab, part)
     const item = rootGetters['catalog/getItemInfo'](part, key)
@@ -287,9 +321,14 @@ export const actions = {
   detach({ commit }, arg) {
     commit('clearPartItem', arg)
   },
-  detachAll({ commit, rootState }) {
+  detachFeature({ commit, rootState }, feature) {
+    const { tab } = rootState.ing
+    commit('clearFeature', { tab, feature })
+  },
+  detachAll({ commit, rootState, dispatch }) {
     const { tab } = rootState.ing
     commit('clearMachine', { tab })
+    dispatch('ing/refresh', null, { root: true })
   },
   changeCraft({ commit, rootState, dispatch }, arg) {
     dg('<#changeCraft>', arg)
@@ -349,7 +388,8 @@ export const actions = {
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(state[part]))
   },
-  copyMachineTab({ commit }, { tabFrom, tabTo }) {
+  copyMachineTab({ commit, dispatch }, { tabFrom, tabTo }) {
     commit('copyMachineTab', { tabFrom, tabTo })
+    dispatch('ing/refresh', null, { root: true })
   },
 }

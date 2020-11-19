@@ -1,11 +1,11 @@
 <template>
   <a
     href="#"
-    :class="{ active: isActive }"
-    class="zz-selectBox my-1 flex-col"
+    :class="{ active: isActive, isSlot7: slot7 }"
+    class="zz-selectBox my-1 flex-col flex"
     @click="handleClick"
   >
-    <div class="zz-headblack flex justify-between">
+    <div class="zz-headblack flex justify-between color7">
       <div class="zz-headblack-name">{{ x.action || '&nbsp;' }}</div>
     </div>
     <div class="zz-footwhite flex flex-1">
@@ -31,6 +31,7 @@ export default {
   props: {
     arg: { type: Object, default: () => {} },
     craftIndex: { type: Number, required: true },
+    slot7: { type: Boolean, default: false },
   },
   computed: {
     ...mapState('ing', {
@@ -66,6 +67,11 @@ export default {
   &.active {
     background-color: #fffca0;
     border: 1px solid #f1f658;
+  }
+}
+.isSlot7 {
+  .color7 {
+    background: linear-gradient(-45deg, rgb(0, 192, 128), rgb(218, 0, 163));
   }
 }
 </style>

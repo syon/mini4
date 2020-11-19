@@ -51,14 +51,14 @@ export default {
   .zzBtnRect1 {
     display: flex;
     width: 100%;
-    padding: 0;
+    padding: 0.125rem 0;
     justify-content: center;
   }
 
   .zzBtnRectGreen {
     display: flex;
     width: 100%;
-    padding: 0;
+    padding: 0.125rem 0;
     justify-content: center;
   }
 }
