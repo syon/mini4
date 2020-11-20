@@ -517,46 +517,49 @@ export default class Mini4 {
       +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory4Info.score.重さ || 0)
     const 前後の重心 = 重心の総重量 / 重さ
+    const bodyFeatureInfoInfo = bodyFeatureInfo.item.ボディ特性 || {}
+    const bodyAssist1InfoInfo = bodyAssist1Info.item.アシスト効果 || {}
+    const bodyAssist2InfoInfo = bodyAssist2Info.item.アシスト効果 || {}
     const スピード特性 =
       1.0 +
-      (bodyFeatureInfo.item.ボディ特性.スピード特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.スピード特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.スピード特性 || 0)
+      (bodyFeatureInfoInfo.スピード特性 || 0) +
+      (bodyAssist1InfoInfo.スピード特性 || 0) +
+      (bodyAssist2InfoInfo.スピード特性 || 0)
     const パワー特性 =
       1.0 +
-      (bodyFeatureInfo.item.ボディ特性.パワー特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.パワー特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.パワー特性 || 0)
+      (bodyFeatureInfoInfo.パワー特性 || 0) +
+      (bodyAssist1InfoInfo.パワー特性 || 0) +
+      (bodyAssist2InfoInfo.パワー特性 || 0)
     const パワーロス特性 =
       1.0 +
-      (bodyFeatureInfo.item.ボディ特性.パワーロス特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.パワーロス特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.パワーロス特性 || 0)
+      (bodyFeatureInfoInfo.パワーロス特性 || 0) +
+      (bodyAssist1InfoInfo.パワーロス特性 || 0) +
+      (bodyAssist2InfoInfo.パワーロス特性 || 0)
     const グリップ特性 =
       1.0 +
-      (bodyFeatureInfo.item.ボディ特性.グリップ特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.グリップ特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.グリップ特性 || 0)
+      (bodyFeatureInfoInfo.グリップ特性 || 0) +
+      (bodyAssist1InfoInfo.グリップ特性 || 0) +
+      (bodyAssist2InfoInfo.グリップ特性 || 0)
     const 節電特性 =
       1.0 +
-      (bodyFeatureInfo.item.ボディ特性.節電特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.節電特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.節電特性 || 0)
+      (bodyFeatureInfoInfo.節電特性 || 0) +
+      (bodyAssist1InfoInfo.節電特性 || 0) +
+      (bodyAssist2InfoInfo.節電特性 || 0)
     const ブレーキ特性 =
       0.0 +
-      (bodyFeatureInfo.item.ボディ特性.ブレーキ特性 || 0) +
-      (bodyAssist1Info.item.アシスト効果.ブレーキ特性 || 0) +
-      (bodyAssist2Info.item.アシスト効果.ブレーキ特性 || 0)
+      (bodyFeatureInfoInfo.ブレーキ特性 || 0) +
+      (bodyAssist1InfoInfo.ブレーキ特性 || 0) +
+      (bodyAssist2InfoInfo.ブレーキ特性 || 0)
     // const コーナー速度特性 =
     //   0.0 +
-    //   (bodyFeatureInfo.item.ボディ特性.コーナー速度特性 || 0) +
-    //   (bodyAssist1Info.item.アシスト効果.コーナー速度特性 || 0) +
-    //   (bodyAssist2Info.item.アシスト効果.コーナー速度特性 || 0)
+    //   (bodyFeatureInfoInfo.コーナー速度特性 || 0) +
+    //   (bodyAssist1InfoInfo.コーナー速度特性 || 0) +
+    //   (bodyAssist2InfoInfo.コーナー速度特性 || 0)
     // const バウンド特性 =
     //   0.0 +
-    //   (bodyFeatureInfo.item.ボディ特性.バウンド特性 || 0) +
-    //   (bodyAssist1Info.item.アシスト効果.バウンド特性 || 0) +
-    //   (bodyAssist2Info.item.アシスト効果.バウンド特性 || 0)
+    //   (bodyFeatureInfoInfo.バウンド特性 || 0) +
+    //   (bodyAssist1InfoInfo.バウンド特性 || 0) +
+    //   (bodyAssist2InfoInfo.バウンド特性 || 0)
 
     // 旧計算式（～2020.10.21）
     // let スピード特性 = 1.0
