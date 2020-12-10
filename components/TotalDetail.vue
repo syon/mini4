@@ -214,21 +214,21 @@ export default {
     },
     frictionRollerScore() {
       const s = this.frictionRoller.score.ローラー摩擦 || 0
-      return Util.fixedNum(s, 3)
+      return Util.fixedNum(s, 4)
     },
     registRoller() {
       return this.getRollerRegist(this.tab)
     },
     registRollerScore() {
       const s = this.registRoller.score.ローラー抵抗 || 0
-      return Util.fixedNum(s, 3)
+      return Util.fixedNum(s, 4)
     },
   },
   methods: {
     handleCopy() {
       const list = this.leftItems.concat(this.rightItems)
       const lines = list.map((o) => {
-        return `${o.label}\t${Util.fixedNum(o.score, 3)}`
+        return `${o.label}\t${Util.fixedNum(o.score, 4)}`
       })
       lines.unshift(`ボディ特性\t${this.bodyInfo.ボディ特性}`)
       lines.push(`有効ローラー摩擦\t${this.frictionRollerScore}`)
@@ -239,7 +239,7 @@ export default {
     handleCopyNolabel() {
       const list = this.leftItems.concat(this.rightItems)
       const lines = list.map((o) => {
-        return `${Util.fixedNum(o.score, 3)}`
+        return `${Util.fixedNum(o.score, 4)}`
       })
       lines.unshift(this.bodyInfo.ボディ特性)
       lines.push(this.frictionRollerScore)

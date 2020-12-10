@@ -177,9 +177,9 @@ export default {
           '重さ',
         ]
         if (basicKeys.includes(k)) {
-          basic[k] = this.fixedNum(v, 3)
+          basic[k] = this.fixedNum(v, 4)
         } else {
-          skill[k] = this.fixedNum(v, 3)
+          skill[k] = this.fixedNum(v, 4)
         }
       }
       return { basic, skill }

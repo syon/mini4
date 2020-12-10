@@ -17,10 +17,10 @@ export default {
   },
   computed: {
     isZero() {
-      return Util.fixedNum(this.score, 3) === '0.000'
+      return Util.fixedNum(this.score, 4) === '0.0000'
     },
     theScore() {
-      return Util.fixedNum(this.score, 3)
+      return Util.fixedNum(this.score, 4)
     },
   },
 }

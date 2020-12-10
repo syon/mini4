@@ -25,7 +25,7 @@ export default {
       const diff = this.afterScore - this.beforeScore
       const v = this.isHold ? diff : this.afterScore
       const prefix = this.isHold && v > 0 ? '+' : ''
-      return `${prefix}${this.fixedNum(v, 3)}`
+      return `${prefix}${this.fixedNum(v, 4)}`
     },
     theColorClass() {
       const diff = this.afterScore - this.beforeScore
