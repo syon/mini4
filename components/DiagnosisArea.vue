@@ -3,6 +3,9 @@
     <div class="px-2 zz-text06 zz-textblue text-center">
       -------- 2020.10.21大型アップデート対応済み --------
     </div>
+    <div class="px-2 zz-text06 zz-textyellow text-center">
+      -------- 最高速が少しずれるバグを確認してます --------
+    </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div
@@ -56,6 +59,21 @@
         </div>
       </div>
     </div>
+    <!-- <hr class="zz-hr-white my-1" />
+    <div class="DiagMain flex relative py-05">
+      <div class="DiagLeft flex-1 mx-1">
+        <div v-for="o of extraLeftContents" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label zz-textgreen">{{ o.label }}</div>
+          <div class="DiagLine-Value zz-textgreen zzAnton">{{ o.value }}</div>
+        </div>
+      </div>
+      <div class="DiagRight flex-1 mx-1">
+        <div v-for="o of extraRightContents" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label zz-textgreen">{{ o.label }}</div>
+          <div class="DiagLine-Value zz-textgreen zzAnton">{{ o.value }}</div>
+        </div>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -183,6 +201,49 @@ export default {
           label: '最高速グリップ比',
           label2: '2.7000を下回ると空転するかも？',
           value: this.fixedNum(this.diag.最高速グリップ比, 4),
+          unit: '',
+        },
+      ]
+    },
+    extraLeftContents() {
+      return [
+        {
+          label: '空転最高速',
+          value: this.fixedNum(this.diag.空転最高速, 4),
+          unit: '',
+        },
+        {
+          label: '耐水空転最高速',
+          value: this.fixedNum(this.diag.耐水空転最高速, 4),
+          unit: '',
+        },
+        {
+          label: 'コーナー安定速度',
+          value: this.fixedNum(this.diag.コーナー安定速度, 4),
+          unit: '',
+        },
+        {
+          label: '雨コーナー安定速度',
+          value: this.fixedNum(this.diag.雨コーナー安定速度, 4),
+          unit: '',
+        },
+      ]
+    },
+    extraRightContents() {
+      return [
+        {
+          label: '耐風最高速',
+          value: this.fixedNum(this.diag.耐風最高速, 4),
+          unit: '',
+        },
+        {
+          label: '芝最高速',
+          value: this.fixedNum(this.diag.芝最高速, 4),
+          unit: '',
+        },
+        {
+          label: 'ダート最高速',
+          value: this.fixedNum(this.diag.ダート最高速, 4),
           unit: '',
         },
       ]
