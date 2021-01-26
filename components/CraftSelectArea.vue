@@ -37,9 +37,9 @@
             />
           </template>
         </div>
-        <div class="zz-textalert mx-1 my-4 p-1">
+        <!-- <div class="zz-textalert mx-1 my-4 p-1">
           ※数値が正しくわかっていないものは、混乱を避けるため、選択不可となっています。
-        </div>
+        </div> -->
         <div class="h-6 flex m-1"></div>
       </div>
       <div class="zz-floatingArea-inner">
