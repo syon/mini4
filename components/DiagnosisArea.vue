@@ -3,9 +3,9 @@
     <div class="px-2 zz-text06 zz-textblue text-center">
       -------- 2020.10.21大型アップデート対応済み --------
     </div>
-    <div class="px-2 zz-text06 zz-textyellow text-center">
+    <!-- <div class="px-2 zz-text06 zz-textyellow text-center">
       -------- 最高速が少しずれるバグを確認してます --------
-    </div>
+    </div> -->
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div
