@@ -503,10 +503,12 @@ export default class Mini4 {
     const bodyAssist2Info =
       allEquips.find((x) => x.part === 'ボディアシスト・２') || {}
     // const ボディ特性 = (bodyInfo.item || {}).ボディ特性
+    const フロントタイヤパワー = (fTireInfo.score || {}).パワー
     const フロントタイヤスピロス = (fTireInfo.score || {}).スピードロス
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
     const フロントタイヤ旋回 = (fTireInfo.score || {}).タイヤ旋回
     const フロントタイヤ径 = (fTireInfo.score || {}).タイヤ径
+    const リヤタイヤパワー = (rTireInfo.score || {}).パワー
     const リヤタイヤスピロス = (rTireInfo.score || {}).スピードロス
     const リヤタイヤ摩擦 = (rTireInfo.score || {}).タイヤ摩擦
     const リヤタイヤ旋回 = (rTireInfo.score || {}).タイヤ旋回
@@ -570,7 +572,7 @@ export default class Mini4 {
       (bodyAssist1InfoInfo.グリップ特性 || 0) +
       (bodyAssist2InfoInfo.グリップ特性 || 0)
     const 耐水グリップ特性 =
-      1.0 +
+      0.0 +
       (bodyFeatureInfoInfo.耐水グリップ特性 || 0) +
       (bodyAssist1InfoInfo.耐水グリップ特性 || 0) +
       (bodyAssist2InfoInfo.耐水グリップ特性 || 0)
@@ -584,21 +586,21 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.ブレーキ特性 || 0) +
       (bodyAssist1InfoInfo.ブレーキ特性 || 0) +
       (bodyAssist2InfoInfo.ブレーキ特性 || 0)
-    // const コーナー減速特性1 =
-    //   0.0 +
-    //   (bodyFeatureInfoInfo.コーナー減速特性1 || 0) +
-    //   (bodyAssist1InfoInfo.コーナー減速特性1 || 0) +
-    //   (bodyAssist2InfoInfo.コーナー減速特性1 || 0)
-    // const コーナー減速特性2 =
-    //   0.0 +
-    //   (bodyFeatureInfoInfo.コーナー減速特性2 || 0) +
-    //   (bodyAssist1InfoInfo.コーナー減速特性2 || 0) +
-    //   (bodyAssist2InfoInfo.コーナー減速特性2 || 0)
-    // const コーナー減速特性3 =
-    //   0.0 +
-    //   (bodyFeatureInfoInfo.コーナー減速特性3 || 0) +
-    //   (bodyAssist1InfoInfo.コーナー減速特性3 || 0) +
-    //   (bodyAssist2InfoInfo.コーナー減速特性3 || 0)
+    const コーナー減速特性1 =
+      1.0 +
+      (bodyFeatureInfoInfo.コーナー減速特性1 || 0) +
+      (bodyAssist1InfoInfo.コーナー減速特性1 || 0) +
+      (bodyAssist2InfoInfo.コーナー減速特性1 || 0)
+    const コーナー減速特性2 =
+      1.0 +
+      (bodyFeatureInfoInfo.コーナー減速特性2 || 0) +
+      (bodyAssist1InfoInfo.コーナー減速特性2 || 0) +
+      (bodyAssist2InfoInfo.コーナー減速特性2 || 0)
+    const コーナー減速特性3 =
+      1.0 +
+      (bodyFeatureInfoInfo.コーナー減速特性3 || 0) +
+      (bodyAssist1InfoInfo.コーナー減速特性3 || 0) +
+      (bodyAssist2InfoInfo.コーナー減速特性3 || 0)
     const オフロード特性 =
       0.0 +
       (bodyFeatureInfoInfo.オフロード特性 || 0) +
@@ -750,16 +752,42 @@ export default class Mini4 {
       (タイヤ反発 / 1000 - 制振 / 100000)
     // const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
     const ローラースラスト角 = Math.max(スラスト角, 0)
+
+    const 前後タイヤ旋回 =
+      (フロントタイヤ旋回 * (ホイールベース / 2 - 前後の重心) +
+        リヤタイヤ旋回 * (ホイールベース / 2 + 前後の重心)) /
+      ホイールベース
+    const トレッド = 1 * フロントタイヤパワー + リヤタイヤパワー
+    const 遠心力 =
+      0.01927774 * (ホイールベース + トレッド / 12.75) + 0.909200552
+    const コーナー減速A =
+      1.0 /
+      (916.0 -
+        (遠心力 * Math.max(前後タイヤ旋回 * コーナー減速特性1, 1.0)) / 加速度)
+    const コーナー減速率 =
+      1.0 /
+      (コーナー減速A * 458.0 +
+        Math.sqrt(
+          コーナー減速A * 458.0 * (コーナー減速A * 458.0) +
+            ((コーナー減速A * 最高速度ms * 最高速度ms) / 加速度) *
+              (有効ローラー摩擦 *
+                コーナー減速特性2 *
+                (1.0 +
+                  Math.max(前後タイヤ旋回 * コーナー減速特性1, 1.0) *
+                    0.0005611396) +
+                (有効ローラー抵抗 / 20.0) * コーナー減速特性3)
+        ))
+
     const ローラー減速参考値 =
       有効ローラー摩擦 * スラスト角 + 有効ローラー抵抗 / 20.8
     const 最高速グリップ比 = (タイヤグリップ * 100) / 最高速度kmh
 
-    const 空転最高速 = (タイヤグリップ * 10 + 0.3) * 3.6
+    const グリップ最高速 = (タイヤグリップ * 10 + 0.3) * 3.6
     let 耐水グリップ性能 = 0
     if (耐水 > 0) {
       耐水グリップ性能 = 耐水グリップ性能 + 耐水グリップ特性
     }
-    const 耐水空転最高速 =
+    const 耐水グリップ最高速 =
       ((タイヤグリップ *
         10.0 *
         Math.min(耐水 + 200.0 + 耐水グリップ性能, 10000.0)) /
@@ -820,7 +848,7 @@ export default class Mini4 {
       加速度,
       最高速到達時間,
       タイヤグリップ,
-      コーナー減速率: null,
+      コーナー減速率,
       ジャンプ飛距離,
       バウンド時間,
       前後の重心,
@@ -829,8 +857,8 @@ export default class Mini4 {
       ブレーキ性能,
       ローラー減速参考値,
       最高速グリップ比,
-      空転最高速,
-      耐水空転最高速,
+      グリップ最高速,
+      耐水グリップ最高速,
       耐風最高速,
       芝最高速,
       ダート最高速,

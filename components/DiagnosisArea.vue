@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <!-- <hr class="zz-hr-white my-1" />
+    <hr class="zz-hr-white my-1" />
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div v-for="o of extraLeftContents" :key="o.label" class="DiagLine">
@@ -73,7 +73,7 @@
           <div class="DiagLine-Value zz-textgreen zzAnton">{{ o.value }}</div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -208,25 +208,25 @@ export default {
     extraLeftContents() {
       return [
         {
-          label: '空転最高速',
-          value: this.fixedNum(this.diag.空転最高速, 4),
+          label: 'グリップ最高速',
+          value: this.fixedNum(this.diag.グリップ最高速, 4),
           unit: '',
         },
         {
-          label: '耐水空転最高速',
-          value: this.fixedNum(this.diag.耐水空転最高速, 4),
+          label: '耐水グリップ最高速',
+          value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
           unit: '',
         },
-        {
-          label: 'コーナー安定速度',
-          value: this.fixedNum(this.diag.コーナー安定速度, 4),
-          unit: '',
-        },
-        {
-          label: '雨コーナー安定速度',
-          value: this.fixedNum(this.diag.雨コーナー安定速度, 4),
-          unit: '',
-        },
+        // {
+        //   label: 'コーナー安定速度',
+        //   value: this.fixedNum(this.diag.コーナー安定速度, 4),
+        //   unit: '',
+        // },
+        // {
+        //   label: '雨コーナー安定速度',
+        //   value: this.fixedNum(this.diag.雨コーナー安定速度, 4),
+        //   unit: '',
+        // },
       ]
     },
     extraRightContents() {
@@ -300,7 +300,7 @@ export default {
       width: 0.9rem;
     }
     &.hatena {
-      color: #888;
+      color: #cfc;
     }
   }
 }
