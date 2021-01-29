@@ -503,16 +503,16 @@ export default class Mini4 {
     const bodyAssist2Info =
       allEquips.find((x) => x.part === 'ボディアシスト・２') || {}
     // const ボディ特性 = (bodyInfo.item || {}).ボディ特性
-    const フロントタイヤパワー = (fTireInfo.score || {}).パワー
     const フロントタイヤスピロス = (fTireInfo.score || {}).スピードロス
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
     const フロントタイヤ旋回 = (fTireInfo.score || {}).タイヤ旋回
     const フロントタイヤ径 = (fTireInfo.score || {}).タイヤ径
-    const リヤタイヤパワー = (rTireInfo.score || {}).パワー
+    const フロントタイヤトレッド = (fTireInfo.score || {}).タイヤトレッド
     const リヤタイヤスピロス = (rTireInfo.score || {}).スピードロス
     const リヤタイヤ摩擦 = (rTireInfo.score || {}).タイヤ摩擦
     const リヤタイヤ旋回 = (rTireInfo.score || {}).タイヤ旋回
     const リヤタイヤ径 = (rTireInfo.score || {}).タイヤ径
+    const リヤタイヤトレッド = (rTireInfo.score || {}).タイヤトレッド
     const サイドローラー上安定 = (sRollerTopInfo.score || {}).コーナー安定
     const サイドローラー中安定 = (sRollerMidInfo.score || {}).コーナー安定
     const ホイールベース = (chassisInfo.item || {}).ホイールベース
@@ -552,73 +552,73 @@ export default class Mini4 {
     const bodyAssist1InfoInfo = bodyAssist1Info.item.アシスト効果 || {}
     const bodyAssist2InfoInfo = bodyAssist2Info.item.アシスト効果 || {}
     const スピード特性 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.スピード特性 || 0) +
       (bodyAssist1InfoInfo.スピード特性 || 0) +
       (bodyAssist2InfoInfo.スピード特性 || 0)
     const パワー特性 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.パワー特性 || 0) +
       (bodyAssist1InfoInfo.パワー特性 || 0) +
       (bodyAssist2InfoInfo.パワー特性 || 0)
     const パワーロス特性 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.パワーロス特性 || 0) +
       (bodyAssist1InfoInfo.パワーロス特性 || 0) +
       (bodyAssist2InfoInfo.パワーロス特性 || 0)
     const グリップ特性 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.グリップ特性 || 0) +
       (bodyAssist1InfoInfo.グリップ特性 || 0) +
       (bodyAssist2InfoInfo.グリップ特性 || 0)
     const 耐水グリップ特性 =
-      0.0 +
+      0 +
       (bodyFeatureInfoInfo.耐水グリップ特性 || 0) +
       (bodyAssist1InfoInfo.耐水グリップ特性 || 0) +
       (bodyAssist2InfoInfo.耐水グリップ特性 || 0)
     const 節電特性 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.節電特性 || 0) +
       (bodyAssist1InfoInfo.節電特性 || 0) +
       (bodyAssist2InfoInfo.節電特性 || 0)
     const ブレーキ特性 =
-      0.0 +
+      0 +
       (bodyFeatureInfoInfo.ブレーキ特性 || 0) +
       (bodyAssist1InfoInfo.ブレーキ特性 || 0) +
       (bodyAssist2InfoInfo.ブレーキ特性 || 0)
     const コーナー減速特性1 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.コーナー減速特性1 || 0) +
       (bodyAssist1InfoInfo.コーナー減速特性1 || 0) +
       (bodyAssist2InfoInfo.コーナー減速特性1 || 0)
     const コーナー減速特性2 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.コーナー減速特性2 || 0) +
       (bodyAssist1InfoInfo.コーナー減速特性2 || 0) +
       (bodyAssist2InfoInfo.コーナー減速特性2 || 0)
     const コーナー減速特性3 =
-      1.0 +
+      1 +
       (bodyFeatureInfoInfo.コーナー減速特性3 || 0) +
       (bodyAssist1InfoInfo.コーナー減速特性3 || 0) +
       (bodyAssist2InfoInfo.コーナー減速特性3 || 0)
     const オフロード特性 =
-      0.0 +
+      0 +
       (bodyFeatureInfoInfo.オフロード特性 || 0) +
       (bodyAssist1InfoInfo.オフロード特性 || 0) +
       (bodyAssist2InfoInfo.オフロード特性 || 0)
     const コーナー安定特性 =
-      0.0 +
+      0 +
       (bodyFeatureInfoInfo.コーナー安定特性 || 0) +
       (bodyAssist1InfoInfo.コーナー安定特性 || 0) +
       (bodyAssist2InfoInfo.コーナー安定特性 || 0)
     // const バウンド特性 =
-    //   0.0 +
+    //   0 +
     //   (bodyFeatureInfoInfo.バウンド特性 || 0) +
     //   (bodyAssist1InfoInfo.バウンド特性 || 0) +
     //   (bodyAssist2InfoInfo.バウンド特性 || 0)
 
     // 旧計算式（～2020.10.21）
-    // let スピード特性 = 1.0
+    // let スピード特性 = 1
     // if (ボディ特性 === 'スピードUP') {
     //   スピード特性 = 1.02
     // } else if (ボディ特性 === 'スピードUP+') {
@@ -632,7 +632,7 @@ export default class Mini4 {
     // } else if (ボディ特性 === '(S)流星') {
     //   スピード特性 = 1.03
     // }
-    // let パワー特性 = 1.0
+    // let パワー特性 = 1
     // if (ボディ特性 === 'パワーUP') {
     //   パワー特性 = 1.02
     // } else if (ボディ特性 === 'パワーUP+') {
@@ -640,11 +640,11 @@ export default class Mini4 {
     // } else if (ボディ特性 === '(S)パワーブースト') {
     //   パワー特性 = 1.05
     // }
-    // let パワーロス特性 = 1.0
+    // let パワーロス特性 = 1
     // if (ボディ特性 === '(S)パワーブースト') {
     //   パワーロス特性 = 0.9
     // }
-    // let グリップ特性 = 1.0
+    // let グリップ特性 = 1
     // if (ボディ特性 === '(S)パワードリフト') {
     //   グリップ特性 = 1.15
     // } else if (ボディ特性 === '(S)パワーブースト') {
@@ -656,7 +656,7 @@ export default class Mini4 {
     // } else if (ボディ特性 === '(S)流星') {
     //   グリップ特性 = 1.015
     // }
-    // let 節電特性 = 1.0
+    // let 節電特性 = 1
     // if (節電 > 0) {
     //   if (ボディ特性 === '節電UP') {
     //     節電特性 = 1.4
@@ -677,7 +677,7 @@ export default class Mini4 {
       (フロントタイヤ摩擦 * (ホイールベース / 2 + 前後の重心) +
         リヤタイヤ摩擦 * (ホイールベース / 2 - 前後の重心)) /
       ホイールベース
-    const タイヤグリップ = (フロントリヤタイヤ摩擦 / 100.0) * グリップ特性
+    const タイヤグリップ = (フロントリヤタイヤ摩擦 / 100) * グリップ特性
     const バッテリー消費量 = 消費電流 * (1 - (節電 * 節電特性) / 10000)
     let ブレーキ性能 = 0
     if (ブレーキ減速 > 0) {
@@ -717,31 +717,31 @@ export default class Mini4 {
     }
     const タイヤ径差 = Math.abs(フロントタイヤ径 - リヤタイヤ径)
     const 総合タイヤスピードロス =
-      (28.0 * タイヤ径差 * 小タイヤ旋回 * 1000.0) / 小タイヤスピードロス
+      (28 * タイヤ径差 * 小タイヤ旋回 * 1000) / 小タイヤスピードロス
     const 加速度 =
-      ((10.0 *
+      ((10 *
         パワー特性 *
         パワー *
-        (1.0 - (パワーロス特性 * パワーロス) / 10000.0) *
+        (1 - (パワーロス特性 * パワーロス) / 10000) *
         ギヤ比 -
         ギヤ負荷) /
-        ((リヤタイヤ径 / 2000.0) * 重さ) -
-        (スピードロス + 総合タイヤスピードロス) / 10.0) /
-      4000.0
+        ((リヤタイヤ径 / 2000) * 重さ) -
+        (スピードロス + 総合タイヤスピードロス) / 10) /
+      4000
     const 総合パワー =
-      1.0 -
-      ((((重さ * リヤタイヤ径) / 2000.0) *
+      1 -
+      ((((重さ * リヤタイヤ径) / 2000) *
         (スピードロス + 総合タイヤスピードロス)) /
-        10.0 +
+        10 +
         ギヤ負荷) /
-        (10.0 * パワー特性 * パワー * ギヤ比) -
-      (パワーロス特性 * パワーロス) / 10000.0
+        (10 * パワー特性 * パワー * ギヤ比) -
+      (パワーロス特性 * パワーロス) / 10000
     const 最高速度ms =
-      ((((2.0 * PI * リヤタイヤ径) / 2000.0) *
-        ((10.0 * スピード特性 * スピード) / 60.0)) /
+      ((((2 * PI * リヤタイヤ径) / 2000) *
+        ((10 * スピード特性 * スピード) / 60)) /
         ギヤ比) *
         総合パワー -
-      エアロダウンフォース / 1000.0
+      エアロダウンフォース / 1000
     const 最高速度kmh = 最高速度ms * 3.6
     const 最高速到達時間 = Math.log(100 * 最高速度ms) / (4 * 加速度)
     const ジャンプ加速度 = Math.sin(2 * 20 * (PI / 180)) / GG
@@ -753,29 +753,33 @@ export default class Mini4 {
     // const ローラースラスト角 = Math.max(Math.min(スラスト角, 10), 0)
     const ローラースラスト角 = Math.max(スラスト角, 0)
 
-    const 前後タイヤ旋回 =
+    const フロントリヤタイヤ旋回 =
       (フロントタイヤ旋回 * (ホイールベース / 2 - 前後の重心) +
         リヤタイヤ旋回 * (ホイールベース / 2 + 前後の重心)) /
       ホイールベース
-    const トレッド = 1 * フロントタイヤパワー + リヤタイヤパワー
+    const フロントリヤタイヤトレッド =
+      1 * フロントタイヤトレッド + リヤタイヤトレッド
     const 遠心力 =
-      0.01927774 * (ホイールベース + トレッド / 12.75) + 0.909200552
+      0.01927774 * (ホイールベース + フロントリヤタイヤトレッド / 12.75) +
+      0.909200552
     const コーナー減速A =
-      1.0 /
-      (916.0 -
-        (遠心力 * Math.max(前後タイヤ旋回 * コーナー減速特性1, 1.0)) / 加速度)
+      1 /
+      (916 -
+        (遠心力 * Math.max(フロントリヤタイヤ旋回 * コーナー減速特性1, 1)) /
+          加速度)
     const コーナー減速率 =
-      1.0 /
-      (コーナー減速A * 458.0 +
+      1 /
+      (コーナー減速A * 458 +
         Math.sqrt(
-          コーナー減速A * 458.0 * (コーナー減速A * 458.0) +
+          コーナー減速A * 458 * (コーナー減速A * 458) +
             ((コーナー減速A * 最高速度ms * 最高速度ms) / 加速度) *
               (有効ローラー摩擦 *
+                スラスト角 *
                 コーナー減速特性2 *
-                (1.0 +
-                  Math.max(前後タイヤ旋回 * コーナー減速特性1, 1.0) *
+                (1 +
+                  Math.max(フロントリヤタイヤ旋回 * コーナー減速特性1, 1) *
                     0.0005611396) +
-                (有効ローラー抵抗 / 20.0) * コーナー減速特性3)
+                (有効ローラー抵抗 / 20) * コーナー減速特性3)
         ))
 
     const ローラー減速参考値 =
@@ -788,38 +792,35 @@ export default class Mini4 {
       耐水グリップ性能 = 耐水グリップ性能 + 耐水グリップ特性
     }
     const 耐水グリップ最高速 =
-      ((タイヤグリップ *
-        10.0 *
-        Math.min(耐水 + 200.0 + 耐水グリップ性能, 10000.0)) /
-        10000.0 +
+      ((タイヤグリップ * 10 * Math.min(耐水 + 200 + 耐水グリップ性能, 10000)) /
+        10000 +
         0.3) *
       3.6
     const 耐風最高速 =
       Math.max(
         最高速度ms *
-          (1.0 -
-            ((1.0 - Math.min(耐風, 10000.0) / 10000.0) * 重さ) / 加速度 / 46.0),
-        最高速度ms / 5.0
+          (1 - ((1 - Math.min(耐風, 10000) / 10000) * 重さ) / 加速度 / 46),
+        最高速度ms / 5
       ) * 3.6
     const 芝最高速 =
       Math.max(
         最高速度ms *
-          (1.0 -
-            ((1.0 - Math.min(オフロード特性 + オフロード, 10000.0) / 10000.0) *
+          (1 -
+            ((1 - Math.min(オフロード特性 + オフロード, 10000) / 10000) *
               重さ) /
               加速度 /
-              58.0),
-        最高速度ms / 5.0
+              58),
+        最高速度ms / 5
       ) * 3.6
     const ダート最高速 =
       Math.max(
         最高速度ms *
-          (1.0 -
-            ((1.0 - Math.min(オフロード特性 + オフロード, 10000.0) / 10000.0) *
+          (1 -
+            ((1 - Math.min(オフロード特性 + オフロード, 10000) / 10000) *
               重さ) /
               加速度 /
-              82.0),
-        最高速度ms / 5.0
+              82),
+        最高速度ms / 5
       ) * 3.6
     const コーナー安定速度 =
       0.385 *
