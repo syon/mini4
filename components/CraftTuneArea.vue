@@ -6,7 +6,7 @@
   >
     <div class="zz-floatingArea flex">
       <div class="zz-floatingArea-inner flex-1">
-        <div class="zzCategoryHeaderLong">改造プリセット</div>
+        <div class="zzCategoryHeaderLong">☆6までの改造プリセット</div>
         <template v-for="(cp, i) of ingCraftPreset">
           <a
             :key="i"
