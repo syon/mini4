@@ -23,7 +23,7 @@
             SNS等の情報や、ネットの海に落ちてた情報等を元に組み立ててます。
             数値や計算式が間違ってたら教えてくれると助かります。
           </div>
-          <div class="zzCategoryHeaderShort">ソースコード</div>
+          <!-- <div class="zzCategoryHeaderShort">ソースコード</div>
           <ul class="list list-inside p-2">
             <li>GitHubにて公開を予定しています。(準備中)</li>
           </ul>
@@ -36,7 +36,7 @@
                 ><span class="zz-hashtag mx-1">#超速シミュ</span></a
               >
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="pb-4">
           <div class="zzCategoryHeaderBig">公式</div>
