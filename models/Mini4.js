@@ -507,12 +507,12 @@ export default class Mini4 {
     const フロントタイヤ摩擦 = (fTireInfo.score || {}).タイヤ摩擦
     const フロントタイヤ旋回 = (fTireInfo.score || {}).タイヤ旋回
     const フロントタイヤ径 = (fTireInfo.score || {}).タイヤ径
-    const フロントタイヤトレッド = (fTireInfo.score || {}).タイヤトレッド
+    const フロントタイヤトレッド = (fTireInfo.item || {}).タイヤトレッド
     const リヤタイヤスピロス = (rTireInfo.score || {}).スピードロス
     const リヤタイヤ摩擦 = (rTireInfo.score || {}).タイヤ摩擦
     const リヤタイヤ旋回 = (rTireInfo.score || {}).タイヤ旋回
     const リヤタイヤ径 = (rTireInfo.score || {}).タイヤ径
-    const リヤタイヤトレッド = (rTireInfo.score || {}).タイヤトレッド
+    const リヤタイヤトレッド = (rTireInfo.item || {}).タイヤトレッド
     const サイドローラー上安定 = (sRollerTopInfo.score || {}).コーナー安定
     const サイドローラー中安定 = (sRollerMidInfo.score || {}).コーナー安定
     const ホイールベース = (chassisInfo.item || {}).ホイールベース
