@@ -208,12 +208,12 @@ export default {
     extraLeftContents() {
       return [
         {
-          label: 'グリップ最高速',
+          label: 'グリップ上限(時速)',
           value: this.fixedNum(this.diag.グリップ最高速, 4),
           unit: '',
         },
         {
-          label: '耐水グリップ最高速',
+          label: '耐水グリップ上限(時速)',
           value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
           unit: '',
         },
@@ -232,17 +232,17 @@ export default {
     extraRightContents() {
       return [
         {
-          label: '耐風最高速',
+          label: '耐風速度(時速)',
           value: this.fixedNum(this.diag.耐風最高速, 4),
           unit: '',
         },
         {
-          label: '芝最高速',
+          label: '芝速度(時速)',
           value: this.fixedNum(this.diag.芝最高速, 4),
           unit: '',
         },
         {
-          label: 'ダート最高速',
+          label: 'ダート速度(時速)',
           value: this.fixedNum(this.diag.ダート最高速, 4),
           unit: '',
         },
