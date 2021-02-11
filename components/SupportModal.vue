@@ -31,10 +31,10 @@
               >
               を開きます
             </li>
-            <li>
-              支援したい金額を入力します
-            </li>
             <li>宛先(受取人)にコピーしたアドレスを貼り付けます</li>
+            <li>
+              支援したい金額(15円～50万円)を入力します
+            </li>
             <li>
               レジに進みます
             </li>
@@ -50,6 +50,18 @@
               ・ 支援したことでサポートが優先的に行われることはありません。
             </li>
             <li>・ トラブルを避けるため、返金は行っていません。</li>
+          </ul>
+          <div class="zzCategoryHeaderShort">モノを送りたい人はこちら！</div>
+          <ul class="list list-inside p-2">
+            <li>
+              <a
+                href="https://www.amazon.jp/hz/wishlist/ls/TARENCG8GYXP?ref_=wl_share"
+                target="_blank"
+                class="zz-hashtag"
+                @click="handleGift($event)"
+                >Amazon欲しいものリスト</a
+              >
+            </li>
           </ul>
         </div>
       </div>
