@@ -22,7 +22,10 @@
           <button class="zzBtnRectBlack w-full mb-1" @click="handleUpdate">
             更新履歴
           </button>
-          <button class="zzBtnRectBlack w-full mb-1" @click="handleSupport">
+          <button
+            class="zzBtnRectBlack w-full mb-1 zz-textgreen2"
+            @click="handleSupport"
+          >
             支援する
           </button>
           <!-- <button class="zzBtnRounded1" @click="hendleError">
