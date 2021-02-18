@@ -102,6 +102,12 @@
         </div>
       </div>
     </div>
+    <div class="px-2 zz-text06">
+      ※ 現在有効ローラー摩擦と抵抗が、改造や強化で更新されないバグがあります。
+    </div>
+    <div class="px-2 zz-text06">
+      お手数ですが、都度ページリロードをお願いします。
+    </div>
   </div>
 </template>
 
