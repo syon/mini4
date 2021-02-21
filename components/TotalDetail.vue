@@ -129,6 +129,7 @@ export default {
   computed: {
     ...mapState('ing', {
       tab: (state) => state.tab,
+      ping: (state) => state.ping,
     }),
     ...mapGetters({
       gAllEquips: 'recipe/gAllEquips',
@@ -216,6 +217,7 @@ export default {
       return result
     },
     frictionRoller() {
+      if (this.ping);
       return this.getRollerFriction(this.tab)
     },
     frictionRollerScore() {
@@ -223,6 +225,7 @@ export default {
       return Util.fixedNum(s, 4)
     },
     registRoller() {
+      if (this.ping);
       return this.getRollerRegist(this.tab)
     },
     registRollerScore() {
