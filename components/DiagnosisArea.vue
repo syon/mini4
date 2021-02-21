@@ -6,6 +6,12 @@
     <!-- <div class="px-2 zz-text06 zz-textyellow text-center">
       -------- 最高速が少しずれるバグを確認してます --------
     </div> -->
+    <div class="px-2 zz-text06">
+      ※ 現在コーナー減速率が、改造や強化で更新されないバグがあります。
+    </div>
+    <div class="px-2 zz-text06">
+      お手数ですが、都度ページリロードをお願いします。(そのうち直します。)
+    </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div
