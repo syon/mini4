@@ -571,11 +571,11 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.グリップ特性 || 0) +
       (bodyAssist1InfoInfo.グリップ特性 || 0) +
       (bodyAssist2InfoInfo.グリップ特性 || 0)
-    const 耐水グリップ特性 =
+    const 耐水特性 =
       0 +
-      (bodyFeatureInfoInfo.耐水グリップ特性 || 0) +
-      (bodyAssist1InfoInfo.耐水グリップ特性 || 0) +
-      (bodyAssist2InfoInfo.耐水グリップ特性 || 0)
+      (bodyFeatureInfoInfo.耐水特性 || 0) +
+      (bodyAssist1InfoInfo.耐水特性 || 0) +
+      (bodyAssist2InfoInfo.耐水特性 || 0)
     const 節電特性 =
       1 +
       (bodyFeatureInfoInfo.節電特性 || 0) +
@@ -787,13 +787,12 @@ export default class Mini4 {
     const 最高速グリップ比 = (タイヤグリップ * 100) / 最高速度kmh
 
     const グリップ最高速 = (タイヤグリップ * 10 + 0.3) * 3.6
-    let 耐水グリップ性能 = 0
+    let 耐水性能 = 0
     if (耐水 > 0) {
-      耐水グリップ性能 = 耐水グリップ性能 + 耐水グリップ特性
+      耐水性能 = 耐水性能 + 耐水特性
     }
     const 耐水グリップ最高速 =
-      ((タイヤグリップ * 10 * Math.min(耐水 + 200 + 耐水グリップ性能, 10000)) /
-        10000 +
+      ((タイヤグリップ * 10 * Math.min(耐水 + 200 + 耐水性能, 10000)) / 10000 +
         0.3) *
       3.6
     const 耐風最高速 =
