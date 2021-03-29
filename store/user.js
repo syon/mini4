@@ -115,7 +115,7 @@ function extractUserSchema(arg) {
 async function emitLoginWebhook(user) {
   if (!LOGIN_WEBHOOK_URL || !user) return
   const data = {
-    content: `${user.displayName}\n${user.email}\n${user.uid}`,
+    content: `${user.uid}`,
     embeds: [
       {
         title: user.displayName,
