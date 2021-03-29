@@ -1,18 +1,18 @@
 <template>
   <div class="DiagnosisArea zzBg-grit px-2 py-2">
-    <div class="px-2 zz-text06 zz-textblue text-center">
+    <!-- <div class="px-2 zz-text06 zz-textblue text-center">
       -------- 2020.10.21大型アップデート対応済み --------
-    </div>
+    </div> -->
     <!-- <div class="px-2 zz-text06 zz-textyellow text-center">
       -------- 最高速が少しずれるバグを確認してます --------
     </div> -->
-    <div class="px-2 zz-text06">
+    <!-- <div class="px-2 zz-text06">
       ※ 現在コーナー減速率が、改造や強化で更新されないバグがあります。
     </div>
     <div class="px-2 zz-text06">
       お手数ですが、都度ページリロードをお願いします。(そのうち直します。)
-    </div>
-    <div class="px-2 zz-text06">
+    </div> -->
+    <div class="px-2 zz-text06 zz-textblue">
       ※ 前輪と後輪の径差がある場合に最高速の診断結果が合わないバグがあります。
     </div>
     <div class="DiagMain flex relative py-05">
@@ -95,6 +95,7 @@ export default {
   computed: {
     ...mapState('ing', {
       tab: (state) => state.tab,
+      ping: (state) => state.ping,
     }),
     ...mapGetters({
       gAllEquips: 'recipe/gAllEquips',
@@ -103,12 +104,14 @@ export default {
       getRollerRegist: 'recipe/getRollerRegist',
     }),
     frictionRoller() {
+      if (this.ping);
       return this.getRollerFriction(this.tab)
     },
     frictionRollerScore() {
       return this.frictionRoller.score.ローラー摩擦 || 0
     },
     registRoller() {
+      if (this.ping);
       return this.getRollerRegist(this.tab)
     },
     registRollerScore() {
