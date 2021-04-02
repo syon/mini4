@@ -1,5 +1,8 @@
 <template>
   <div class="MachineTabArea p-1">
+    <div class="px-2 zz-text06 zz-textblue text-center">
+      -------- 「Ver1.6」バランス調整 対応済み --------
+    </div>
     <div class="flex">
       <machine-tab tab="M1" />
       <machine-tab tab="M2" />
