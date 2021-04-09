@@ -1,7 +1,10 @@
 <template>
   <div class="MachineTabArea p-1">
-    <div class="px-2 zz-text06 zz-textblue text-center">
-      -------- 「Ver1.6」バランス調整 対応済み --------
+    <div
+      class="px-2 zz-text06 zz-textblue text-center"
+      style="white-space: normal;"
+    >
+      ※現在ログイン機能が不具合で動作していません。原因は判明していますが、対応には少し時間が掛かりそうです。今回の対応により、セッティングや登録パーツが一度リセットになります。復旧後に改めて登録等行ってください。お手数をおかけして申し訳ありません。
     </div>
     <div class="flex">
       <machine-tab tab="M1" />
