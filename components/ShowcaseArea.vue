@@ -73,11 +73,11 @@ export default {
     handleSelectItem($event, name, item) {
       $event.preventDefault()
       const basePart = this.ingPart
-      if (Mini4.isAccessory(basePart)) {
-        this.checkAccessory(basePart, item.ペアカテゴリ)
-      } else {
-        this.checkPair(basePart, item.ペアカテゴリ)
-      }
+      // if (Mini4.isAccessory(basePart)) {
+      //   this.checkAccessory(basePart, item.ペアカテゴリ)
+      // } else {
+      //   this.checkPair(basePart, item.ペアカテゴリ)
+      // }
       this.$store.dispatch('recipe/change', { part: basePart, name })
       this.$ga.event('Catalog', 'Equip', basePart, name)
     },
