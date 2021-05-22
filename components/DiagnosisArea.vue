@@ -56,7 +56,7 @@
       </div>
     </div>
     <hr class="zz-hr-white my-1" />
-    <div class="DiagMain flex relative py-05">
+    <!-- <div class="DiagMain flex relative py-05">
       <div class="DiagExtra flex-1 mx-1">
         <div v-for="o of extraContents" :key="o.label" class="DiagLine">
           <div class="">
@@ -64,10 +64,10 @@
             <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div>
           </div>
           <div class="DiagLine-Value zz-textyellow zzAnton">{{ o.value }}</div>
-          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
+          <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div>
         </div>
       </div>
-    </div>
+    </div> -->
     <hr class="zz-hr-white my-1" />
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
@@ -312,7 +312,7 @@ export default {
       width: 0.9rem;
     }
     &.hatena {
-      color: #cfc;
+      color: #ccf;
     }
   }
 }
