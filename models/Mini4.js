@@ -576,6 +576,11 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.耐水特性 || 0) +
       (bodyAssist1InfoInfo.耐水特性 || 0) +
       (bodyAssist2InfoInfo.耐水特性 || 0)
+    const 耐風特性 =
+      0 +
+      (bodyFeatureInfoInfo.耐風特性 || 0) +
+      (bodyAssist1InfoInfo.耐風特性 || 0) +
+      (bodyAssist2InfoInfo.耐風特性 || 0)
     const 節電特性 =
       1 +
       (bodyFeatureInfoInfo.節電特性 || 0) +
@@ -795,10 +800,17 @@ export default class Mini4 {
       ((タイヤグリップ * 10 * Math.min(耐水 + 200 + 耐水性能, 10000)) / 10000 +
         0.3) *
       3.6
+    let 耐風性能 = 0
+    if (耐風 > 0) {
+      耐風性能 = 耐風性能 + 耐風特性
+    }
     const 耐風最高速 =
       Math.max(
         最高速度ms *
-          (1 - ((1 - Math.min(耐風, 10000) / 10000) * 重さ) / 加速度 / 46),
+          (1 -
+            ((1 - Math.min(耐風 + 耐風性能, 10000) / 10000) * 重さ) /
+              加速度 /
+              46),
         最高速度ms / 5
       ) * 3.6
     const 芝最高速 =
