@@ -56,30 +56,34 @@
       </div>
     </div>
     <hr class="zz-hr-white my-1" />
-    <!-- <div class="DiagMain flex relative py-05">
-      <div class="DiagExtra flex-1 mx-1">
-        <div v-for="o of extraContents" :key="o.label" class="DiagLine">
-          <div class="">
-            <div class="DiagLine-Label zz-textyellow">{{ o.label }}</div>
-            <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div>
-          </div>
-          <div class="DiagLine-Value zz-textyellow zzAnton">{{ o.value }}</div>
-          <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div>
-        </div>
-      </div>
-    </div> -->
-    <hr class="zz-hr-white my-1" />
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
         <div v-for="o of extraLeftContents" :key="o.label" class="DiagLine">
-          <div class="DiagLine-Label zz-textgreen">{{ o.label }}</div>
-          <div class="DiagLine-Value zz-textgreen zzAnton">{{ o.value }}</div>
+          <div class="DiagLine-Label zz-textorange">{{ o.label }}</div>
+          <div class="DiagLine-Value zz-textorange zzAnton">{{ o.value }}</div>
+          <div class="DiagLine-Unit zz-textorange zzAnton">{{ o.unit }}</div>
+        </div>
+        <div class="flex-auto zz-text06 zz-textblue text-right">
+          ※100%以上で空転しません。
         </div>
       </div>
       <div class="DiagRight flex-1 mx-1">
         <div v-for="o of extraRightContents" :key="o.label" class="DiagLine">
           <div class="DiagLine-Label zz-textgreen">{{ o.label }}</div>
           <div class="DiagLine-Value zz-textgreen zzAnton">{{ o.value }}</div>
+        </div>
+      </div>
+    </div>
+    <hr class="zz-hr-white my-1" />
+    <div class="DiagMain flex relative py-05">
+      <div class="DiagExtra flex-1 mx-1">
+        <div v-for="o of extraContents" :key="o.label" class="DiagLine">
+          <div class="">
+            <div class="DiagLine-Label zz-textpurple">{{ o.label }}</div>
+            <!-- <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div> -->
+          </div>
+          <div class="DiagLine-Value zz-textpurple zzAnton">{{ o.value }}</div>
+          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
         </div>
       </div>
     </div>
@@ -203,32 +207,42 @@ export default {
     },
     extraContents() {
       return [
+        // {
+        //   label: 'ローラー減速参考値',
+        //   label2: 'ローラー摩擦×スラスト角+ローラー抵抗÷20.8',
+        //   value: this.fixedNum(this.diag.ローラー減速参考値, 4),
+        //   unit: '',
+        // },
+        // {
+        //   label: '最高速グリップ比',
+        //   label2: '2.7000を下回ると空転するかも？',
+        //   value: this.fixedNum(this.diag.最高速グリップ比, 4),
+        //   unit: '',
+        // },
         {
-          label: 'ローラー減速参考値',
-          label2: 'ローラー摩擦×スラスト角+ローラー抵抗÷20.8',
-          value: this.fixedNum(this.diag.ローラー減速参考値, 4),
+          label: '空転しない上限速度(時速)',
+          value: this.fixedNum(this.diag.グリップ最高速, 4),
           unit: '',
         },
         {
-          label: '最高速グリップ比',
-          label2: '2.7000を下回ると空転するかも？',
-          value: this.fixedNum(this.diag.最高速グリップ比, 4),
+          label: '空転しないために必要なタイヤグリップ',
+          value: this.fixedNum(this.diag.最高速グリップ, 4),
+          unit: '',
+        },
+        {
+          label: '[耐水]空転しない上限速度(時速)',
+          value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
+          unit: '',
+        },
+        {
+          label: '[耐水]空転しないために必要なタイヤグリップ',
+          value: this.fixedNum(this.diag.耐水最高速グリップ, 4),
           unit: '',
         },
       ]
     },
     extraLeftContents() {
       return [
-        {
-          label: 'グリップ上限(時速)',
-          value: this.fixedNum(this.diag.グリップ最高速, 4),
-          unit: '',
-        },
-        {
-          label: '耐水グリップ上限(時速)',
-          value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
-          unit: '',
-        },
         // {
         //   label: 'コーナー安定速度',
         //   value: this.fixedNum(this.diag.コーナー安定速度, 4),
@@ -239,6 +253,16 @@ export default {
         //   value: this.fixedNum(this.diag.雨コーナー安定速度, 4),
         //   unit: '',
         // },
+        {
+          label: 'グリップ率',
+          value: this.fixedNum(this.diag.必要グリップ率, 0),
+          unit: '%',
+        },
+        {
+          label: '[耐水]グリップ率',
+          value: this.fixedNum(this.diag.耐水必要グリップ率, 0),
+          unit: '%',
+        },
       ]
     },
     extraRightContents() {
@@ -312,7 +336,7 @@ export default {
       width: 0.9rem;
     }
     &.hatena {
-      color: #ccf;
+      color: #999;
     }
   }
 }
