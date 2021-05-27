@@ -1,10 +1,17 @@
 <template>
   <div class="MachineTabArea p-1">
-    <div
+    <!-- <div
       class="px-2 zz-text06 zz-textblue text-center"
       style="white-space: normal;"
     >
+      4/10
       ドメイン変更に伴いURLが変更となりました。cookieを利用していましたので、登録パーツやセッティング等、すべてリセットされています。お手数ですが再設定をお願いします。
+    </div> -->
+    <div
+      class="px-2 zz-text06 zz-textblue text-left"
+      style="white-space: normal;"
+    >
+      超速シミュ
     </div>
     <div class="flex">
       <machine-tab tab="M1" />

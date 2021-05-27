@@ -12,8 +12,11 @@
     <div class="px-2 zz-text06">
       お手数ですが、都度ページリロードをお願いします。(そのうち直します。)
     </div> -->
-    <div class="px-2 zz-text06 zz-textblue">
-      ※ 前輪と後輪の径差がある場合に最高速の診断結果が合わないバグがあります。
+    <div class="px-1 zz-text06 zz-textblue">
+      ※前輪と後輪の径差がある場合に最高速の診断結果が合わないようです。
+    </div>
+    <div class="px-1 zz-text06 zz-textblue">
+      ※(仮)となっているものは計算式が正確ではないので、参考程度にご使用ください。
     </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
