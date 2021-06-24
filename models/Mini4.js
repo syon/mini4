@@ -566,6 +566,11 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.パワーロス特性 || 0) +
       (bodyAssist1InfoInfo.パワーロス特性 || 0) +
       (bodyAssist2InfoInfo.パワーロス特性 || 0)
+    const スピードロス特性 =
+      1 +
+      (bodyFeatureInfoInfo.スピードロス特性 || 0) +
+      (bodyAssist1InfoInfo.スピードロス特性 || 0) +
+      (bodyAssist2InfoInfo.スピードロス特性 || 0)
     const グリップ特性 =
       1 +
       (bodyFeatureInfoInfo.グリップ特性 || 0) +
@@ -731,12 +736,12 @@ export default class Mini4 {
         ギヤ比 -
         ギヤ負荷) /
         ((リヤタイヤ径 / 2000) * 重さ) -
-        (スピードロス + 総合タイヤスピードロス) / 10) /
+        (スピードロス特性 * スピードロス + 総合タイヤスピードロス) / 10) /
       4000
     const 総合パワー =
       1 -
       ((((重さ * リヤタイヤ径) / 2000) *
-        (スピードロス + 総合タイヤスピードロス)) /
+        (スピードロス特性 * スピードロス + 総合タイヤスピードロス)) /
         10 +
         ギヤ負荷) /
         (10 * パワー特性 * パワー * ギヤ比) -
