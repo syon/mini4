@@ -3,22 +3,22 @@
     <hr class="zz-hr-white my-2" />
     <!-- <div class="flex items-center justify-between"> -->
     <!-- <div class="flex-1 flex justify-between mx-1"> -->
-    <div class="flex items-stretch justify-center">
-      <div class="" style="flex: 2;"></div>
-      <div class="" style="flex: 5;">
-        <table class="w-full table-fixed" style="height: 22px;">
-          <tbody class="whitespace-no-wrap">
-            <tr>
-              <td v-for="a in aptSet" :key="a" class="">
-                <div class="flex justify-center">
-                  <apti-hex :type="a" />
-                  <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="flex items-stretch justify-center mb-2">
+      <!-- <div class="" style="flex: 2;"></div> -->
+      <!-- <div class="" style="flex: 5;"> -->
+      <table class="w-full table-fixed" style="height: 22px;">
+        <tbody class="whitespace-no-wrap">
+          <tr>
+            <td v-for="a in aptSet" :key="a" class="">
+              <div class="flex justify-center">
+                <apti-hex :type="a" />
+                <span class="zzAnton px-1">{{ totalAptitude[a] }}</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- </div> -->
     </div>
     <!-- </div> -->
     <!-- <div class="zzBodyFeature mx-2">
@@ -156,6 +156,11 @@ export default {
           class: 'zz-textpurple',
         },
         { label: '制振', score: s.制振, class: 'zz-textpurple' },
+        {
+          label: '前後の重心_',
+          score: s.前後の重心_,
+          class: 'zz-textpurple',
+        },
       ]
     },
     rightItems() {
@@ -198,7 +203,7 @@ export default {
       return info.性能.タイヤ径
     },
     aptSet() {
-      return ['St', 'U', 'Co', 'Kp', 'J']
+      return ['St', 'U', 'Co', 'Kp', 'J', 'W', 'Of', 'Wa', 'Di', 'R']
     },
     totalAptitude() {
       const apts = this.gAllEquips

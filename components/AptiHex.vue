@@ -25,6 +25,17 @@ export default {
           return '#8ef153'
         case 'J':
           return '#d23ef0'
+
+        case 'W':
+          return '#f5ec57'
+        case 'Of':
+          return '#f5ec57'
+        case 'Wa':
+          return '#54a9ed'
+        case 'Di':
+          return '#8ef153'
+        case 'R':
+          return '#ededed'
       }
       return null
     },
