@@ -2,6 +2,7 @@
   <div class="FooterArea zzBg-checker2">
     <div class="relative z-50">
       <about-modal />
+      <notice-modal />
       <update-modal />
       <support-modal />
     </div>
@@ -19,12 +20,17 @@
           <button class="zzBtnRectBlack w-full mb-1" @click="handleAbout">
             サイトについて
           </button>
-          <button class="zzBtnRectBlack w-full mb-1" @click="handleUpdate">
-            更新履歴
-          </button>
-          <button class="zzBtnRectBlack2 w-full mb-1" @click="handleSupport">
-            ☆ 支援する ☆
-          </button>
+          <div v-if="isDiagnosis">
+            <button class="zzBtnRectBlack2 w-full mb-1" @click="handleNotice">
+              ログインメニュー： サイトについて その２
+            </button>
+            <button class="zzBtnRectBlack2 w-full mb-1" @click="handleUpdate">
+              ログインメニュー： 更新履歴
+            </button>
+            <button class="zzBtnRectBlack2 w-full mb-1" @click="handleSupport">
+              ログインメニュー： 支援する ★★★★★★★
+            </button>
+          </div>
           <!-- <button class="zzBtnRounded1" @click="hendleError">
               Error
             </button> -->
@@ -43,7 +49,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AboutModal from '@/components/AboutModal'
+import NoticeModal from '@/components/NoticeModal'
 import UpdateModal from '@/components/UpdateModal'
 import SupportModal from '@/components/SupportModal'
 import UserArea from '@/components/UserArea'
@@ -52,10 +60,16 @@ import AccessCounter from '@/components/AccessCounter'
 export default {
   components: {
     AboutModal,
+    NoticeModal,
     UpdateModal,
     SupportModal,
     AccessCounter,
     UserArea,
+  },
+  computed: {
+    ...mapGetters({
+      isDiagnosis: 'user/isDiagnosis',
+    }),
   },
   methods: {
     hendleError() {
@@ -76,6 +90,10 @@ export default {
     handleAbout() {
       this.$store.commit('ing/setAbout', true)
       this.$ga.screenview('About')
+    },
+    handleNotice() {
+      this.$store.commit('ing/setNotice', true)
+      this.$ga.screenview('Notice')
     },
     handleUpdate() {
       this.$store.commit('ing/setUpdate', true)

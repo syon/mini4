@@ -23,6 +23,7 @@ const initialState = {
   isBarrier: false,
   isTune: false,
   isAbout: false,
+  isNotice: false,
   isUpdate: false,
   isSupport: false,
   isOwns: false,
@@ -108,6 +109,9 @@ export const mutations = {
   },
   setAbout(state, isAbout) {
     state.isAbout = isAbout
+  },
+  setNotice(state, isNotice) {
+    state.isNotice = isNotice
   },
   setUpdate(state, isUpdate) {
     state.isUpdate = isUpdate
