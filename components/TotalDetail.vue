@@ -159,7 +159,12 @@ export default {
         {
           label: '前後の重心_',
           score: s.前後の重心_,
-          class: 'zz-textpurple',
+          class: 'zz-textorange',
+        },
+        {
+          label: 'アクセサリー拡張',
+          score: s.アクセサリー拡張,
+          class: 'zz-textorange',
         },
       ]
     },
@@ -168,6 +173,11 @@ export default {
       return [
         { label: 'タイヤ摩擦', score: s.タイヤ摩擦, class: 'zz-textblue' },
         { label: 'タイヤ旋回', score: s.タイヤ旋回, class: 'zz-textblue' },
+        {
+          label: 'タイヤ旋回ダウン',
+          score: s.タイヤ旋回ダウン,
+          class: 'zz-textblue',
+        },
         { label: 'タイヤ反発', score: s.タイヤ反発, class: 'zz-textblue' },
         {
           label: 'タイヤ径・フロント',

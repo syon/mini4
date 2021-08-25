@@ -1,11 +1,11 @@
 <template>
   <a
     href="#"
-    :class="{ active: isActive, isSlot7: slot7 }"
+    :class="{ active: isActive, isSenyo: x.専用, isSlot7: slot7 }"
     class="zz-selectBox my-1 flex-col flex"
     @click="handleClick"
   >
-    <div class="zz-headblack flex justify-between color7">
+    <div class="zz-headblack flex justify-between">
       <div class="zz-headblack-name">{{ x.action || '&nbsp;' }}</div>
     </div>
     <div class="zz-footwhite flex flex-1">
@@ -69,8 +69,9 @@ export default {
     border: 1px solid #f1f658;
   }
 }
+
 .isSlot7 {
-  .color7 {
+  .zz-headblack {
     background: linear-gradient(-45deg, rgb(0, 192, 128), rgb(218, 0, 163));
   }
 }

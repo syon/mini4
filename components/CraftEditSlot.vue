@@ -11,7 +11,7 @@
     class="xx-CraftEditSlot flex flex-col m-1"
     @click.prevent="handleClick"
   >
-    <div class="zz-headblack flex justify-between color7">
+    <div class="zz-headblack flex justify-between">
       <div class="zz-headblack-name">
         {{ x.action || '(改造なし)' }}
       </div>
@@ -214,7 +214,7 @@ export default {
 }
 
 .isSlot7 {
-  .color7 {
+  .zz-headblack {
     background: linear-gradient(-45deg, rgb(0, 192, 128), rgb(218, 0, 163));
   }
 }

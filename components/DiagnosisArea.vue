@@ -1,22 +1,29 @@
 <template>
   <div class="DiagnosisArea zzBg-grit px-2 py-2">
-    <!-- <div class="px-2 zz-text06 zz-textblue text-center">
-      -------- 2020.10.21大型アップデート対応済み --------
-    </div> -->
-    <!-- <div class="px-2 zz-text06 zz-textyellow text-center">
-      -------- 最高速が少しずれるバグを確認してます --------
-    </div> -->
-    <!-- <div class="px-2 zz-text06">
-      ※ 現在コーナー減速率が、改造や強化で更新されないバグがあります。
-    </div>
-    <div class="px-2 zz-text06">
-      お手数ですが、都度ページリロードをお願いします。(そのうち直します。)
-    </div> -->
-    <!-- <div class="px-1 zz-text06 zz-textblue">
-      ※前輪と後輪の径差がある場合に最高速の診断結果が合わないようです。
-    </div> -->
-    <div class="p-1 zz-text06 zz-textblue">
-      ※(仮)となっているものは計算式が正確ではないので、参考程度にご使用ください。
+    <!-- <label class="flex items-center mx-1">
+      <input v-model="isPowerchamp" type="checkbox" />
+      <span class="ml-1">パワーチャンプゴールド使用する</span>
+    </label>
+    <hr class="zz-hr-white my-1" /> -->
+    <div class="DiagMain flex relative py-05">
+      <!-- <div class="px-2 zz-text06 zz-textblue text-center">
+        -------- 2020.10.21大型アップデート対応済み --------
+      </div> -->
+      <!-- <div class="px-2 zz-text06 zz-textyellow text-center">
+        -------- 最高速が少しずれるバグを確認してます --------
+      </div> -->
+      <!-- <div class="px-2 zz-text06">
+        ※ 現在コーナー減速率が、改造や強化で更新されないバグがあります。
+      </div> -->
+      <!-- <div class="px-2 zz-text06">
+        お手数ですが、都度ページリロードをお願いします。(そのうち直します。)
+      </div> -->
+      <!-- <div class="px-1 zz-text06 zz-textblue">
+        ※前輪と後輪の径差がある場合に最高速の診断結果が合わないようです。
+      </div> -->
+      <div class="mx-1 zz-text06 zz-textblue">
+        ※(仮)となっているものは計算式が正確ではないので、参考程度にご使用ください。
+      </div>
     </div>
     <div class="DiagMain flex relative py-05">
       <div class="DiagLeft flex-1 mx-1">
