@@ -141,6 +141,7 @@ export const actions = {
       rootGetters['recipe/getRecipeByPart'](state.tab, part) || {}
     const item = partCatalog[partRecipe.key] || {}
     const crafts = rootState.craft.craft[item.改造カテゴリ] || []
+    const crafts2 = rootState.craft.craft[item.改造カテゴリ2] || []
     const partCraftPreset =
       rootGetters['craft/getPresetByCraftCategory'](item.改造カテゴリ) || {}
     commit('setTab', tab)
@@ -149,7 +150,7 @@ export const actions = {
     commit('setPartRecipe', partRecipe)
     commit('setPartCraftPreset', partCraftPreset)
     commit('setItem', { key: partRecipe.key, ...item })
-    commit('setCrafts', crafts)
+    commit('setCrafts', crafts2.concat(crafts))
     commit('setPing')
   },
   changeCraftIndex({ state, commit }, payload) {
