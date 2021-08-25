@@ -36,6 +36,7 @@ const initialMachineState = {
   accessory2: { key: '', crafts: [] },
   accessory3: { key: '', crafts: [] },
   accessory4: { key: '', crafts: [] },
+  accessory5: { key: '', crafts: [] },
 }
 
 export const state = () => ({
@@ -112,6 +113,8 @@ function resolvePartKey(partJapanese) {
       return 'accessory3'
     case 'アクセサリー・４':
       return 'accessory4'
+    case 'アクセサリー・５':
+      return 'accessory5'
   }
 }
 

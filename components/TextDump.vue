@@ -83,6 +83,7 @@ export default {
         eq.accessory2,
         eq.accessory3,
         eq.accessory4,
+        eq.accessory5,
       ])
       return txt
     },

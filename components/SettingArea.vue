@@ -277,6 +277,19 @@
           />
         </div>
       </div>
+      <div class="garage--row">
+        <div class="garage--cell"></div>
+        <div class="garage--cell"></div>
+        <div class="garage--cell"></div>
+        <div class="garage--cell">
+          <wear-box
+            :item="sAccessory5"
+            part="アクセサリー・５"
+            class="cate-accessory-5"
+            @click="handleTrans('アクセサリー・５')"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -383,6 +396,9 @@ export default {
       },
       sAccessory4(state) {
         return state[this.tab].accessory4
+      },
+      sAccessory5(state) {
+        return state[this.tab].accessory5
       },
     }),
   },

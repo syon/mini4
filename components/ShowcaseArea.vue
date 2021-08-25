@@ -87,6 +87,7 @@ export default {
         'アクセサリー・２',
         'アクセサリー・３',
         'アクセサリー・４',
+        'アクセサリー・５',
       ].filter((x) => x !== basePart)
       for (const part of others) {
         const r = this.$store.getters['recipe/getRecipeByPart'](this.tab, part)
