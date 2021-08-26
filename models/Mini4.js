@@ -246,7 +246,9 @@ export default class Mini4 {
 
   static getPartScore({ part, item, partRecipe }) {
     const defaultItem = item || {}
-    const partCrafts = Mini4.getCraftLineup(item.改造カテゴリ)
+    const cl1 = Mini4.getCraftLineup(item.改造カテゴリ) || []
+    const cl2 = Mini4.getCraftLineup(item.改造カテゴリ2) || []
+    const partCrafts = cl1.concat(cl2)
     const r = Mini4.calcCraftResult(part, defaultItem, partRecipe, partCrafts)
     return r
   }
