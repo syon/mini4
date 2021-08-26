@@ -22,7 +22,7 @@
           </button>
           <div v-if="isDiagnosis">
             <button class="zzBtnRectBlack2 w-full mb-1" @click="handleNotice">
-              ログインメニュー： サイトについて その２
+              ログインメニュー： 注意事項
             </button>
             <button class="zzBtnRectBlack2 w-full mb-1" @click="handleUpdate">
               ログインメニュー： 更新履歴
