@@ -66,12 +66,18 @@ export default {
 
 <style lang="less" scoped>
 .MachineIcon {
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  padding-top: 5px;
+
   svg {
     height: 63.4px;
     padding: 0.25rem;
     position: relative;
     z-index: 1;
   }
+
   .icon-machine {
     fill: white;
 

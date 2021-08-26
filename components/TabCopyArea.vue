@@ -49,6 +49,51 @@
             <div class="zzAnton mx-1">M5</div>
             <machine-icon tab="M5" class="mx-1" />
           </a>
+          <a
+            href="#"
+            class="xx-machine m-1"
+            :class="{ current: tab === 'M6' }"
+            @click="handleMachine($event, 'M6')"
+          >
+            <div class="zzAnton mx-1">M6</div>
+            <machine-icon tab="M6" class="mx-1" />
+          </a>
+          <a
+            href="#"
+            class="xx-machine m-1"
+            :class="{ current: tab === 'M7' }"
+            @click="handleMachine($event, 'M7')"
+          >
+            <div class="zzAnton mx-1">M7</div>
+            <machine-icon tab="M7" class="mx-1" />
+          </a>
+          <a
+            href="#"
+            class="xx-machine m-1"
+            :class="{ current: tab === 'M8' }"
+            @click="handleMachine($event, 'M8')"
+          >
+            <div class="zzAnton mx-1">M8</div>
+            <machine-icon tab="M8" class="mx-1" />
+          </a>
+          <a
+            href="#"
+            class="xx-machine m-1"
+            :class="{ current: tab === 'M9' }"
+            @click="handleMachine($event, 'M9')"
+          >
+            <div class="zzAnton mx-1">M9</div>
+            <machine-icon tab="M9" class="mx-1" />
+          </a>
+          <a
+            href="#"
+            class="xx-machine m-1"
+            :class="{ current: tab === 'M10' }"
+            @click="handleMachine($event, 'M10')"
+          >
+            <div class="zzAnton mx-1">M10</div>
+            <machine-icon tab="M10" class="mx-1" />
+          </a>
         </div>
         <div class="zz-textalert mx-1 my-2 p-1">
           ※ 注意 ※<br />

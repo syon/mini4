@@ -20,6 +20,13 @@
       <machine-tab tab="M4" />
       <machine-tab tab="M5" />
     </div>
+    <div class="flex">
+      <machine-tab tab="M6" />
+      <machine-tab tab="M7" />
+      <machine-tab tab="M8" />
+      <machine-tab tab="M9" />
+      <machine-tab tab="M10" />
+    </div>
   </div>
 </template>
 

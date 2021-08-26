@@ -46,6 +46,7 @@ export default {
   flex: 1;
   display: flex;
   justify-content: center;
+  height: 48px;
   background: rgb(37, 37, 37);
   background: linear-gradient(
     0deg,
