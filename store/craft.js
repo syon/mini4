@@ -3,7 +3,7 @@ import craft7 from './craft-7.json'
 import craftPreset from './craft-preset.json'
 
 for (const [part, craftArr] of Object.entries(craft7)) {
-  craft[part] = craft[part].concat(craftArr)
+  craft[part] = (craft[part] || []).concat(craftArr)
 }
 
 export const state = () => ({
