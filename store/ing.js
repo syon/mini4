@@ -146,14 +146,14 @@ export const actions = {
       rootGetters['craft/getPresetByCraftCategory'](item.改造カテゴリ) || []
     const cp2 =
       rootGetters['craft/getPresetByCraftCategory'](item.改造カテゴリ2) || []
-    const partCraftPreset = cp2.concat(cp1)
+    const partCraftPreset = cp1.concat(cp2)
     commit('setTab', tab)
     commit('setPart', part)
     commit('setPartCatalog', partCatalog)
     commit('setPartRecipe', partRecipe)
     commit('setPartCraftPreset', partCraftPreset)
     commit('setItem', { key: partRecipe.key, ...item })
-    commit('setCrafts', crafts2.concat(crafts))
+    commit('setCrafts', crafts.concat(crafts2))
     commit('setPing')
   },
   changeCraftIndex({ state, commit }, payload) {
