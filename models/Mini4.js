@@ -248,7 +248,8 @@ export default class Mini4 {
     const defaultItem = item || {}
     const cl1 = Mini4.getCraftLineup(item.改造カテゴリ) || []
     const cl2 = Mini4.getCraftLineup(item.改造カテゴリ2) || []
-    const partCrafts = cl1.concat(cl2)
+    const cl3 = Mini4.getCraftLineup(item.改造カテゴリ3) || []
+    const partCrafts = cl1.concat(cl2).concat(cl3)
     const r = Mini4.calcCraftResult(part, defaultItem, partRecipe, partCrafts)
     return r
   }
