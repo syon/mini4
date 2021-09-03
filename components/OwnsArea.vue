@@ -89,7 +89,7 @@ export default {
       return this.gPartOwns(this.part).map((r) => {
         if (!r) return {}
         const item = this.getItemInfo(this.part, r.key) || {}
-        const craftSummary = this.getCraftSummary(item.改造カテゴリ, r.crafts)
+        const craftSummary = this.getCraftSummary(item, r.crafts)
         const levels = r.crafts.map((c) => c.level)
         const levelSum = levels.reduce((acc, crr) => acc + crr, 0)
         return { ...r, ...item, craftSummary, levelSum }

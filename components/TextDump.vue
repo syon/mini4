@@ -35,7 +35,7 @@ export default {
       const entries = Object.entries(machineRecipe).map(([k, v]) => {
         const partJp = Mini4.resolvePartJp(k)
         const item = this.getItemInfo(partJp, v.key) || {}
-        const craftSummary = this.getCraftSummary(item.改造カテゴリ, v.crafts)
+        const craftSummary = this.getCraftSummary(item, v.crafts)
         return [k, { part: k, ...v, 略称: item.略称, craftSummary }]
       })
       return Object.fromEntries(entries)

@@ -15,9 +15,17 @@ export const getters = {
   getPresetByCraftCategory: (state) => (craftCategory) => {
     return state.craftPreset[craftCategory]
   },
-  getCraftSummary: (state) => (craftCategory, crafts) => {
-    if (!crafts || !craftCategory) return ''
-    const master = state.craft[craftCategory]
+  getCraftSummary: (state) => (item, crafts) => {
+    if (
+      !crafts ||
+      !(item.改造カテゴリ || item.改造カテゴリ2 || item.改造カテゴリ3)
+    ) {
+      return ''
+    }
+    const cp1 = state.craft[item.改造カテゴリ] || []
+    const cp2 = state.craft[item.改造カテゴリ2] || []
+    const cp3 = state.craft[item.改造カテゴリ3] || []
+    const master = cp1.concat(cp2).concat(cp3)
     const hash = {}
     for (const c of crafts) {
       if (!c || !c.action) continue
