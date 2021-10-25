@@ -652,6 +652,11 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.バウンド抑制特性 || 0) +
       (bodyAssist1InfoInfo.バウンド抑制特性 || 0) +
       (bodyAssist2InfoInfo.バウンド抑制特性 || 0)
+    // const エアロダウンフォース特性 =
+    //   1 +
+    //   (bodyFeatureInfoInfo.エアロダウンフォース特性 || 0) +
+    //   (bodyAssist1InfoInfo.エアロダウンフォース特性 || 0) +
+    //   (bodyAssist2InfoInfo.エアロダウンフォース特性 || 0)
     const 制振特性 =
       1 +
       (bodyFeatureInfoInfo.制振特性 || 0) +
