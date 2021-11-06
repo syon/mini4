@@ -157,8 +157,8 @@ export default {
         },
         { label: '制振', score: s.制振, class: 'zz-textpurple' },
         {
-          label: '前後の重心_',
-          score: s.前後の重心_,
+          label: '前後の重心',
+          score: s.前後の重心,
           class: 'zz-textorange',
         },
         {

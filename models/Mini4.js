@@ -191,7 +191,7 @@ export default class Mini4 {
       '節電',
       'エアロダウンフォース',
       '制振',
-      '前後の重心_',
+      '前後の重心',
       'アクセサリー拡張',
       'タイヤ摩擦',
       'タイヤ旋回',
@@ -400,7 +400,7 @@ export default class Mini4 {
       節電: true,
       エアロダウンフォース: true,
       制振: true,
-      前後の重心_: true,
+      前後の重心: true,
       アクセサリー拡張: true,
       タイヤ摩擦: true,
       タイヤ旋回: true,
@@ -442,7 +442,7 @@ export default class Mini4 {
       節電,
       // エアロダウンフォース,
       制振,
-      // 前後の重心_,
+      前後の重心,
       // アクセサリー拡張,
       // タイヤ摩擦,
       // タイヤ旋回,
@@ -534,11 +534,12 @@ export default class Mini4 {
     const サイドローラー中安定 = (sRollerMidInfo.score || {}).コーナー安定
     const ホイールベース = (chassisInfo.item || {}).ホイールベース
     const シャーシ比重 = (chassisInfo.item || {}).シャーシ比重
-    const モーター重心 = (chassisInfo.item || {}).モーター重心
+    // const モーター重心 = (chassisInfo.item || {}).モーター重心
     const バッテリー重心 = (chassisInfo.item || {}).バッテリー重心
     const 重心の総重量 =
       (ホイールベース * 36 * バッテリー重心) / 10000 +
-      (ホイールベース * (motorInfo.score.重さ || 0) * モーター重心) / 10000 +
+      // (ホイールベース * (motorInfo.score.重さ || 0) * モーター重心) / 10000 +
+      (ホイールベース * (motorInfo.score.重さ || 0) * 前後の重心) / 10000 +
       ホイールベース * (chassisInfo.score.重さ || 0) * シャーシ比重 +
       +0.0 * ホイールベース * (bodyInfo.score.重さ || 0) +
       +0.0 * ホイールベース * (gearInfo.score.重さ || 0) +
@@ -568,7 +569,7 @@ export default class Mini4 {
       +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory4Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory5Info.score.重さ || 0)
-    const 前後の重心 = 重心の総重量 / 重さ
+    const 前後の重心_ = 重心の総重量 / 重さ
     const bodyFeatureInfoInfo = bodyFeatureInfo.item.ボディ特性 || {}
     const bodyAssist1InfoInfo = bodyAssist1Info.item.アシスト効果 || {}
     const bodyAssist2InfoInfo = bodyAssist2Info.item.アシスト効果 || {}
@@ -744,8 +745,8 @@ export default class Mini4 {
     const 最高速到達時間 = Math.log(100 * 最高速度ms) / (4 * 加速度)
 
     const フロントリヤタイヤ摩擦 =
-      (フロントタイヤ摩擦 * (ホイールベース / 2 + 前後の重心) +
-        リヤタイヤ摩擦 * (ホイールベース / 2 - 前後の重心)) /
+      (フロントタイヤ摩擦 * (ホイールベース / 2 + 前後の重心_) +
+        リヤタイヤ摩擦 * (ホイールベース / 2 - 前後の重心_)) /
       ホイールベース
     const タイヤグリップ = (フロントリヤタイヤ摩擦 * グリップ特性) / 100
 
@@ -844,7 +845,7 @@ export default class Mini4 {
           Math.abs(フロントリヤタイヤ旋回差) * 3) +
       0.000032630514858
     const 遠心力 =
-      (旋回C * (前後の重心 + 旋回A) * (前後の重心 + 旋回A) +
+      (旋回C * (前後の重心_ + 旋回A) * (前後の重心_ + 旋回A) +
         0.024516625024408 -
         旋回C * 旋回A * 旋回A) *
       フロントリヤタイヤトレッド
@@ -913,7 +914,7 @@ export default class Mini4 {
             スロープ速度 *
             Math.sin(2 * スロープ角度 * (Math.PI / 180))) /
             9.80665 -
-          0.031 * 前後の重心
+          0.031 * 前後の重心_
         if (ジャンプ飛距離 < 0.3) ジャンプ飛距離 = 0.001
       }
     }
@@ -960,9 +961,9 @@ export default class Mini4 {
       (重さ *
         (63 - (50 * フロントリヤタイヤ反発 * バウンド抑制特性) / 1000) *
         ((フロントリヤタイヤ反発 * バウンド抑制特性) / 1000 -
-          ((スロープ速度 / 300 + 0.00005 * 前後の重心) * 9.80665) /
+          ((スロープ速度 / 300 + 0.00005 * 前後の重心_) * 9.80665) /
             (2 * スロープ速度 * Math.sin(スロープ角度 * (Math.PI / 180)) +
-              (スロープ速度 / 300 + 0.00005 * 前後の重心) * 9.80665))) /
+              (スロープ速度 / 300 + 0.00005 * 前後の重心_) * 9.80665))) /
       制振特性
     if (制振初期値 < 0) {
       総合反発値 =
@@ -995,7 +996,7 @@ export default class Mini4 {
         総合反発値) /
         (1 - 総合反発値) /
         9.80665 -
-      0.0005 * 前後の重心
+      0.0005 * 前後の重心_
     if (ジャンプ飛距離 === 0.001) バウンド時間 = 0.001
 
     const ローラー減速参考値 =
@@ -1017,7 +1018,7 @@ export default class Mini4 {
       コーナー減速率,
       ジャンプ飛距離,
       バウンド時間,
-      前後の重心,
+      前後の重心_,
       ローラースラスト角,
       重さ,
       ブレーキ性能,

@@ -84,19 +84,19 @@
         </div>
       </div>
     </div>
-    <hr class="zz-hr-white my-1" />
-    <div class="DiagMain flex relative py-05">
-      <div class="DiagExtra flex-1 mx-1">
-        <div v-for="o of extraContents" :key="o.label" class="DiagLine">
-          <div class="">
-            <div class="DiagLine-Label zz-textpurple">{{ o.label }}</div>
-            <!-- <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div> -->
-          </div>
-          <div class="DiagLine-Value zz-textpurple zzAnton">{{ o.value }}</div>
-          <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
-        </div>
-      </div>
-    </div>
+    <!-- <hr class="zz-hr-white my-1" /> -->
+    <!-- <div class="DiagMain flex relative py-05"> -->
+    <!-- <div class="DiagExtra flex-1 mx-1"> -->
+    <!-- <div v-for="o of extraContents" :key="o.label" class="DiagLine"> -->
+    <!-- <div class=""> -->
+    <!-- <div class="DiagLine-Label zz-textpurple">{{ o.label }}</div> -->
+    <!-- <div class="DiagLine-Label zz-textpurple">{{ o.label2 }}</div> -->
+    <!-- </div> -->
+    <!-- <div class="DiagLine-Value zz-textpurple zzAnton">{{ o.value }}</div> -->
+    <!-- <div class="DiagLine-Unit zzAnton">{{ o.unit }}</div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
   </div>
 </template>
 
@@ -194,8 +194,8 @@ export default {
           hatena: true,
         },
         {
-          label: '前後の重心',
-          value: this.fixedNum(this.diag.前後の重心, 4),
+          label: '前後の重心_',
+          value: this.fixedNum(this.diag.前後の重心_, 4),
           unit: 'mm',
         },
         {
