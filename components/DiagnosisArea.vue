@@ -265,12 +265,12 @@ export default {
         // },
         {
           label: 'グリップ率',
-          value: this.fixedNum(this.diag.必要グリップ率, 0),
+          value: this.fixedNum(this.diag.必要グリップ率, 4),
           unit: '%',
         },
         {
           label: '[耐水]グリップ率',
-          value: this.fixedNum(this.diag.耐水必要グリップ率, 0),
+          value: this.fixedNum(this.diag.耐水必要グリップ率, 4),
           unit: '%',
         },
       ]
