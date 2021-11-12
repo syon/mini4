@@ -633,6 +633,11 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.オフロード特性 || 0) +
       (bodyAssist1InfoInfo.オフロード特性 || 0) +
       (bodyAssist2InfoInfo.オフロード特性 || 0)
+    // const ウェーブ特性 =
+    // 1 +
+    // (bodyFeatureInfoInfo.ウェーブ特性 || 0) +
+    // (bodyAssist1InfoInfo.ウェーブ特性 || 0) +
+    // (bodyAssist2InfoInfo.ウェーブ特性 || 0)
     const 耐水特性 =
       0 +
       (bodyFeatureInfoInfo.耐水特性 || 0) +

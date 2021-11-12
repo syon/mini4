@@ -199,6 +199,7 @@ export default {
         { label: 'デジタル', score: s.デジタル, class: 'zz-textyellow' },
         { label: '耐風', score: s.耐風, class: 'zz-textyellow' },
         { label: '耐水', score: s.耐水, class: 'zz-textyellow' },
+        { label: '耐雪', score: s.耐水, class: 'zz-textyellow' },
       ]
     },
     bodyInfo() {
