@@ -210,6 +210,7 @@ export default class Mini4 {
       'デジタル',
       '耐風',
       '耐水',
+      '耐雪',
       // '有効ローラー摩擦',
       // '有効ローラー抵抗',
     ]
@@ -419,6 +420,7 @@ export default class Mini4 {
       デジタル: true,
       耐風: true,
       耐水: true,
+      耐雪: true,
       // 有効ローラー摩擦: false,
       // 有効ローラー抵抗: false,
     }
@@ -456,11 +458,12 @@ export default class Mini4 {
       スラスト角,
       // スタビ減速,
       ブレーキ減速,
-      // ウェーブ,
+      ウェーブ,
       オフロード,
-      // デジタル,
+      デジタル,
       耐風,
       耐水,
+      // 耐雪,
       有効ローラー摩擦,
       有効ローラー抵抗,
     } = totalScores
@@ -628,26 +631,36 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.ブレーキ効果特性 || 0) +
       (bodyAssist1InfoInfo.ブレーキ効果特性 || 0) +
       (bodyAssist2InfoInfo.ブレーキ効果特性 || 0)
+    const ウェーブ特性 =
+      0 +
+      (bodyFeatureInfoInfo.ウェーブ特性 || 0) +
+      (bodyAssist1InfoInfo.ウェーブ特性 || 0) +
+      (bodyAssist2InfoInfo.ウェーブ特性 || 0)
     const オフロード特性 =
       0 +
       (bodyFeatureInfoInfo.オフロード特性 || 0) +
       (bodyAssist1InfoInfo.オフロード特性 || 0) +
       (bodyAssist2InfoInfo.オフロード特性 || 0)
-    // const ウェーブ特性 =
-    // 1 +
-    // (bodyFeatureInfoInfo.ウェーブ特性 || 0) +
-    // (bodyAssist1InfoInfo.ウェーブ特性 || 0) +
-    // (bodyAssist2InfoInfo.ウェーブ特性 || 0)
-    const 耐水特性 =
+    const デジタル特性 =
       0 +
-      (bodyFeatureInfoInfo.耐水特性 || 0) +
-      (bodyAssist1InfoInfo.耐水特性 || 0) +
-      (bodyAssist2InfoInfo.耐水特性 || 0)
+      (bodyFeatureInfoInfo.デジタル特性 || 0) +
+      (bodyAssist1InfoInfo.デジタル特性 || 0) +
+      (bodyAssist2InfoInfo.デジタル特性 || 0)
     const 耐風特性 =
       0 +
       (bodyFeatureInfoInfo.耐風特性 || 0) +
       (bodyAssist1InfoInfo.耐風特性 || 0) +
       (bodyAssist2InfoInfo.耐風特性 || 0)
+    const 耐水特性 =
+      0 +
+      (bodyFeatureInfoInfo.耐水特性 || 0) +
+      (bodyAssist1InfoInfo.耐水特性 || 0) +
+      (bodyAssist2InfoInfo.耐水特性 || 0)
+    // const 耐雪特性 =
+    //   0 +
+    //   (bodyFeatureInfoInfo.耐雪特性 || 0) +
+    //   (bodyAssist1InfoInfo.耐雪特性 || 0) +
+    //   (bodyAssist2InfoInfo.耐雪特性 || 0)
     const 節電特性 =
       1 +
       (bodyFeatureInfoInfo.節電特性 || 0) +
@@ -680,6 +693,34 @@ export default class Mini4 {
     if (ブレーキ減速 > 0) {
       ブレーキ性能 = ブレーキ減速 / 2000 + ブレーキ効果特性
     }
+
+    let ウェーブ性能 = 0
+    if (ウェーブ > 0) {
+      ウェーブ性能 = ウェーブ性能 + ウェーブ特性
+    }
+    let オフロード性能 = 0
+    if (オフロード > 0) {
+      オフロード性能 = オフロード性能 + オフロード特性
+    }
+    let デジタル性能 = 0
+    if (デジタル > 0) {
+      デジタル性能 = デジタル性能 + デジタル特性
+    }
+    let 耐水性能 = 0
+    if (耐水 > 0) {
+      耐水性能 = 耐水性能 + 耐水特性
+    }
+    let 耐風性能 = 0
+    if (耐風 > 0) {
+      耐風性能 = 耐風性能 + 耐風特性
+    }
+    // let 耐雪性能 = 0
+    // if (耐雪 > 0) {
+    //   耐雪性能 = 耐雪性能 + 耐雪特性
+    // }
+    const 合計ウェーブ値 = ウェーブ + ウェーブ性能
+    const 合計オフロード値 = オフロード + オフロード性能
+    const 合計デジタル値 = デジタル + デジタル性能
 
     const バッテリー消費量 =
       消費電流 * Math.max(1 - (節電 * 節電特性) / 10000, 0)
@@ -758,10 +799,6 @@ export default class Mini4 {
     const グリップ最高速 = (タイヤグリップ * 10 + 0.3) * 3.6
     const 最高速グリップ = (最高速度ms - 0.3) / 10
 
-    let 耐水性能 = 0
-    if (耐水 > 0) {
-      耐水性能 = 耐水性能 + 耐水特性
-    }
     const 耐水グリップ最高速 =
       ((タイヤグリップ * 10 * Math.min(耐水 + 200 + 耐水性能, 10000)) / 10000 +
         0.3) *
@@ -769,17 +806,12 @@ export default class Mini4 {
     const 耐水最高速グリップ =
       ((最高速度ms - 0.3) / 10 / Math.min(耐水 + 200 + 耐水性能, 10000)) * 10000
 
-    let 耐風性能 = 0
-    if (耐風 > 0) {
-      耐風性能 = 耐風性能 + 耐風特性
-    }
     const 耐風負荷 =
       ((1 - Math.min(耐風 + 耐風性能, 10000) / 10000) *
         重さ *
         0.086 *
         ((重さ * リヤタイヤ径) / 2)) /
       (10 * パワー特性 * パワー * ギヤ比)
-    // const 耐風最高速 = Math.max( 総合スピード * (総合パワー - 耐風負荷) - エアロダウンフォース / 1000, 最高速度ms / 5 ) * 3.6
     const 耐風最高速 =
       Math.max(総合スピード * (総合パワー - 耐風負荷), 最高速度ms / 5) * 3.6
 
@@ -789,7 +821,6 @@ export default class Mini4 {
         0.068 *
         ((重さ * リヤタイヤ径) / 2)) /
       (10 * パワー特性 * パワー * ギヤ比)
-    // const 芝最高速 = Math.max( 総合スピード * (総合パワー - 芝負荷) - エアロダウンフォース / 1000, 最高速度ms / 5 ) * 3.6
     const 芝最高速 =
       Math.max(総合スピード * (総合パワー - 芝負荷), 最高速度ms / 5) * 3.6
 
@@ -799,7 +830,6 @@ export default class Mini4 {
         0.048 *
         ((重さ * リヤタイヤ径) / 2)) /
       (10 * パワー特性 * パワー * ギヤ比)
-    // const ダート最高速 = Math.max( 総合スピード * (総合パワー - ダート負荷) - エアロダウンフォース / 1000, 最高速度ms / 5) * 3.6
     const ダート最高速 =
       Math.max(総合スピード * (総合パワー - ダート負荷), 最高速度ms / 5) * 3.6
 
@@ -1043,6 +1073,9 @@ export default class Mini4 {
       消費電流量,
       耐久参考値,
       耐久スコア,
+      合計ウェーブ値,
+      合計オフロード値,
+      合計デジタル値,
     }
   }
 }

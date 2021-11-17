@@ -97,6 +97,21 @@
     <!-- </div> -->
     <!-- </div> -->
     <!-- </div> -->
+    <hr class="zz-hr-white my-1" />
+    <div class="DiagMain flex relative py-05">
+      <div class="DiagLeft flex-1 mx-1">
+        <div v-for="o of extraLeftContents2" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label zz-textpurple">{{ o.label }}</div>
+          <div class="DiagLine-Value zz-textpurple zzAnton">{{ o.value }}</div>
+        </div>
+      </div>
+      <div class="DiagRight flex-1 mx-1">
+        <div v-for="o of extraRightContents2" :key="o.label" class="DiagLine">
+          <div class="DiagLine-Label zz-textpurple">{{ o.label }}</div>
+          <div class="DiagLine-Value zz-textpurple zzAnton">{{ o.value }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -229,26 +244,26 @@ export default {
         //   value: this.fixedNum(this.diag.最高速グリップ比, 4),
         //   unit: '',
         // },
-        {
-          label: '空転しない上限速度(時速)',
-          value: this.fixedNum(this.diag.グリップ最高速, 4),
-          unit: '',
-        },
-        {
-          label: '空転しないために必要なタイヤグリップ',
-          value: this.fixedNum(this.diag.最高速グリップ, 4),
-          unit: '',
-        },
-        {
-          label: '[耐水]空転しない上限速度(時速)',
-          value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
-          unit: '',
-        },
-        {
-          label: '[耐水]空転しないために必要なタイヤグリップ',
-          value: this.fixedNum(this.diag.耐水最高速グリップ, 4),
-          unit: '',
-        },
+        // {
+        //   label: '空転しない上限速度(時速)',
+        //   value: this.fixedNum(this.diag.グリップ最高速, 4),
+        //   unit: '',
+        // },
+        // {
+        //   label: '空転しないために必要なタイヤグリップ',
+        //   value: this.fixedNum(this.diag.最高速グリップ, 4),
+        //   unit: '',
+        // },
+        // {
+        //   label: '[耐水]空転しない上限速度(時速)',
+        //   value: this.fixedNum(this.diag.耐水グリップ最高速, 4),
+        //   unit: '',
+        // },
+        // {
+        //   label: '[耐水]空転しないために必要なタイヤグリップ',
+        //   value: this.fixedNum(this.diag.耐水最高速グリップ, 4),
+        //   unit: '',
+        // },
       ]
     },
     extraLeftContents() {
@@ -293,6 +308,28 @@ export default {
           unit: '',
         },
       ]
+    },
+    extraLeftContents2() {
+      return [
+        {
+          label: '合計ウェーブ値',
+          value: this.fixedNum(this.diag.合計ウェーブ値, 0),
+          unit: '',
+        },
+        {
+          label: '合計オフロード値',
+          value: this.fixedNum(this.diag.合計オフロード値, 0),
+          unit: '',
+        },
+        {
+          label: '合計デジタル値',
+          value: this.fixedNum(this.diag.合計デジタル値, 0),
+          unit: '',
+        },
+      ]
+    },
+    extraRightContents2() {
+      return []
     },
   },
   methods: {
