@@ -36,6 +36,8 @@ export default {
           return '#8ef153'
         case 'R':
           return '#ededed'
+        case 'S':
+          return '#ededed'
       }
       return null
     },

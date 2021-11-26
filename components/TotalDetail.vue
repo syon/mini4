@@ -194,6 +194,11 @@ export default {
         { label: 'スラスト角', score: s.スラスト角, class: 'zz-textgreen' },
         { label: 'スタビ減速', score: s.スタビ減速, class: 'zz-textgreen' },
         { label: 'ブレーキ減速', score: s.ブレーキ減速, class: 'zz-textgreen' },
+        {
+          label: '耐ブレーキ改善雪',
+          score: s.耐ブレーキ改善雪,
+          class: 'zz-textgreen',
+        },
         { label: 'ウェーブ', score: s.ウェーブ, class: 'zz-textyellow' },
         { label: 'オフロード', score: s.オフロード, class: 'zz-textyellow' },
         { label: 'デジタル', score: s.デジタル, class: 'zz-textyellow' },
@@ -214,7 +219,7 @@ export default {
       return info.性能.タイヤ径
     },
     aptSet() {
-      return ['St', 'U', 'Co', 'Kp', 'J', 'W', 'Of', 'Wa', 'Di', 'R']
+      return ['St', 'U', 'Co', 'Kp', 'J', 'W', 'Of', 'Wa', 'Di', 'R', 'S']
     },
     totalAptitude() {
       const apts = this.gAllEquips
