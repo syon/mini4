@@ -191,6 +191,9 @@ export default class Mini4 {
       '節電',
       'エアロダウンフォース',
       '制振',
+      '着地減速抑制',
+      'コーナー安定ダウン',
+      'スタミナ耐久ダウン',
       '前後の重心',
       'アクセサリー拡張',
       'タイヤ摩擦',
@@ -200,12 +203,12 @@ export default class Mini4 {
       'タイヤ径',
       // 'タイヤ径・フロント',
       // 'タイヤ径・リヤ',
+      'スラスト角',
       'ローラー摩擦',
       'ローラー抵抗',
-      'スラスト角',
       'スタビ減速',
       'ブレーキ減速',
-      '耐ブレーキ改善雪',
+      '耐ブレーキ改善(雪)',
       'ウェーブ',
       'オフロード',
       'デジタル',
@@ -402,6 +405,9 @@ export default class Mini4 {
       節電: true,
       エアロダウンフォース: true,
       制振: true,
+      着地減速抑制: true,
+      コーナー安定ダウン: true,
+      スタミナ耐久ダウン: true,
       前後の重心: true,
       アクセサリー拡張: true,
       タイヤ摩擦: true,
@@ -411,12 +417,12 @@ export default class Mini4 {
       タイヤ径: true,
       // タイヤ径・フロント: false,
       // タイヤ径・リヤ: false,
+      スラスト角: true,
       ローラー摩擦: true,
       ローラー抵抗: false,
-      スラスト角: true,
       スタビ減速: true,
       ブレーキ減速: true,
-      耐ブレーキ改善雪: true,
+      '耐ブレーキ改善(雪)': true,
       ウェーブ: true,
       オフロード: true,
       デジタル: true,
@@ -446,6 +452,9 @@ export default class Mini4 {
       節電,
       // エアロダウンフォース,
       制振,
+      // 着地減速抑制,
+      // コーナー安定ダウン,
+      // スタミナ耐久ダウン,
       前後の重心,
       // アクセサリー拡張,
       // タイヤ摩擦,
@@ -455,12 +464,12 @@ export default class Mini4 {
       // タイヤ径,
       // タイヤ径・フロント,
       // タイヤ径・リヤ,
+      スラスト角,
       // ローラー摩擦,
       // ローラー抵抗,
-      スラスト角,
       // スタビ減速,
       ブレーキ減速,
-      // 耐ブレーキ改善雪,
+      // 耐ブレーキ改善(雪),
       ウェーブ,
       オフロード,
       デジタル,
@@ -589,21 +598,21 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.パワー特性 || 0) +
       (bodyAssist1InfoInfo.パワー特性 || 0) +
       (bodyAssist2InfoInfo.パワー特性 || 0)
-    const スピードロス特性 =
-      1 +
-      (bodyFeatureInfoInfo.スピードロス特性 || 0) +
-      (bodyAssist1InfoInfo.スピードロス特性 || 0) +
-      (bodyAssist2InfoInfo.スピードロス特性 || 0)
-    const パワーロス特性 =
-      1 +
-      (bodyFeatureInfoInfo.パワーロス特性 || 0) +
-      (bodyAssist1InfoInfo.パワーロス特性 || 0) +
-      (bodyAssist2InfoInfo.パワーロス特性 || 0)
     const グリップ特性 =
       1 +
       (bodyFeatureInfoInfo.グリップ特性 || 0) +
       (bodyAssist1InfoInfo.グリップ特性 || 0) +
       (bodyAssist2InfoInfo.グリップ特性 || 0)
+    const パワーロス特性 =
+      1 +
+      (bodyFeatureInfoInfo.パワーロス特性 || 0) +
+      (bodyAssist1InfoInfo.パワーロス特性 || 0) +
+      (bodyAssist2InfoInfo.パワーロス特性 || 0)
+    const スピードロス特性 =
+      1 +
+      (bodyFeatureInfoInfo.スピードロス特性 || 0) +
+      (bodyAssist1InfoInfo.スピードロス特性 || 0) +
+      (bodyAssist2InfoInfo.スピードロス特性 || 0)
     const コーナー安定特性 =
       0 +
       (bodyFeatureInfoInfo.コーナー安定特性 || 0) +
@@ -614,6 +623,26 @@ export default class Mini4 {
       (bodyFeatureInfoInfo.スタミナ耐久特性 || 0) +
       (bodyAssist1InfoInfo.スタミナ耐久特性 || 0) +
       (bodyAssist2InfoInfo.スタミナ耐久特性 || 0)
+    const 節電特性 =
+      1 +
+      (bodyFeatureInfoInfo.節電特性 || 0) +
+      (bodyAssist1InfoInfo.節電特性 || 0) +
+      (bodyAssist2InfoInfo.節電特性 || 0)
+    // const エアロダウンフォース特性 =
+    //   1 +
+    //   (bodyFeatureInfoInfo.エアロダウンフォース特性 || 0) +
+    //   (bodyAssist1InfoInfo.エアロダウンフォース特性 || 0) +
+    //   (bodyAssist2InfoInfo.エアロダウンフォース特性 || 0)
+    const 制振特性 =
+      1 +
+      (bodyFeatureInfoInfo.制振特性 || 0) +
+      (bodyAssist1InfoInfo.制振特性 || 0) +
+      (bodyAssist2InfoInfo.制振特性 || 0)
+    const バウンド抑制特性 =
+      1 +
+      (bodyFeatureInfoInfo.バウンド抑制特性 || 0) +
+      (bodyAssist1InfoInfo.バウンド抑制特性 || 0) +
+      (bodyAssist2InfoInfo.バウンド抑制特性 || 0)
     const コーナー減速特性1 =
       1 +
       (bodyFeatureInfoInfo.コーナー減速特性1 || 0) +
@@ -664,26 +693,6 @@ export default class Mini4 {
     //   (bodyFeatureInfoInfo.耐雪特性 || 0) +
     //   (bodyAssist1InfoInfo.耐雪特性 || 0) +
     //   (bodyAssist2InfoInfo.耐雪特性 || 0)
-    const 節電特性 =
-      1 +
-      (bodyFeatureInfoInfo.節電特性 || 0) +
-      (bodyAssist1InfoInfo.節電特性 || 0) +
-      (bodyAssist2InfoInfo.節電特性 || 0)
-    const バウンド抑制特性 =
-      1 +
-      (bodyFeatureInfoInfo.バウンド抑制特性 || 0) +
-      (bodyAssist1InfoInfo.バウンド抑制特性 || 0) +
-      (bodyAssist2InfoInfo.バウンド抑制特性 || 0)
-    // const エアロダウンフォース特性 =
-    //   1 +
-    //   (bodyFeatureInfoInfo.エアロダウンフォース特性 || 0) +
-    //   (bodyAssist1InfoInfo.エアロダウンフォース特性 || 0) +
-    //   (bodyAssist2InfoInfo.エアロダウンフォース特性 || 0)
-    const 制振特性 =
-      1 +
-      (bodyFeatureInfoInfo.制振特性 || 0) +
-      (bodyAssist1InfoInfo.制振特性 || 0) +
-      (bodyAssist2InfoInfo.制振特性 || 0)
 
     const 電池パワー = 1.0
     // const 電池パワー = 1.03

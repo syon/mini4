@@ -43,7 +43,7 @@
             :class="o.class"
           />
         </template>
-        <div class="flex mt-3 relative">
+        <div class="flex mt-1 relative">
           <button class="zzBtnRect1 z-1" @click="handleCopy">
             コピー
           </button>
@@ -157,6 +157,21 @@ export default {
         },
         { label: '制振', score: s.制振, class: 'zz-textpurple' },
         {
+          label: '着地減速抑制',
+          score: s.着地減速抑制,
+          class: 'zz-textblue',
+        },
+        {
+          label: 'コーナー安定ダウン',
+          score: s.コーナー安定ダウン,
+          class: 'zz-textblue',
+        },
+        {
+          label: 'スタミナ耐久ダウン',
+          score: s.スタミナ耐久ダウン,
+          class: 'zz-textblue',
+        },
+        {
           label: '前後の重心',
           score: s.前後の重心,
           class: 'zz-textorange',
@@ -189,14 +204,14 @@ export default {
           score: this.rearTireSize,
           class: 'zz-textblue',
         },
+        { label: 'スラスト角', score: s.スラスト角, class: 'zz-textgreen' },
         { label: 'ローラー摩擦', score: s.ローラー摩擦, class: 'zz-textgreen' },
         { label: 'ローラー抵抗', score: s.ローラー抵抗, class: 'zz-textgreen' },
-        { label: 'スラスト角', score: s.スラスト角, class: 'zz-textgreen' },
         { label: 'スタビ減速', score: s.スタビ減速, class: 'zz-textgreen' },
         { label: 'ブレーキ減速', score: s.ブレーキ減速, class: 'zz-textgreen' },
         {
-          label: '耐ブレーキ改善雪',
-          score: s.耐ブレーキ改善雪,
+          label: '耐ブレーキ改善(雪)',
+          score: s['耐ブレーキ改善(雪)'],
           class: 'zz-textgreen',
         },
         { label: 'ウェーブ', score: s.ウェーブ, class: 'zz-textyellow' },
