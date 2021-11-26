@@ -2,7 +2,7 @@
   <a
     :id="tab"
     href="#"
-    class="MachineTab m-1 br-1"
+    class="MachineTab m-05 br-1"
     @click="handleClickTab($event, tab)"
   >
     <machine-icon :tab="tab" />
@@ -46,7 +46,7 @@ export default {
   flex: 1;
   display: flex;
   justify-content: center;
-  height: 48px;
+  height: 36px;
   background: rgb(37, 37, 37);
   background: linear-gradient(
     0deg,
@@ -81,8 +81,8 @@ export default {
         rgba(209, 180, 37, 0.3) 100%
       );
       border: 1px solid rgba(186, 174, 33, 0.9);
-      box-shadow: 0 1px 3px 2px rgba(255, 242, 127, 0.6),
-        0 1px 7px 2px rgba(255, 235, 59, 0.4);
+      box-shadow: 0 0 3px 2px rgba(255, 242, 127, 0.6),
+        0 0 9px 4px rgba(255, 235, 59, 0.4);
     }
   }
 }

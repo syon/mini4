@@ -13,19 +13,28 @@
     >
       超速シミュ
     </div>
-    <div class="flex">
-      <machine-tab tab="M1" />
-      <machine-tab tab="M2" />
-      <machine-tab tab="M3" />
-      <machine-tab tab="M4" />
-      <machine-tab tab="M5" />
-    </div>
-    <div class="flex">
-      <machine-tab tab="M6" />
-      <machine-tab tab="M7" />
-      <machine-tab tab="M8" />
-      <machine-tab tab="M9" />
-      <machine-tab tab="M10" />
+    <div class="m-05">
+      <div class="flex">
+        <machine-tab tab="M1" />
+        <machine-tab tab="M2" />
+        <machine-tab tab="M3" />
+        <machine-tab tab="M4" />
+        <machine-tab tab="M5" />
+      </div>
+      <div class="flex">
+        <machine-tab tab="M6" />
+        <machine-tab tab="M7" />
+        <machine-tab tab="M8" />
+        <machine-tab tab="M9" />
+        <machine-tab tab="M10" />
+      </div>
+      <div class="flex">
+        <machine-tab tab="M11" />
+        <machine-tab tab="M12" />
+        <machine-tab tab="M13" />
+        <machine-tab tab="M14" />
+        <machine-tab tab="M15" />
+      </div>
     </div>
   </div>
 </template>

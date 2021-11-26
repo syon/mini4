@@ -50,6 +50,11 @@ export const state = () => ({
   M8: JSON.parse(JSON.stringify(initialMachineState)),
   M9: JSON.parse(JSON.stringify(initialMachineState)),
   M10: JSON.parse(JSON.stringify(initialMachineState)),
+  M11: JSON.parse(JSON.stringify(initialMachineState)),
+  M12: JSON.parse(JSON.stringify(initialMachineState)),
+  M13: JSON.parse(JSON.stringify(initialMachineState)),
+  M14: JSON.parse(JSON.stringify(initialMachineState)),
+  M15: JSON.parse(JSON.stringify(initialMachineState)),
 })
 
 function resolvePartKey(partJapanese) {

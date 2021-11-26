@@ -151,8 +151,8 @@ export default {
   cursor: pointer;
 
   &.active .WearBox-inner {
-    box-shadow: 0 1px 4px 3px rgba(255, 242, 127, 0.6),
-      0 1px 9px 4px rgba(255, 235, 59, 0.4);
+    box-shadow: 0 0 3px 2px rgba(255, 242, 127, 0.6),
+      0 0 9px 4px rgba(255, 235, 59, 0.4);
   }
 
   .WearBox-inner {
