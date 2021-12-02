@@ -312,24 +312,40 @@ export default {
     extraLeftContents2() {
       return [
         {
-          label: '合計ウェーブ値',
-          value: this.fixedNum(this.diag.合計ウェーブ値, 0),
+          label: 'ウェーブ合計値',
+          value: this.fixedNum(this.diag.ウェーブ合計, 0),
           unit: '',
         },
         {
-          label: '合計オフロード値',
-          value: this.fixedNum(this.diag.合計オフロード値, 0),
+          label: 'オフロード合計値',
+          value: this.fixedNum(this.diag.オフロード合計, 0),
           unit: '',
         },
         {
-          label: '合計デジタル値',
-          value: this.fixedNum(this.diag.合計デジタル値, 0),
+          label: 'デジタル合計値',
+          value: this.fixedNum(this.diag.デジタル合計, 0),
           unit: '',
         },
       ]
     },
     extraRightContents2() {
-      return []
+      return [
+        {
+          label: '耐風合計値',
+          value: this.fixedNum(this.diag.耐風合計, 0),
+          unit: '',
+        },
+        {
+          label: '耐水合計値',
+          value: this.fixedNum(this.diag.耐水合計, 0),
+          unit: '',
+        },
+        {
+          label: '耐雪合計値',
+          value: this.fixedNum(this.diag.耐雪合計, 0),
+          unit: '',
+        },
+      ]
     },
   },
   methods: {
