@@ -18,6 +18,7 @@ export const state = () => ({
   スタビライザー: [],
   セッティングウェイト: [],
   アクセサリー: [],
+  エクストラ: [],
 })
 
 export const getters = {

@@ -36,7 +36,14 @@
         </div>
       </div>
       <div class="garage--row">
-        <div class="garage--cell"></div>
+        <div class="garage--cell">
+          <wear-box
+            :item="sExtra"
+            part="エクストラ"
+            class="cate-extra"
+            @click="handleTrans('エクストラ')"
+          />
+        </div>
         <div class="garage--cell"></div>
         <div class="garage--cell">
           <wear-box
@@ -399,6 +406,9 @@ export default {
       },
       sAccessory5(state) {
         return state[this.tab].accessory5
+      },
+      sExtra(state) {
+        return state[this.tab].extra
       },
     }),
   },

@@ -44,7 +44,7 @@ export default {
       const eq = this.equips
       let txt = ''
       txt += 'B: '
-      txt += this.printLine([eq.body])
+      txt += this.printLine([eq.body, eq.extra])
       txt += 'M: '
       txt += this.printLine([eq.motor, eq.gear, eq.chassis])
       txt += 'FW: '

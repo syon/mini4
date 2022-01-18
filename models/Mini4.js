@@ -35,6 +35,7 @@ export default class Mini4 {
       'アクセサリー・３',
       'アクセサリー・４',
       'アクセサリー・５',
+      'エクストラ',
     ]
   }
 
@@ -102,6 +103,8 @@ export default class Mini4 {
         return 'settingweight'
       case 'アクセサリー':
         return 'accessory'
+      case 'エクストラ':
+        return 'extra'
     }
   }
 
@@ -173,6 +176,8 @@ export default class Mini4 {
         return 'アクセサリー・４'
       case 'accessory5':
         return 'アクセサリー・５'
+      case 'extra':
+        return 'エクストラ'
     }
   }
 
@@ -529,6 +534,7 @@ export default class Mini4 {
       allEquips.find((x) => x.part === 'アクセサリー・４') || {}
     const accessory5Info =
       allEquips.find((x) => x.part === 'アクセサリー・５') || {}
+    const extraInfo = allEquips.find((x) => x.part === 'エクストラ') || {}
     const bodyFeatureInfo = allEquips.find((x) => x.part === 'ボディ特性') || {}
     const bodyAssist1Info =
       allEquips.find((x) => x.part === 'ボディアシスト・１') || {}
@@ -583,7 +589,8 @@ export default class Mini4 {
       +0.0 * ホイールベース * (accessory2Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory3Info.score.重さ || 0) +
       +0.0 * ホイールベース * (accessory4Info.score.重さ || 0) +
-      +0.0 * ホイールベース * (accessory5Info.score.重さ || 0)
+      +0.0 * ホイールベース * (accessory5Info.score.重さ || 0) +
+      +0.0 * ホイールベース * (extraInfo.score.重さ || 0)
     const 前後の重心_ = 重心の総重量 / 重さ
     const bodyFeatureInfoInfo = bodyFeatureInfo.item.ボディ特性 || {}
     const bodyAssist1InfoInfo = bodyAssist1Info.item.アシスト効果 || {}
