@@ -739,7 +739,7 @@ export default class Mini4 {
     }
 
     const バッテリー消費量 =
-      消費電流 * Math.max(1 - (節電 * 節電特性) / 10000, 0)
+      消費電流 * Math.max(1 - (節電 * 節電特性) / 10000, 0.0001)
 
     let 小タイヤ旋回 = 0
     let 小タイヤ径 = 0
